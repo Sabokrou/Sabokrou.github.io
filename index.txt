@@ -25,6 +25,8 @@
 
 <body>	
 
+
+
     <article class="resume-wrapper text-center position-relative">
 	    <div class="resume-wrapper-inner mx-auto text-start bg-white shadow-lg">
 		    <header class="resume-header pt-4 pt-md-0">
@@ -86,26 +88,21 @@
 									    <div class="resume-timeline-item-header mb-2">
 										    <div class="d-flex flex-column flex-md-row">
 										        <h3 class="resume-position-title font-weight-bold mb-1">Faculty Member</h3>
-										        <div class="resume-company-name ms-auto">Institute for Research in Fundamental Sciences (IPM)</div>
+										        <div class="resume-company-name ms-auto">AI Group, Institute for Research in Fundamental Sciences (IPM)</div>
 										    </div><!--//row-->
 										    <div class="resume-position-time">2022 - 2023</div>
 									    </div><!--//resume-timeline-item-header-->
 									    <div class="resume-timeline-item-desc">
-										    <p>Our research lab @ IPM focuses on the below areas:</p>
+										    <p>O</p>
 										    <h4 class="resume-timeline-item-desc-heading font-weight-bold">Achievements:</h4>										 
 										    <ul>
-											    <li>Machine Learning</li>
-											    <li>Machine Vision</li>
-											    <li>Deep learning</li>
+											    <li></li>
+											    <li></li>
+											    <li></li>
 										    </ul>
 										    <h4 class="resume-timeline-item-desc-heading font-weight-bold">Hot research topic:</h4>
 										    <ul class="list-inline">
-											    <li class="list-inline-item"><span class="badge bg-secondary badge-pill">Anomaly detection</span></li>
-											    <li class="list-inline-item"><span class="badge bg-secondary badge-pill">Novelty detection</span></li>
-											    <li class="list-inline-item"><span class="badge bg-secondary badge-pill">One-shot learning</span></li>
-											    <li class="list-inline-item"><span class="badge bg-secondary badge-pill">few-shot learning</span></li>
-											    <li class="list-inline-item"><span class="badge bg-secondary badge-pill">Adversarial learning</span></li>											    
-										    </ul>
+											        </ul>
 									    </div><!--//resume-timeline-item-desc-->
 
 								    </article><!--//resume-timeline-item-->
@@ -120,11 +117,9 @@
 										    <div class="resume-position-time">2021 - 2022</div>
 									    </div><!--//resume-timeline-item-header-->
 									    <div class="resume-timeline-item-desc">
-										    <p>The University of Oulu is one of the largest universities in Finland, located in the city of Oulu. </p>
 										    <h4 class="resume-timeline-item-desc-heading font-weight-bold">Highlighted used:</h4>
 										    <ul class="list-inline">
-											    <li class="list-inline-item"><span class="badge bg-secondary badge-pill">Anomaly detection</span></li>
-											    <li class="list-inline-item"><span class="badge bg-secondary badge-pill">Novelty detection</span></li>
+											   
 										    </ul>
 									    </div><!--//resume-timeline-item-desc-->
 
@@ -164,12 +159,12 @@
 							    <ul class="list-unstyled">
 								    <li class="mb-2">
 								        <div class="resume-degree font-weight-bold">Ph.D. in Artificial Intelligence</div>
-								        <div class="resume-degree-org">Malek-Ashtar University of Technology</div>
+								        <div class="resume-degree-org">Supervisor: Prof: Mahmood Fathy</div>
 								        <div class="resume-degree-time">2013 - 2017</div>
 								    </li>
 								    <li class="mb-2">
 								        <div class="resume-degree font-weight-bold">Master in Artificial Intelligence</div>
-								        <div class="resume-degree-org">Malek-Ashtar University of Technology</div>
+								        <div class="resume-degree-org">Supervisor: Prof: Mahmood Fathy</div>
 								        <div class="resume-degree-time">2011 - 2013</div>
 								    </li>
 								    <li>
@@ -238,7 +233,6 @@
 " href="http://khalooei.ir" target="_blank">Mohamamd Khalooei</a></small>
     </footer>
 
-    
 
 </body>
 </html> 
