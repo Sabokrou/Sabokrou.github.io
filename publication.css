@@ -1,0 +1,59 @@
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    background-color: #EAF4F4;
+    color: #000000;
+    }
+
+    .pub-header{
+        position: relative;
+        width: 100%;
+        z-index: 1;
+        padding: 0px;
+        margin: 0;
+        font-size: 17px;
+        top: 20px;
+        text-align: center;
+    }
+
+    .title-1, .title-2, .title-3{
+        width: 80%;
+        font-size: 18px;
+        position:relative;
+        left: 15px;
+      }
+
+    .pub-description{
+        position: relative;
+        top: 20px;
+        left: 10px;
+        font-size: 18px;
+
+    }
+
+.publication-list{
+    width: 100%;
+    padding-top: 5px;
+    padding-right: 10px;
+    /* font-style: italic; */
+    font-size: 18px;
+    text-align: justify;
+}
+     
+
+.publication-list a{
+    color: #6B9080;
+    background-color: transparent;
+    text-decoration: none;
+
+}
+      
+.publication-list a:hover {
+        color: #CCE3DE;
+        background-color: transparent;
+        text-decoration: underline;
+      }
+
+

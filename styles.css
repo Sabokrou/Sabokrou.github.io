@@ -1,0 +1,101 @@
+/*elements are from top to the bottom*/
+
+
+/* main body of the page */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background-color: #EAF4F4;
+  color: #000000;
+  }
+
+  /*profile image*/
+  .profile-img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    width: 7%;
+    border-radius: 80%;
+  }
+
+/*Name and title*/
+.header-info{
+  font-size: 12px;
+  text-align: center;
+  top: 5px;
+  position: relative;
+  }
+
+.h-line{
+  border-top: 1px solid #6B9080;
+}
+
+
+  /* navigaition bar ddetails */
+  .sidenav {
+    margin: 0;
+    padding: 0;
+    background: #CCE3DE;
+    display: flex;
+    position: relative;
+    height: auto;
+    width: 100%;
+    z-index: 1;
+    overflow-x: hidden;
+    padding: 8px 0;
+    text-align: center;
+  }
+   
+/*navigation bar items*/
+  .sidenav a {
+    position: relative;
+    left: 190px;
+    padding: 2px 60px 2px 75px;
+    text-decoration: none;
+    font-size: 13px;
+    color: #000000;
+  }
+  
+  /*holding on items*/
+  .sidenav a:hover {
+    color: #F6FFF8;
+  }
+
+
+  .about-me{
+    width: 80%;
+    font-size: 18px;
+    position:relative;
+    left: 230px;
+  }
+
+.research-interests{
+  width: 80%;
+  font-size: 18px;
+  position:relative;
+  left: 230px;
+}
+
+
+.news, .students, .talks{
+  width: 80%;
+  font-size: 18px;
+  position:relative;
+  left: 230px;
+}
+
+.link {
+  color: #6B9080;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #CCE3DE;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+
