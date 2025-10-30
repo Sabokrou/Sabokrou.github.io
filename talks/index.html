@@ -1,211 +1,133 @@
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
-  <meta charset="utf-8">
-  <title>Talks and Presentations - Mohammad Sabokrou</title>
+    <meta charset="utf-8">
+    <title>Talks and Presentations - Mohammad Sabokrou</title>
 
-  <meta property="og:locale" content="en-US">
-  <meta property="og:site_name" content="Mohammad Sabokrou">
-  <meta property="og:title" content="Talks and Presentations">
-  <link rel="canonical" href="https://sabokrou.github.io/talks/">
-  <meta property="og:url" content="https://sabokrou.github.io/talks/">
+    <meta property="og:locale" content="en-US">
+    <meta property="og:site_name" content="Mohammad Sabokrou">
+    <meta property="og:title" content="Talks and Presentations">
+    <link rel="canonical" href="https://sabokrou.github.io/talks/">
+    <meta property="og:url" content="https://sabokrou.github.io/talks/">
 
-  <link href="https://sabokrou.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Mohammad Sabokrou Feed">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Person",
+            "name": "Mohammad Sabokrou",
+            "url": "https://sabokrou.github.io",
+            "sameAs": null
+        }
+    </script>
 
-  <link rel="stylesheet" href="https://sabokrou.github.io/assets/css/main.css">
-  <link rel="stylesheet" href="https://sabokrou.github.io/assets/css/academicons.css"/>
-  <link rel="icon" type="image/png" href="https://sabokrou.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link href="https://sabokrou.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Mohammad Sabokrou Feed">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+    </script>
+    <link rel="stylesheet" href="https://sabokrou.github.io/assets/css/main.css">
+    <meta http-equiv="cleartype" content="on">
 
-  <style>
-    /* === Talks Page Custom Styling === */
-    .talks-container {
-      max-width: 850px;
-      margin: 3rem auto;
-      padding: 2rem;
-      background: #f9fafb;
-      border-radius: 1rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      font-family: "Inter", "Segoe UI", sans-serif;
-    }
+    <!-- Custom Head Snippets -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://sabokrou.github.io/images/apple-touch-icon-180x180.png?v=M44lzPylqQ">
+    <link rel="icon" type="image/png" href="https://sabokrou.github.io/images/favicon-32x32.png?v=M44lzPylqQ" sizes="32x32">
+    <link rel="manifest" href="https://sabokrou.github.io/images/manifest.json?v=M44lzPylqQ">
+    <link rel="mask-icon" href="https://sabokrou.github.io/images/safari-pinned-tab.svg?v=M44lzPylqQ" color="#000000">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-config" content="https://sabokrou.github.io/images/browserconfig.xml?v=M44lzPylqQ">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://sabokrou.github.io/assets/css/academicons.css"/>
 
-    .page__title {
-      font-size: 2rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 2rem;
-      color: #111827;
-      letter-spacing: 0.5px;
-    }
-
-    .talk-card {
-      background: #ffffff;
-      border-left: 5px solid #10b981;
-      border-radius: 0.75rem;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .talk-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-    }
-
-    .talk-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #065f46;
-      margin-bottom: 0.25rem;
-    }
-
-    .talk-meta {
-      font-style: italic;
-      color: #374151;
-      margin-bottom: 0.5rem;
-    }
-
-    .talk-description {
-      color: #4b5563;
-      line-height: 1.6;
-      margin-bottom: 0.75rem;
-    }
-
-    .talk-links a {
-      color: #059669;
-      text-decoration: none;
-      font-weight: 500;
-      margin-right: 0.5rem;
-      transition: color 0.2s ease;
-    }
-
-    .talk-links a:hover {
-      text-decoration: underline;
-      color: #047857;
-    }
-
-    /* Consistent with site’s dark mode */
-    @media (prefers-color-scheme: dark) {
-      .talks-container {
-        background: #1f2937;
-        color: #f3f4f6;
-        box-shadow: none;
-      }
-
-      .talk-card {
-        background: #111827;
-        border-left-color: #34d399;
-      }
-
-      .talk-title { color: #34d399; }
-      .talk-meta { color: #9ca3af; }
-      .talk-description { color: #d1d5db; }
-      .talk-links a { color: #6ee7b7; }
-      .talk-links a:hover { color: #a7f3d0; }
-    }
-  </style>
+    <!-- Support for MathJax -->
+    <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
-  <!-- Site Navigation -->
-  <div class="masthead">
-    <div class="masthead__inner-wrap">
-      <div class="masthead__menu">
-        <nav id="site-nav" class="greedy-nav">
-          <button><div class="navicon"></div></button>
-          <ul class="visible-links">
-            <li class="masthead__menu-item masthead__menu-item--lg"><a href="https://sabokrou.github.io/">Mohammad Sabokrou</a></li>
-            <li class="masthead__menu-item"><a href="https://sabokrou.github.io/publications/">Publications</a></li>
-            <li class="masthead__menu-item"><a href="https://sabokrou.github.io/talks/">Talks</a></li>
-            <li class="masthead__menu-item"><a href="https://sabokrou.github.io/teaching/">Teaching</a></li>
-          </ul>
-        </nav>
-      </div>
+    <div class="masthead">
+        <div class="masthead__inner-wrap">
+            <div class="masthead__menu">
+                <nav id="site-nav" class="greedy-nav">
+                    <button><div class="navicon"></div></button>
+                    <ul class="visible-links">
+                        <li class="masthead__menu-item masthead__menu-item--lg"><a href="https://sabokrou.github.io/">Mohammad Sabokrou</a></li>
+                        <li class="masthead__menu-item"><a href="https://sabokrou.github.io/publications/">Publications</a></li>
+                        <li class="masthead__menu-item"><a href="https://sabokrou.github.io/talks/">Talks</a></li>
+                        <li class="masthead__menu-item"><a href="https://sabokrou.github.io/teaching/">Teaching</a></li>
+                    </ul>
+                    <ul class="hidden-links hidden"></ul>
+                </nav>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <!-- Sidebar (author info) -->
-  <div class="sidebar sticky">
-    <div itemscope itemtype="http://schema.org/Person">
-      <div class="author__avatar">
-        <img src="https://sabokrou.github.io/images/profile.jpg" class="author__avatar" alt="Mohammad Sabokrou">
-      </div>
-      <div class="author__content">
-        <h3 class="author__name">Mohammad Sabokrou</h3>
-        <p class="author__bio">Staff Research Scientist</p>
-      </div>
-      <div class="author__urls-wrapper">
-        <button class="btn btn--inverse">Follow</button>
-        <ul class="author__urls social-icons">
-          <li><i class="fa-solid fa-location-dot icon-pad-right"></i>Japan</li>
-          <li><i class="fa fa-building-columns icon-pad-right"></i>OIST</li>
-          <li><a href="mailto:mohammad.sabokrou@oist.jp"><i class="fas fa-envelope"></i> Email</a></li>
-          <li><a href="https://scholar.google.com/citations?user=jqHXvT0AAAAJ"><i class="ai ai-google-scholar"></i> Google Scholar</a></li>
-          <li><a href="https://github.com/sabokrou"><i class="fab fa-github"></i> Github</a></li>
-          <li><a href="https://twitter.com/sabokrou"><i class="fab fa-x-twitter"></i> X (formerly Twitter)</a></li>
-        </ul>
-      </div>
+    <div id="main" role="main">
+        <div class="sidebar sticky">
+            <div itemscope itemtype="http://schema.org/Person">
+                <div class="author__avatar">
+                    <img src="https://sabokrou.github.io/images/profile.jpg" class="author__avatar" alt="Mohammad Sabokrou">
+                </div>
+                <div class="author__content">
+                    <h3 class="author__name">Mohammad Sabokrou</h3>
+                    <p class="author__bio">Staff Research Scientist</p>
+                </div>
+                <div class="author__urls-wrapper">
+                    <button class="btn btn--inverse">Follow</button>
+                    <ul class="author__urls social-icons">
+                        <li><i class="fa-solid fa-location-dot icon-pad-right" aria-hidden="true"></i>Japan</li>
+                        <li><i class="fa fa-solid fa-building-columns icon-pad-right" aria-hidden="true"></i>OIST</li>
+                        <li><a href="mailto:mohammad.sabokrou@oist.jp"><i class="fas fa-fw fa-envelope icon-pad-right" aria-hidden="true"></i>Email</a></li>
+                        <li><a href="https://scholar.google.com/citations?user=jqHXvT0AAAAJ&hl=en"><i class="ai ai-google-scholar icon-pad-right"></i>Google Scholar</a></li>
+                        <li><a href="https://github.com/sabokrou"><i class="fab fa-fw fa-github icon-pad-right" aria-hidden="true"></i>Github</a></li>
+                        <li><a href="https://twitter.com/sabokrou"><i class="fab fa-fw fa-x-twitter icon-pad-right" aria-hidden="true"></i>X (formerly Twitter)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="archive">
+            <h1 class="page__title">Talks and Presentations</h1>
+            <ul>
+                <li>Universal Novelty Detection Through Adaptive Contrastive Learning, [Okinawa Institute of Science and Technology (OIST), Okinawa, Japan]</li>
+                <li>Trustworthiness and Alignment in AI: Current Concerns, Challenges, and Solutions, [Keynote Speaker at ISCwsISC2024] [Video]</li>
+                <li>Trustworthy Machine Learning: Exploring Reliability in AI, [Keynote Speaker at AISP2024]</li>
+                <li>The Effect of Sampling on Continual Learning, [AAISS2023, AmirKabir University]</li>
+                <li>AI Trustworthiness, [Iran University of Science and Technology, Tehran, Iran]</li>
+                <li>Deep Learning Advancements in Anomaly Detection for Computer Vision, [Okinawa Institute of Science and Technology (OIST), Okinawa, Japan]</li>
+                <li>Reliability and Safety of Deep Neural Networks, [Iranian Statistical Society (ISC)], August 2022</li>
+                <li>Reliable Deep Anomaly Detection, [Helsinki Institute for Information Technology], April 2022</li>
+                <li>One-Class Classification, [4th International Conference on Advances in Artificial Intelligence and Signal Processing (AAISP 2020)], February 2020</li>
+                <li>Network Representation Learning, [IPM Complex Network Workshop], February 2020</li>
+                <li>Unsupervised Deep Neural Networks, [Amirkabir University of Technology (AUT)], November 2019</li>
+                <li>Deep Generative Networks, [Institute for Advanced Studies in Basic Sciences (IASBS)], March 2019</li>
+            </ul>
+        </div>
     </div>
-  </div>
 
-  <!-- Main Content -->
-  <main id="main" role="main">
-    <div class="talks-container">
-      <h1 class="page__title">Talks and Presentations</h1>
-
-      <!-- New 2025 Talks -->
-      <div class="talk-card">
-        <h2 class="talk-title">Trustworthy Machine Learning</h2>
-        <p class="talk-meta">September 2025 — Istanbul Technical University (ITU), Istanbul</p>
-        <p class="talk-description">
-          Invited lecture exploring robustness, interpretability, and fairness in modern AI systems.
-          The session highlighted how trustworthy AI principles can be applied in large-scale deep learning systems.
-        </p>
-        <p class="talk-links">
-          <a href="#">📘 Slides</a> | <a href="#">🎥 Recording</a>
-        </p>
-      </div>
-
-      <div class="talk-card">
-        <h2 class="talk-title">Trustworthy Machine Learning: Bridging the Gap Between Accuracy and Trust</h2>
-        <p class="talk-meta">October 2025 — Bilkent University (Online)</p>
-        <p class="talk-description">
-          Invited online talk on aligning accuracy-focused learning objectives with reliability, transparency, and accountability.
-          Covered recent trends in trust-aware machine learning and evaluation frameworks.
-        </p>
-        <p class="talk-links">
-          <a href="#">📘 Slides</a> | <a href="#">🎥 Recording</a>
-        </p>
-      </div>
-
-      <!-- Past Talks (Optional List Format for Consistency) -->
-      <div class="talk-card">
-        <h2 class="talk-title">Past Invited Talks (Selected)</h2>
-        <ul class="talk-description">
-          <li>Universal Novelty Detection Through Adaptive Contrastive Learning, OIST, Okinawa, Japan</li>
-          <li>Trustworthiness and Alignment in AI: Challenges and Solutions, ISCwsISC2024 [Video]</li>
-          <li>Reliable Deep Anomaly Detection, Helsinki Institute for Information Technology, April 2022</li>
-          <li>Deep Generative Networks, IASBS, March 2019</li>
-        </ul>
-      </div>
+    <div class="page__footer">
+        <footer>
+            <a href="/sitemap/">Sitemap</a>
+            <div class="page__footer-follow">
+                <ul class="social-icons">
+                    <li><strong>Follow:</strong></li>
+                    <li><a href="http://github.com/sabokrou"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
+                    <li><a href="https://sabokrou.github.io/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+                </ul>
+            </div>
+            <div class="page__footer-copyright">&copy; 2024 Mohammad Sabokrou. <span class="copyright-kh"> Powered by <a href="http://khalooei.github.io" rel="nofollow">Khalooei</a> </span></div>
+        </footer>
     </div>
-  </main>
 
-  <!-- Footer -->
-  <footer class="page__footer">
-    <div class="page__footer-follow">
-      <ul class="social-icons">
-        <li><strong>Follow:</strong></li>
-        <li><a href="http://github.com/sabokrou"><i class="fab fa-github"></i> GitHub</a></li>
-        <li><a href="https://sabokrou.github.io/feed.xml"><i class="fa fa-rss-square"></i> Feed</a></li>
-      </ul>
-    </div>
-    <div class="page__footer-copyright">
-      &copy; 2025 Mohammad Sabokrou.
-      <span class="copyright-kh">
-        Powered by <a href="http://khalooei.github.io" rel="nofollow">Khalooei</a>
-      </span>
-    </div>
-  </footer>
+    <script src="https://sabokrou.github.io/assets/js/main.min.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', '', 'auto');
+        ga('send', 'pageview');
+    </script>
 </body>
 </html>
