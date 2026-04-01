@@ -1,1 +1,148 @@
 
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Writing | Mohammad Sabokrou</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f9fc;--surface:#fff;--text:#172033;--muted:#5b6475;--line:#e5e9f2;--accent:#1f5eff;--accent-soft:#eef4ff;--max:1120px;--radius:18px;--shadow:0 12px 28px rgba(16,24,40,.06)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+a{text-decoration:none;color:var(--accent)}
+a:hover{text-decoration:underline}
+.container{width:min(100% - 2rem,var(--max));margin:auto}
+header{padding:1rem 0;border-bottom:1px solid var(--line);background:rgba(247,249,252,.9);backdrop-filter:blur(10px);position:sticky;top:0;z-index:10}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:1rem}.nav strong{font-weight:800}.nav-links{display:flex;flex-wrap:wrap;gap:1rem}.nav a{color:var(--text)}
+.section{padding:1.35rem 0}
+.page-title{font-family:"Inter Tight",Inter,sans-serif;font-size:1.8rem;letter-spacing:-.03em;margin:0 0 .35rem}
+.page-subtitle{margin:0 0 1rem;color:var(--muted);max-width:760px;font-size:.96rem}
+.toolbar{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.search{display:flex;align-items:center;gap:.45rem;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.55rem .8rem;min-width:min(100%,320px);box-shadow:var(--shadow)}
+.search input{border:none;outline:none;background:transparent;width:100%;font:inherit;color:var(--text)}
+.filter-row{display:flex;flex-wrap:wrap;gap:.45rem}
+.filter-chip{border:1px solid var(--line);background:var(--surface);color:var(--text);padding:.38rem .7rem;border-radius:999px;font-size:.8rem;cursor:pointer}
+.filter-chip.active{background:var(--accent-soft);border-color:#cfe0ff;color:#1747bf;font-weight:700}
+.post-list{display:grid;gap:1rem}
+.post{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.post-preview{display:grid;grid-template-columns:180px 1fr;gap:0;padding:0;align-items:stretch}
+.post-image-wrap{background:#eef4ff;min-height:160px}
+.post-image{width:100%;height:100%;object-fit:cover;display:block}
+.post-image-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#1747bf;background:linear-gradient(135deg,#dbeafe,#eff6ff)}
+.post-body{padding:1rem 1rem .95rem}
+.post-top{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-bottom:.45rem}
+.post-date{font-size:.8rem;color:var(--muted)}
+.tag{display:inline-flex;align-items:center;padding:.22rem .52rem;border-radius:999px;background:var(--accent-soft);color:#1747bf;font-size:.74rem;font-weight:700}
+.post-title{margin:0 0 .35rem;font-size:1.06rem;line-height:1.3;font-weight:800;letter-spacing:-.02em}
+.post-abstract{margin:0;color:var(--muted);font-size:.92rem}
+.post-actions{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-top:.8rem}
+.share{display:flex;gap:.4rem;margin-left:auto}
+.share a{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:6px;border:1px solid var(--line);background:var(--surface);font-size:.8rem;color:#444}
+.share a:hover{background:var(--accent-soft);color:var(--accent)}
+.read-toggle{display:inline-flex;align-items:center;gap:.35rem;border:none;background:transparent;color:var(--accent);font:inherit;font-weight:700;cursor:pointer;padding:0}
+.read-toggle .minus{display:none}
+.post.expanded .read-toggle .plus{display:none}
+.post.expanded .read-toggle .minus{display:inline}
+.post-meta{font-size:.8rem;color:var(--muted)}
+.post-full{display:grid;grid-template-rows:0fr;transition:grid-template-rows .28s ease}
+.post-full-inner{overflow:hidden}
+.post.expanded .post-full{grid-template-rows:1fr}
+.post-full-content{padding:0 1rem 1rem 1rem;border-top:1px solid var(--line);margin-top:.1rem}
+.post-full-content p{margin:.85rem 0 0;font-size:.93rem}
+.post-empty{padding:1.2rem;border:1px dashed var(--line);border-radius:var(--radius);color:var(--muted);background:rgba(255,255,255,.55)}
+@media (max-width:760px){.post-preview{grid-template-columns:1fr}.post-image-wrap{min-height:180px}.toolbar{align-items:stretch}.search{min-width:100%}}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <strong>Mohammad Sabokrou</strong>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/publications/">Publications</a>
+      <a href="/talks/">Talks</a>
+      <a href="/teaching/">Teaching</a>
+      <a href="/people/">People</a>
+      <a href="/blog/">Writing</a>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <h1 class="page-title">Writing</h1>
+    
+
+    <div class="post-list" id="postList">
+      <article class="post" data-tags="writing featured">
+        <div class="post-preview">
+          <div class="post-image-wrap">
+            <img class="post-image" src="/images/blog/two-worlds-one-society.jpeg" alt="Two Worlds, One Society" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="post-image-fallback" style="display:none;">W1</div>
+          </div>
+          <div class="post-body">
+            <div class="post-top">
+              <span class="post-date">April 2026</span>
+              <span class="tag">Society</span>
+            </div>
+            <h2 class="post-title">Two Worlds, One Society: Understanding Differences Between the Iranian Diaspora and Iranians Inside the Country</h2>
+            <p class="post-abstract">A personal but analytically grounded reflection on how migration, visibility, lived experience, and distance can shape different perceptions of the same society.</p>
+            <div class="post-actions">
+              <button class="read-toggle" type="button" aria-expanded="false">
+                <span class="plus">Read more</span>
+                <span class="minus">Show less</span>
+              </button>
+              <span class="post-meta">8 min read · Essay</span>
+              <div class="share">
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://yourwebsite.com/blog/two-worlds" target="_blank" title="Share on LinkedIn">in</a>
+                <a href="https://twitter.com/intent/tweet?url=https://yourwebsite.com/blog/two-worlds&text=Two%20Worlds%2C%20One%20Society" target="_blank" title="Share on X">𝕏</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="post-full">
+          <div class="post-full-inner">
+            <div class="post-full-content">
+              <p>The same country can be lived, remembered, and imagined in very different ways.</p>
+              <p>During the “Woman, Life, Freedom” protests, I continued going to work as part of my normal routine, even as protests were taking place in parts of the country. At the same time, some of my former students who were living abroad contacted me with concern, asking whether it was even safe to go outside. Their understanding of the situation—understandably shaped by international media and distance—seemed quite different from the reality I was experiencing in my daily life.</p>
+              <p>In another context, I have occasionally observed moments of confusion in religious interactions. For example, a greeting such as “Ramadan Mubarak”—which might be expected to feel familiar among Muslims—can sometimes be met, by some Iranians abroad, with responses such as “I am Iranian and, I am not Muslim.” This certainly does not apply to all Iranians living abroad, but it can be surprising for people from other Muslim-majority societies.</p>
+              <p>These kinds of experiences raise an important question: why do some members of the Iranian diaspora and some people living inside the country sometimes seem to perceive the same society differently?</p>
+              <p>This essay reflects a personal but analytically grounded perspective on that question. Having spent significant time both abroad and in Iran, I write from lived experience as well as observation. My aim is not to take a political position, but to describe a social reality that is often overlooked or misunderstood—especially in international discussions.</p>
+              <p>It is important to emphasize that this discussion is not meant as a criticism of the diaspora. The Iranian diaspora is an important and valuable part of the Iranian nation. The differences described here are not about intelligence, sincerity, or identity, but about how different life environments can shape perspectives over time.</p>
+              <p>Migration is not a random process. Research in migration studies suggests that those who leave a country often differ in certain ways from those who remain. In the Iranian case, many who migrate do so in search of different lifestyles, greater personal autonomy, or broader professional and economic opportunities. As a result, some may become more familiar with or aligned with global or Western-oriented cultural frameworks than many people who continue living inside Iran.</p>
+              <p>At the same time, a portion of the diaspora consists of highly educated and highly skilled individuals. Many have achieved significant success in specialized fields such as science, engineering, medicine, or business. This helps explain why some members of the diaspora become visible and influential in their new environments.</p>
+              <p>However, high specialization can sometimes come with trade-offs. Deep expertise in a specific technical or professional domain may leave less time or opportunity to engage with broader social, historical, or cultural complexities. This does not reduce the value of their expertise, but it suggests that professional success in one area does not automatically translate into broad representativeness on societal questions. This is a general phenomenon observed across many societies, not something unique to Iranians.</p>
+              <p>Another important factor is visibility. Members of the diaspora often have greater access to global media platforms, academic institutions, and international networks. Many are also more able to communicate directly with foreign audiences, especially in widely used global languages. This can create an imbalance in which perspectives are more visible internationally. As a result, some diaspora viewpoints may become more prominent in shaping how Iran is perceived abroad, even though they reflect only part of a larger and more diverse society.</p>
+              <p>Over time, distance itself can also play a role. Even when emotional attachment remains strong, living abroad may gradually create a gap between perception and everyday reality. People outside the country often rely more on mediated information—such as news coverage and social media—rather than direct daily experience. This can sometimes lead to partial or intensified interpretations of events.</p>
+              <p>This difference in perception can become especially noticeable during periods of social tension. During the protests mentioned earlier, for example, some external observers formed impressions that daily life had completely stopped or become uniformly unsafe. However, for many people inside the country, the situation appeared more varied. While there were real tensions and important events, many individuals continued aspects of their daily routines, including work and study.</p>
+              <p>Differences may also appear in the area of religious identity. Among some members of the diaspora, religious identification may evolve over time. In certain cases, personal experiences—whether social, cultural, or economic—may become associated with broader frameworks such as religion. This can contribute to a more distant or redefined relationship with religion for some individuals. At the same time, this pattern is not universal and reflects only part of the diversity within the diaspora.</p>
+              <p>Another contributing factor is the experience of living between societies. Many members of the diaspora become integrated into another national and social environment. Even without conscious intention, this can gradually influence how individuals interpret events and define priorities. This is a common and well-documented aspect of migration: people adapt, at least partially, to the norms and frameworks of the societies in which they live.</p>
+              <p>There is also an emotional dimension. Some individuals build successful lives abroad while still experiencing a sense of distance from their roots, family, language, or cultural background. At the same time, returning may feel complex or difficult, whether because expectations have changed or because the environment no longer fully aligns with their current lives. These experiences can shape how individuals relate to the society they left.</p>
+              <p>At the core of this discussion is a simple but important point: no single group can fully represent a diverse society. The Iranian diaspora reflects one part of Iran—shaped by migration, selection, and new environments. Those who remain inside the country are shaped by continuous engagement with everyday realities. These perspectives are different, and neither one alone captures the full picture.</p>
+              <p>For foreigners, this distinction is particularly important. It is easy to assume that the most visible voices are also the most representative. However, this can lead to a partial understanding. A more accurate view requires recognizing the diversity of experiences that exist both inside and outside the country.</p>
+              <p>In the end, differences between some members of the Iranian diaspora and some people living inside the country are not simply disagreements of opinion. They are often rooted in different lived realities. Understanding these differences does not require taking sides—it requires acknowledging complexity. Iran, like any society, cannot be understood through a single voice. It must be understood through the coexistence of many.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  document.querySelectorAll('.read-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const post = btn.closest('.post');
+      const expanded = post.classList.toggle('expanded');
+      btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    });
+  });
+})();
+</script>
+</body>
+</html>
