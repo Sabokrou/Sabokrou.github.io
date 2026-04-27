@@ -371,6 +371,53 @@
       background: transparent;
     }
 
+
+    .service-box {
+      background: linear-gradient(135deg, #ffffff, var(--soft-2));
+      border: 1px solid #d7e5ff;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 0.85rem;
+    }
+
+    .service-column {
+      padding: 0.9rem;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .service-column h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .service-list {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .service-list li {
+      margin-bottom: 0.42rem;
+    }
+
+    .recommendation-box {
+      background: linear-gradient(135deg, var(--soft), #ffffff);
+      border: 1px solid #d7e5ff;
+    }
+
+    .recommendation-box p {
+      margin: 0.4rem 0 1rem;
+      color: var(--muted);
+    }
+
     footer {
       padding: 1.8rem 0 2.5rem;
       color: var(--muted);
@@ -379,7 +426,8 @@
 
     @media (max-width: 900px) {
       .hero__grid,
-      .grid-2 {
+      .grid-2,
+      .service-grid {
         grid-template-columns: 1fr;
       }
 
@@ -414,6 +462,8 @@
         <a href="/teaching/">Teaching</a>
          <a href="/people/">Members</a>
         <a href="#projects">Projects</a>
+        <a href="#service">Service</a>
+        <a href="/recommendation-letter/">Recommendation Letter</a>
         <a href="/blog/">Writing</a>
       </nav>
     </div>
@@ -519,6 +569,55 @@
             <li>Paper accepted at NeurIPS 2024 on scanning trojaned models using out-of-distribution samples.</li>
           </ul>
           </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="service">
+      <div class="container">
+        <div class="card section-card service-box">
+          <h2 class="section-title">Academic Service to the Community</h2>
+          <div class="service-grid">
+            <div class="service-column">
+              <h3>Area Chair</h3>
+              <ul class="service-list">
+                <li>ICLR 2025</li>
+                <li>ICLR 2026</li>
+                <li>CVPR 2026</li>
+                <li>BMVC 2026</li>
+              </ul>
+            </div>
+            <div class="service-column">
+              <h3>Reviewer / Program Committee</h3>
+              <ul class="service-list">
+                <li>ECCV, MIDL, CVPR, ICCV, MICCAI, ACCV, ICLR, AAAI, WACV, NeurIPS</li>
+                <li>IEEE TPAMI, TNNLS, TMM, TCYB, TIP, and TIFS</li>
+                <li>Pattern Recognition, Journal of Intelligent and Fuzzy Systems, Journal of Electronic Imaging, ICPR, CCECE, and Signal, Image and Video Processing</li>
+              </ul>
+            </div>
+            <div class="service-column">
+              <h3>Organization</h3>
+              <ul class="service-list">
+                <li>Organization member, OIST ML Workshop</li>
+                <li>Program Committee member, MLSS 2023 at OIST, Japan</li>
+                <li>Organizer, IPM Advanced Summer School on Computing: ASOC 2021, ASOC 2022, and ASOC 2023</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="recommendation-letter">
+      <div class="container">
+        <div class="card section-card recommendation-box">
+          <h2 class="section-title">Do You Need a Recommendation Letter?</h2>
+          <p>
+            If you would like to request a recommendation letter from me, please review the required information and submission guidelines before contacting me.
+          </p>
+          <a class="btn btn--primary" href="/recommendation-letter/">Recommendation Letter Guidelines</a>
         </div>
       </div>
     </section>
