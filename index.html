@@ -133,11 +133,14 @@
     }
 
     .profile-card img {
-      width: 120px;
-      height: 120px;
+      display: block;
+      width: 160px;
+      height: 160px;
+      aspect-ratio: 1 / 1;
       object-fit: cover;
-      border-radius: 999px;
-      margin-bottom: 1rem;
+      object-position: center;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
       border: 4px solid #fff;
       box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     }
@@ -472,7 +475,7 @@
     <section class="hero">
       <div class="container hero__grid">
         <aside class="card profile-card">
-          <img src="/images/profile.PNG" alt="Portrait of Mohammad Sabokrou" loading="eager" />
+          <img src="/images/people/profile.PNG" alt="Portrait of Mohammad Sabokrou" width="160" height="160" loading="eager" decoding="async" fetchpriority="high" />
           <h2>Mohammad Sabokrou</h2>
           <p>Staff Research Scientist</p>
 
