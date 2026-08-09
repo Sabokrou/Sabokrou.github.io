@@ -4,20 +4,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mohammad Sabokrou | Trustworthy Machine Learning Research</title>
-  <meta name="description" content="Mohammad Sabokrou is a Staff Research Scientist at OIST working on trustworthy machine learning, anomaly detection, OOD detection, continual learning, and robust AI systems." />
+  <meta name="description" content="Mohammad Sabokrou is an Associate Professor at New Uzbekistan University and a Visiting Researcher at OIST, working on trustworthy machine learning, anomaly detection, OOD detection, continual learning, and robust AI systems." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://sabokrou.github.io/" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Mohammad Sabokrou | Trustworthy Machine Learning Research" />
-  <meta property="og:description" content="Staff Research Scientist at OIST. Research in trustworthy machine learning, anomaly detection, OOD detection, and continual learning." />
+  <meta property="og:description" content="Associate Professor at New Uzbekistan University and Researcher at OIST. Research in trustworthy machine learning, anomaly detection, OOD detection, and continual learning." />
   <meta property="og:url" content="https://sabokrou.github.io/" />
   <meta property="og:site_name" content="Mohammad Sabokrou" />
   <meta property="og:image" content="https://sabokrou.github.io/images/people/profile.PNG" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Mohammad Sabokrou | Trustworthy Machine Learning Research" />
-  <meta name="twitter:description" content="Staff Research Scientist at OIST working on trustworthy machine learning, anomaly detection, and robust AI." />
+  <meta name="twitter:description" content="Associate Professor at New Uzbekistan University and Researcher at OIST working on trustworthy machine learning, anomaly detection, and robust AI." />
   <meta name="twitter:image" content="https://sabokrou.github.io/images/people/profile.PNG" />
 
   <script type="application/ld+json">
@@ -25,11 +25,17 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Mohammad Sabokrou",
-    "jobTitle": "Staff Research Scientist",
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Okinawa Institute of Science and Technology"
-    },
+    "jobTitle": "Associate Professor and Visiting Researcher",
+    "affiliation": [
+      {
+        "@type": "Organization",
+        "name": "New Uzbekistan University"
+      },
+      {
+        "@type": "Organization",
+        "name": "Okinawa Institute of Science and Technology"
+      }
+    ],
     "url": "https://sabokrou.github.io/",
     "image": "https://sabokrou.github.io/images/people/profile.PNG",
     "sameAs": [
@@ -421,6 +427,70 @@
       color: var(--muted);
     }
 
+    .workplaces {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 0.25rem;
+    }
+
+    .workplace-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 190px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .workplace-card img {
+      display: block;
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .workplace-card:hover img {
+      transform: scale(1.035);
+    }
+
+    .workplace-overlay {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 2.2rem 1rem 0.85rem;
+      color: #fff;
+      background: linear-gradient(transparent, rgba(0,0,0,0.78));
+    }
+
+    .workplace-overlay strong {
+      display: block;
+      font-size: 1rem;
+      line-height: 1.25;
+    }
+
+    .workplace-overlay span {
+      display: block;
+      margin-top: 0.18rem;
+      font-size: 0.8rem;
+      opacity: 0.9;
+    }
+
+    .photo-credit {
+      margin-top: 0.35rem;
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .photo-credit a {
+      color: inherit;
+      text-decoration: underline;
+    }
+
     footer {
       padding: 1.8rem 0 2.5rem;
       color: var(--muted);
@@ -477,11 +547,11 @@
         <aside class="card profile-card">
           <img src="/images/people/profile.PNG" alt="Portrait of Mohammad Sabokrou" width="160" height="160" loading="eager" decoding="async" fetchpriority="high" />
           <h2>Mohammad Sabokrou</h2>
-          <p>Staff Research Scientist</p>
+          <p>Associate Professor, New Uzbekistan University<br>Visiting Researcher, OIST</p>
 
           <div class="profile-meta">
-            <div><strong>Affiliation:</strong> OIST</div>
-            <div><strong>Location:</strong> Japan</div>
+            <div><strong>Affiliations:</strong> New Uzbekistan University · OIST</div>
+            <div><strong>Locations:</strong> Tashkent, Uzbekistan · Okinawa, Japan</div>
             <div><strong>Email:</strong> <a href="mailto:mohammad.sabokrou@oist.jp">mohammad.sabokrou@oist.jp</a></div>
             <div><strong>CV:</strong> <a href="/files/Mohammad_Sabokrou_CV.pdf" target="_blank" rel="noopener">Download CV</a></div>
           </div>
@@ -498,12 +568,51 @@
           <span class="eyebrow">Trustworthy Machine Learning</span>
           <h2>Trustworthy AI, Machine Learning, and Computer Vision</h2>
           <p class="lead">
-            I am a Staff Research Scientist at the Okinawa Institute of Science and Technology (OIST). My research focuses on trustworthy machine learning, anomaly detection, out-of-distribution detection, continual learning, and AI robustness. Before joining OIST, I led AI research initiatives at the Institute for Research in Fundamental Sciences (IPM) in Tehran, Iran, and worked as a Senior Researcher in Finland and France, including at the Center for Machine Vision and Signal Analysis (CMVS). My work bridges machine learning foundations and practical robustness for reliable, secure, and effective AI systems.
+            I am an Associate Professor at New Uzbekistan University and a Visiting Researcher at the Okinawa Institute of Science and Technology (OIST), Japan. My research focuses on trustworthy machine learning, anomaly detection, out-of-distribution detection, continual learning, and AI robustness. Previously, I led AI research initiatives at the Institute for Research in Fundamental Sciences (IPM) in Tehran, Iran, and worked as a Senior Researcher in Finland and France, including at the Center for Machine Vision and Signal Analysis (CMVS). My work bridges machine learning foundations and practical robustness for reliable, secure, and effective AI systems.
           </p>
           <div class="hero-actions">
             <a class="btn btn--primary" href="/publications/">View Publications</a>
             <a class="btn btn--secondary" href="#contact">Collaborate With Me</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Current workplaces">
+      <div class="container">
+        <div class="workplaces">
+          <a class="workplace-card" href="https://www.newuu.uz/en/" target="_blank" rel="noopener" aria-label="New Uzbekistan University, Tashkent">
+            <img
+              src="https://newuu.uz/uploads/pages/eacf04104d7d2a729533f9814c64a0b0.jpg"
+              alt="New Uzbekistan University campus in Tashkent"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="workplace-overlay">
+              <strong>New Uzbekistan University</strong>
+              <span>Associate Professor · Tashkent, Uzbekistan</span>
+            </div>
+          </a>
+
+          <a class="workplace-card" href="https://www.oist.jp/admissions/life-oist/campus-and-facility" target="_blank" rel="noopener" aria-label="OIST campus, Okinawa, Japan">
+            <img
+              src="https://live.staticflickr.com/897/40772313774_148df0d23b_o.jpg"
+              alt="OIST campus in Okinawa, Japan"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="workplace-overlay">
+              <strong>Okinawa Institute of Science and Technology (OIST)</strong>
+              <span>Visiting Researcher · Okinawa, Japan</span>
+            </div>
+          </a>
+        </div>
+        <div class="photo-credit">
+          Campus photos:
+          <a href="https://newuu.uz/en/about" target="_blank" rel="noopener">New Uzbekistan University</a>
+          ·
+          <a href="https://www.oist.jp/image/oist-campus-ariel" target="_blank" rel="noopener">OIST</a>
+          / <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener">CC BY 2.0</a>
         </div>
       </div>
     </section>
@@ -523,10 +632,10 @@
         <div class="card section-card hire-banner" id="contact">
           <h2 class="section-title">Open Positions</h2>
           <p>
-            I welcome applications from highly motivated researchers interested in trustworthy machine learning, anomaly detection, AI safety, and robust computer vision.
+            I welcome applications from highly motivated researchers interested in trustworthy machine learning, anomaly detection, AI safety, and robust computer vision, including students, interns, postdoctoral researchers, and visiting researchers interested in collaborating across my academic affiliations.
           </p>
           <p>
-            Applications for technician positions, postdoctoral positions, internships, and visiting researcher positions are welcome. Applicants with publications in top-tier conferences or journals are especially encouraged to apply.
+            Applications for technician positions, postdoctoral positions, internships, and visiting researcher positions are welcome at the relevant host institution. Applicants with publications in top-tier conferences or journals are especially encouraged to apply. Applicants with publications in top-tier conferences or journals are especially encouraged to apply.
           </p>
           <p>
             To apply, please send your CV, research interests, and selected publications to <a href="mailto:mohammad.sabokrou@oist.jp">mohammad.sabokrou@oist.jp</a>.
@@ -563,6 +672,8 @@
           <h2 class="section-title">Selected News</h2>
           <div class="news-scroll">
           <ul class="news-list">
+            <li><strong>9 August 2026:</strong> Paper accepted at <a href="https://bmvc2026.bmva.org/" target="_blank" rel="noopener">BMVC 2026</a>, the British Machine Vision Conference, on robust and trustworthy computer vision / anomaly detection.</li>
+            <li><strong>8 August 2026:</strong> Joined <a href="https://www.newuu.uz/en/" target="_blank" rel="noopener">New Uzbekistan University</a> as an Associate Professor.</li>
             <li>Area Chair, NeurIPS 2026.</li>
             <li>Awarded JSPS KAKENHI (Scientific Research B), 2026–2030.</li>
             <li>Area Chair, BMVC 2026.</li>
@@ -586,26 +697,44 @@
             <div class="service-column">
               <h3>Area Chair</h3>
               <ul class="service-list">
-                <li>ICLR 2025</li>
-                <li>ICLR 2026</li>
-                <li>NeurIPS 2026</li>
-                <li>BMVC 2026</li>
+                <li><a href="https://iclr.cc/Conferences/2025" target="_blank" rel="noopener">ICLR 2025</a></li>
+                <li><a href="https://iclr.cc/Conferences/2026/ProgramCommittee" target="_blank" rel="noopener">ICLR 2026</a></li>
+                <li><a href="https://neurips.cc/Conferences/2026" target="_blank" rel="noopener">NeurIPS 2026</a></li>
+                <li><a href="https://bmvc2026.bmva.org/" target="_blank" rel="noopener">BMVC 2026</a></li>
               </ul>
             </div>
             <div class="service-column">
               <h3>Reviewer / Program Committee</h3>
               <ul class="service-list">
-                <li>ECCV, MIDL, CVPR, ICCV, MICCAI, ACCV, ICLR, AAAI, WACV, NeurIPS</li>
-                <li>IEEE TPAMI, TNNLS, TMM, TCYB, TIP, and TIFS</li>
+                <li>
+                  <a href="https://eccv.ecva.net/" target="_blank" rel="noopener">ECCV</a>,
+                  <a href="https://www.midl.io/" target="_blank" rel="noopener">MIDL</a>,
+                  <a href="https://cvpr.thecvf.com/" target="_blank" rel="noopener">CVPR</a>,
+                  <a href="https://iccv.thecvf.com/" target="_blank" rel="noopener">ICCV</a>,
+                  <a href="https://conferences.miccai.org/" target="_blank" rel="noopener">MICCAI</a>,
+                  <a href="https://accv2024.org/" target="_blank" rel="noopener">ACCV</a>,
+                  <a href="https://iclr.cc/" target="_blank" rel="noopener">ICLR</a>,
+                  <a href="https://aaai.org/conference/aaai/" target="_blank" rel="noopener">AAAI</a>,
+                  <a href="https://wacv2026.thecvf.com/" target="_blank" rel="noopener">WACV</a>,
+                  <a href="https://neurips.cc/" target="_blank" rel="noopener">NeurIPS</a>
+                </li>
+                <li>
+                  <a href="https://www.computer.org/csdl/journal/tp" target="_blank" rel="noopener">IEEE TPAMI</a>,
+                  <a href="https://cis.ieee.org/publications/t-neural-networks-and-learning-systems" target="_blank" rel="noopener">TNNLS</a>,
+                  <a href="https://www.computer.org/csdl/journal/tm" target="_blank" rel="noopener">TMM</a>,
+                  <a href="https://cis.ieee.org/publications/t-cybernetics" target="_blank" rel="noopener">TCYB</a>,
+                  <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=78" target="_blank" rel="noopener">TIP</a>,
+                  <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=6287639" target="_blank" rel="noopener">TIFS</a>
+                </li>
                 <li>Pattern Recognition, Journal of Intelligent and Fuzzy Systems, Journal of Electronic Imaging, ICPR, CCECE, and Signal, Image and Video Processing</li>
               </ul>
             </div>
             <div class="service-column">
               <h3>Organization</h3>
               <ul class="service-list">
-                <li>Organization member, OIST ML Workshop</li>
-                <li>Program Committee member, MLSS 2023 at OIST, Japan</li>
-                <li>Organizer, IPM Advanced Summer School on Computing: ASOC 2021, ASOC 2022, and ASOC 2023</li>
+                <li>Organization member, <a href="https://www.oist.jp/research/research-units/mlds" target="_blank" rel="noopener">OIST ML Workshop</a></li>
+                <li>Program Committee member, <a href="https://groups.oist.jp/mlss" target="_blank" rel="noopener">MLSS 2023 at OIST</a>, Japan</li>
+                <li>Organizer, <a href="https://ipm.ac.ir/" target="_blank" rel="noopener">IPM Advanced Summer School on Computing (ASOC)</a>: ASOC 2021, ASOC 2022, and ASOC 2023</li>
               </ul>
             </div>
           </div>
