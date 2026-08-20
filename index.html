@@ -526,22 +526,29 @@
         padding: 1rem;
       }
     }
-  </style>
+  
+    .vision-card{background:linear-gradient(135deg,#172033,#243b68);color:#fff}.vision-card .section-title{color:#fff}.vision-card p{margin:.35rem 0 0;color:#dce6f8}
+    .impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}.impact-item{padding:1rem;border:1px solid var(--line);border-radius:14px;background:#fff}.impact-number{display:block;font-family:"Inter Tight",Inter,sans-serif;font-size:1.55rem;font-weight:800;color:var(--accent-dark);line-height:1.1}.impact-label{display:block;margin-top:.35rem;color:var(--muted);font-size:.82rem}
+    .featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}.featured-paper{padding:1rem;border:1px solid var(--line);border-radius:14px;background:linear-gradient(145deg,#fff,#f5f8ff)}.featured-paper .venue{display:inline-block;padding:.2rem .5rem;border-radius:999px;background:#e8f0ff;color:#1747bf;font-size:.72rem;font-weight:800}.featured-paper h3{font-size:.96rem;line-height:1.35;margin:.6rem 0 .35rem}.featured-paper p{font-size:.84rem;color:var(--muted);margin:0 0 .65rem}.featured-paper a{font-size:.82rem;font-weight:700;margin-right:.6rem}
+    .apply-list{margin:.55rem 0 .8rem;padding-left:1.15rem}.apply-list li{margin:.25rem 0}.opportunity-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:.6rem 0}.opportunity-tags span{padding:.25rem .55rem;border-radius:999px;background:#fff;border:1px solid #cfe0ff;font-size:.78rem;font-weight:700}
+    @media(max-width:900px){.impact-grid,.featured-grid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.impact-grid,.featured-grid{grid-template-columns:1fr}}
+</style>
 <link rel="stylesheet" href="/assets/css/site-shell.css">
+  <link rel="icon" type="image/png" href="/images/people/profile.PNG">
 </head>
 <body>
   <header class="site-header">
     <div class="container nav">
       <a class="nav__brand" href="/">Mohammad Sabokrou</a>
       <nav class="nav__links" aria-label="Primary">
+        <a href="/">Home</a>
         <a href="/publications/">Publications</a>
         <a href="/talks/">Talks</a>
         <a href="/teaching/">Teaching</a>
-         <a href="/people/">People</a>
-        <a href="#projects">Projects</a>
-        <a href="#service">Service</a>
+        <a href="/people/">People</a>
+        <a href="/#projects">Projects</a>
+        <a href="/#service">Service</a>
         <a href="/blog/">Writing</a>
-        
       </nav>
     </div>
   </header>
@@ -558,7 +565,6 @@
             <div><strong>Affiliations:</strong> New Uzbekistan University · OIST</div>
             <div><strong>Locations:</strong> Tashkent, Uzbekistan · Okinawa, Japan</div>
             <div><strong>Email:</strong> <a href="mailto:mohammad.sabokrou@oist.jp">mohammad.sabokrou@oist.jp</a></div>
-            <div><strong>CV:</strong> </div>
           </div>
 
           <div class="socials">
@@ -622,6 +628,15 @@
       </div>
     </section>
 
+    <section id="research-vision">
+      <div class="container">
+        <div class="card section-card vision-card">
+          <h2 class="section-title">Research Vision</h2>
+          <p>I develop AI systems that remain dependable beyond controlled benchmarks—when data shift, unknown categories appear, inputs are corrupted or adversarial, and models must continue learning. My work connects anomaly and out-of-distribution detection, robustness, continual learning, and AI security to move trustworthy machine learning from accuracy alone toward reliable behavior in the real world.</p>
+        </div>
+      </div>
+    </section>
+
     <section>
       <div class="container grid-2">
         <div class="card section-card">
@@ -635,19 +650,43 @@
         </div>
 
         <div class="card section-card hire-banner" id="contact">
-          <h2 class="section-title">Open Positions</h2>
-          <p>
-            I welcome applications from highly motivated researchers interested in trustworthy machine learning, anomaly detection, AI safety, and robust computer vision, including students, interns, postdoctoral researchers, and visiting researchers interested in collaborating across my academic affiliations.
-          </p>
-          <p>
-            Applications for technician positions, postdoctoral positions, internships, and visiting researcher positions are welcome at the relevant host institution. Applicants with publications in top-tier conferences or journals are especially encouraged to apply.
-          </p>
-          <p>
-            To apply, please send your CV, research interests, and selected publications to <a href="mailto:mohammad.sabokrou@oist.jp">mohammad.sabokrou@oist.jp</a>.
-          </p>
+          <h2 class="section-title">Join the Group</h2>
+          <p>I welcome motivated people interested in trustworthy machine learning, anomaly detection, AI safety, and robust computer vision.</p>
+          <div class="opportunity-tags"><span>Research collaborators</span><span>Research assistants</span><span>Interns</span><span>Postdoctoral researchers</span><span>Visiting researchers</span></div>
+          <p><strong>Current opportunities:</strong> funded and volunteer research-assistant or internship opportunities may be available depending on the project and host institution.</p>
+          <p><strong>To apply, please include:</strong></p>
+          <ul class="apply-list"><li>Your CV</li><li>A short description of your research interests and relevant skills</li><li>Selected publications, code, or project links, if available</li><li>The role and preferred starting period</li></ul>
+          <a class="btn btn--primary" href="mailto:mohammad.sabokrou@oist.jp?subject=Research%20opportunity%20inquiry">Apply or propose a collaboration</a>
         </div>
       </div>
     </section>
+<section id="research-impact">
+      <div class="container">
+        <div class="card section-card">
+          <h2 class="section-title">Research Impact</h2>
+          <div class="impact-grid">
+            <div class="impact-item"><span class="impact-number">2</span><span class="impact-label">Active JSPS KAKENHI projects as Principal Investigator</span></div>
+            <div class="impact-item"><span class="impact-number">5</span><span class="impact-label">Area Chair appointments listed for ICLR, NeurIPS, and BMVC</span></div>
+            <div class="impact-item"><span class="impact-number">5</span><span class="impact-label">Core research themes spanning trustworthy and adaptive AI</span></div>
+            <div class="impact-item"><span class="impact-number">Global</span><span class="impact-label">Research collaborations across Asia, Europe, and North America</span></div>
+          </div>
+          <p class="muted" style="margin:.75rem 0 0">For current citation and h-index information, see <a href="https://scholar.google.com/citations?user=jqHXvT0AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>.</p>
+        </div>
+      </div>
+    </section>
+    <section id="featured-work">
+      <div class="container">
+        <div class="card section-card">
+          <h2 class="section-title">Featured Research</h2>
+          <div class="featured-grid">
+            <article class="featured-paper"><span class="venue">BMVC 2026</span><h3>CRANE</h3><p>Context-guided prompt learning and attention refinement for zero-shot anomaly detection.</p><a href="https://arxiv.org/pdf/2504.11055" target="_blank" rel="noopener">Paper</a><a href="https://github.com/AlirezaSalehy/Crane" target="_blank" rel="noopener">Code</a></article>
+            <article class="featured-paper"><span class="venue">NeurIPS 2025</span><h3>FrameShield</h3><p>Adversarially robust video anomaly detection for more dependable visual monitoring.</p><a href="/publications/">Publication details</a></article>
+            <article class="featured-paper"><span class="venue">CVPR 2024</span><h3>Universal Novelty Detection</h3><p>Adaptive contrastive learning for detecting novel data across datasets and tasks.</p><a href="/publications/">Publication details</a></article>
+          </div>
+        </div>
+      </div>
+    </section>
+    
 
     
 
