@@ -92,7 +92,7 @@
 <script>
 (function(){
  const search=document.getElementById('publicationSearch'), cards=[...document.querySelectorAll('.topic-card')], buttons=[...document.querySelectorAll('.filter-button')]; let topic='all';
- function key(card){const h=(card.querySelector('.topic-title')||{}).textContent||''; h=h.toLowerCase(); if(h.includes('anomaly'))return'anomaly';if(h.includes('safety'))return'safety';if(h.includes('continual'))return'continual';return'other'}
+ function key(card){let h=(card.querySelector('.topic-title')||{}).textContent||''; h=h.toLowerCase(); if(h.includes('anomaly'))return'anomaly';if(h.includes('safety'))return'safety';if(h.includes('continual'))return'continual';return'other'}
  function run(){const q=search.value.trim().toLowerCase();let shown=0;cards.forEach(c=>{const okTopic=topic==='all'||key(c)===topic,okText=!q||c.textContent.toLowerCase().includes(q),show=okTopic&&okText;c.style.display=show?'':'none';if(show)shown++});document.getElementById('noPublicationResults').style.display=shown?'none':'block'}
  search.addEventListener('input',run);buttons.forEach(b=>b.addEventListener('click',()=>{topic=b.dataset.topic;buttons.forEach(x=>x.classList.toggle('active',x===b));run()}));
 })();
