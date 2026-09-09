@@ -67,8 +67,10 @@
         <p class="muted">This week: repair vague questions, understand what one row in a table represents, and examine how sources, samples, and definitions affect a conclusion.</p>
         <div class="materials">
           <article class="material"><span class="label">Lecture</span><h3>Week 1 slides</h3><p>Examples of datasets, rows, AI, machine learning, deep learning, and data science.</p><a href="./materials/week-1-lecture.pdf" target="_blank" rel="noopener">Open PDF</a></article>
-          <article class="material"><span class="label">Reading</span><h3>Course book</h3><p>Complete book (134 pages). Start with Chapters 1-2 before the lab.</p><button id="book-download" type="button">Download complete PDF</button><span id="book-download-status" class="download-status"></span></article>
-          <article class="material"><span class="label">Lab</span><h3>Week 1 lab guide</h3><p>Prepare Google Colab and complete Lab 1 on rows, joins, and missingness.</p><a href="./materials/week-1-lab-guide.pdf" target="_blank" rel="noopener">Open PDF</a></article>
+          <article class="material"><span class="label">Textbook</span><h3>Volume 1 Main Text</h3><p>Fundamentals of Data Science: 15 chapters, worked examples, and figures.</p><button id="main-text-download" type="button">Download PDF</button><span id="main-text-status" class="download-status"></span></article>
+          <article class="material"><span class="label">Reference</span><h3>Volume 2 Reference and Solutions</h3><p>Model answers, code cookbook, formulas, decision tables, and glossary.</p><button id="reference-download" type="button">Download PDF</button><span id="reference-status" class="download-status"></span></article>
+          <article class="material"><span class="label">Lab</span><h3>Lab Manual</h3><p>Lab 0 preparation plus the complete set of twelve two-hour labs.</p><a href="./materials/Lab_Manual.pdf" target="_blank" rel="noopener">Open PDF</a></article>
+          <article class="material"><span class="label">Plan</span><h3>12-Week Course Plan</h3><p>Materials inventory, assessment scheme, checklist, chapters, labs, and CLOs.</p><a href="./materials/Course_Plan_12_Weeks.pdf" target="_blank" rel="noopener">Open PDF</a></article>
         </div>
       </div>
     </section>
@@ -98,33 +100,47 @@
   </main>
   <footer><div class="container">© 2026 Mohammad Sabokrou · Data Science Fundamentals</div></footer>
 <script>
-const bookButton = document.getElementById('book-download');
-const bookStatus = document.getElementById('book-download-status');
-if (bookButton) {
-  bookButton.addEventListener('click', async () => {
-    const parts = ['./materials/book.pdf.part-00', './materials/book.pdf.part-01', './materials/book.pdf.part-02', './materials/book.pdf.part-03'];
-    bookButton.disabled = true;
-    bookStatus.textContent = 'Preparing your download...';
+const assembledDownloads = [
+  {
+    buttonId: 'main-text-download',
+    statusId: 'main-text-status',
+    parts: ['./materials/book.pdf.part-00', './materials/book.pdf.part-01', './materials/book.pdf.part-02', './materials/book.pdf.part-03', './materials/book.pdf.part-04', './materials/book.pdf.part-05', './materials/book.pdf.part-06'],
+    filename: 'Fundamentals-of-Data-Science-Volume-1-Main-Text.pdf'
+  },
+  {
+    buttonId: 'reference-download',
+    statusId: 'reference-status',
+    parts: ['./materials/reference.pdf.part-00', './materials/reference.pdf.part-01'],
+    filename: 'Fundamentals-of-Data-Science-Volume-2-Reference-and-Solutions.pdf'
+  }
+];
+assembledDownloads.forEach(({ buttonId, statusId, parts, filename }) => {
+  const button = document.getElementById(buttonId);
+  const status = document.getElementById(statusId);
+  if (!button || !status) return;
+  button.addEventListener('click', async () => {
+    button.disabled = true;
+    status.textContent = 'Preparing your download...';
     try {
       const responses = await Promise.all(parts.map((part) => fetch(part)));
-      if (responses.some((response) => !response.ok)) throw new Error('A book file could not be loaded.');
+      if (responses.some((response) => !response.ok)) throw new Error('A PDF file could not be loaded.');
       const chunks = await Promise.all(responses.map((response) => response.arrayBuffer()));
       const url = URL.createObjectURL(new Blob(chunks, { type: 'application/pdf' }));
       const link = document.createElement('a');
       link.href = url;
-      link.download = 'Fundamentals-of-Data-Science-Student-Copy.pdf';
+      link.download = filename;
       document.body.appendChild(link);
       link.click();
       link.remove();
       window.setTimeout(() => URL.revokeObjectURL(url), 60000);
-      bookStatus.textContent = 'Download ready.';
+      status.textContent = 'Download ready.';
     } catch (error) {
-      bookStatus.textContent = 'The book could not be prepared. Please try again.';
+      status.textContent = 'The PDF could not be prepared. Please try again.';
     } finally {
-      bookButton.disabled = false;
+      button.disabled = false;
     }
   });
-}
+});
 </script>
 </body>
 </html>
