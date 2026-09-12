@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Neighborhood-Relational Encoding</title><desc id="desc">Nearby samples form relationships that guide self-supervised representation learning.</desc>
+  <defs><linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f0fbf8"/><stop offset="1" stop-color="#dff4ee"/></linearGradient><linearGradient id="enc" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#168267"/><stop offset="1" stop-color="#0f5f4d"/></linearGradient></defs>
+  <rect width="720" height="300" rx="26" fill="url(#bg2)"/>
+  <g stroke="#9bcfc1" stroke-width="4"><path d="M91 91l79 43 60-65 74 68-57 67-77-70-62 70"/><path d="M91 91l139-22m-60 65 77 70m57-67-134-3"/></g>
+  <g fill="#2558e5"><circle cx="91" cy="91" r="15"/><circle cx="170" cy="134" r="15"/><circle cx="230" cy="69" r="15"/><circle cx="304" cy="137" r="15"/><circle cx="247" cy="204" r="15"/><circle cx="108" cy="204" r="15"/></g>
+  <path d="M334 137h65" stroke="#168267" stroke-width="6" stroke-linecap="round"/><path d="m388 124 16 13-16 13" fill="none" stroke="#168267" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <g transform="translate(426 54)"><rect width="98" height="166" rx="18" fill="url(#enc)"/><path d="M28 40h42M28 72h42M28 104h42M28 136h42" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".9"/></g>
+  <path d="M542 137h51" stroke="#168267" stroke-width="6" stroke-linecap="round"/><path d="m582 124 16 13-16 13" fill="none" stroke="#168267" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#6841c6"><circle cx="641" cy="93" r="13"/><circle cx="672" cy="126" r="13"/><circle cx="631" cy="157" r="13"/><circle cx="666" cy="193" r="13"/></g>
+  <text x="72" y="260" fill="#17304f" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="700">Neighborhoods</text><text x="433" y="260" fill="#17304f" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="700">Encoder</text><text x="596" y="260" fill="#17304f" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="700">Features</text>
+</svg>
