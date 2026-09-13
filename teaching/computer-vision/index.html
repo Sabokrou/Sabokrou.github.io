@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Computer Vision | Mohammad Sabokrou</title>
+  <meta name="description" content="Computer Vision at New Uzbekistan University: course materials, lab guidance, and a complete 16-week learning plan.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://sabokrou.github.io/teaching/computer-vision/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Computer Vision | Mohammad Sabokrou">
+  <meta property="og:description" content="Student materials and the 16-week Computer Vision course plan at New Uzbekistan University.">
+  <meta property="og:url" content="https://sabokrou.github.io/teaching/computer-vision/">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/site-shell.css">
+  <link rel="icon" type="image/png" href="/images/people/profile.PNG">
+  <style>
+    :root{--bg:#f7f9fc;--surface:#fff;--text:#172033;--muted:#5b6475;--line:#e5e9f2;--accent:#9a6300;--accent-dark:#704800;--soft:#fff7e8;--max:1100px;--radius:16px;--shadow:0 12px 28px rgba(16,24,40,.06)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}a{color:var(--accent);text-decoration:none}a:hover{color:var(--accent-dark)}.container{width:min(100% - 2rem,var(--max));margin:auto}
+    header{position:sticky;top:0;z-index:10;padding:1rem 0;border-bottom:1px solid var(--line);background:rgba(247,249,252,.92);backdrop-filter:blur(10px)}.nav{display:flex;justify-content:space-between;align-items:center;gap:1rem}.nav strong{font-weight:800}.nav-links{display:flex;flex-wrap:wrap;gap:1rem}.nav a{color:var(--text)}
+    main{padding:1.55rem 0 2.5rem}.hero{padding:1.5rem;border:1px solid #ead4ad;border-radius:var(--radius);background:linear-gradient(135deg,var(--soft),#fff);box-shadow:var(--shadow)}.eyebrow,.label{display:inline-block;margin:0 0 .65rem;color:var(--accent-dark);font-size:.76rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.eyebrow{padding:.25rem .55rem;border-radius:999px;background:#fff}.hero h1{font-family:"Inter Tight",Inter,sans-serif;font-size:clamp(2rem,5vw,3.4rem);line-height:1;letter-spacing:-.055em;margin:0 0 .75rem}.hero p{max-width:780px;margin:0;color:var(--muted);font-size:1.02rem}.pills{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem}.pills span{padding:.3rem .6rem;border-radius:999px;background:#fff;border:1px solid #ead4ad;font-size:.82rem;font-weight:700}
+    section{padding-top:1.2rem}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.card{padding:1.05rem;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow)}.card h2{margin:0 0 .38rem;font-size:1.05rem;letter-spacing:-.025em}.card p{margin:0;color:var(--muted);font-size:.91rem}.section-title{margin:0 0 .75rem;font-size:1.35rem;letter-spacing:-.035em}
+    .materials-wrap{border-color:#ead4ad;background:linear-gradient(135deg,#fffaf0,#fff)}.materials{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}.material{padding:.95rem;border:1px solid #ead9b9;border-radius:12px;background:#fff}.material h3{margin:.1rem 0 .45rem;font-size:.96rem}.material p{margin:0;color:var(--muted);font-size:.86rem}.material a{display:inline-flex;align-items:center;justify-content:center;margin-top:.75rem;padding:.48rem .7rem;border:1px solid var(--accent);border-radius:8px;background:var(--accent);color:#fff;font-size:.82rem;font-weight:700}.material a:hover{background:var(--accent-dark);color:#fff}.notice{margin:.85rem 0 0;padding:.7rem .8rem;border-left:3px solid #c58a22;background:#fff;font-size:.82rem;color:var(--muted)}
+    .schedule-hint{margin:-.35rem 0 .75rem;color:var(--muted);font-size:.88rem}.schedule{display:grid;gap:.55rem}.week{display:grid;grid-template-columns:46px minmax(0,1fr) 118px;gap:.75rem;align-items:center;padding:.72rem .8rem;border:1px solid var(--line);border-radius:11px;background:#fff;cursor:pointer;transition:border-color .18s,box-shadow .18s}.week:hover,.week:focus-visible{border-color:#d6b16d;box-shadow:0 7px 18px rgba(154,99,0,.08);outline:none}.week.open{border-color:#c99436}.week-number{color:var(--accent);font-weight:800;font-size:.9rem}.week h3{margin:0;font-size:.94rem}.week p{margin:0;color:var(--muted);font-size:.82rem}.status{justify-self:end;color:#798399;font-size:.78rem;font-weight:800}.week-materials{grid-column:1/-1;margin:.08rem -.1rem -.08rem;padding:.72rem .1rem .08rem;border-top:1px solid var(--line);cursor:default}.week-materials[hidden]{display:none}.week-materials-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem .9rem}.week-materials p{font-size:.84rem}.resource-links{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.65rem}.resource-links a{padding:.36rem .58rem;border:1px solid #e3c895;border-radius:7px;background:#fff;font-size:.78rem;font-weight:700}.resource-note{margin-top:.55rem;color:#798399;font-size:.78rem}.current{border-color:#d6b16d;background:#fffaf0}.current .status{color:var(--accent)}.assessment{background:#f5f7fb}.assessment .week-number,.assessment .status{color:#566075}footer{padding:1.6rem 0 2.25rem;color:var(--muted);font-size:.9rem}
+    @media(max-width:820px){.grid,.materials{grid-template-columns:1fr}.nav{align-items:flex-start;flex-direction:column}.hero{padding:1.15rem}}@media(max-width:540px){.week{grid-template-columns:35px minmax(0,1fr)}.status{grid-column:2;justify-self:start}.week-materials{grid-column:1/-1}.week-materials-grid{grid-template-columns:1fr}.nav-links{gap:.65rem}}
+  </style>
+</head>
+<body>
+  <header><div class="container nav"><strong>Mohammad Sabokrou</strong><nav class="nav-links" aria-label="Primary"><a href="/">Home</a><a href="/publications/">Publications</a><a href="/talks/">Talks</a><a href="/teaching/">Teaching</a><a href="/people/">People</a><a href="/consulting/">Consulting</a><a href="/research/">Research</a><a href="/service/">Service</a><a href="/blog/">Writing</a></nav></div></header>
+  <main class="container">
+    <section class="hero">
+      <span class="eyebrow">New Uzbekistan University · School of Computing</span>
+      <h1>Computer Vision</h1>
+      <p>From images as numerical arrays to learned representations, detection, segmentation, tracking, and responsible evaluation. Each topic pairs a two-hour lecture with an experiment-led lab.</p>
+      <div class="pills"><span>16 weeks</span><span>2h lecture + 2h lab</span><span>CS &amp; AI</span><span>Google Colab</span></div>
+    </section>
+
+    <section class="grid" aria-label="Course information">
+      <article class="card"><span class="label">Instructor</span><h2>Mohammad Sabokrou</h2><p>Associate Professor<br>New Uzbekistan University</p></article>
+      <article class="card"><span class="label">Contact</span><h2><a href="mailto:m.sabokrou@newuu.uz">m.sabokrou@newuu.uz</a></h2><p>Email before an office visit to reserve a short time slot.</p></article>
+      <article class="card"><span class="label">Learning format</span><h2>Measure, break, repair</h2><p>Every lab uses evidence from code, including at least one failure case and an explicit evaluation step.</p></article>
+    </section>
+
+    <section id="course-materials">
+      <div class="card materials-wrap">
+        <span class="label">Student materials</span>
+        <h2 class="section-title">Start here</h2>
+        <div class="materials">
+          <article class="material"><span class="label">Lecture</span><h3>Session 1: Images as Numbers</h3><p>Why pixel matching fails and why useful representations must survive nuisance changes.</p><a href="./materials/Session01_Images_as_Numbers.pdf" target="_blank" rel="noopener">Open watermarked PDF</a></article>
+          <article class="material"><span class="label">Lab manual</span><h3>Student edition</h3><p>Lab 0 plus fifteen two-hour labs, with objectives, timing, deliverables, expected results, and common pitfalls.</p><a href="./materials/CV_Lab_Manual_Students.pdf" target="_blank" rel="noopener">Open watermarked PDF</a></article>
+          <article class="material"><span class="label">Lab 0</span><h3>Getting Set Up</h3><p>An executable Colab notebook that checks the toolchain, storage, reproducibility, and file round trips.</p><a href="./materials/Lab00_Getting_Set_Up.ipynb" download>Download notebook</a></article>
+        </div>
+        <p class="notice"><strong>Release note.</strong> Instructor solutions, marking rubrics, and internal production notes are intentionally not published. For Lab 11, review the current <a href="https://www.ultralytics.com/license" target="_blank" rel="noopener">Ultralytics licensing terms</a> before publishing or deploying a project.</p>
+      </div>
+    </section>
+
+    <section>
+      <span class="label">Semester schedule</span>
+      <h2 class="section-title">16-week learning plan</h2>
+      <p class="schedule-hint">Select any week to view its lecture focus, practical work, and available files.</p>
+      <div class="schedule">
+        <article class="week current"><div class="week-number">01</div><div><h3>Images as numbers</h3><p>Arrays, channels, bit depth, nuisance factors, and the limits of pixel matching.</p></div><span class="status">Materials ready</span></article>
+        <article class="week"><div class="week-number">02</div><div><h3>Light, colour, and histograms</h3><p>Image formation, colour spaces, contrast, and histogram equalisation.</p></div><span class="status">Planned</span></article>
+        <article class="week"><div class="week-number">03</div><div><h3>Filtering and edges</h3><p>Convolution, kernels, separability, gradients, and edge detection.</p></div><span class="status">Planned</span></article>
+        <article class="week"><div class="week-number">04</div><div><h3>Features and matching</h3><p>Corners, local descriptors, robust matching, RANSAC, and panoramas.</p></div><span class="status">Planned</span></article>
+        <article class="week"><div class="week-number">05</div><div><h3>Learning a classifier</h3><p>Linear models, softmax, loss functions, gradients, and optimisation.</p></div><span class="status">Planned</span></article>
+        <article class="week"><div class="week-number">06</div><div><h3>From filters to CNNs</h3><p>Learned filters, convolutional layers, feature maps, and receptive fields.</p></div><span class="status">Planned</span></article>
+        <article class="week"><div class="week-number">07</div><div><h3>Generalisation</h3><p>Overfitting, augmentation, uncertainty across runs, and controlled comparisons.</p></div><span class="status">Planned</span></article>
+        <article class="week assessment"><div class="week-number">08</div><div><h3>Midterm and consolidation</h3><p>Review the foundations, hand-designed features, learning, and generalisation.</p></div><span class="status">Assessment</span></article>
+        <article class="week"><div class="week-number">09</div><div><h3>Transfer learning</h3><p>Pretrained representations, frozen features, fair baselines, and negative transfer.</p></div><span class="status">Planned</span></article>
+        <article class="week"><div class="week-number">10</div><div><h3>Architectures and depth</h3><p>Residual connections, vanishing gradients, latency, and Pareto trade-offs.</p></div><span class="status">Planned</span></article>
+        <article class="week"><div class="week-number">11</div><div><h3>The detection problem</h3><p>Bounding boxes, IoU, non-maximum suppression, precision-recall, and AP.</p></div><span class="status">Planned</span></article>
+        <article class="week"><div class="week-number">12</div><div><h3>Detectors in practice</h3><p>Annotation, training, validation, failure analysis, and label quality.</p></div><span class="status">GPU lab</span></article>
+        <article class="week"><div class="week-number">13</div><div><h3>Segmentation</h3><p>Dense prediction, U-Net structure, overlap metrics, and boundary quality.</p></div><span class="status">Planned</span></article>
+        <article class="week"><div class="week-number">14</div><div><h3>Motion and tracking</h3><p>Optical flow, the aperture problem, association, and identity switches.</p></div><span class="status">Planned</span></article>
+        <article class="week"><div class="week-number">15</div><div><h3>Evaluation and error analysis</h3><p>Confidence intervals, group metrics, model cards, compression, and audit design.</p></div><span class="status">Project audit</span></article>
+        <article class="week"><div class="week-number">16</div><div><h3>Transformers, ethics, and demos</h3><p>Vision transformers, attention maps, failure cases, and responsible deployment.</p></div><span class="status">GPU lab</span></article>
+      </div>
+    </section>
+  </main>
+  <footer><div class="container">© 2026 Mohammad Sabokrou · Computer Vision</div></footer>
+  <script>
+    const weeklyMaterials = [
+      {lecture:'Chapter 1: images as arrays, nuisance factors, pixel distance, and representations',lab:'Complete Lab 0 before class. Lab 1 builds a pixel classifier, breaks it with brightness, and repairs it with normalisation.',links:[['Session 1 slides','./materials/Session01_Images_as_Numbers.pdf'],['Student lab manual','./materials/CV_Lab_Manual_Students.pdf'],['Lab 0 notebook','./materials/Lab00_Getting_Set_Up.ipynb']]},
+      {lecture:'Chapter 2: light, colour spaces, histograms, contrast, and image range conventions',lab:'Lab 2: implement histogram equalisation and measure when it increases noise.'},
+      {lecture:'Chapter 3: convolution, filtering, separability, gradients, and edge detection',lab:'Lab 3: write convolution by hand, verify it, and measure the speed gap.'},
+      {lecture:'Chapter 4: corners, descriptors, matching, homographies, and RANSAC',lab:'Lab 4: build a panorama, break it on a low-texture scene, and diagnose the failure.'},
+      {lecture:'Chapter 5: linear classifiers, softmax, cross-entropy, gradients, and learning rates',lab:'Lab 5: implement softmax regression and compare stable, slow, and divergent optimisation.'},
+      {lecture:'Chapter 6: learned filters, convolutions, feature maps, parameters, and receptive fields',lab:'Lab 6: learn oriented filters and test how data quantity changes what emerges.'},
+      {lecture:'Chapter 7: overfitting, augmentation, controlled comparisons, and repeated trials',lab:'Lab 7: pre-register a meaningful improvement and test whether it exceeds the error bars.'},
+      {lecture:'Review Chapters 1–7 and the evidence produced in Labs 1–7',lab:'Midterm assessment and correction session; no new practical topic.'},
+      {lecture:'Chapter 8: pretrained representations, frozen features, domain similarity, and negative transfer',lab:'Lab 8: measure when transfer helps and when it provides no measurable benefit.'},
+      {lecture:'Chapter 9: depth, residual learning, gradient flow, efficiency, and architecture selection',lab:'Lab 9: build an accuracy-latency frontier and justify a backbone under a stated constraint.'},
+      {lecture:'Chapter 10: boxes, IoU, NMS, precision-recall curves, and average precision',lab:'Lab 10: implement the detection metrics in NumPy and construct a case where NMS fails.'},
+      {lecture:'Chapter 11: data collection, annotation consistency, detector training, and grouped failures',lab:'Lab 11: annotate and train on a GPU. Annotation accounts and project access must be ready one week earlier.'},
+      {lecture:'Chapter 12: semantic segmentation, encoder-decoders, skip connections, Dice, IoU, and boundaries',lab:'Lab 12: compare global and boundary metrics and test the effect of skip connections.'},
+      {lecture:'Chapter 13: optical flow, motion constraints, detection-based tracking, and association',lab:'Lab 13: measure flow against known motion, force an identity switch, and propose a fix.'},
+      {lecture:'Chapter 14: uncertainty, group-level evaluation, error taxonomies, model cards, and compression',lab:'Lab 14: audit the project model with pre-defined groups, intervals, and a failure gallery.'},
+      {lecture:'Chapter 15: patch tokens, self-attention, interpretability limits, and deployment responsibility',lab:'Lab 15: inspect attention maps, demonstrate a failure, and present the final responsible-use reflection.'}
+    ];
+    document.querySelectorAll('.schedule .week').forEach((week,index)=>{
+      const item=weeklyMaterials[index];
+      const panel=document.createElement('div');
+      panel.className='week-materials'; panel.id=`week-materials-${String(index+1).padStart(2,'0')}`; panel.hidden=true;
+      const links=item.links||[['Student lab manual','./materials/CV_Lab_Manual_Students.pdf']];
+      panel.innerHTML=`<div class="week-materials-grid"><p><strong>Lecture:</strong> ${item.lecture}</p><p><strong>Lab / assessment:</strong> ${item.lab}</p></div><div class="resource-links">${links.map(([label,href])=>`<a href="${href}"${href.endsWith('.pdf')?' target="_blank" rel="noopener"':href.endsWith('.ipynb')?' download':''}>${label}</a>`).join('')}</div>${index>0?'<p class="resource-note">Weekly slides and notebooks will appear here when released.</p>':''}`;
+      week.appendChild(panel); week.tabIndex=0; week.setAttribute('role','button'); week.setAttribute('aria-expanded','false'); week.setAttribute('aria-controls',panel.id);
+      const toggle=()=>{const opening=panel.hidden;panel.hidden=!opening;week.classList.toggle('open',opening);week.setAttribute('aria-expanded',String(opening));};
+      week.addEventListener('click',event=>{if(!event.target.closest('a'))toggle();});
+      week.addEventListener('keydown',event=>{if(event.target===week&&(event.key==='Enter'||event.key===' ')){event.preventDefault();toggle();}});
+    });
+  </script>
+</body>
+</html>
