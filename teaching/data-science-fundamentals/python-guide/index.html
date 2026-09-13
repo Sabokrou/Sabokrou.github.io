@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Beginner Python guide for Lab 0 and home practice in Data Science Fundamentals at New Uzbekistan University.">
+  <title>Python Guide | Data Science Fundamentals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/site-shell.css">
+  <style>
+    :root{--bg:#f7f9fc;--surface:#fff;--text:#172033;--muted:#5b6475;--line:#e5e9f2;--accent:#1f5eff;--accent-dark:#1747bf;--soft:#eef4ff;--green:#087a55;--green-soft:#ecfdf5;--amber:#9a5b00;--amber-soft:#fff8e8;--max:980px;--radius:16px;--shadow:0 12px 28px rgba(16,24,40,.06)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}a{color:var(--accent);text-decoration:none}a:hover{color:var(--accent-dark)}.container{width:min(100% - 2rem,var(--max));margin:auto}header{position:sticky;top:0;z-index:10;padding:.9rem 0;border-bottom:1px solid var(--line);background:rgba(247,249,252,.94);backdrop-filter:blur(10px)}.nav{display:flex;justify-content:space-between;gap:1rem;align-items:center}.nav strong{font-size:.92rem}.nav a{font-size:.84rem;font-weight:700}main{padding:1.4rem 0 3rem}.hero,.card{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow)}.hero{padding:1.4rem;background:linear-gradient(135deg,var(--soft),#fff)}.eyebrow,.label{display:inline-block;margin-bottom:.55rem;color:var(--accent-dark);font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.hero h1{margin:0 0 .55rem;font-family:"Inter Tight",Inter,sans-serif;font-size:clamp(2rem,6vw,3.5rem);line-height:1;letter-spacing:-.05em}.hero p{max-width:760px;margin:0;color:var(--muted)}.pills{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.9rem}.pills span{padding:.28rem .58rem;border:1px solid #cfddff;border-radius:999px;background:#fff;font-size:.78rem;font-weight:700}.toc{display:flex;flex-wrap:wrap;gap:.45rem;margin:1rem 0}.toc a{padding:.38rem .62rem;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:.8rem;font-weight:700}.card{margin-top:1rem;padding:1.1rem}.card h2{margin:0 0 .55rem;font-size:1.28rem;letter-spacing:-.03em}.card h3{margin:1rem 0 .35rem;font-size:1rem}.card p{margin:.35rem 0;color:var(--muted)}.plan{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;margin-top:.8rem}.plan-item{padding:.75rem;border:1px solid var(--line);border-radius:10px;background:#fff}.plan-item strong{display:block;font-size:.88rem}.plan-item span{color:var(--muted);font-size:.8rem}.lesson{padding:1rem 0;border-top:1px solid var(--line)}.lesson:first-of-type{border-top:0}.exercise{margin:.75rem 0;padding:.8rem;border-left:4px solid var(--accent);border-radius:8px;background:var(--soft)}.exercise strong{font-size:.88rem}.exercise p,.exercise li{font-size:.84rem}.home{border-color:#f1d49e;background:linear-gradient(135deg,var(--amber-soft),#fff)}.check{border-color:#b9ead9;background:linear-gradient(135deg,var(--green-soft),#fff)}pre{overflow-x:auto;margin:.55rem 0;padding:.8rem;border-radius:10px;background:#172033;color:#f6f8ff;font:400 .82rem/1.55 "JetBrains Mono",monospace}code{font-family:"JetBrains Mono",monospace}p code,li code{padding:.1rem .28rem;border-radius:4px;background:#edf1f8;color:#263451;font-size:.86em}details{margin-top:.55rem;border:1px solid var(--line);border-radius:9px;background:#fff}summary{padding:.58rem .7rem;cursor:pointer;font-size:.82rem;font-weight:700}details>div{padding:0 .7rem .7rem}.rules{margin:.55rem 0;padding-left:1.25rem;color:var(--muted)}.rules li+li{margin-top:.28rem}.footer-note{margin-top:1rem;text-align:center;color:var(--muted);font-size:.8rem}@media(max-width:680px){.plan{grid-template-columns:1fr}.nav{align-items:flex-start;flex-direction:column}.hero,.card{padding:1rem}}
+  </style>
+</head>
+<body>
+  <header><div class="container nav"><strong>CS203 · Data Science Fundamentals</strong><a href="../">← Return to course page</a></div></header>
+  <main class="container">
+    <section class="hero">
+      <span class="eyebrow">Lab 0 + home practice</span>
+      <h1>Python Foundations for Data Science</h1>
+      <p>A practical guide for students who are new to Python. Type and run every example yourself—reading code is not the same as writing code.</p>
+      <div class="pills"><span>Beginner friendly</span><span>Google Colab</span><span>2-hour guided lab</span><span>60–90 min at home</span></div>
+    </section>
+
+    <nav class="toc" aria-label="Guide sections"><a href="#before">Before Lab 0</a><a href="#lab">During Lab 0</a><a href="#home">At home</a><a href="#check">Self-check</a></nav>
+
+    <section id="before" class="card">
+      <span class="label">Before Lab 0 · 20 minutes</span>
+      <h2>Prepare your workspace</h2>
+      <ol class="rules">
+        <li>Open Google Colab and create a new notebook named <code>CS203_Lab0_YourName.ipynb</code>.</li>
+        <li>Create <code>MyDrive/fds/data/</code> in Google Drive and place the course CSV files there.</li>
+        <li>Run <code>print("hello")</code>. If you see <code>hello</code>, the notebook is working.</li>
+        <li>Learn the two course rules: restart and run all before submission; interpret every result in a sentence.</li>
+      </ol>
+      <pre><code>from google.colab import drive
+drive.mount('/content/drive')
+
+DATA = "/content/drive/MyDrive/fds/data/"
+print("Setup complete")</code></pre>
+    </section>
+
+    <section id="lab" class="card">
+      <span class="label">During Lab 0 · guided practice</span>
+      <h2>Two-hour learning plan</h2>
+      <div class="plan">
+        <div class="plan-item"><strong>00–15 min · Colab</strong><span>Cells, execution order, comments, and errors</span></div>
+        <div class="plan-item"><strong>15–35 min · Values</strong><span>Variables, numbers, strings, and booleans</span></div>
+        <div class="plan-item"><strong>35–55 min · Decisions</strong><span>Comparisons and <code>if</code> statements</span></div>
+        <div class="plan-item"><strong>55–75 min · Repetition</strong><span>Lists and <code>for</code> loops</span></div>
+        <div class="plan-item"><strong>75–95 min · Functions</strong><span>Inputs, reusable steps, and return values</span></div>
+        <div class="plan-item"><strong>95–120 min · Data</strong><span>NumPy, pandas, a small challenge, and clean rerun</span></div>
+      </div>
+
+      <div class="lesson">
+        <h3>1. Variables and basic types</h3>
+        <p>A variable gives a name to a value. Use clear names that explain what the value means.</p>
+        <pre><code>student_name = "Aziza"       # string: text
+completed_labs = 3           # integer: whole number
+average_score = 82.5         # float: decimal number
+submitted = True             # boolean: True or False
+
+print(student_name, completed_labs, average_score, submitted)</code></pre>
+        <div class="exercise"><strong>Exercise A</strong><p>Create variables for your name, study programme, number of completed courses, and whether you have used Python before. Print one complete sentence using an f-string.</p><pre><code>print(f"My name is {student_name} and I study {programme}.")</code></pre></div>
+      </div>
+
+      <div class="lesson">
+        <h3>2. Comparisons and decisions</h3>
+        <p>Comparisons produce <code>True</code> or <code>False</code>. An <code>if</code> statement chooses what to do.</p>
+        <pre><code>score = 67
+
+if score >= 60:
+    result = "pass"
+else:
+    result = "review and try again"
+
+print(result)</code></pre>
+        <div class="exercise"><strong>Exercise B</strong><p>Add a third result: <code>"excellent"</code> for scores of 85 or above. Test your code with 52, 67, and 91.</p></div>
+      </div>
+
+      <div class="lesson">
+        <h3>3. Lists and loops</h3>
+        <p>A list stores several values. A loop applies the same action to each value.</p>
+        <pre><code>scores = [72, 85, 61, 90]
+
+total = 0
+for score in scores:
+    total = total + score
+
+mean_score = total / len(scores)
+print(mean_score)</code></pre>
+        <div class="exercise"><strong>Exercise C</strong><p>Count how many scores are at least 60. Then print the fraction that passed and explain it in a sentence.</p></div>
+      </div>
+
+      <div class="lesson">
+        <h3>4. Functions</h3>
+        <p>A function gives a name to a reusable operation. Inputs are parameters; <code>return</code> sends the result back.</p>
+        <pre><code>def pass_label(score, threshold=60):
+    if score >= threshold:
+        return "pass"
+    return "not yet"
+
+print(pass_label(72))
+print(pass_label(72, threshold=80))</code></pre>
+        <div class="exercise"><strong>Exercise D</strong><p>Write <code>percentage(part, whole)</code>. It should return <code>100 * part / whole</code>. Test it with 18 out of 24 students.</p></div>
+      </div>
+
+      <div class="lesson">
+        <h3>5. NumPy arrays and pandas tables</h3>
+        <p>NumPy works with numerical arrays. pandas works with labelled tables called DataFrames.</p>
+        <pre><code>import numpy as np
+import pandas as pd
+
+scores = np.array([72, 85, 61, 90])
+print("Mean:", scores.mean())
+
+students = pd.DataFrame({
+    "name": ["Ali", "Aziza", "Dilshod"],
+    "score": [72, 85, 61]
+})
+
+print(students.head())
+print(students["score"].mean())</code></pre>
+        <div class="exercise"><strong>Exercise E</strong><p>Add a boolean column named <code>passed</code>. Filter the table to show only passing students. Report the mean score in one sentence.</p><pre><code>students["passed"] = students["score"] >= 60
+passing_students = students[students["passed"]]
+print(passing_students)</code></pre></div>
+      </div>
+
+      <div class="lesson">
+        <h3>6. Read a course dataset</h3>
+        <pre><code>students = pd.read_csv(DATA + "students.csv")
+
+print(students.shape)
+print(students.head())
+print(students.dtypes)
+print(students.isna().sum())</code></pre>
+        <div class="exercise"><strong>Lab 0 checkpoint</strong><p>Answer in your notebook: What does one row represent? How many rows and columns are present? Which columns contain missing values? Why should you inspect these before analysis?</p></div>
+      </div>
+    </section>
+
+    <section id="home" class="card home">
+      <span class="label">After Lab 0 · 60–90 minutes</span>
+      <h2>Home practice</h2>
+      <p>Create a section titled <strong>Home Practice</strong> in the same notebook. Complete these without copying a finished solution.</p>
+      <ol class="rules">
+        <li><strong>Temperature conversion:</strong> write <code>celsius_to_fahrenheit(c)</code> and test it with 0, 20, and 37.</li>
+        <li><strong>Clean a list:</strong> from <code>[72, None, 85, 61, None, 90]</code>, create a new list without missing values and calculate its mean.</li>
+        <li><strong>Summarise data:</strong> load <code>students.csv</code>; report its dimensions and the number of missing values in each column.</li>
+        <li><strong>Filter carefully:</strong> select one categorical column, count its categories, and write one sentence interpreting the largest category.</li>
+        <li><strong>Debugging:</strong> deliberately create and then fix one <code>NameError</code>, one <code>TypeError</code>, and one indentation error. Explain each fix.</li>
+      </ol>
+      <p><strong>Finish correctly:</strong> choose Runtime → Restart and run all. The notebook must run from top to bottom without manual repair.</p>
+      <details><summary>Hints for home practice</summary><div><p>Use a loop with an <code>if</code> condition to remove <code>None</code>. For category counts, try <code>df[column].value_counts(dropna=False)</code>. Read the final line of an error message first.</p></div></details>
+    </section>
+
+    <section id="check" class="card check">
+      <span class="label">Self-check</span>
+      <h2>You are ready for Lab 1 if you can…</h2>
+      <ul class="rules">
+        <li>run Colab cells in the correct order and explain why order matters;</li>
+        <li>create variables, lists, conditions, loops, and simple functions;</li>
+        <li>load a CSV into pandas and inspect <code>shape</code>, <code>head()</code>, data types, and missing values;</li>
+        <li>filter rows and calculate a simple summary;</li>
+        <li>read an error message and make a reasonable first attempt to fix it;</li>
+        <li>restart and run the entire notebook successfully.</li>
+      </ul>
+      <details><summary>Check selected answers</summary><div><pre><code># Exercise B
+if score >= 85:
+    result = "excellent"
+elif score >= 60:
+    result = "pass"
+else:
+    result = "review and try again"
+
+# Exercise D
+def percentage(part, whole):
+    return 100 * part / whole
+
+# Home practice 2
+values = [72, None, 85, 61, None, 90]
+clean = [value for value in values if value is not None]
+mean_value = sum(clean) / len(clean)</code></pre><p>Compare only after writing and running your own attempt.</p></div></details>
+    </section>
+
+    <p class="footer-note">© 2026 Mohammad Sabokrou · New Uzbekistan University · Student learning guide</p>
+  </main>
+</body>
+</html>
