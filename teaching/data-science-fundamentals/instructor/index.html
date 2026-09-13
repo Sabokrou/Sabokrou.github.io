@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Instructor Portal | Data Science Fundamentals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/site-shell.css">
+  <style>
+    :root{--bg:#f7f9fc;--surface:#fff;--text:#172033;--muted:#5b6475;--line:#e5e9f2;--accent:#1f5eff;--accent-dark:#1747bf;--soft:#eef4ff;--danger:#b42318;--max:1040px;--radius:16px;--shadow:0 12px 28px rgba(16,24,40,.07)}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}.container{width:min(100% - 2rem,var(--max));margin:auto}a{color:var(--accent);text-decoration:none}a:hover{color:var(--accent-dark)}header{padding:1rem 0;border-bottom:1px solid var(--line);background:#fff}.nav{display:flex;justify-content:space-between;gap:1rem;align-items:center}.nav strong{font-weight:800}.nav a{font-size:.9rem;font-weight:700}main{padding:1.6rem 0 3rem}.hero,.unlock,.category{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow)}.hero{padding:1.35rem;background:linear-gradient(135deg,var(--soft),#fff)}.eyebrow{display:inline-block;margin-bottom:.5rem;color:var(--accent-dark);font-size:.76rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.hero h1{margin:0 0 .5rem;font-family:"Inter Tight",Inter,sans-serif;font-size:clamp(1.8rem,5vw,3rem);line-height:1.05;letter-spacing:-.045em}.hero p{max-width:760px;margin:0;color:var(--muted)}.security{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.9rem}.security span{padding:.27rem .55rem;border:1px solid #cfddff;border-radius:999px;background:#fff;font-size:.78rem;font-weight:700}.unlock{max-width:620px;margin:1rem auto 0;padding:1.2rem}.unlock h2{margin:0 0 .35rem;font-size:1.15rem}.unlock p{margin:0 0 .85rem;color:var(--muted);font-size:.9rem}.form-row{display:flex;gap:.55rem}.form-row input{flex:1;min-width:0;padding:.72rem .8rem;border:1px solid #cbd3e1;border-radius:9px;font:inherit}.form-row button,.download{padding:.7rem .85rem;border:1px solid var(--accent);border-radius:9px;background:var(--accent);color:#fff;font:700 .84rem Inter,sans-serif;cursor:pointer}.form-row button:hover,.download:hover{background:var(--accent-dark)}.form-row button:disabled,.download:disabled{cursor:wait;opacity:.7}.message{min-height:1.3rem;margin:.6rem 0 0!important;font-size:.82rem!important}.message.error{color:var(--danger)}.portal{display:grid;gap:.9rem;margin-top:1rem}.portal[hidden]{display:none}.portal-head{display:flex;justify-content:space-between;gap:1rem;align-items:end}.portal-head h2{margin:0;font-size:1.3rem}.portal-head p{margin:0;color:var(--muted);font-size:.83rem}.category{overflow:hidden}.category h3{margin:0;padding:.85rem 1rem;border-bottom:1px solid var(--line);background:#fafcff;font-size:1rem}.file{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.75rem;align-items:center;padding:.75rem 1rem;border-bottom:1px solid var(--line)}.file:last-child{border-bottom:0}.file-name{font-size:.88rem;font-weight:700;overflow-wrap:anywhere}.file-meta{color:var(--muted);font-size:.74rem}.download{padding:.43rem .62rem;font-size:.76rem}.file-status{grid-column:1/-1;color:var(--muted);font-size:.74rem}.warning{padding:.75rem .9rem;border:1px solid #f2d0cc;border-radius:10px;background:#fff7f6;color:#7a271a;font-size:.82rem}@media(max-width:600px){.nav,.portal-head{align-items:flex-start;flex-direction:column}.form-row{flex-direction:column}.file{grid-template-columns:1fr}.download{justify-self:start}}
+  </style>
+</head>
+<body>
+  <header><div class="container nav"><strong>Data Science Fundamentals</strong><a href="../">← Public course page</a></div></header>
+  <main class="container">
+    <section class="hero">
+      <span class="eyebrow">Restricted · Instructor and TA</span>
+      <h1>Instructor Portal</h1>
+      <p>Teaching notes, editable decks, planning documents, quality checks, dataset-generation code, and book figures for Mohammad Sabokrou and Amir Hossin Yari.</p>
+      <div class="security"><span>AES-256-GCM encrypted</span><span>Password not stored</span><span>Decrypted only in this browser</span></div>
+    </section>
+
+    <section id="unlock" class="unlock">
+      <h2>Unlock instructor materials</h2>
+      <p>Enter the shared instructor password. It is used only in memory and is never sent or saved.</p>
+      <form id="unlock-form" class="form-row">
+        <input id="password" type="password" autocomplete="current-password" placeholder="Instructor password" required aria-label="Instructor password">
+        <button id="unlock-button" type="submit">Unlock portal</button>
+      </form>
+      <p id="unlock-message" class="message" role="status" aria-live="polite"></p>
+    </section>
+
+    <section id="portal" class="portal" hidden>
+      <div class="portal-head"><div><span class="eyebrow">Authorized session</span><h2>Instructor resources</h2></div><p id="file-count"></p></div>
+      <p class="warning"><strong>Do not redistribute.</strong> These files contain speaker notes, model answers, assessment guidance, and dataset-generation details.</p>
+      <div id="categories"></div>
+    </section>
+  </main>
+
+  <script>
+    const ITERATIONS = 310000;
+    let activePassword = '';
+
+    async function decrypt(bytes, password) {
+      const data = new Uint8Array(bytes);
+      if (new TextDecoder().decode(data.slice(0, 4)) !== 'FDS1') throw new Error('Invalid encrypted file');
+      const salt = data.slice(4, 20);
+      const iv = data.slice(20, 32);
+      const encrypted = data.slice(32);
+      const baseKey = await crypto.subtle.importKey('raw', new TextEncoder().encode(password), 'PBKDF2', false, ['deriveKey']);
+      const key = await crypto.subtle.deriveKey({ name: 'PBKDF2', salt, iterations: ITERATIONS, hash: 'SHA-256' }, baseKey, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+      return crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, encrypted);
+    }
+
+    async function fetchParts(parts) {
+      const responses = await Promise.all(parts.map(part => fetch(part, { cache: 'no-store' })));
+      if (responses.some(response => !response.ok)) throw new Error('Encrypted file unavailable');
+      const chunks = await Promise.all(responses.map(response => response.arrayBuffer()));
+      const total = chunks.reduce((sum, chunk) => sum + chunk.byteLength, 0);
+      const joined = new Uint8Array(total);
+      let offset = 0;
+      chunks.forEach(chunk => { joined.set(new Uint8Array(chunk), offset); offset += chunk.byteLength; });
+      return joined.buffer;
+    }
+
+    function formatSize(bytes) {
+      if (bytes < 1024) return `${bytes} B`;
+      if (bytes < 1048576) return `${(bytes / 1024).toFixed(1)} KB`;
+      return `${(bytes / 1048576).toFixed(1)} MB`;
+    }
+
+    function render(manifest) {
+      const host = document.getElementById('categories');
+      const groups = Object.groupBy ? Object.groupBy(manifest.files, file => file.category) : manifest.files.reduce((all, file) => ((all[file.category] ||= []).push(file), all), {});
+      host.replaceChildren();
+      Object.entries(groups).forEach(([name, files]) => {
+        const section = document.createElement('section');
+        section.className = 'category';
+        const heading = document.createElement('h3');
+        heading.textContent = name;
+        section.appendChild(heading);
+        files.forEach(file => {
+          const row = document.createElement('div');
+          row.className = 'file';
+          row.innerHTML = `<div><div class="file-name"></div><div class="file-meta"></div></div><button class="download" type="button">Decrypt &amp; download</button><span class="file-status" aria-live="polite"></span>`;
+          row.querySelector('.file-name').textContent = file.name;
+          row.querySelector('.file-meta').textContent = `${file.path} · ${formatSize(file.size)}`;
+          const button = row.querySelector('button');
+          const status = row.querySelector('.file-status');
+          button.addEventListener('click', async () => {
+            button.disabled = true;
+            status.textContent = 'Decrypting locally…';
+            try {
+              const sealed = await fetchParts(file.parts);
+              const plain = await decrypt(sealed, activePassword);
+              const url = URL.createObjectURL(new Blob([plain], { type: file.mime }));
+              const link = document.createElement('a');
+              link.href = url;
+              link.download = file.name;
+              document.body.appendChild(link);
+              link.click();
+              link.remove();
+              setTimeout(() => URL.revokeObjectURL(url), 60000);
+              status.textContent = 'Download ready.';
+            } catch (error) {
+              status.textContent = 'Could not decrypt this file.';
+            } finally {
+              button.disabled = false;
+            }
+          });
+          section.appendChild(row);
+        });
+        host.appendChild(section);
+      });
+      document.getElementById('file-count').textContent = `${manifest.files.length} encrypted files`;
+    }
+
+    document.getElementById('unlock-form').addEventListener('submit', async event => {
+      event.preventDefault();
+      const password = document.getElementById('password').value;
+      const button = document.getElementById('unlock-button');
+      const message = document.getElementById('unlock-message');
+      button.disabled = true;
+      message.className = 'message';
+      message.textContent = 'Checking password…';
+      try {
+        const response = await fetch('./assets/manifest.enc', { cache: 'no-store' });
+        if (!response.ok) throw new Error('Manifest unavailable');
+        const plain = await decrypt(await response.arrayBuffer(), password);
+        const manifest = JSON.parse(new TextDecoder().decode(plain));
+        activePassword = password;
+        render(manifest);
+        document.getElementById('unlock').hidden = true;
+        document.getElementById('portal').hidden = false;
+      } catch (error) {
+        message.className = 'message error';
+        message.textContent = 'Incorrect password or encrypted files are unavailable.';
+      } finally {
+        button.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
