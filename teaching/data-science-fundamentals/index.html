@@ -70,6 +70,7 @@
           <article class="material"><span class="label">Textbook</span><h3>Volume 1 Main Text</h3><p>Fundamentals of Data Science: 15 chapters, worked examples, and figures.</p><button id="main-text-download" type="button">Download PDF</button><span id="main-text-status" class="download-status"></span></article>
           <article class="material"><span class="label">Reference</span><h3>Volume 2 Reference and Solutions</h3><p>Model answers, code cookbook, formulas, decision tables, and glossary.</p><button id="reference-download" type="button">Download PDF</button><span id="reference-status" class="download-status"></span></article>
           <article class="material"><span class="label">Python</span><h3>Python learning guide</h3><p>Guided exercises for Lab 0, followed by 60–90 minutes of home practice.</p><a href="./python-guide/">Open guide</a></article>
+          <article class="material"><span class="label">Data</span><h3>Course datasets</h3><p>Seven synthetic CSV files for labs and home practice.</p><a href="./datasets/">Download datasets</a></article>
           <article class="material"><span class="label">Lab</span><h3>Lab Manual</h3><p>Lab 0 preparation plus the complete set of twelve two-hour labs.</p><a href="./materials/Lab_Manual.pdf" target="_blank" rel="noopener">Open PDF</a></article>
         </div>
       </div>
@@ -144,7 +145,7 @@ assembledDownloads.forEach(({ buttonId, statusId, parts, filename }) => {
 });
 
 const weeklyMaterials = [
-  { reading: 'Chapters 1–2: questions, rows, variables, sources, and samples', lab: 'Lab 0: Python foundations and home practice; Lab 1: rows, joins, and what is missing', links: [['Python learning guide', './python-guide/'], ['Week 1 slides', './materials/week-1-lecture.pdf'], ['Week 1 lab guide', './materials/week-1-lab-guide.pdf'], ['Lab manual', './materials/Lab_Manual.pdf']] },
+  { reading: 'Chapters 1–2: questions, rows, variables, sources, and samples', lab: 'Lab 0: Python foundations and home practice; Lab 1: rows, joins, and what is missing', links: [['Python learning guide', './python-guide/'], ['Course datasets', './datasets/'], ['Week 1 slides', './materials/week-1-lecture.pdf'], ['Week 1 lab guide', './materials/week-1-lab-guide.pdf'], ['Lab manual', './materials/Lab_Manual.pdf']] },
   { reading: 'Chapter 3: centre, spread, distributions, skew, and outliers', lab: 'Lab 2: summaries by hand, then in code' },
   { reading: 'Chapter 4: missingness, duplicates, data types, and reproducible checks', lab: 'Lab 3: clean the registry export' },
   { reading: 'Chapter 5: scaling, encoding, features, and safe preprocessing', lab: 'Lab 4: pipelines and leakage' },

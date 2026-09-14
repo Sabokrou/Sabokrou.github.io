@@ -1,0 +1,1206 @@
+student_id,programme,entry_cohort,entry_score,study_mode,age_at_entry,first_generation,registered_on
+101074,Computer Science,2024,59.0,Full-time,18,False,"May 24, 2025"
+100859,Computer Science,2025,65.5,Full-time,19,False,2026-01-24
+100368,Psychology,2026,73.8,Full-time,20,True,2025-08-29
+100142,Biology,2025,68.0,Full-time,19,False,"Feb 07, 2026"
+100670,Computer Science,2025,54.7,Full-time,21,False,2024-12-02
+100356,Economics,2026,66.7,Full-time,19,False,2025-02-19
+100152,biology,2024,73.2,Full-time,17,,2024-12-23
+100337,Economics,2026,54.8,Full-time,,,"Oct 08, 2024"
+101042,Economics,2024,84.7,Full-time,21,False,17/11/2025
+100047,Computer Science,2026,73.0,Full-time,19,False,16/04/2026
+100455,Psychology,2025,60.8,Full-time,18,False,2025-04-02
+100129,Computer Science,2024,76.9,Full-time,18,False,2024-10-03
+100035,Biology,2025,55.4,Part-time,27,False,2024-12-15
+100281,Psychology,2024,73.6,Part-time,31,True,"Apr 27, 2026"
+100596, Computer Science  ,2026,70.0,Full-time,20,True,"Oct 14, 2025"
+100725,computer science,2024,66.1,Full-time,19,False,08/07/2026
+101000,Economics,2025,61.6,Full-time,19,False,04/05/2026
+100524,Computer Science,2024,67.6,Full-time,17,True,2026-01-02
+101011,Psychology,2026,73.8,Full-time,18,True,"Jun 30, 2026"
+100110,Biology,2024,64.8,Full-time,19,True,2025-02-01
+100688,Psychology,2024,49.3,Full-time,19,False,2025-05-28
+100893,Economics,2026,63.0,Full-time,20,True,2025-11-15
+100869,Biology,2025,63.9,Full-time,,False,2026-04-24
+100936,Psychology,2026,64.5%,Full-time,20,,24/04/2026
+101046,Psychology,2024,53.1,Full-time,19,True,2026-03-12
+100052,Computer Science,2025,,Full-time,22,False,"Jan 28, 2026"
+100598,Economics,2026,60.5,Full-time,20,False,2026-06-17
+101120,Computer Science,2026,51.6,Part-time,21,False,2025-05-13
+100410,Computer Science,2025,55.7,Full-time,18,False,2024-09-25
+100187,Computer Science,2025,73.4,Full-time,19,False,2025-05-11
+100409,Psychology,2026,58.2,Full-time,19,False,09/09/2025
+100141,Psychology,2026,65.7,Full-time,19,False,16/11/2025
+100951,Computer Science,2026,37.1,Full-time,19,True,2025-12-03
+100364,Psychology,2025,54.4,Full-time,19,False,2026-07-30
+100064,Computer Science,2024,47.6,Full-time,17,False,2026-02-09
+101171,Biology,2026,77.6,Full-time,21,False,16/03/2025
+101174,Economics,2024,71.2,Full-time,18,False,09/01/2025
+101015,Biology,2026,66.1,Part-time,30,False,2025-09-02
+100099,Psychology,2024,79.1,Full-time,19,,2025-05-20
+100190,Economics,2025,39.6,Full-time,19,False,"Feb 18, 2025"
+100622,Computer Science,2024,49.1,Full-time,19,True,2025-03-03
+100221,Psychology,2024,72.1,Full-time,18,False,2025-11-16
+100667,Psychology,2025,80.0,Full-time,19,False,24/01/2026
+100413,Biology,2025,58.4,Part-time,,True,2025-10-03
+101017,Biology,2025,61.7,Full-time,21,,2024-10-31
+100641, Economics  ,2025,74.0%,Full-time,20,False,2024-11-16
+101079,Computer Science,2025,81.0,Full-time,19,False,2025-08-29
+100484,Computer Science,2026,56.8,Full-time,22,True,2026-02-10
+100998,Computer Science,2024,79.2,Part-time,29,False,2026-03-21
+100699,Computer Science,2024,82.2,Full-time,20,False,2025-12-25
+100559,Economics,2025,74.7,Full-time,21,True,2025-07-24
+101182,Biology,2026,65.0,Full-time,19,True,30/07/2025
+100114,Biology,2026,54.6,Full-time,18,True,2026-07-12
+100512,Biology,2024,65.6,Full-time,21,True,"Mar 05, 2025"
+100217,Biology,2026,60.7,Full-time,20,False,2025-02-10
+100527,Biology,2026,78.5,Full-time,19,False,2024-12-11
+100351,Computer Science,2026,75.5,Full-time,,True,2025-02-17
+101110,Biology,2025,60.7,Full-time,19,False,09/11/2025
+101090,biology,2024,61.0,Full-time,22,False,"Jan 10, 2025"
+101040,Computer Science,2024,45.8,Full-time,20,True,2024-11-08
+100084,Biology,2026,59.6,Full-time,19,False,09/05/2026
+100010,Psychology,2025,81.0,Full-time,20,False,2025-05-03
+100819,Biology,2025,69.7,Full-time,20,False,2025-03-31
+100054,Economics,2025,57.4%,Full-time,18,False,2026-03-30
+100672,Computer Science,2026,68.9,Full-time,20,True,23/04/2025
+101066,Biology,2026,52.5,Part-time,26,False,2026-06-05
+100253,computer science,2025,58.5,Full-time,1,False,2026-08-10
+101024,Psychology,2025,51.2,Full-time,19,False,2025-11-16
+100474,Psychology,2024,62.6,Full-time,18,True,2026-03-20
+100790,Psychology,2025,59.5,Full-time,18,True,2024-11-02
+100263,Computer Science,2025,67.9,Full-time,19,True,25/02/2026
+100386, Economics  ,2026,52.1,Part-time,30,,2025-03-23
+100797,Economics,2026,65.5,Full-time,21,False,2025-07-28
+100836,Economics,2024,80.5,Part-time,27,False,2024-10-17
+100644,Economics,2026,50.8,Full-time,17,False,"Nov 22, 2025"
+100586,Biology,2025,57.6,Part-time,27,False,04/03/2026
+100173,Economics,2025,60.2,Full-time,21,False,2025-02-02
+100279,Psychology,2024,35.0,Full-time,17,False,2025-10-30
+101095,computer science,2024,60.7,Full-time,21,False,2026-01-25
+100846,Biology,2025,75.7,Full-time,20,False,2025-01-05
+100206,Computer Science,2026,61.5,Full-time,18,False,"Oct 20, 2025"
+100542,biology,2025,73.7,Part-time,29,True,2025-12-28
+100532,Computer Science,2026,83.8,Full-time,20,True,30/04/2026
+100628,Psychology,2026,71.5,Full-time,19,True,"Sep 06, 2025"
+100055,biology,2025,61.1,Part-time,33,False,22/03/2025
+100317,Biology,2024,80.8,Full-time,19,False,2026-06-01
+100493,Computer Science,2025,76.1,Full-time,19,True,2026-01-18
+100713,Economics,2026,55.7,Full-time,20,False,"Feb 22, 2026"
+100862,Biology,2026,53.9,Full-time,21,False,2026-04-14
+100791,Biology,2026,43.2,Full-time,18,False,03/02/2026
+100431,Economics,2026,54.4,Part-time,18,True,"Jul 31, 2025"
+100147,Computer Science,2025,52.4,Full-time,20,False,2025-03-28
+100715,Computer Science,2026,60.8,Part-time,23,False,13/03/2026
+100171,Computer Science,2025,67.4,Full-time,20,True,2026-04-19
+100041,Economics,2025,53.1,Full-time,20,False,06/05/2026
+100507,Psychology,2025,58.3,Full-time,17,False,05/06/2025
+100817, Computer Science  ,2024,58.0,Full-time,17,False,2026-04-05
+101194,Biology,2024,75.0,Full-time,21,False,2024-11-01
+100232,Biology,2026,56.8,Full-time,21,False,2025-07-03
+100102,Psychology,2025,60.6,Full-time,21,False,30/11/2024
+100798,Computer Science,2024,58.7,Full-time,21,False,2026-06-25
+101021,Biology,2025,60.5,Full-time,18,False,13/04/2025
+100373,Biology,2026,72.9,Full-time,21,False,08/11/2024
+100523,Biology,2025,64.4,Full-time,21,False,2024-10-10
+100563,Computer Science,2026,80.3,Full-time,20,True,2025-12-23
+100098,Psychology,2026,50.0,Full-time,20,False,2024-09-16
+100681,Computer Science,2026,73.3,Full-time,17,False,2026-02-16
+100658,Computer Science,2026,65.9,Full-time,,False,12/09/2025
+100956,Biology,2024,82.5,Full-time,18,False,2025-08-20
+100752,Psychology,2025,63.1,Full-time,22,True,2025-03-03
+100552,Computer Science,2026,70.8,Full-time,22,,22/04/2025
+100668,Biology,2026,67.7,Full-time,20,True,25/03/2026
+101143,Computer Science,2026,66.2,Full-time,21,True,"Apr 12, 2026"
+100599,economics,2026,77.6,Full-time,18,False,2026-02-09
+100558,Computer Science,2025,61.8,Part-time,24,True,28/06/2025
+100701,Computer Science,2024,71.9,Full-time,20,True,16/11/2024
+100758,Psychology,2026,44.1,Full-time,23,True,2025-04-19
+100419,Biology,2026,58.6,Part-time,24,False,06/11/2025
+100854,Psychology,2026,58.5,Full-time,21,False,"Jul 14, 2026"
+100881,Economics,2025,77.7,Full-time,20,False,26/05/2026
+100978,Computer Science,2026,,Full-time,18,False,2024-11-06
+100843,Computer Science,2024,46.2,Full-time,20,False,"Dec 01, 2024"
+100180,computer science,2026,56.2,Part-time,25,False,"Oct 22, 2025"
+100756,Computer Science,2024,65.3,Full-time,19,False,2024-11-14
+100375,Psychology,2025,56.7,Full-time,23,False,01/12/2024
+101028,Computer Science,2026,76.3,Full-time,20,False,09/09/2025
+100627,Biology,2024,72.3,Full-time,19,True,2024-12-30
+100996,Biology,2025,58.2,Full-time,17,False,2024-10-16
+100531,Computer Science,2024,60.6,Full-time,21,False,2026-04-01
+101178,Psychology,2025,58.2,Full-time,19,,08/12/2024
+101157,Psychology,2026,55.7,Full-time,19,False,2025-08-14
+100018,Biology,2026,75.0,Full-time,21,False,2025-10-29
+100557,biology,2025,52.1,Full-time,23,False,2025-05-21
+100254,Economics,2024,50.2,Part-time,25,False,2025-09-26
+101140,Computer Science,2025,50.0,Full-time,220,False,16/09/2025
+100743,biology,2024,52.1,Full-time,18,False,09/01/2025
+100511,Computer Science,2024,78.6,Full-time,20,False,"Nov 01, 2024"
+100397,Biology,2024,54.9,Full-time,21,True,"Jan 20, 2026"
+100697,Psychology,2026,64.7,Full-time,17,True,2024-11-18
+100286, Economics  ,2025,72.1,Full-time,17,False,"May 13, 2025"
+101168,Biology,2024,44.9,Full-time,20,False,2025-01-07
+100545,Biology,2024,56.6,Part-time,24,False,17/12/2025
+100453,Biology,2026,,Part-time,27,False,22/03/2025
+100427,Biology,2024,69.9,Part-time,27,False,2024-09-17
+100664,Psychology,2024,44.1,Full-time,,False,2024-11-14
+100327,Economics,2025,84.3,Full-time,19,False,2026-01-03
+100109, Biology  ,2026,75.8,Full-time,21,False,2025-05-29
+100649,Computer Science,2024,52.2,Part-time,27,False,"Jun 14, 2026"
+101086,Economics,2025,48.3,Full-time,22,True,04/01/2026
+100963,Computer Science,2026,72.2,Full-time,18,True,2025-07-09
+100100,Computer Science,2025,62.1,Full-time,18,False,"May 03, 2025"
+100735,Psychology,2026,,Part-time,27,False,2025-02-23
+100205,Economics,2024,78.4,Full-time,24,True,2024-10-10
+100856,Economics,2025,46.4,Full-time,18,True,06/06/2025
+101059,Biology,2025,,Full-time,17,False,2025-10-26
+100891, Psychology  ,2026,68.4,Full-time,17,False,2025-12-07
+100612,Economics,2025,,Part-time,27,False,02/10/2025
+100254,Economics,2024,71.5,Part-time,25,False,2026-02-02
+100795,Psychology,2026,66.3,Full-time,20,False,2024-11-20
+100767,Computer Science,2024,50.2,Full-time,22,False,2026-03-02
+100972,Economics,2025,50.6,Full-time,20,False,07/02/2025
+100464,Computer Science,2026,65.1,Full-time,20,True,2025-06-20
+100264,Computer Science,2024,72.9,Full-time,21,,2026-01-03
+100816,Computer Science,2025,57.9,Full-time,21,False,2025-08-06
+100285,Biology,2026,,Full-time,18,,2026-02-19
+100024,Computer Science,2025,51.2,Part-time,24,False,2024-10-09
+100801,Psychology,2026,58.1,Full-time,20,True,2025-06-05
+100229,Computer Science,2024,84.4,Part-time,20,False,2025-09-04
+101102,Computer Science,2024,85.6,Full-time,20,False,05/10/2025
+101022,Biology,2026,53.5,Part-time,25,False,12/07/2026
+100380,Economics,2026,82.4,Full-time,21,False,"May 08, 2026"
+100265,Psychology,2025,67.8,Full-time,18,False,2026-01-21
+100124,Computer Science,2025,66.4,Full-time,20,True,2026-05-03
+100634,Psychology,2026,75.5%,Full-time,20,True,2025-08-05
+100779,Biology,2026,66.3,Full-time,17,False,03/02/2026
+101075,Economics,2026,,Full-time,20,True,28/11/2024
+100744,Economics,2024,72.4,Part-time,21,False,05/05/2025
+100271,Economics,2025,80.9,Full-time,19,False,2024-09-29
+100508,Economics,2024,57.3,Full-time,,True,2026-01-20
+101179,Biology,2026,69.7,Full-time,23,True,10/05/2026
+100656,Psychology,2026,58.0,Part-time,30,False,2026-06-15
+100805,Economics,2024,57.8,Part-time,21,False,"Oct 20, 2024"
+100071,Biology,2026,79.7,Part-time,31,False,2025-10-06
+100958,Economics,2026,,Part-time,21,False,2024-12-28
+100398,Economics,2025,61.3,Full-time,20,False,2025-05-29
+100172,Biology,2024,53.8,Part-time,26,False,2026-05-16
+100818,Computer Science,2026,54.9,Full-time,18,False,2025-02-08
+100169,Psychology,2026,74.5,Full-time,18,True,2026-02-08
+100468,Biology,2025,70.9,Full-time,20,False,2025-07-12
+100307, Psychology  ,2025,37.0,Full-time,21,,30/07/2026
+100633,Economics,2026,75.2,Full-time,20,False,2025-07-24
+100126,Biology,2024,81.6,Full-time,19,False,2024-12-25
+100362,Biology,2024,65.6,Full-time,20,,"Oct 21, 2024"
+100284,Biology,2024,63.5,Part-time,17,False,10/05/2026
+100165,computer science,2025,87.0,Full-time,0,False,01/05/2026
+100771,Biology,2025,84.9,Full-time,,False,2025-05-24
+100494,Computer Science,2025,57.8,Full-time,17,False,2025-07-30
+100971,Biology,2025,47.8,Part-time,29,True,2024-11-06
+100043,Biology,2024,70.0,Full-time,19,False,26/04/2025
+100755,Computer Science,2026,63.9,Full-time,19,False,2024-09-22
+100884,Economics,2025,54.4,Full-time,21,False,"Apr 17, 2025"
+100359, Biology  ,2024,53.1,Full-time,18,False,2026-06-06
+100133,Economics,2025,71.9,Full-time,18,True,"Nov 23, 2024"
+100526,Biology,2024,71.5,Part-time,33,True,05/12/2024
+100620,Computer Science,2024,92.2,Full-time,19,True,2024-10-27
+100039,Economics,2025,49.1,Full-time,20,False,14/03/2026
+100529,Computer Science,2026,71.0,Full-time,19,False,2025-04-01
+100565,Economics,2024,81.1,Part-time,26,False,2026-06-24
+100335,Psychology,2024,80.2,Full-time,18,,2026-05-07
+101125,Biology,2026,,Full-time,20,False,2026-01-15
+100378,Economics,2024,65.1,Full-time,18,False,2026-06-16
+100882,Psychology,2025,58.6,Part-time,24,False,"Jul 25, 2026"
+100734,Psychology,2025,54.3,Full-time,20,True,26/02/2025
+100014,Economics,2025,70.9,Full-time,22,False,2025-11-04
+100167,Economics,2026,61.7,Full-time,18,True,2026-01-28
+101043, Biology  ,2025,,Full-time,20,True,20/07/2025
+100225,Biology,2025,75.3,Full-time,22,False,2025-04-22
+100564,Economics,2026,61.8,Full-time,19,False,06/12/2024
+100692,Computer Science,2025,67.7,Full-time,20,False,"Jul 07, 2026"
+100452,Economics,2025,44.9,Part-time,32,False,11/04/2025
+100319,economics,2026,76.0,Full-time,21,False,2024-12-15
+100914,Psychology,2024,60.9,Full-time,20,True,2025-01-23
+100021,Biology,2025,71.1,Full-time,22,False,"Apr 30, 2025"
+100867,Psychology,2024,69.8,Full-time,21,False,"Sep 26, 2024"
+100072,Economics,2024,65.8%,Full-time,18,False,28/06/2025
+100852,Computer Science,2025,76.2,Part-time,27,True,"May 07, 2026"
+100651,Computer Science,2025,86.7,Full-time,18,True,2026-07-26
+100061,Economics,2024,58.2,Full-time,20,False,13/05/2025
+100352,economics,2025,60.1,Full-time,20,False,25/03/2026
+100111,Economics,2026,65.1,Full-time,21,False,"Dec 21, 2025"
+100005,Computer Science,2024,51.8,Part-time,30,False,2026-01-28
+101134,Biology,2024,62.4,Full-time,21,False,2025-10-16
+100579,Computer Science,2024,67.8,Full-time,19,True,2025-11-29
+100514,Economics,2026,68.9,Full-time,22,False,2024-11-02
+101199,Biology,2026,60.1,Part-time,33,False,01/06/2025
+100326,Computer Science,2026,67.6,Part-time,28,False,2025-03-13
+100290,Biology,2026,,Full-time,20,False,2024-12-06
+101026,Biology,2024,78.1,Full-time,18,False,2025-09-17
+100669,biology,2026,69.9,Full-time,17,False,20/06/2026
+100778,Biology,2024,68.4,Full-time,20,True,2026-03-12
+101063,Economics,2025,,Full-time,19,False,2026-07-26
+100504,Biology,2026,55.3,Full-time,17,False,25/03/2025
+101061,Biology,2024,36.7,Part-time,33,False,2026-04-01
+100095,Biology,2024,67.9,Full-time,21,True,09/08/2025
+100096,Economics,2024,,Full-time,21,True,2026-06-01
+100961,Economics,2025,74.7,Full-time,18,False,2026-01-30
+100499,Biology,2026,,Full-time,22,True,21/12/2024
+100490,Economics,2026,,Part-time,29,True,17/02/2026
+100509,Computer Science,2024,85.2,Full-time,18,True,25/06/2026
+100898,Biology,2026,77.4,Full-time,20,False,15/03/2025
+101080,Biology,2025,65.1,Full-time,19,False,08/04/2026
+100723,Psychology,2026,56.3,Part-time,22,False,2025-12-18
+100059,Psychology,2026,,Full-time,23,False,2026-05-28
+100208, Psychology  ,2026,78.0,Full-time,18,True,"Jun 25, 2025"
+100666,Economics,2024,74.9,Full-time,18,,2026-05-15
+100954,Biology,2024,81.6,Full-time,22,False,2025-08-14
+100510,Computer Science,2025,65.1,Part-time,24,False,18/04/2026
+100025,Biology,2026,56.5,Part-time,22,False,06/05/2025
+101035,Biology,2024,84.4,Full-time,22,False,"Mar 11, 2025"
+100245,Biology,2025,73.0,Full-time,19,False,28/06/2025
+100026,Computer Science,2026,68.5,Full-time,19,False,2025-07-18
+100223,Biology,2025,48.3,Full-time,22,,30/11/2024
+100821,Economics,2025,55.4,Full-time,22,True,2025-05-29
+101013,Computer Science,2025,75.2,Full-time,21,False,04/10/2025
+101071,Computer Science,2025,55.2,Part-time,26,True,2026-01-03
+100131,Economics,2024,86.3,Full-time,21,True,"Sep 21, 2025"
+100154, Biology  ,2025,53.1,Part-time,26,True,2026-03-03
+100834,Computer Science,2024,99.0,Full-time,20,False,2025-12-23
+100937,Economics,2026,65.9,Full-time,19,False,"Jan 31, 2026"
+100889,Biology,2025,67.6,Full-time,18,False,23/02/2025
+101014,Biology,2025,68.5,Full-time,22,,2026-07-03
+100076,Psychology,2025,64.2,Full-time,17,False,23/03/2026
+100907,Psychology,2026,61.4,Full-time,17,True,"Aug 06, 2026"
+101056,Computer Science,2024,61.1,Full-time,21,False,2025-06-22
+101121,psychology,2025,52.6,Full-time,20,False,2024-09-15
+100309,Psychology,2026,54.2,Full-time,,False,"Jun 27, 2026"
+100949,Biology,2026,88.7,Full-time,20,True,"Jul 13, 2026"
+100519,Computer Science,2025,86.7,Full-time,20,True,2026-06-28
+100200,Biology,2025,71.0,Full-time,17,False,13/07/2026
+100831,Economics,2024,69.6,Full-time,21,True,21/01/2026
+100135, Economics  ,2024,48.3,Full-time,19,False,04/03/2025
+100732,Psychology,2025,68.6%,Full-time,20,False,"Oct 09, 2025"
+100260,Computer Science,2025,72.9,Full-time,20,,2025-09-03
+100757, Biology  ,2025,65.2,Full-time,21,True,2026-07-09
+100004,Computer Science,2025,62.7%,Full-time,23,,"Aug 24, 2025"
+100518,Computer Science,2024,62.1,Part-time,29,False,"Jun 24, 2025"
+100505,Psychology,2024,79.1,Full-time,20,False,2025-10-01
+100197,Biology,2024,58.3,Full-time,17,True,13/08/2026
+100572,Psychology,2025,57.8,Full-time,21,True,2024-12-10
+100570,Computer Science,2026,61.6,Full-time,21,False,2026-01-08
+100027,computer science,2024,40.9,Full-time,22,True,2026-06-21
+100340,Economics,2026,60.3,Full-time,20,False,2025-07-06
+100906,Computer Science,2025,,Full-time,22,,2025-10-25
+101115,Computer Science,2024,71.2,Full-time,20,False,2026-02-15
+100306,Economics,2026,73.8,Full-time,19,True,29/06/2026
+100062,Biology,2024,59.0,Full-time,19,False,"Jul 28, 2025"
+101038,Biology,2025,61.2,Full-time,18,False,05/06/2025
+101173,Psychology,2026,72.6,Full-time,20,False,2025-11-29
+100722,Psychology,2024,73.2,Full-time,18,True,2025-12-03
+100659,Biology,2024,59.2,Full-time,20,True,"Feb 03, 2025"
+101099,Economics,2024,63.3,Full-time,21,False,2025-01-15
+100748,Economics,2024,78.3,Part-time,26,True,"Jul 20, 2026"
+100345,Computer Science,2024,,Full-time,18,False,2025-01-01
+100730,Computer Science,2024,44.4%,Full-time,19,False,2024-11-06
+100421,Biology,2024,60.3,Full-time,20,False,2026-05-24
+100433,Computer Science,2025,74.2,Full-time,19,True,2025-05-14
+100864, Biology  ,2025,70.8,Part-time,29,False,2026-04-26
+100009,Computer Science,2026,67.4%,Full-time,21,False,01/12/2025
+100786,Economics,2025,67.0,Full-time,20,False,2025-05-26
+100587,Psychology,2025,35.0,Part-time,22,False,20/02/2025
+101029,Biology,2025,76.1,Full-time,22,False,2025-08-21
+100460,Economics,2024,50.6,Full-time,18,False,2025-02-02
+100636,Computer Science,2024,56.3,Part-time,25,False,2024-10-09
+100793,Biology,2025,,Full-time,20,False,2025-11-24
+100447,Economics,2025,66.1,Full-time,,,2026-01-16
+100075,Economics,2025,65.6,Full-time,21,False,2026-06-15
+100678,Economics,2024,78.5,Full-time,18,True,2025-08-08
+100058,Computer Science,2025,63.8,Part-time,28,False,14/04/2026
+101107,Psychology,2025,76.1,Full-time,19,False,12/10/2025
+100942,Psychology,2025,54.6,Full-time,19,False,"Oct 26, 2024"
+100298,Psychology,2025,71.1,Full-time,20,False,"Sep 15, 2024"
+101150,Computer Science,2025,74.5,Full-time,21,True,2025-04-10
+100218,Computer Science,2025,72.9,Part-time,31,True,30/04/2025
+101020,biology,2026,60.7,Full-time,20,True,2026-03-24
+100938,Computer Science,2025,,Full-time,17,False,2025-03-04
+100957,Psychology,2026,48.9,Full-time,20,True,07/11/2024
+100588,Biology,2025,59.5%,Part-time,34,False,2025-07-19
+100661, Computer Science  ,2026,73.2,Full-time,21,False,15/09/2024
+100737,Psychology,2024,62.8,Part-time,29,False,2025-06-23
+100416,Economics,2025,58.3,Full-time,20,False,08/07/2025
+100761,Economics,2024,64.2,Full-time,19,False,2026-05-19
+101189,Biology,2025,60.5,Full-time,21,False,2025-03-27
+100624,Biology,2024,65.8,Full-time,20,False,16/12/2025
+100267,Computer Science,2025,,Full-time,22,True,2026-04-14
+100007,Computer Science,2026,69.5,Full-time,20,True,2025-08-27
+100390,Economics,2024,79.5,Full-time,18,True,18/05/2025
+100479,Computer Science,2024,,Full-time,21,,2026-07-22
+100618, Psychology  ,2024,46.8,Full-time,18,False,2026-05-25
+100139,Computer Science,2024,53.5,Full-time,22,True,16/03/2025
+100164,Computer Science,2026,69.9,Full-time,19,False,2025-11-11
+100837, economics  ,2025,61.1%,Full-time,21,False,31/03/2026
+100922,economics,2025,58.3,Full-time,18,False,2025-12-14
+101058,Biology,2026,59.7,Full-time,19,False,11/05/2025
+100044,Economics,2026,56.0,Part-time,30,True,07/10/2024
+101151,Psychology,2024,51.5,Full-time,21,False,2025-08-14
+100820,Biology,2025,71.5,Full-time,18,False,2026-06-20
+100320, Computer Science  ,2026,67.7,Full-time,,True,2025-12-13
+100774,Psychology,2026,74.1,Full-time,19,False,02/04/2025
+100769,Computer Science,2026,61.3,Full-time,17,True,2024-12-18
+100458,Computer Science,2025,79.5,Full-time,18,True,"Jul 07, 2025"
+100295,Biology,2026,73.3,Full-time,20,False,2025-09-28
+100784,Psychology,2024,80.3,Full-time,20,False,2025-06-23
+100129,Computer Science,2024,71.5,Full-time,18,False,2026-02-02
+100883,Economics,2026,74.8,Full-time,23,True,2026-03-20
+100456,Economics,2026,90.2,Full-time,23,False,2026-07-06
+100020,Computer Science,2026,77.1,Full-time,19,True,"Aug 12, 2025"
+100832,Economics,2025,62.9,Full-time,20,False,04/07/2025
+100475,Biology,2026,61.1,Full-time,17,False,"Apr 23, 2025"
+100966,Computer Science,2024,60.8,Full-time,21,False,20/07/2026
+100838,Psychology,2025,62.4,Full-time,23,True,"Feb 11, 2025"
+101041,Psychology,2024,78.0,Full-time,19,False,2025-10-30
+101078,Psychology,2025,69.3,Part-time,21,True,"Apr 02, 2026"
+100432,Computer Science,2024,43.2,Full-time,21,True,2025-09-28
+100138,Computer Science,2025,47.0,Full-time,22,,2025-09-14
+100501,Computer Science,2025,71.0,Full-time,19,True,"Dec 24, 2025"
+100186, Psychology  ,2026,69.6,Full-time,20,True,18/05/2026
+100935,biology,2025,69.0,Full-time,22,False,03/08/2025
+100652, Economics  ,2026,65.8%,Full-time,20,,2025-09-20
+101142,Computer Science,2026,64.9,Part-time,23,True,"Feb 05, 2025"
+100738,Computer Science,2026,69.7,Full-time,20,False,2024-10-16
+101132,Economics,2026,61.3,Full-time,19,False,"Oct 16, 2025"
+100619,Psychology,2025,72.6,Full-time,18,False,2026-06-01
+100328,Computer Science,2025,67.1,Full-time,20,False,09/04/2026
+100318,Computer Science,2026,56.2,Full-time,20,False,2025-01-03
+101187,Psychology,2025,67.5,Full-time,23,False,23/04/2026
+100686,Economics,2025,76.9,Full-time,21,False,"Jun 07, 2026"
+101123,psychology,2024,58.7,Part-time,30,True,21/10/2025
+100892,Biology,2026,84.6%,Full-time,19,False,"Jan 26, 2025"
+101176,economics,2024,58.5,Full-time,22,False,2025-06-07
+100970,Economics,2025,59.9,Full-time,22,False,2025-07-16
+100925,Economics,2025,58.0,Full-time,24,False,"Jul 18, 2026"
+100759,Economics,2025,67.3,Full-time,19,False,2025-05-30
+100149,Economics,2024,68.3,Full-time,21,True,2026-05-31
+100573,Computer Science,2024,74.6,Full-time,20,False,29/04/2026
+100930,Economics,2024,44.0,Full-time,22,True,2024-10-08
+100740,Computer Science,2026,86.3,Full-time,,False,2026-08-07
+100953,psychology,2025,72.0,Full-time,22,False,2025-07-13
+100366,Computer Science,2026,71.3,Full-time,17,True,2026-04-13
+100446,Psychology,2026,57.0,Full-time,20,False,2024-09-18
+100408,Computer Science,2026,66.9,Full-time,20,True,2025-06-16
+100794,Economics,2025,70.2%,Part-time,24,True,2026-04-03
+100789,Biology,2026,64.3,Full-time,20,True,"Jun 23, 2026"
+100921,Economics,2024,55.2,Full-time,21,False,11/12/2024
+100472,Economics,2024,74.9,Part-time,18,False,23/11/2025
+100233,Biology,2025,60.1,Full-time,19,False,2025-03-27
+100400,Biology,2025,71.5,Full-time,17,False,2026-07-02
+100592,Biology,2026,74.7,Full-time,20,False,2026-01-12
+100448,Economics,2024,59.7,Full-time,18,True,2025-10-07
+100159,Economics,2024,70.5,Full-time,19,True,2025-10-03
+100316,Computer Science,2024,69.9,Full-time,20,False,06/06/2026
+100257,Computer Science,2025,67.6,Part-time,20,False,2025-01-23
+100739,Economics,2026,56.8,Part-time,27,False,12/03/2025
+100097,Computer Science,2024,73.8,Full-time,24,True,"Nov 14, 2024"
+101166,Computer Science,2024,57.6,Full-time,19,False,2025-05-09
+100841,Economics,2025,59.4,Full-time,18,False,2025-02-26
+100385,Biology,2026,76.7,Full-time,21,False,23/12/2024
+100611,Computer Science,2024,49.5,Full-time,19,True,15/12/2024
+100178,Economics,2026,62.8,Full-time,21,False,2025-03-30
+100329,Biology,2025,78.6,Full-time,19,False,"Feb 07, 2026"
+100315,Psychology,2026,63.3,Full-time,20,False,"Sep 09, 2025"
+100358,Biology,2026,79.5,Full-time,22,False,2025-02-23
+100348,Computer Science,2025,58.8,Full-time,20,False,"Mar 08, 2025"
+100902,Computer Science,2024,,Full-time,19,False,2025-07-23
+100299,Psychology,2025,64.9,Full-time,18,False,2026-06-29
+100749,Psychology,2026,66.5,Part-time,24,False,2026-05-27
+101144,Computer Science,2024,74.3,Full-time,19,False,2025-11-18
+100762,Biology,2024,78.5,Full-time,17,False,03/12/2024
+100682,computer science,2024,61.3,Full-time,22,False,2025-11-26
+101154,Computer Science,2026,77.9,Part-time,17,True,"Jan 07, 2025"
+100799,Psychology,2026,,Part-time,31,False,2025-10-01
+100250,Psychology,2026,73.5,Full-time,19,True,19/06/2025
+100900,Computer Science,2024,73.8,Full-time,19,False,2025-05-20
+100016,Economics,2025,48.9,Full-time,18,False,2026-03-19
+100160,Psychology,2024,68.6,Full-time,,False,25/06/2025
+100705,Economics,2025,69.3,Full-time,20,False,2025-05-24
+100873,Computer Science,2026,76.5,Full-time,17,False,"Jul 09, 2025"
+100361,Computer Science,2026,49.4,Full-time,18,False,14/06/2026
+100049,Computer Science,2025,72.2,Full-time,20,False,"Mar 01, 2025"
+100489,Economics,2026,53.6,Part-time,,True,10/07/2026
+100331,Computer Science,2024,62.8,Full-time,22,False,2024-12-17
+100569,Economics,2025,80.2,Part-time,19,False,2025-05-11
+100916,computer science,2026,51.2,Full-time,20,False,"Jan 26, 2025"
+100113,computer science,2026,85.3,Full-time,20,False,2026-07-20
+100339,Psychology,2024,62.1,Full-time,19,True,2025-11-29
+100308,Economics,2026,65.9,Full-time,18,False,2026-03-21
+100535,Biology,2024,64.6,Full-time,23,False,"Mar 14, 2025"
+100423,Economics,2026,50.2,Full-time,18,True,2026-04-12
+101006,economics,2026,54.5,Part-time,31,True,2025-07-12
+101118,Computer Science,2025,51.2,Full-time,22,False,2026-05-03
+100485,biology,2026,43.7,Full-time,20,False,2025-12-11
+101167,Computer Science,2024,69.9,Full-time,19,False,"May 14, 2026"
+100825,Psychology,2025,63.0,Full-time,19,True,2025-07-29
+101138,Computer Science,2026,62.6,Full-time,22,False,2025-12-18
+100396,Biology,2026,81.1,Full-time,18,True,"Apr 29, 2025"
+100595,Computer Science,2026,52.5,Full-time,20,False,2025-11-07
+100977,Biology,2025,77.0,Full-time,19,False,2025-09-09
+100128,Biology,2026,73.2,Full-time,20,True,23/12/2024
+100548,Psychology,2025,61.0,Full-time,17,False,27/05/2026
+100946,Economics,2024,65.1,Full-time,21,True,27/09/2025
+100663,Economics,2024,52.9,Full-time,20,False,2025-07-22
+101158, Biology  ,2025,73.1,Full-time,19,True,2026-06-19
+100450,Biology,2025,61.6,Full-time,20,False,2025-10-01
+100238,Computer Science,2024,86.1,Full-time,20,False,"Jun 21, 2025"
+100168,Computer Science,2025,66.8,Full-time,17,,16/06/2026
+100645,Computer Science,2026,67.8,Full-time,21,False,"Dec 19, 2025"
+101133,Computer Science,2024,64.6,Full-time,18,False,2025-12-15
+100081, Economics  ,2025,64.6,Full-time,20,True,2024-10-01
+100415,Economics,2025,55.8,Full-time,18,True,26/07/2025
+101106,Biology,2025,75.2,Full-time,18,True,"Jun 29, 2025"
+100301,Economics,2026,87.5,Full-time,19,True,"Oct 17, 2025"
+100621,Economics,2026,66.9,Full-time,22,False,2025-12-18
+100325,Computer Science,2026,,Full-time,20,True,2025-01-16
+100657, Computer Science  ,2026,80.6,Full-time,20,True,2024-09-20
+100216,Biology,2026,57.6%,Full-time,21,False,"May 27, 2025"
+101193, Computer Science  ,2026,77.8,Full-time,18,True,2025-02-19
+100031,psychology,2026,53.6,Full-time,20,,2025-12-13
+100243,Economics,2025,69.4%,Full-time,20,False,2025-02-16
+100706,Psychology,2025,53.8,Full-time,22,True,04/11/2025
+100962,Psychology,2024,79.2,Part-time,29,True,2025-11-25
+100968,Economics,2025,79.2,Full-time,22,False,2024-11-23
+100210,Psychology,2025,48.5,Full-time,19,False,31/12/2024
+100549,Economics,2025,61.0,Full-time,20,False,2026-05-22
+100751,Psychology,2024,54.2,Part-time,25,False,22/10/2024
+100926,Biology,2026,55.1,Part-time,20,False,"Jan 19, 2026"
+100436,biology,2024,55.7,Full-time,19,False,2024-11-18
+100028,Economics,2025,43.4,Part-time,23,,2026-04-29
+101068, Psychology  ,2024,57.2,Full-time,22,True,19/11/2024
+100928,Computer Science,2025,53.0,Full-time,17,False,25/03/2025
+100123,Psychology,2026,71.3,Part-time,25,False,"Aug 27, 2025"
+101094,Psychology,2025,60.3,Full-time,22,False,"Oct 21, 2025"
+100463,Computer Science,2025,76.0,Full-time,18,False,2025-11-07
+101036,Psychology,2026,87.7,Full-time,17,False,27/08/2025
+101126,Psychology,2025,83.9,Full-time,19,False,2025-09-27
+100610,Psychology,2024,42.4,Full-time,20,True,"May 20, 2026"
+100944,Biology,2025,55.6,Full-time,21,True,"Apr 25, 2025"
+100741, Psychology  ,2025,51.6,Full-time,20,False,2025-01-08
+100875,Computer Science,2025,75.9,Full-time,19,False,01/03/2026
+100698,Computer Science,2024,72.0,Part-time,28,True,2026-05-08
+100203,Computer Science,2026,71.3,Full-time,18,True,2025-06-01
+100404,Economics,2026,69.3,Part-time,28,False,18/02/2026
+100566,computer science,2024,65.4,Full-time,20,False,22/04/2026
+101188,Economics,2025,69.4,Full-time,18,False,2024-12-18
+100363,Psychology,2026,76.9,Full-time,17,,2026-06-27
+100272,psychology,2024,61.5,Full-time,21,True,"Nov 14, 2025"
+100467,Computer Science,2026,61.5,Full-time,19,True,2026-08-13
+101025,Computer Science,2024,75.8,Full-time,20,False,2025-11-12
+101186,Economics,2026,65.6,Full-time,19,True,2026-04-22
+100753,Computer Science,2026,66.7,Full-time,19,True,2026-07-31
+100273,Economics,2024,80.9,Full-time,21,False,2025-06-14
+100278,Biology,2025,,Part-time,21,False,2025-09-03
+101067,Computer Science,2026,81.4,Full-time,19,False,"Jun 29, 2025"
+100013,Computer Science,2025,63.0,Full-time,20,False,2024-10-25
+100604,Biology,2024,89.4,Full-time,18,True,2025-08-22
+100675,Computer Science,2025,65.8,Full-time,20,False,2025-03-28
+100211,Biology,2025,67.8,Full-time,21,False,2025-02-04
+101051,Computer Science,2026,66.3,Full-time,19,False,"Dec 10, 2024"
+100969,Computer Science,2025,75.2,Full-time,18,False,2025-02-26
+100148,Computer Science,2025,72.9,Full-time,19,False,2025-06-12
+100443,Psychology,2024,83.6,Full-time,17,False,03/12/2025
+100300,Psychology,2026,64.5,Part-time,33,True,"Jan 17, 2025"
+100116,economics,2026,70.6,Full-time,17,True,"Aug 20, 2025"
+100376,Biology,2025,74.0,Full-time,19,,2025-07-20
+100642,Economics,2025,71.2,Full-time,18,True,2026-03-04
+100890,Computer Science,2026,66.9,Full-time,20,,2024-11-28
+100632,Biology,2026,55.7,Full-time,20,False,2025-07-18
+100473,Computer Science,2024,62.9,Full-time,19,False,2024-12-04
+101055,Economics,2024,67.4,Full-time,19,False,29/12/2025
+101087,Psychology,2025,56.6,Part-time,27,True,18/01/2025
+100389,psychology,2026,61.7,Full-time,19,True,2025-10-30
+100023,Computer Science,2024,54.4,Part-time,30,False,02/08/2026
+101039,Biology,2026,69.5,Full-time,21,False,2026-03-29
+100994,Economics,2024,67.1,Full-time,18,False,2025-06-11
+100424,Economics,2024,62.0,Full-time,21,False,2025-03-16
+100955,Biology,2026,74.0,Full-time,19,False,2026-02-05
+100719,Computer Science,2024,69.5,Full-time,21,False,10/08/2026
+100650,Computer Science,2025,,Full-time,19,False,2025-04-09
+100253,computer science,2025,71.5,Full-time,1,False,2026-02-02
+100143,Economics,2024,59.6,Full-time,20,False,13/07/2026
+100051,Psychology,2025,85.7,Part-time,26,False,2026-05-28
+100165,computer science,2025,87.0,Full-time,0,False,01/05/2026
+100736,Computer Science,2025,81.9,Full-time,22,False,2025-06-16
+100082,biology,2025,55.7,Full-time,20,False,2026-07-08
+100483,psychology,2025,70.8,Full-time,17,False,05/06/2025
+100322,Computer Science,2026,45.6,Full-time,22,True,2025-07-03
+100965,Computer Science,2025,64.8,Full-time,,True,2026-06-20
+100695,Psychology,2024,74.0,Full-time,21,False,"Feb 02, 2026"
+101146,Psychology,2025,61.9,Full-time,17,True,2025-12-24
+100067,Psychology,2024,62.3,Full-time,20,True,2025-08-25
+101155,Biology,2024,59.3,Full-time,20,False,2025-10-15
+100541,Psychology,2024,72.1,Full-time,20,True,2025-03-13
+100747,economics,2026,61.8,Full-time,17,,2025-10-25
+100418,psychology,2026,69.1,Part-time,29,False,2025-07-18
+100948,Computer Science,2026,62.8,Full-time,18,True,21/06/2025
+100065,Computer Science,2024,75.7,Full-time,20,False,2024-11-04
+100908,Biology,2024,67.3,Full-time,20,False,2026-03-08
+100899,Economics,2025,64.1,Full-time,21,False,26/12/2024
+100704,Psychology,2026,41.0,Full-time,17,True,2026-01-14
+100492,Biology,2025,48.8,Full-time,20,False,15/01/2025
+100709,Computer Science,2024,77.9,Full-time,19,,25/03/2025
+100800,Biology,2024,73.5,Full-time,18,True,2025-01-23
+100066,Computer Science,2026,65.6,Full-time,20,False,01/08/2025
+100985,psychology,2026,73.0,Full-time,21,False,2025-03-01
+100997, Biology  ,2026,71.2,Full-time,20,False,"Apr 01, 2025"
+100975,economics,2024,49.3,Full-time,21,False,2025-05-23
+100297,Economics,2024,59.1,Full-time,20,False,2025-03-24
+100420,Economics,2025,61.6,Full-time,18,False,2025-09-24
+100439,Biology,2026,60.2,Full-time,18,True,"Oct 01, 2025"
+100262,Biology,2025,64.8,Full-time,17,False,2026-08-10
+100702,Biology,2024,,Full-time,19,True,23/11/2025
+100282,Biology,2026,53.0,Part-time,35,False,04/10/2024
+100999,Economics,2026,53.2,Full-time,20,False,2026-07-21
+101009,Computer Science,2024,70.7,Part-time,31,True,05/07/2025
+100189,Computer Science,2024,60.3,Full-time,19,False,2026-07-30
+100894, economics  ,2026,55.3,Part-time,19,False,2024-10-29
+100252,Computer Science,2026,65.5,Full-time,19,True,2024-10-19
+100703,Computer Science,2025,76.6,Part-time,29,False,10/08/2025
+100515,Economics,2026,69.3%,Full-time,18,True,2026-04-27
+100880,Economics,2025,63.7,Full-time,21,False,"Jun 29, 2025"
+100488,Computer Science,2025,52.9,Full-time,21,False,2025-07-03
+100274,Psychology,2024,56.1,Full-time,,False,2025-08-06
+100960,Computer Science,2025,61.4,Full-time,18,False,"Feb 19, 2026"
+101081,Computer Science,2025,63.4,Full-time,20,False,2026-08-01
+100449,Economics,2024,76.8,Full-time,21,False,2025-09-19
+100412,Biology,2024,47.3,Part-time,24,True,"Mar 25, 2026"
+100896,Computer Science,2025,74.3,Full-time,19,False,22/04/2026
+100726,Psychology,2024,41.4,Full-time,20,False,2025-05-26
+100934,Computer Science,2024,67.7,Full-time,18,False,"Dec 19, 2024"
+101183,Computer Science,2025,70.8,Full-time,19,False,2026-05-09
+100150,Psychology,2024,,Full-time,18,True,"Aug 03, 2026"
+100219,Computer Science,2026,62.1,Full-time,21,True,20/03/2026
+100240,Psychology,2026,76.6,Full-time,22,,22/12/2024
+101149,Computer Science,2026,74.2,Full-time,20,False,"Jun 23, 2026"
+100193,Economics,2026,81.6,Full-time,19,False,2025-05-20
+100192,Economics,2025,68.8,Full-time,18,True,"Jun 11, 2026"
+100591,Economics,2024,44.4,Full-time,20,,2026-05-25
+100603,Computer Science,2026,62.4,Full-time,21,False,2026-03-30
+100983,Economics,2026,,Full-time,22,False,"Mar 23, 2026"
+100714,Biology,2026,69.4,Full-time,21,False,18/01/2025
+100967,Psychology,2026,39.1,Full-time,19,False,2025-08-03
+101169,Economics,2026,56.3,Full-time,19,False,19/09/2025
+100717, Computer Science  ,2026,46.9,Full-time,20,False,2026-07-24
+100583,Economics,2024,65.0,Full-time,17,True,27/06/2026
+101023,Economics,2025,48.2,Full-time,19,False,11/04/2025
+100324,Economics,2025,78.8,Full-time,17,True,"Jul 19, 2026"
+101160,Economics,2026,51.4%,Full-time,21,False,2025-01-20
+100861,Computer Science,2026,66.0,Full-time,18,False,15/10/2025
+100665,biology,2024,88.8,Full-time,20,False,"Apr 01, 2025"
+100438,Biology,2025,77.3,Full-time,20,True,2026-02-04
+100780,Psychology,2026,49.1,Full-time,18,True,2025-04-09
+100844,Biology,2026,58.7,Full-time,17,False,2025-04-03
+100342, Psychology  ,2024,76.3,Full-time,22,True,01/02/2025
+100003,Economics,2026,73.8,Full-time,20,True,"Dec 05, 2025"
+100230,Computer Science,2024,80.0,Full-time,23,False,2025-09-20
+100653,Psychology,2025,57.2,Full-time,20,False,23/03/2025
+101161,Computer Science,2024,68.5,Part-time,30,False,2026-05-23
+100077, Psychology  ,2025,65.0,Full-time,18,False,2025-04-07
+101111,computer science,2024,74.4,Full-time,19,False,31/05/2025
+100372, Computer Science  ,2024,71.0,Full-time,19,True,2024-10-31
+100181, Economics  ,2024,46.7,Part-time,24,False,2025-04-12
+100888,Computer Science,2026,,Full-time,20,False,2025-01-03
+100578,Psychology,2024,54.5,Full-time,22,False,2025-11-12
+100745,Psychology,2024,35.0,Full-time,20,False,2025-06-26
+100768,Computer Science,2025,66.3,Full-time,20,True,2026-02-25
+101190,Biology,2024,66.3,Full-time,19,False,2024-10-15
+101018,Psychology,2025,63.6,Full-time,17,True,2025-03-24
+100654,Psychology,2026,66.7,Part-time,27,False,2026-07-30
+100590,Economics,2025,45.4,Full-time,19,False,23/04/2025
+100782,Psychology,2025,59.4,Part-time,36,False,2026-01-30
+101172,Economics,2024,65.1%,Full-time,21,False,"Jul 05, 2025"
+100973,Computer Science,2025,48.9,Full-time,18,False,2026-01-16
+100895,Economics,2026,57.7,Full-time,18,True,27/09/2025
+100038,Psychology,2025,68.8,Full-time,20,False,2026-06-16
+100354,Psychology,2026,64.1,Full-time,17,False,2024-10-25
+101103,psychology,2025,82.8,Full-time,22,False,"Oct 06, 2025"
+100237,Psychology,2025,63.9,Full-time,17,False,2025-10-30
+100952,Biology,2026,87.5,Full-time,20,False,2025-01-18
+100500,Psychology,2026,86.3,Full-time,20,False,19/03/2025
+100554,Economics,2026,65.3,Full-time,21,False,07/08/2025
+100056,Biology,2025,60.1,Part-time,34,False,2026-05-28
+100303,Computer Science,2026,60.4,Full-time,19,True,17/12/2024
+100287,Economics,2025,88.9,Full-time,17,False,2025-11-20
+100814,Psychology,2026,57.2,Full-time,21,True,18/06/2026
+100220,Biology,2024,42.8,Full-time,21,False,2026-03-18
+100643,Computer Science,2026,68.8,Full-time,22,True,2026-05-05
+100388,Economics,2024,58.8,Full-time,21,,"Sep 26, 2025"
+101165,Biology,2026,54.5,Full-time,17,,2025-09-27
+100391,Biology,2026,86.0,Full-time,17,False,2025-08-18
+100353,Economics,2025,49.7,Full-time,,False,2026-06-09
+100194,Psychology,2026,,Full-time,21,False,2026-03-04
+100236,Biology,2026,81.0,Full-time,18,False,"Sep 19, 2025"
+101004,Computer Science,2026,69.2,Full-time,19,True,27/01/2026
+100481,Economics,2024,43.1,Full-time,21,True,2026-06-22
+100568,Computer Science,2025,82.9,Full-time,19,,2025-10-10
+100117,Computer Science,2024,56.9,Full-time,21,False,2025-04-14
+100876,Computer Science,2024,69.8,Full-time,20,True,2026-06-06
+101128,Psychology,2025,62.4,Full-time,20,False,2024-11-09
+101114,Biology,2026,74.9,Full-time,,True,2026-04-03
+101088,Economics,2024,73.6,Full-time,20,False,2026-03-15
+100887,Psychology,2025,57.8,Full-time,19,False,2025-08-26
+100121,Psychology,2026,,Full-time,21,True,2026-01-09
+100826,Computer Science,2026,77.8%,Full-time,19,False,2025-06-26
+101054,Computer Science,2025,63.3,Full-time,21,True,2024-09-29
+100783,Psychology,2026,54.9,Full-time,18,True,"Oct 15, 2024"
+100063,Psychology,2026,68.1,Full-time,18,True,14/03/2026
+100674,Computer Science,2025,,Full-time,20,True,2025-10-11
+100454,Computer Science,2024,60.8,Full-time,18,False,20/04/2025
+100516,Psychology,2026,59.2,Full-time,20,,25/07/2025
+100571,Economics,2024,63.6,Full-time,17,False,2025-12-31
+100224,Psychology,2025,60.8,Full-time,19,True,2025-04-10
+100614,Biology,2025,73.6,Full-time,18,False,30/09/2024
+100222,Biology,2024,67.9%,Full-time,20,True,2026-04-13
+100680,Psychology,2024,84.1,Full-time,17,False,2026-03-07
+101164,Biology,2026,78.7,Part-time,34,True,23/09/2025
+100466,Economics,2024,59.7,Part-time,178,True,2024-12-16
+100053,Psychology,2024,71.6,Full-time,23,,2025-09-11
+101101, Psychology  ,2024,57.7,Full-time,23,True,03/08/2025
+100486,Biology,2024,50.8%,Full-time,23,False,2024-12-27
+101152,Computer Science,2026,73.3,Part-time,25,False,2026-08-05
+100929,Computer Science,2025,63.2,Full-time,17,True,2025-05-17
+100156,Computer Science,2024,70.4,Full-time,18,False,08/11/2025
+100927,Biology,2026,,Full-time,20,False,2024-12-23
+100601,Psychology,2025,85.0,Full-time,18,False,12/12/2025
+100886,Psychology,2025,77.6,Full-time,20,True,2025-11-14
+100249,Computer Science,2025,74.7,Part-time,23,True,2025-01-02
+100442,Economics,2026,69.2,Full-time,23,False,02/12/2025
+101072,Biology,2026,70.7,Full-time,20,False,27/12/2025
+101104,Economics,2025,53.5,Full-time,18,False,2025-09-16
+100543,Biology,2025,62.1,Full-time,19,False,04/05/2025
+100118,Biology,2025,54.9,Full-time,22,True,2025-09-15
+100733,Computer Science,2025,64.4,Full-time,20,False,2024-12-11
+100629,Biology,2025,77.9,Full-time,22,True,27/10/2025
+100721,biology,2026,67.1,Full-time,19,False,2024-11-06
+100931,Computer Science,2025,79.9,Part-time,26,False,2025-05-10
+100292,Computer Science,2025,66.2,Full-time,19,False,"Jun 23, 2025"
+101049, computer science  ,2026,59.3,Full-time,18,False,"Jan 11, 2025"
+100382,Biology,2025,71.4,Full-time,20,False,2025-07-26
+100707,Psychology,2026,69.5,Full-time,18,,30/06/2026
+100901, Psychology  ,2024,52.5,Full-time,18,False,"Dec 27, 2025"
+100201,computer science,2024,74.5,Full-time,19,False,2025-03-05
+100597, Economics  ,2026,70.8,Full-time,21,False,2025-01-14
+100993,Psychology,2025,66.8,Full-time,20,False,2025-03-10
+101145,Economics,2025,73.0,Full-time,20,False,16/07/2026
+101197,Biology,2025,65.1,Full-time,17,True,2026-04-16
+100700,Computer Science,2025,43.0,Part-time,30,False,2025-02-13
+100506,Computer Science,2026,52.3,Full-time,19,False,2026-04-10
+100349,Psychology,2025,65.8,Full-time,20,False,2025-04-15
+101082,Economics,2025,86.3,Full-time,20,,06/02/2025
+101200,Psychology,2025,53.9,Full-time,21,True,2024-10-06
+100341,Biology,2024,69.4,Full-time,17,False,2026-03-25
+100616,Computer Science,2024,81.4,Part-time,37,False,2025-10-24
+100155,Economics,2025,,Full-time,2,True,06/02/2025
+101112,Biology,2026,46.1,Full-time,21,False,2025-02-06
+100772,Biology,2025,85.9,Full-time,21,False,2026-07-08
+101012,Psychology,2026,63.8,Full-time,17,,2026-05-26
+100288,Psychology,2025,49.9,Part-time,22,True,"Oct 25, 2025"
+100323,Economics,2026,75.8,Full-time,17,True,2025-12-15
+100830,Economics,2025,57.8,Full-time,21,False,02/12/2024
+100829,Psychology,2025,61.2,Full-time,20,False,28/12/2025
+100870,Computer Science,2026,67.9,Full-time,21,False,2025-06-15
+100083,Biology,2026,54.0,Full-time,18,False,21/09/2025
+100813,Psychology,2026,49.2,Full-time,22,False,2024-12-26
+100465,Economics,2024,74.6,Full-time,20,False,2024-09-24
+100807,Economics,2026,70.5,Part-time,26,False,19/06/2025
+100903,Psychology,2025,,Full-time,21,False,29/09/2024
+101185, Economics  ,2025,69.9,Full-time,18,False,09/12/2025
+100840,Economics,2025,57.4,Full-time,17,False,29/05/2025
+100334,Computer Science,2026,60.0,Full-time,17,False,"May 24, 2025"
+100011,Biology,2024,56.7,Full-time,17,False,11/11/2024
+100471,Economics,2026,66.7,Full-time,17,True,2025-02-25
+100033,Biology,2024,53.8,Full-time,21,True,2024-12-02
+100792,Psychology,2025,54.7%,Full-time,19,True,2026-08-15
+100414,Biology,2024,66.0,Full-time,21,,"Dec 19, 2025"
+100581,Computer Science,2025,67.2,Full-time,20,True,2026-07-05
+100383,Biology,2025,79.2,Full-time,18,False,10/05/2026
+100833,Psychology,2025,72.1,Full-time,20,True,2025-11-20
+100770,Economics,2025,71.9,Full-time,18,False,2025-08-25
+101141,Computer Science,2024,65.1,Full-time,19,False,2026-05-15
+101139,economics,2025,52.4,Full-time,18,False,2026-04-29
+101147,Psychology,2025,61.3,Full-time,20,True,24/03/2026
+100379, Psychology  ,2024,68.8,Full-time,21,True,2025-10-26
+100090,Computer Science,2026,56.0,Full-time,21,True,2024-11-06
+100802,Psychology,2024,49.7,Full-time,22,False,2025-04-09
+100602,Psychology,2025,66.6,Full-time,21,False,2026-02-16
+100214,Economics,2024,,Full-time,20,False,"Apr 08, 2026"
+100333,Biology,2025,68.7,Full-time,19,False,2025-11-07
+100134,Computer Science,2026,81.6,Full-time,22,False,2025-05-09
+100347, Psychology  ,2024,60.1,Full-time,20,True,2024-11-15
+100982,Computer Science,2024,59.6,Full-time,20,False,11/03/2025
+100008,Economics,2024,54.3,Full-time,21,True,2026-01-05
+100849,Computer Science,2026,69.5,Part-time,,False,2026-03-10
+100321, Economics  ,2025,70.3,Full-time,21,False,21/12/2024
+101052,Economics,2026,60.6,Full-time,20,False,"Aug 21, 2025"
+100188,Computer Science,2025,47.3,Full-time,19,True,2025-07-09
+101096,Psychology,2026,47.4,Full-time,20,False,22/10/2025
+100553,Psychology,2026,77.2,Part-time,20,False,"Jun 30, 2026"
+100305, Biology  ,2024,50.5,Full-time,22,False,2024-10-01
+100032, Economics  ,2026,72.4,Full-time,20,,20/07/2025
+100842,Economics,2024,68.9,Full-time,20,False,2025-08-13
+100685, Psychology  ,2024,74.9,Full-time,20,False,2026-07-31
+101073,economics,2025,57.0,Full-time,21,False,2025-11-10
+100241,Computer Science,2025,65.4,Part-time,27,False,2025-11-11
+101010,Biology,2026,56.5,Part-time,30,False,"Apr 18, 2025"
+100175,Economics,2024,73.7,Part-time,23,False,2026-05-02
+100246,biology,2024,72.2,Full-time,18,,2025-02-15
+100057,Computer Science,2024,66.6,Full-time,19,True,2026-02-14
+100631, Economics  ,2026,81.8,Full-time,24,True,11/04/2025
+100584,Psychology,2025,57.0,Full-time,18,False,2024-11-17
+101047,Computer Science,2026,79.1,Part-time,27,True,2026-03-04
+100146,Psychology,2025,55.7,Part-time,33,True,25/12/2025
+100091,Psychology,2024,48.9,Full-time,22,False,2026-01-19
+101122,Biology,2026,60.1%,Full-time,20,True,2026-06-14
+100393,Economics,2026,86.2,Full-time,22,False,"Apr 23, 2026"
+100919,Psychology,2026,66.4,Full-time,22,True,2026-01-07
+100683,Biology,2024,55.0,Full-time,,True,04/06/2026
+100311,Computer Science,2026,76.4,Full-time,22,False,"Nov 17, 2024"
+100360,Biology,2026,68.3,Full-time,20,False,2026-06-12
+100094,Biology,2024,72.1,Full-time,19,False,2025-07-16
+100964,Computer Science,2026,76.1,Full-time,19,True,"Aug 13, 2025"
+101032,Economics,2025,69.9,Full-time,19,True,2025-02-07
+100377,Economics,2026,47.0,Full-time,,False,2026-08-02
+100244,Computer Science,2025,,Full-time,20,False,2026-02-26
+101084,Economics,2026,69.6,Full-time,20,False,2026-02-08
+100088,Psychology,2026,56.9,Full-time,21,True,2025-11-28
+100215,Economics,2026,52.9,Full-time,22,False,"Mar 21, 2026"
+100445,Computer Science,2024,76.8,Full-time,20,False,"Apr 26, 2025"
+100174,economics,2026,74.0,Full-time,20,False,27/09/2024
+100426,Computer Science,2026,63.8,Full-time,18,True,2026-08-11
+101048,Psychology,2024,62.8,Full-time,21,True,2026-05-20
+100119,psychology,2026,51.5,Full-time,21,False,12/07/2025
+100120,Computer Science,2026,64.8,Full-time,22,False,2026-07-15
+100923,biology,2025,73.8,Full-time,19,True,26/10/2025
+100879,Biology,2025,58.3,Full-time,17,False,21/03/2025
+100001,Biology,2026,62.3,Full-time,22,False,"Jul 19, 2026"
+100395,Computer Science,2026,53.3,Part-time,29,False,2026-02-25
+100402,Computer Science,2024,60.5,Full-time,19,True,20/02/2026
+100405,Psychology,2024,,Full-time,23,False,2025-05-30
+101019,Psychology,2024,66.2,Full-time,20,,2025-09-10
+100858,Psychology,2026,61.8,Full-time,18,False,04/06/2025
+100163,Economics,2024,55.3,Full-time,18,False,2025-04-25
+100115,Psychology,2025,53.3,Full-time,21,,2024-10-24
+100671, Computer Science  ,2025,54.8,Part-time,30,False,2025-12-11
+100151,Psychology,2024,46.9,Full-time,20,False,11/06/2026
+100808,biology,2026,70.7,Full-time,17,True,"Oct 21, 2024"
+100796,Biology,2024,50.9,Full-time,18,False,02/11/2025
+101129,Computer Science,2024,65.9,Full-time,18,False,2025-07-02
+100369,Biology,2024,56.0,Full-time,21,,"Oct 13, 2024"
+100544,Computer Science,2024,64.1,Full-time,21,True,2024-11-06
+100478,Biology,2024,71.3,Full-time,20,False,2024-12-30
+101136, Biology  ,2026,56.1,Full-time,22,False,2025-03-12
+100533,Economics,2024,73.6,Full-time,20,True,"Mar 04, 2025"
+100626,biology,2025,43.4,Full-time,20,False,12/06/2026
+100984,Psychology,2026,,Full-time,18,False,06/12/2025
+100513,Computer Science,2026,59.5,Full-time,19,True,2025-04-02
+100811,Computer Science,2024,61.4,Full-time,17,True,2025-10-13
+100073,Psychology,2025,71.4,Full-time,22,False,2026-01-19
+100259,Biology,2024,68.8,Full-time,19,,2026-07-19
+100625,Economics,2026,79.9,Full-time,21,True,30/04/2025
+100235,biology,2025,77.7%,Full-time,21,False,2025-09-11
+100136,Computer Science,2026,57.0,Part-time,29,True,"Jul 20, 2025"
+100617,Computer Science,2026,80.3,Full-time,20,True,2024-11-25
+100517,Psychology,2026,82.5,Full-time,22,False,17/11/2025
+100878,Psychology,2025,65.6,Full-time,21,True,"Oct 27, 2025"
+100803,Psychology,2025,59.0%,Full-time,21,False,"Sep 27, 2024"
+100810,Computer Science,2025,61.8,Full-time,17,True,2025-02-06
+100593,Computer Science,2024,69.7,Part-time,32,False,"Mar 23, 2026"
+101064,Computer Science,2024,65.3,Full-time,22,False,08/09/2025
+100502,Economics,2024,66.8,Full-time,17,False,2026-06-03
+100539,Psychology,2026,71.1,Full-time,20,False,2025-03-23
+100910,Biology,2026,85.6,Full-time,21,False,2026-03-16
+100729,Computer Science,2026,63.0,Full-time,18,False,08/03/2026
+100582,Psychology,2025,58.9,Full-time,19,False,2026-07-16
+100344,Biology,2025,66.3,Full-time,21,True,2025-07-12
+100940,Computer Science,2026,67.1,Full-time,19,True,2025-06-20
+100857,Computer Science,2024,81.8,Part-time,20,True,2026-04-02
+100294,Psychology,2026,69.9,Full-time,20,False,2025-02-24
+100365,Computer Science,2026,73.5,Full-time,17,False,2025-06-14
+101065,Computer Science,2025,68.4,Full-time,21,True,2026-03-19
+100660,Economics,2026,69.9,Full-time,21,False,2024-11-23
+100015,Economics,2024,76.6,Full-time,19,False,2024-09-21
+100687,Biology,2025,82.0%,Full-time,19,False,2024-09-17
+100087,economics,2025,54.5,Full-time,23,False,"Aug 04, 2025"
+100371,Biology,2025,61.8,Full-time,22,True,2026-01-22
+100166,Biology,2024,49.6,Full-time,20,True,13/02/2025
+100132,Economics,2024,65.5,Full-time,20,False,2026-03-19
+100336,Computer Science,2025,70.9,Part-time,26,False,2026-04-12
+100060,Psychology,2026,85.2,Full-time,20,,2026-03-09
+100710,Biology,2025,61.6,Full-time,18,True,05/06/2025
+100677,Economics,2025,61.8,Full-time,21,False,2026-01-30
+100355,Biology,2025,68.7,Full-time,17,True,"Feb 21, 2025"
+100976,Psychology,2026,86.4,Full-time,,True,"Dec 06, 2025"
+100425,Psychology,2026,86.1,Full-time,18,True,2025-05-21
+100293,Economics,2024,50.9,Full-time,19,False,2024-12-22
+100042,Computer Science,2024,,Full-time,20,False,09/06/2025
+100330,Biology,2025,89.6,Full-time,21,False,2026-06-17
+100615,Computer Science,2025,63.8,Full-time,22,False,"Dec 01, 2025"
+100430,Psychology,2026,76.4,Part-time,29,False,2026-02-01
+100080,Biology,2024,71.5,Full-time,22,False,2025-06-25
+100694,Economics,2024,53.9,Full-time,20,False,16/11/2025
+100029,Psychology,2026,68.1,Full-time,21,False,2025-11-19
+100708,Psychology,2025,64.7,Full-time,21,False,"Jun 05, 2026"
+101057,Economics,2026,56.4,Full-time,24,False,07/12/2025
+101195,Economics,2024,73.6,Full-time,20,True,"Mar 05, 2026"
+100255,Psychology,2026,71.5,Full-time,18,True,09/08/2025
+100161,Computer Science,2026,,Full-time,19,True,2026-06-04
+100459,Biology,2026,68.5%,Part-time,28,True,2025-04-27
+100384,Computer Science,2024,66.4,Part-time,30,False,2026-08-09
+100314,Computer Science,2024,82.4,Full-time,17,True,"Nov 07, 2024"
+100085,Biology,2026,56.9,Full-time,19,False,19/06/2026
+100575,computer science,2024,77.9,Part-time,33,True,31/03/2026
+100763,Economics,2026,57.4,Full-time,19,False,2024-09-22
+100137,Computer Science,2025,67.5,Full-time,21,False,2026-07-03
+100112,Psychology,2026,54.1,Full-time,19,True,2025-06-10
+100195,Biology,2024,70.2,Full-time,19,False,2024-09-24
+100853, Computer Science  ,2026,72.1,Full-time,20,True,2024-12-12
+100179,Biology,2025,64.6,Full-time,20,False,18/11/2025
+100556,Psychology,2025,56.3,Part-time,19,False,2026-03-14
+100724,Biology,2025,65.3,Full-time,21,True,27/08/2025
+101003,Economics,2025,73.0,Full-time,18,True,2026-05-16
+100497,economics,2025,71.5,Full-time,19,False,2024-09-25
+100871,Computer Science,2025,61.0,Full-time,20,False,"Aug 08, 2026"
+100806,Psychology,2024,61.7,Part-time,28,False,"Jan 02, 2026"
+100130,Biology,2024,69.2,Part-time,27,True,2025-01-20
+100716,Economics,2024,76.7,Full-time,21,False,2025-03-02
+100338,economics,2026,66.3,Full-time,20,True,2024-12-06
+101196,Computer Science,2025,35.0,Full-time,19,False,2026-05-27
+100609,Biology,2025,60.2,Full-time,21,True,"Apr 22, 2025"
+100125,Biology,2024,84.2,Full-time,,False,2025-08-09
+100196,Computer Science,2024,75.7,Full-time,21,,"May 03, 2025"
+100227,Economics,2024,62.7,Full-time,23,True,2025-12-31
+100690,Biology,2025,77.3,Full-time,19,False,2026-03-12
+100269,Computer Science,2025,81.6,Full-time,22,False,2026-06-16
+100153,Computer Science,2024,54.2,Full-time,19,False,"Aug 12, 2026"
+100585, Psychology  ,2026,46.3,Full-time,22,True,2025-10-06
+100104,Economics,2025,61.6,Full-time,20,False,10/03/2025
+100594,biology,2026,78.8,Part-time,32,True,02/12/2024
+101105,Computer Science,2025,82.9,Full-time,21,False,2025-11-18
+100787,Economics,2026,65.4,Part-time,27,,22/03/2026
+100981,Economics,2024,60.2,Full-time,22,False,2024-11-20
+100885,Biology,2026,61.2,Part-time,28,,2026-04-23
+100777,Biology,2025,75.2,Full-time,19,False,2026-04-13
+100913,Psychology,2024,75.0,Full-time,17,False,2025-12-14
+100850,Computer Science,2026,83.8,Full-time,19,True,2026-02-04
+100228,Psychology,2026,67.4,Full-time,20,True,2025-01-10
+101127,Psychology,2026,73.4,Part-time,30,False,2026-06-14
+100302,Computer Science,2026,84.9,Full-time,19,False,2025-10-04
+100855,Biology,2025,53.3,Full-time,17,,2024-12-14
+100276,biology,2025,79.3,Full-time,21,False,2026-04-06
+100127,Computer Science,2025,69.0,Full-time,17,True,2025-02-02
+100406,Biology,2025,58.8,Full-time,18,,2026-07-15
+100776,Economics,2026,72.8,Full-time,18,False,2024-10-13
+100822,Computer Science,2026,64.0,Full-time,17,False,2025-05-24
+100712,Economics,2024,62.3,Full-time,19,False,06/01/2026
+100766,Computer Science,2025,89.5,Full-time,21,False,"Feb 07, 2025"
+100684,Computer Science,2025,63.7,Full-time,22,True,"Feb 02, 2025"
+100750,Economics,2024,75.4,Full-time,17,False,2025-12-08
+101130,Computer Science,2025,54.6,Full-time,305,True,25/06/2025
+100037,Psychology,2024,60.6,Full-time,19,False,18/09/2024
+100140,Economics,2026,78.6,Full-time,21,False,15/03/2026
+100304,Psychology,2026,67.6,Full-time,17,True,12/11/2024
+100268,Biology,2024,58.1,Full-time,19,False,17/04/2025
+100835,Psychology,2026,65.9,Full-time,19,True,2024-12-14
+100534,Biology,2024,71.1,Full-time,18,False,17/09/2024
+100546,Economics,2026,54.1,Full-time,18,True,13/07/2026
+100213,Psychology,2025,79.4,Full-time,22,True,2025-04-01
+100897,Computer Science,2025,76.1,Full-time,19,False,"Jan 31, 2025"
+100469,Computer Science,2026,59.7,Full-time,17,True,26/12/2025
+100199,Biology,2025,67.1,Full-time,22,False,06/01/2026
+101034,Psychology,2026,55.1,Full-time,19,False,30/09/2025
+100868,Economics,2024,50.9,Full-time,19,True,06/07/2026
+100673,Computer Science,2026,64.1,Full-time,19,,2025-12-29
+100917,Psychology,2025,59.7,Full-time,17,False,2025-09-25
+100528,economics,2025,76.3%,Full-time,20,,2026-02-25
+100676,Computer Science,2025,66.3,Full-time,19,,"Jun 11, 2026"
+101076,Biology,2025,72.5,Part-time,21,True,20/03/2026
+100815,Psychology,2024,83.9,Full-time,17,False,2026-07-13
+100242,Computer Science,2025,74.9,Full-time,21,False,2026-04-12
+100343,Computer Science,2026,68.3,Part-time,27,False,2025-06-01
+100550,Psychology,2026,56.9,Part-time,25,True,"Aug 08, 2025"
+100387,Computer Science,2026,55.4,Full-time,21,False,2025-01-20
+101109,Economics,2025,59.3,Full-time,21,True,2026-01-05
+100207,computer science,2025,72.9,Full-time,20,True,03/03/2026
+100296,Computer Science,2026,,Full-time,18,True,2026-01-21
+100696,Economics,2026,49.4,Full-time,18,,2025-02-25
+101045,computer science,2026,56.0,Full-time,17,False,2026-01-23
+100074,Psychology,2025,58.8,Full-time,21,False,"Nov 13, 2025"
+100606,Economics,2026,73.0,Full-time,21,True,2026-02-27
+100105,Psychology,2024,94.8,Full-time,19,False,10/10/2024
+101016,Biology,2024,73.8,Full-time,20,True,2025-10-23
+100987,Psychology,2025,,Full-time,19,True,2025-11-22
+101175,Psychology,2026,47.7,Full-time,18,False,2025-07-26
+100017,Biology,2024,75.3,Full-time,21,False,2026-02-15
+100440,Economics,2026,49.7,Part-time,20,False,15/12/2025
+100092,Biology,2025,62.0,Full-time,17,True,2025-07-22
+100089,Biology,2026,66.5,Full-time,18,False,2026-06-09
+101156,Biology,2026,72.0,Full-time,19,True,2025-10-07
+100909,Computer Science,2024,78.3,Full-time,23,True,2026-01-08
+100451,Psychology,2025,57.4,Full-time,,False,2026-07-21
+100718,Computer Science,2025,53.1,Full-time,17,False,"Oct 31, 2024"
+100103,economics,2025,74.0%,Full-time,21,True,2024-11-22
+100239,Biology,2026,56.9%,Full-time,18,False,2025-06-10
+101113,Biology,2025,75.3,Full-time,22,False,23/09/2025
+100943,Economics,2024,61.5%,Full-time,20,False,18/04/2026
+100247,Economics,2026,51.0,Full-time,19,False,2024-10-26
+100939,Economics,2025,61.3,Full-time,19,,2024-10-21
+100991,Economics,2025,45.6,Full-time,,,30/05/2026
+100158,Biology,2024,71.3,Full-time,18,False,"Jul 18, 2026"
+100480,Biology,2025,67.4,Full-time,18,False,06/03/2026
+100839,Computer Science,2024,71.9,Full-time,19,False,14/09/2025
+100646,Psychology,2024,88.0,Full-time,20,True,18/04/2026
+100006,Computer Science,2026,48.4,Full-time,19,False,2026-04-20
+101083,Computer Science,2024,91.0,Part-time,24,True,2025-09-08
+100872,Computer Science,2025,56.3,Part-time,19,True,2025-10-19
+100019,Computer Science,2024,60.4,Full-time,23,False,29/03/2026
+101053,Economics,2026,72.2,Part-time,27,False,30/03/2025
+100122,biology,2025,72.4%,Full-time,18,True,2024-12-12
+100947,Computer Science,2025,79.4,Full-time,17,False,24/04/2026
+100662,Biology,2024,84.3,Full-time,19,False,2025-01-07
+100979,Economics,2026,66.3,Full-time,19,False,20/07/2026
+100275,Economics,2024,73.5,Full-time,18,False,2025-01-01
+100434,Psychology,2024,72.4,Full-time,17,True,2024-12-19
+100812,Psychology,2024,52.1,Part-time,25,False,"Jan 27, 2026"
+101135,Economics,2025,46.6,Full-time,20,False,20/02/2026
+100312,Biology,2026,98.9,Full-time,19,False,2025-06-27
+101119,biology,2025,59.9,Full-time,19,False,2024-12-16
+101131, Economics  ,2026,,Full-time,20,True,2025-05-15
+100781,Economics,2025,72.6,Full-time,21,False,2025-03-08
+100547,Economics,2024,56.4,Part-time,19,True,2026-07-03
+100182,Economics,2026,58.2,Full-time,21,True,"Jun 15, 2026"
+100185,Economics,2025,55.0,Part-time,26,False,2025-05-31
+100407,Computer Science,2026,53.4,Full-time,21,False,2024-11-19
+100720,Psychology,2024,55.7,Full-time,23,,2025-10-11
+100986,Computer Science,2026,76.4%,Full-time,20,False,19/09/2025
+100607,Biology,2024,79.6,Full-time,19,,16/03/2025
+100693,Biology,2026,73.2,Full-time,19,False,2025-12-22
+100521,Biology,2025,60.3,Full-time,19,False,2025-05-05
+100866, Computer Science  ,2026,87.2,Full-time,19,False,11/06/2025
+100381,Computer Science,2024,60.6,Full-time,17,False,2025-06-20
+100411,Economics,2025,68.9,Full-time,19,False,2025-09-09
+100635,Computer Science,2024,72.6,Full-time,17,True,2025-10-18
+100370,Psychology,2025,66.0,Full-time,21,False,31/05/2026
+101077,Biology,2026,65.9,Full-time,21,False,13/10/2024
+101091,Computer Science,2025,86.3,Full-time,21,False,2026-06-28
+100428,Computer Science,2024,66.9,Part-time,29,False,2025-07-15
+100877,Economics,2024,63.5,Full-time,20,True,2024-10-17
+100079,Computer Science,2024,60.3,Full-time,18,False,25/03/2025
+100863,Computer Science,2025,81.1,Full-time,18,False,2025-01-03
+100574,Psychology,2025,73.5,Full-time,20,False,2025-08-22
+101181, Psychology  ,2025,61.3,Full-time,18,False,2026-03-26
+100638,Economics,2025,64.2,Full-time,19,False,2025-05-06
+100608,Psychology,2024,43.8,Full-time,,False,2025-01-22
+101062,Biology,2025,83.3,Full-time,17,False,2026-01-11
+100069,Economics,2026,62.0%,Full-time,21,False,"Mar 27, 2026"
+100860,Computer Science,2026,69.8,Full-time,22,True,2026-04-19
+101089,Psychology,2026,64.4,Full-time,18,False,2024-12-24
+101153,Biology,2025,67.3,Full-time,21,False,2025-09-01
+100417,Biology,2025,69.4,Part-time,26,True,"Sep 22, 2024"
+101027,Psychology,2026,61.7,Full-time,21,False,2026-03-20
+100562,Psychology,2026,74.6,Part-time,20,True,2025-02-11
+100904,Biology,2024,62.0,Full-time,18,True,2026-05-18
+100068,Computer Science,2024,90.3,Full-time,19,True,2026-07-30
+100537,Economics,2024,61.8,Full-time,23,True,2024-12-14
+100078,Computer Science,2026,65.1,Part-time,18,False,11/03/2026
+100106,Computer Science,2026,73.0,Full-time,22,False,2025-02-28
+101037,psychology,2025,81.4,Full-time,18,False,05/03/2025
+101050,Biology,2026,75.3%,Full-time,21,True,2025-08-30
+100959,Economics,2025,,Full-time,20,False,26/01/2026
+100639,Biology,2024,74.3,Full-time,18,False,19/05/2026
+100560,Computer Science,2025,56.8,Full-time,21,False,2026-07-24
+100847,Computer Science,2024,71.9,Full-time,19,False,2026-08-15
+100689,Computer Science,2025,64.4,Full-time,18,False,2026-01-02
+100691,Biology,2025,48.7,Full-time,20,False,2026-02-07
+100827,computer science,2024,63.9,Full-time,21,,09/08/2026
+101116,Computer Science,2025,72.0,Full-time,18,True,2025-08-20
+101163,Biology,2024,68.5,Full-time,17,False,2025-11-19
+101117,Computer Science,2026,57.9,Part-time,35,False,15/08/2026
+100437,Psychology,2025,70.0%,Part-time,28,True,2024-10-02
+100491,Computer Science,2026,87.4%,Full-time,21,False,"Jun 17, 2025"
+101198,Computer Science,2025,60.4,Full-time,18,False,2025-10-09
+101098,Biology,2025,76.5,Full-time,18,True,27/01/2025
+100070,Biology,2025,64.7,Full-time,21,False,"Jul 12, 2026"
+100809,Biology,2024,63.1,Part-time,22,True,14/01/2025
+100012,Psychology,2025,61.1,Full-time,17,True,2025-12-02
+100145,Computer Science,2024,74.0,Full-time,22,False,2025-08-15
+100918,Biology,2024,76.8,Full-time,20,False,2025-03-27
+100640,Biology,2024,,Full-time,17,False,2025-11-21
+100177,Computer Science,2026,49.3,Full-time,19,False,2024-12-08
+100995,Computer Science,2025,65.8,Full-time,22,False,2024-10-11
+100441,Computer Science,2025,62.1,Full-time,17,False,03/10/2024
+100522,Psychology,2025,50.3,Full-time,17,True,2026-04-05
+101005, Economics  ,2025,62.7,Full-time,19,False,01/03/2025
+100144,Computer Science,2025,83.1,Full-time,18,False,2025-12-24
+100754,Computer Science,2024,60.0,Full-time,20,False,05/07/2026
+100520,Psychology,2024,42.1,Full-time,18,True,06/04/2026
+100823,Computer Science,2025,86.7,Full-time,18,,2025-08-10
+100429,computer science,2025,63.8%,Full-time,20,False,2025-09-27
+100613,Computer Science,2025,68.0,Full-time,20,False,2025-12-14
+101033, Psychology  ,2026,53.8,Full-time,20,,"Sep 06, 2025"
+100157,Biology,2026,48.2,Full-time,19,True,2026-03-26
+100540,Computer Science,2025,64.2%,Full-time,19,False,17/02/2025
+100462,Computer Science,2026,47.3,Full-time,18,False,2025-10-12
+100577,biology,2026,44.7,Full-time,18,False,2024-12-21
+100256,Economics,2025,63.1,Full-time,19,False,2025-07-06
+100980,Computer Science,2024,71.4%,Full-time,19,True,2024-11-27
+101007,Psychology,2025,63.6,Full-time,20,False,2025-10-08
+100561,Computer Science,2026,59.7,Full-time,21,False,"Dec 07, 2025"
+100209,Economics,2026,56.1,Part-time,26,False,2025-01-07
+100911,Economics,2024,67.7,Full-time,19,False,2025-10-17
+100002,biology,2026,62.7,Part-time,34,False,2025-01-28
+100270,Psychology,2026,81.7,Full-time,20,True,16/11/2025
+100266,Psychology,2024,35.0,Full-time,19,False,31/05/2025
+100915,Computer Science,2024,,Full-time,21,False,"Jan 10, 2025"
+100231,Biology,2025,68.2,Part-time,26,False,12/08/2026
+101184, Computer Science  ,2025,59.1,Full-time,23,False,2025-12-11
+101180,Economics,2026,71.0,Full-time,20,True,"Feb 03, 2025"
+100865,computer science,2026,44.8,Full-time,17,False,22/01/2025
+100874,Biology,2024,76.7,Full-time,20,False,2026-03-20
+101070,Biology,2026,58.3,Full-time,19,False,"May 26, 2025"
+100399,Computer Science,2026,69.5,Full-time,19,True,09/05/2026
+101092,Economics,2024,59.3,Full-time,21,True,2024-09-24
+100046,Biology,2025,65.8,Full-time,21,False,2025-04-17
+100162,Computer Science,2025,46.9,Full-time,21,False,08/10/2025
+100992,Biology,2025,64.9,Part-time,22,True,"Aug 21, 2025"
+100728,computer science,2024,95.6,Part-time,34,False,2026-03-07
+100630,Biology,2025,60.3,Part-time,33,True,2024-12-18
+100289,Psychology,2025,46.2,Full-time,20,False,2026-02-16
+101060,economics,2024,64.3,Part-time,20,True,2024-11-03
+101170,Economics,2025,61.7,Full-time,21,False,2025-06-05
+100576,Computer Science,2026,64.6,Full-time,20,False,"Jul 08, 2026"
+100851,Psychology,2025,80.6,Full-time,18,True,"Sep 20, 2024"
+100912,psychology,2024,60.8,Full-time,20,False,"Apr 14, 2026"
+101085,Computer Science,2024,57.8,Part-time,33,True,2025-12-13
+100933,Psychology,2025,75.4,Full-time,18,True,2025-12-11
+100248,Economics,2026,55.7,Full-time,18,False,2024-09-22
+100477,Psychology,2026,47.9,Full-time,19,False,2026-07-08
+100086,Biology,2026,73.1,Full-time,22,False,"May 29, 2026"
+100470,Biology,2025,84.9,Full-time,19,False,"Oct 25, 2024"
+100226,Computer Science,2025,77.0,Full-time,18,False,2026-07-04
+100775,Psychology,2025,94.1,Full-time,19,True,2026-05-22
+100332,Computer Science,2025,60.1,Part-time,23,False,2026-05-30
+100234,Economics,2025,60.9,Full-time,,True,2026-02-15
+100589,Psychology,2026,81.3,Full-time,20,False,22/12/2025
+100476,Biology,2026,66.6,Full-time,17,False,2024-12-24
+100600,Computer Science,2026,63.5,Full-time,21,False,08/06/2025
+100422,Computer Science,2024,76.8,Full-time,21,False,2026-03-30
+100183,Computer Science,2026,75.3,Full-time,17,False,2026-04-18
+100989,Psychology,2025,72.2,Full-time,18,False,2025-07-06
+101001,Biology,2025,50.1,Part-time,28,False,2026-07-08
+100050,Biology,2024,56.0,Full-time,19,True,2025-11-01
+101124,Biology,2025,,Full-time,,,2025-12-07
+101030,Economics,2026,76.5,Full-time,18,False,24/09/2025
+100530,economics,2026,65.9,Full-time,19,False,2026-03-23
+100487,Economics,2026,54.2,Full-time,17,True,2026-02-24
+100498,Computer Science,2024,,Part-time,24,False,2025-12-21
+100107,Computer Science,2026,65.4,Part-time,24,True,2025-02-20
+100444,Computer Science,2026,74.1,Part-time,31,False,2026-02-09
+100647,Biology,2026,62.1,Full-time,19,False,23/10/2025
+101037,psychology,2025,81.4,Full-time,18,False,05/03/2025
+100727,Economics,2025,51.4,Full-time,21,False,"Aug 26, 2025"
+100191,Psychology,2024,60.4,Full-time,20,False,2024-09-29
+100283,Biology,2026,68.9,Full-time,17,False,2025-02-23
+100030,Psychology,2025,59.1,Full-time,18,False,2026-05-14
+100170,Biology,2024,70.9,Full-time,20,False,2026-05-18
+101002, biology  ,2026,74.8,Full-time,20,False,13/12/2025
+100101,computer science,2026,59.0,Full-time,20,False,2026-06-01
+100198,Computer Science,2026,74.7,Full-time,,True,2026-02-02
+100496,Biology,2025,63.7,Full-time,17,False,2025-01-13
+100648,Psychology,2024,73.8,Full-time,19,False,26/03/2025
+100988,Biology,2026,53.3,Full-time,,True,2024-12-18
+100045,Economics,2026,45.7,Full-time,19,True,2025-07-07
+100711,Psychology,2026,66.2,Full-time,21,True,2025-05-13
+100374,Biology,2026,71.3,Full-time,19,False,2026-05-13
+100679,Economics,2026,67.2,Full-time,20,False,25/02/2025
+100567,Biology,2026,75.7,Part-time,28,False,24/10/2025
+100848,Computer Science,2025,57.6,Full-time,18,False,2025-05-19
+100461,Economics,2025,72.1,Full-time,18,False,22/07/2026
+100040,Economics,2026,69.6,Full-time,20,True,"Mar 24, 2026"
+100435,Biology,2024,70.4,Full-time,20,False,26/03/2026
+100974,Psychology,2024,63.3,Full-time,22,False,28/11/2025
+101008,Psychology,2026,69.6,Full-time,18,True,"Nov 06, 2024"
+100457,Psychology,2026,74.9%,Full-time,21,True,2025-11-17
+100261,Computer Science,2025,63.7,Full-time,19,True,2026-03-01
+100036,Computer Science,2024,79.4%,Part-time,24,False,2024-09-30
+100828,Computer Science,2026,74.9,Full-time,21,False,"Dec 12, 2024"
+100310, psychology  ,2025,80.4%,Part-time,32,False,2025-06-01
+100277,Biology,2025,69.1,Full-time,19,True,11/02/2025
+100637,computer science,2025,,Full-time,20,False,18/06/2025
+100655,Biology,2024,49.5,Part-time,21,False,2025-05-30
+100623,Psychology,2025,54.2,Part-time,35,False,10/12/2024
+100845,Computer Science,2025,68.3,Full-time,21,False,2026-06-20
+100394,Computer Science,2026,83.8,Full-time,19,False,2025-06-21
+100108,Biology,2026,68.4,Full-time,20,True,2025-11-16
+100350,Computer Science,2026,81.4,Full-time,20,False,03/05/2026
+100525,biology,2025,75.2,Full-time,20,False,"Dec 19, 2024"
+100785,Economics,2026,77.0,Full-time,21,False,2025-10-03
+100048,Computer Science,2026,65.9,Full-time,20,False,2026-08-05
+100204,Computer Science,2026,85.4,Full-time,21,False,"Nov 09, 2024"
+100022,Economics,2025,61.6,Full-time,22,True,17/11/2025
+100403,Biology,2026,50.7,Full-time,18,False,"Oct 17, 2025"
+101108,Psychology,2024,82.1,Full-time,22,True,2025-01-05
+100990,Psychology,2026,57.4,Full-time,20,False,2025-03-06
+100742,Economics,2024,66.0,Full-time,19,,2026-02-18
+101148,Economics,2026,80.7,Full-time,199,False,2026-01-23
+100034,Computer Science,2026,64.0,Full-time,20,True,"Sep 29, 2025"
+100788,Biology,2026,,Full-time,19,False,2025-11-17
+100924,Psychology,2025,71.3,Full-time,20,False,"Feb 03, 2025"
+101044,Biology,2026,81.3,Full-time,21,False,"Mar 14, 2026"
+101159,Economics,2026,69.7,Full-time,19,False,"Mar 21, 2026"
+100580,Biology,2025,77.9,Full-time,18,False,2026-01-29
+100482,Computer Science,2026,76.7,Full-time,18,False,2025-06-13
+100932,biology,2025,77.0,Full-time,18,True,2026-04-08
+100357,Computer Science,2026,66.8,Full-time,19,False,2025-08-06
+100760,Computer Science,2026,81.2,Full-time,17,False,2024-09-27
+100093,Economics,2025,76.6,Full-time,21,,2025-07-26
+100804,Psychology,2025,47.8,Part-time,23,False,2025-12-04
+100746,Biology,2026,96.3,Full-time,21,False,2025-02-13
+100280,Economics,2025,74.1,Full-time,21,False,01/05/2025
+100765,Economics,2026,78.0,Full-time,21,True,2025-03-03
+100605,Computer Science,2024,68.7,Part-time,30,False,02/08/2026
+101191,Computer Science,2025,76.1,Full-time,20,False,2025-09-18
+100401,Computer Science,2024,53.8,Part-time,24,False,2025-04-02
+100258,Computer Science,2025,75.0,Full-time,22,False,2025-12-22
+100945,psychology,2026,78.4,Part-time,25,False,2025-03-17
+101097,Computer Science,2024,64.5,Full-time,18,False,2024-11-03
+101162,Economics,2025,47.8,Part-time,21,False,2024-09-18
+100495,Psychology,2025,84.7,Full-time,21,False,2025-10-31
+100773,Biology,2024,76.6,Part-time,23,False,2025-01-21
+100551,Economics,2026,67.2,Full-time,21,True,2025-06-15
+100202,economics,2024,46.3,Full-time,22,False,2025-03-04
+100313,Computer Science,2026,69.0,Full-time,19,,2024-12-01
+100291,Biology,2026,53.7,Full-time,21,False,23/01/2025
+100764,Computer Science,2026,89.0,Full-time,18,False,2025-05-02
+101137,biology,2026,64.8,Full-time,20,False,21/05/2026
+100950,Computer Science,2026,71.2,Full-time,20,False,2025-03-20
+100184,Biology,2025,69.3,Full-time,19,False,2025-06-09
+101177,Economics,2026,64.1,Full-time,20,False,2025-02-06
+101069,Economics,2026,60.4,Full-time,23,False,2026-07-07
+101031,Computer Science,2026,73.5,Full-time,17,False,2025-11-20
+100251,Economics,2024,70.6,Full-time,17,False,2026-05-28
+100824,Biology,2026,66.8,Full-time,18,True,2025-02-28
+101100,Economics,2026,63.6,Full-time,20,False,2026-03-18
+100941, Computer Science  ,2026,,Full-time,18,False,"Sep 25, 2024"
+100392,Psychology,2024,80.0,Full-time,21,False,2026-08-04
+101093,computer science,2024,50.6,Full-time,22,True,2025-03-09
+101192,Computer Science,2025,66.5,Full-time,19,False,09/07/2025
+100905,Economics,2024,63.3,Full-time,21,False,2025-01-09
+100731,Psychology,2024,45.7,Part-time,24,False,23/02/2026
+100555,Computer Science,2026,80.4,Full-time,17,False,2026-07-17
+100367,Computer Science,2025,90.1,Full-time,19,False,2026-06-25
+100346,Biology,2024,77.9,Full-time,19,False,2025-01-15
+100536,Computer Science,2025,72.3,Full-time,19,,2025-12-12
+100920,Biology,2025,57.7,Part-time,29,False,"Oct 02, 2024"
+100212,Biology,2024,73.6,Full-time,20,False,10/11/2025
+100503,Biology,2025,61.4,Part-time,28,False,2024-09-23
+100538, Computer Science  ,2025,99.0,Full-time,19,False,"Apr 12, 2026"
+100176,computer science,2026,64.3,Full-time,21,False,2025-01-01

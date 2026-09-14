@@ -1,0 +1,733 @@
+student_id,course_code,comment,sentiment
+100002,DS100,Week to week the course felt clear. The pace was about right for me. Recordings appeared a few days late.,positive
+100004,DS100,Really engaging lecturer. The course itself was poorly organised.,negative
+100005,DS100,I found the course hard to follow. The pace was not right for me. The dataset used in labs was helpful.,negative
+100011,DS100,The lab sessions were well structured. The capstone was the best part. The reading list was long.,positive
+100012,DS100,"Not clear at all in week 1, but it became well structured later on.",positive
+100016,DS100,I found the course not well structured. More worked examples would help. The reading list was long.,negative
+100017,DS100,Teaching on this course was poorly organised. More worked examples would help. Recordings appeared a few days late.,negative
+100018,DS100,"Well organised, though I struggled to keep up after week 6. The worked examples helped a lot.",positive
+100020,DS100,I found the course clear and well paced. The pace was about right for me. The dataset used in labs was helpful.,positive
+100022,DS100,The lectures were disconnected from the labs. The pace was not right for me. The module ran on Tuesday mornings.,negative
+100023,DS100,Week to week the course felt hard to follow. The pace was not right for me. The dataset used in labs was helpful.,negative
+100024,DS100,Really engaging lecturer. The course itself was poorly organised.,negative
+100026,DS100,The lab sessions were clear. Feedback on assignments was fast and useful. Attendance was taken every week.,positive
+100028,DS100,The material was disconnected from the labs. I never understood the modelling week. The module ran on Tuesday mornings.,negative
+100029,DS100,"Well organised, though I struggled to keep up after week 6. The worked examples helped a lot.",positive
+100030,DS100,The lab sessions were very well organised. The worked examples helped a lot. Recordings appeared a few days late.,positive
+100032,DS100,Week to week the course felt the best this term. The worked examples helped a lot. Assessment deadlines clustered in week 10.,positive
+100033,DS100,I found the course not clear at all. The statistics section needed more time. Attendance was taken every week.,negative
+100034,DS100,The material was very well organised. The pace was about right for me. Recordings appeared a few days late.,positive
+100037,DS100,Week to week the course felt clear and well paced. Feedback on assignments was fast and useful. The reading list was long.,positive
+100038,DS100,The lab sessions were genuinely excellent. The capstone was the best part. Attendance was taken every week.,positive
+100040,DS100,The best part was the capstone. Everything before it was hard to follow.,negative
+100041,DS100,Week to week the course felt very well organised. The worked examples helped a lot. The module ran on Tuesday mornings.,positive
+100042,DS100,The lectures were not clear at all. The pace was not right for me. The module ran on Tuesday mornings.,negative
+100044,DS100,I found the course really engaging. The capstone was the best part. The reading list was long.,positive
+100046,DS100,The lab sessions were far too fast. I struggled to keep up after week 6. Rooms were sometimes too small.,negative
+100047,DS100,The lab sessions were really engaging. I would recommend it to next year's cohort. The dataset used in labs was helpful.,positive
+100049,DS100,The lab sessions were the best this term. The pace was about right for me. The reading list was long.,positive
+100051,DS100,"Well organised, though I struggled to keep up after week 6. The worked examples helped a lot.",positive
+100054,DS100,Overall the module was not clear at all. I never understood the modelling week. The reading list was long.,negative
+100056,DS100,"Well organised, though I struggled to keep up after week 6. The worked examples helped a lot.",positive
+100057,DS100,The lab sessions were well structured. Feedback on assignments was fast and useful. The reading list was long.,positive
+100060,DS100,Week to week the course felt the best this term. Feedback on assignments was fast and useful. The module ran on Tuesday mornings.,positive
+100061,DS100,Teaching on this course was disconnected from the labs. The pace was not right for me. Attendance was taken every week.,negative
+100062,DS100,The lab sessions were disconnected from the labs. The pace was not right for me. Recordings appeared a few days late.,positive
+100064,DS100,The material was very well organised. The worked examples helped a lot. Attendance was taken every week.,positive
+100066,DS100,The lab sessions were disconnected from the labs. I never understood the modelling week. Recordings appeared a few days late.,negative
+100068,DS100,The lab sessions were poorly organised. The pace was not right for me. Assessment deadlines clustered in week 10.,negative
+100069,DS100,The lectures were clear but the labs were rushed at the end. I would still recommend it.,positive
+100070,DS100,Week to week the course felt very well organised. The capstone was the best part. The dataset used in labs was helpful.,positive
+100071,DS100,Overall the module was really engaging. I would recommend it to next year's cohort. The reading list was long.,positive
+100073,DS100,The lectures were really engaging. The pace was about right for me. Recordings appeared a few days late.,positive
+100075,DS100,The material was clear and well paced. Feedback on assignments was fast and useful. The module ran on Tuesday mornings.,positive
+100078,DS100,Really engaging lecturer. The course itself was poorly organised.,negative
+100080,DS100,I found the course disconnected from the labs. More worked examples would help. The module ran on Tuesday mornings.,negative
+100082,DS100,I found the course far too fast. The statistics section needed more time. Recordings appeared a few days late.,negative
+100083,DS100,The lab sessions were clear and well paced. I would recommend it to next year's cohort. The reading list was long.,positive
+100084,DS100,Overall the module was disconnected from the labs. The statistics section needed more time. Rooms were sometimes too small.,negative
+100085,DS100,Overall the module was poorly organised. I never understood the modelling week. The reading list was long.,negative
+100090,DS100,The material was far too fast. I never understood the modelling week. The module ran on Tuesday mornings.,positive
+100091,DS100,Week to week the course felt poorly organised. I never understood the modelling week. The reading list was long.,negative
+100092,DS100,I found the course really engaging. The worked examples helped a lot. Assessment deadlines clustered in week 10.,negative
+100094,DS100,Teaching on this course was far too fast. More worked examples would help. Attendance was taken every week.,negative
+100097,DS100,The lab sessions were clear and well paced. The worked examples helped a lot. Attendance was taken every week.,positive
+100098,DS100,The lab sessions were rushed at the end. More worked examples would help. Attendance was taken every week.,negative
+100101,DS100,Teaching on this course was rushed at the end. The statistics section needed more time. Attendance was taken every week.,negative
+100102,DS100,I found the course well structured. Feedback on assignments was fast and useful. Assessment deadlines clustered in week 10.,positive
+100107,DS100,The material was rushed at the end. I struggled to keep up after week 6. The dataset used in labs was helpful.,negative
+100110,DS100,I found the course clear and well paced. The worked examples helped a lot. Rooms were sometimes too small.,positive
+100111,DS100,I found the course clear. The worked examples helped a lot. Assessment deadlines clustered in week 10.,positive
+100112,DS100,The material was clear. The pace was about right for me. The module ran on Tuesday mornings.,negative
+100114,DS100,The material was rushed at the end. The statistics section needed more time. Attendance was taken every week.,negative
+100115,DS100,I found the course really engaging. I would recommend it to next year's cohort. Recordings appeared a few days late.,positive
+100116,DS100,Week to week the course felt disconnected from the labs. I never understood the modelling week. Assessment deadlines clustered in week 10.,negative
+100120,DS100,The lectures were very well organised. Feedback on assignments was fast and useful. Attendance was taken every week.,positive
+100121,DS100,"Not clear at all in week 1, but it became well structured later on.",positive
+100122,DS100,The lab sessions were the best this term. The capstone was the best part. Assessment deadlines clustered in week 10.,positive
+100123,DS100,The lectures were clear but the labs were rushed at the end. I would still recommend it.,positive
+100125,DS100,Overall the module was not well structured. More worked examples would help. Recordings appeared a few days late.,negative
+100126,DS100,Teaching on this course was very well organised. I would recommend it to next year's cohort. The module ran on Tuesday mornings.,positive
+100128,DS100,"Not clear at all in week 1, but it became well structured later on.",positive
+100131,DS100,The lectures were very well organised. The capstone was the best part. Assessment deadlines clustered in week 10.,positive
+100132,DS100,Teaching on this course was not clear at all. The pace was not right for me. The module ran on Tuesday mornings.,negative
+100133,DS100,The best part was the capstone. Everything before it was hard to follow.,negative
+100135,DS100,"Engaging material, but not enough time on the statistics section. I never understood the modelling week.",negative
+100136,DS100,Teaching on this course was clear. The worked examples helped a lot. Attendance was taken every week.,positive
+100139,DS100,Overall the module was well structured. The worked examples helped a lot. The reading list was long.,positive
+100140,DS100,The lab sessions were far too fast. The pace was not right for me. Recordings appeared a few days late.,negative
+100141,DS100,The lab sessions were very well organised. Feedback on assignments was fast and useful. Rooms were sometimes too small.,positive
+100142,DS100,Teaching on this course was really engaging. I would recommend it to next year's cohort. The module ran on Tuesday mornings.,positive
+100143,DS100,Teaching on this course was well structured. The worked examples helped a lot. The module ran on Tuesday mornings.,positive
+100144,DS100,Week to week the course felt rushed at the end. I never understood the modelling week. Rooms were sometimes too small.,negative
+100146,DS100,I found the course poorly organised. The statistics section needed more time. The reading list was long.,negative
+100147,DS100,Week to week the course felt not well structured. The statistics section needed more time. Assessment deadlines clustered in week 10.,negative
+100148,DS100,Overall the module was clear. I would recommend it to next year's cohort. Attendance was taken every week.,positive
+100149,DS100,Teaching on this course was really engaging. Feedback on assignments was fast and useful. The dataset used in labs was helpful.,positive
+100150,DS100,Week to week the course felt genuinely excellent. The capstone was the best part. Attendance was taken every week.,positive
+100151,DS100,The lectures were genuinely excellent. The capstone was the best part. Recordings appeared a few days late.,positive
+100152,DS100,The lectures were clear. The worked examples helped a lot. Recordings appeared a few days late.,positive
+100155,DS100,Week to week the course felt not clear at all. I struggled to keep up after week 6. The dataset used in labs was helpful.,negative
+100156,DS100,The material was not clear at all. I struggled to keep up after week 6. The dataset used in labs was helpful.,negative
+100157,DS100,The lectures were rushed at the end. The pace was not right for me. Attendance was taken every week.,negative
+100158,DS100,The lab sessions were far too fast. More worked examples would help. The dataset used in labs was helpful.,negative
+100160,DS100,The lab sessions were far too fast. I struggled to keep up after week 6. The module ran on Tuesday mornings.,negative
+100162,DS100,Week to week the course felt hard to follow. The statistics section needed more time. The dataset used in labs was helpful.,negative
+100163,DS100,The lab sessions were clear. I would recommend it to next year's cohort. Recordings appeared a few days late.,positive
+100164,DS100,The lab sessions were clear. The capstone was the best part. The dataset used in labs was helpful.,positive
+100165,DS100,The lectures were genuinely excellent. The pace was about right for me. The module ran on Tuesday mornings.,positive
+100167,DS100,Week to week the course felt really engaging. The worked examples helped a lot. The dataset used in labs was helpful.,positive
+100168,DS100,The material was really engaging. Feedback on assignments was fast and useful. Rooms were sometimes too small.,positive
+100169,DS100,The lectures were the best this term. The worked examples helped a lot. The dataset used in labs was helpful.,negative
+100170,DS100,Teaching on this course was the best this term. The capstone was the best part. The module ran on Tuesday mornings.,positive
+100171,DS100,The material was hard to follow. More worked examples would help. Attendance was taken every week.,negative
+100173,DS100,The lab sessions were far too fast. The pace was not right for me. Rooms were sometimes too small.,negative
+100174,DS100,Week to week the course felt genuinely excellent. I would recommend it to next year's cohort. The module ran on Tuesday mornings.,positive
+100176,DS100,I found the course clear and well paced. The worked examples helped a lot. The dataset used in labs was helpful.,positive
+100177,DS100,The lectures were far too fast. I struggled to keep up after week 6. The reading list was long.,negative
+100179,DS100,The best part was the capstone. Everything before it was hard to follow.,negative
+100180,DS100,I found the course not clear at all. The pace was not right for me. Rooms were sometimes too small.,negative
+100184,DS100,The material was clear. The worked examples helped a lot. The dataset used in labs was helpful.,positive
+100185,DS100,The material was disconnected from the labs. The statistics section needed more time. Assessment deadlines clustered in week 10.,negative
+100186,DS100,Overall the module was hard to follow. I struggled to keep up after week 6. The reading list was long.,negative
+100187,DS100,Week to week the course felt not clear at all. The statistics section needed more time. Rooms were sometimes too small.,negative
+100190,DS100,The material was rushed at the end. The statistics section needed more time. Assessment deadlines clustered in week 10.,negative
+100194,DS100,The lab sessions were clear. I would recommend it to next year's cohort. Rooms were sometimes too small.,positive
+100195,DS100,Overall the module was the best this term. The pace was about right for me. Assessment deadlines clustered in week 10.,positive
+100197,DS100,The material was really engaging. The pace was about right for me. Recordings appeared a few days late.,positive
+100198,DS100,I found the course really engaging. The capstone was the best part. Assessment deadlines clustered in week 10.,positive
+100199,DS100,"Not clear at all in week 1, but it became well structured later on.",positive
+100200,DS100,The lab sessions were genuinely excellent. The worked examples helped a lot. Assessment deadlines clustered in week 10.,positive
+100201,DS100,Overall the module was far too fast. The pace was not right for me. Rooms were sometimes too small.,negative
+100205,DS100,The lectures were very well organised. Feedback on assignments was fast and useful. Assessment deadlines clustered in week 10.,negative
+100206,DS100,The lab sessions were clear and well paced. I would recommend it to next year's cohort. The dataset used in labs was helpful.,negative
+100207,DS100,Really engaging lecturer. The course itself was poorly organised.,negative
+100208,DS100,Overall the module was really engaging. I would recommend it to next year's cohort. Recordings appeared a few days late.,positive
+100209,DS100,Overall the module was not well structured. The statistics section needed more time. Assessment deadlines clustered in week 10.,negative
+100210,DS100,Week to week the course felt not clear at all. The pace was not right for me. The module ran on Tuesday mornings.,negative
+100214,DS100,The lectures were hard to follow. The pace was not right for me. Recordings appeared a few days late.,negative
+100215,DS100,Overall the module was well structured. The capstone was the best part. The reading list was long.,positive
+100218,DS100,Overall the module was hard to follow. The statistics section needed more time. The reading list was long.,negative
+100219,DS100,"Well organised, though I struggled to keep up after week 6. The worked examples helped a lot.",positive
+100221,DS100,The lab sessions were well structured. I would recommend it to next year's cohort. Recordings appeared a few days late.,positive
+100222,DS100,The lectures were clear but the labs were rushed at the end. I would still recommend it.,positive
+100223,DS100,I found the course far too fast. The pace was not right for me. The dataset used in labs was helpful.,negative
+100225,DS100,Really engaging lecturer. The course itself was poorly organised.,negative
+100227,DS100,Week to week the course felt well structured. I would recommend it to next year's cohort. Rooms were sometimes too small.,positive
+100228,DS100,"Engaging material, but not enough time on the statistics section. I never understood the modelling week.",negative
+100231,DS100,Overall the module was disconnected from the labs. I struggled to keep up after week 6. Attendance was taken every week.,negative
+100233,DS100,I found the course not clear at all. I never understood the modelling week. The reading list was long.,negative
+100236,DS100,I found the course very well organised. The pace was about right for me. The reading list was long.,positive
+100237,DS100,Week to week the course felt genuinely excellent. I would recommend it to next year's cohort. Rooms were sometimes too small.,positive
+100238,DS100,Overall the module was rushed at the end. I never understood the modelling week. Rooms were sometimes too small.,negative
+100239,DS100,The lab sessions were not well structured. I struggled to keep up after week 6. The dataset used in labs was helpful.,negative
+100241,DS100,Week to week the course felt genuinely excellent. I would recommend it to next year's cohort. Assessment deadlines clustered in week 10.,positive
+100242,DS100,I found the course disconnected from the labs. The statistics section needed more time. Rooms were sometimes too small.,negative
+100243,DS100,The lectures were clear and well paced. The pace was about right for me. The reading list was long.,positive
+100244,DS100,The lectures were not clear at all. The pace was not right for me. The dataset used in labs was helpful.,positive
+100245,DS100,I found the course hard to follow. I struggled to keep up after week 6. Recordings appeared a few days late.,negative
+100247,DS100,The lectures were not well structured. The statistics section needed more time. Assessment deadlines clustered in week 10.,negative
+100250,DS100,The lab sessions were very well organised. The pace was about right for me. Assessment deadlines clustered in week 10.,positive
+100251,DS100,Really engaging lecturer. The course itself was poorly organised.,negative
+100254,DS100,Week to week the course felt poorly organised. The statistics section needed more time. Assessment deadlines clustered in week 10.,negative
+100260,DS100,The material was clear and well paced. Feedback on assignments was fast and useful. The reading list was long.,positive
+100264,DS100,Teaching on this course was very well organised. The worked examples helped a lot. The module ran on Tuesday mornings.,positive
+100265,DS100,The lab sessions were not well structured. The pace was not right for me. Recordings appeared a few days late.,negative
+100268,DS100,I found the course the best this term. The capstone was the best part. Recordings appeared a few days late.,positive
+100270,DS100,Really engaging lecturer. The course itself was poorly organised.,negative
+100271,DS100,The lectures were clear but the labs were rushed at the end. I would still recommend it.,positive
+100272,DS100,The best part was the capstone. Everything before it was hard to follow.,negative
+100274,DS100,Teaching on this course was not well structured. I never understood the modelling week. The module ran on Tuesday mornings.,negative
+100276,DS100,I found the course very well organised. Feedback on assignments was fast and useful. Recordings appeared a few days late.,positive
+100279,DS100,I found the course poorly organised. The statistics section needed more time. The dataset used in labs was helpful.,negative
+100280,DS100,The material was well structured. The worked examples helped a lot. Assessment deadlines clustered in week 10.,positive
+100282,DS100,Teaching on this course was poorly organised. The statistics section needed more time. The dataset used in labs was helpful.,positive
+100283,DS100,Teaching on this course was disconnected from the labs. More worked examples would help. The reading list was long.,negative
+100284,DS100,The lab sessions were rushed at the end. The pace was not right for me. The module ran on Tuesday mornings.,negative
+100286,DS100,The lectures were not clear at all. The pace was not right for me. Rooms were sometimes too small.,negative
+100289,DS100,The lectures were not clear at all. The statistics section needed more time. Assessment deadlines clustered in week 10.,negative
+100290,DS100,The material was not clear at all. I struggled to keep up after week 6. The module ran on Tuesday mornings.,negative
+100291,DS100,The lectures were hard to follow. The statistics section needed more time. Attendance was taken every week.,negative
+100293,DS100,I found the course not well structured. The pace was not right for me. Rooms were sometimes too small.,negative
+100294,DS100,Overall the module was clear. The worked examples helped a lot. Recordings appeared a few days late.,positive
+100295,DS100,Really engaging lecturer. The course itself was poorly organised.,negative
+100298,DS100,Overall the module was the best this term. The worked examples helped a lot. Rooms were sometimes too small.,positive
+100300,DS100,I found the course clear and well paced. Feedback on assignments was fast and useful. The module ran on Tuesday mornings.,positive
+100301,DS100,The material was rushed at the end. The pace was not right for me. Rooms were sometimes too small.,positive
+100302,DS100,The material was well structured. I would recommend it to next year's cohort. Assessment deadlines clustered in week 10.,positive
+100304,DS100,"Engaging material, but not enough time on the statistics section. I never understood the modelling week.",negative
+100306,DS100,Teaching on this course was the best this term. I would recommend it to next year's cohort. Recordings appeared a few days late.,negative
+100307,DS100,Overall the module was hard to follow. I struggled to keep up after week 6. The reading list was long.,negative
+100308,DS100,The material was not clear at all. More worked examples would help. The reading list was long.,negative
+100310,DS100,I found the course the best this term. The capstone was the best part. Assessment deadlines clustered in week 10.,positive
+100311,DS100,Week to week the course felt clear and well paced. The pace was about right for me. Recordings appeared a few days late.,positive
+100312,DS100,The lab sessions were clear and well paced. The worked examples helped a lot. Attendance was taken every week.,positive
+100313,DS100,The lectures were poorly organised. I struggled to keep up after week 6. The dataset used in labs was helpful.,negative
+100314,DS100,Teaching on this course was the best this term. I would recommend it to next year's cohort. The dataset used in labs was helpful.,positive
+100316,DS100,Week to week the course felt hard to follow. I never understood the modelling week. Assessment deadlines clustered in week 10.,negative
+100317,DS100,Week to week the course felt hard to follow. The statistics section needed more time. Rooms were sometimes too small.,negative
+100320,DS100,Overall the module was well structured. The worked examples helped a lot. Assessment deadlines clustered in week 10.,positive
+100322,DS100,The material was disconnected from the labs. The statistics section needed more time. Assessment deadlines clustered in week 10.,negative
+100326,DS100,The material was really engaging. The worked examples helped a lot. Attendance was taken every week.,positive
+100328,DS100,The lectures were really engaging. The pace was about right for me. Rooms were sometimes too small.,positive
+100329,DS100,Teaching on this course was well structured. I would recommend it to next year's cohort. The module ran on Tuesday mornings.,positive
+100334,DS100,The lab sessions were not well structured. I never understood the modelling week. The module ran on Tuesday mornings.,negative
+100335,DS100,Overall the module was the best this term. The worked examples helped a lot. The reading list was long.,positive
+100337,DS100,Teaching on this course was clear. The pace was about right for me. The dataset used in labs was helpful.,positive
+100338,DS100,"Engaging material, but not enough time on the statistics section. I never understood the modelling week.",negative
+100341,DS100,The lab sessions were disconnected from the labs. I never understood the modelling week. Recordings appeared a few days late.,negative
+100343,DS100,Teaching on this course was not well structured. More worked examples would help. The module ran on Tuesday mornings.,negative
+100344,DS100,The best part was the capstone. Everything before it was hard to follow.,negative
+100345,DS100,I found the course hard to follow. More worked examples would help. Rooms were sometimes too small.,negative
+100348,DS100,Week to week the course felt well structured. The pace was about right for me. Assessment deadlines clustered in week 10.,positive
+100349,DS100,Overall the module was well structured. The capstone was the best part. The module ran on Tuesday mornings.,positive
+100350,DS100,I found the course clear and well paced. Feedback on assignments was fast and useful. Recordings appeared a few days late.,positive
+100351,DS100,Teaching on this course was far too fast. The pace was not right for me. Assessment deadlines clustered in week 10.,negative
+100352,DS100,I found the course well structured. Feedback on assignments was fast and useful. Recordings appeared a few days late.,positive
+100353,DS100,The material was poorly organised. The statistics section needed more time. Assessment deadlines clustered in week 10.,negative
+100355,DS100,The material was the best this term. Feedback on assignments was fast and useful. Attendance was taken every week.,positive
+100357,DS100,Teaching on this course was really engaging. The pace was about right for me. The reading list was long.,positive
+100359,DS100,"Not clear at all in week 1, but it became well structured later on.",positive
+100360,DS100,The best part was the capstone. Everything before it was hard to follow.,negative
+100361,DS100,Overall the module was rushed at the end. I never understood the modelling week. The reading list was long.,negative
+100362,DS100,Really engaging lecturer. The course itself was poorly organised.,negative
+100364,DS100,Teaching on this course was really engaging. The pace was about right for me. Assessment deadlines clustered in week 10.,positive
+100366,DS100,The lectures were well structured. Feedback on assignments was fast and useful. Attendance was taken every week.,positive
+100367,DS100,Week to week the course felt clear. The capstone was the best part. The module ran on Tuesday mornings.,positive
+100368,DS100,The material was genuinely excellent. The capstone was the best part. The module ran on Tuesday mornings.,positive
+100369,DS100,Teaching on this course was not clear at all. I never understood the modelling week. Recordings appeared a few days late.,negative
+100370,DS100,I found the course clear and well paced. The pace was about right for me. The reading list was long.,positive
+100372,DS100,The material was not clear at all. The pace was not right for me. Rooms were sometimes too small.,negative
+100373,DS100,The lectures were clear but the labs were rushed at the end. I would still recommend it.,positive
+100378,DS100,The lectures were not well structured. I struggled to keep up after week 6. Rooms were sometimes too small.,negative
+100380,DS100,Week to week the course felt clear and well paced. The capstone was the best part. Attendance was taken every week.,positive
+100382,DS100,Teaching on this course was clear. Feedback on assignments was fast and useful. Assessment deadlines clustered in week 10.,positive
+100383,DS100,I found the course clear and well paced. The worked examples helped a lot. Rooms were sometimes too small.,positive
+100386,DS100,The lectures were clear and well paced. The capstone was the best part. Rooms were sometimes too small.,positive
+100387,DS100,Overall the module was poorly organised. The pace was not right for me. Assessment deadlines clustered in week 10.,negative
+100388,DS100,Week to week the course felt not well structured. I never understood the modelling week. The dataset used in labs was helpful.,negative
+100391,DS100,I found the course the best this term. Feedback on assignments was fast and useful. Assessment deadlines clustered in week 10.,positive
+100392,DS100,I found the course clear. The pace was about right for me. Assessment deadlines clustered in week 10.,negative
+100393,DS100,The lectures were really engaging. The capstone was the best part. Recordings appeared a few days late.,positive
+100394,DS100,The lectures were not clear at all. More worked examples would help. Recordings appeared a few days late.,negative
+100404,DS100,I found the course rushed at the end. More worked examples would help. Attendance was taken every week.,negative
+100405,DS100,The material was well structured. I would recommend it to next year's cohort. Attendance was taken every week.,positive
+100406,DS100,Teaching on this course was poorly organised. I never understood the modelling week. The module ran on Tuesday mornings.,negative
+100407,DS100,I found the course poorly organised. I never understood the modelling week. Assessment deadlines clustered in week 10.,negative
+100408,DS100,I found the course genuinely excellent. The capstone was the best part. The reading list was long.,positive
+100409,DS100,Overall the module was not well structured. More worked examples would help. The dataset used in labs was helpful.,negative
+100411,DS100,"Not clear at all in week 1, but it became well structured later on.",positive
+100414,DS100,Teaching on this course was clear. The pace was about right for me. Attendance was taken every week.,positive
+100415,DS100,The lectures were poorly organised. The pace was not right for me. Rooms were sometimes too small.,negative
+100416,DS100,The lectures were clear. Feedback on assignments was fast and useful. Attendance was taken every week.,positive
+100417,DS100,The material was clear and well paced. I would recommend it to next year's cohort. Recordings appeared a few days late.,positive
+100418,DS100,Overall the module was really engaging. The pace was about right for me. The module ran on Tuesday mornings.,positive
+100419,DS100,The material was rushed at the end. More worked examples would help. Recordings appeared a few days late.,negative
+100420,DS100,Teaching on this course was poorly organised. I never understood the modelling week. Assessment deadlines clustered in week 10.,negative
+100421,DS100,Week to week the course felt genuinely excellent. I would recommend it to next year's cohort. Attendance was taken every week.,positive
+100422,DS100,Teaching on this course was really engaging. The capstone was the best part. Recordings appeared a few days late.,positive
+100424,DS100,Week to week the course felt far too fast. I struggled to keep up after week 6. Attendance was taken every week.,negative
+100425,DS100,Overall the module was really engaging. Feedback on assignments was fast and useful. Recordings appeared a few days late.,positive
+100426,DS100,The lab sessions were poorly organised. The pace was not right for me. Attendance was taken every week.,negative
+100427,DS100,The lab sessions were far too fast. The statistics section needed more time. Attendance was taken every week.,negative
+100428,DS100,Overall the module was disconnected from the labs. The statistics section needed more time. Rooms were sometimes too small.,positive
+100429,DS100,The lectures were genuinely excellent. Feedback on assignments was fast and useful. Rooms were sometimes too small.,positive
+100431,DS100,Teaching on this course was not well structured. I struggled to keep up after week 6. The dataset used in labs was helpful.,negative
+100433,DS100,I found the course well structured. The worked examples helped a lot. Rooms were sometimes too small.,positive
+100435,DS100,The material was disconnected from the labs. I struggled to keep up after week 6. Recordings appeared a few days late.,negative
+100437,DS100,I found the course well structured. The pace was about right for me. Assessment deadlines clustered in week 10.,positive
+100438,DS100,Really engaging lecturer. The course itself was poorly organised.,negative
+100439,DS100,The material was the best this term. The pace was about right for me. The module ran on Tuesday mornings.,positive
+100440,DS100,The lectures were very well organised. Feedback on assignments was fast and useful. The module ran on Tuesday mornings.,positive
+100442,DS100,"Engaging material, but not enough time on the statistics section. I never understood the modelling week.",negative
+100443,DS100,The material was clear and well paced. I would recommend it to next year's cohort. Assessment deadlines clustered in week 10.,positive
+100444,DS100,Teaching on this course was clear and well paced. The capstone was the best part. Attendance was taken every week.,positive
+100446,DS100,Week to week the course felt genuinely excellent. The capstone was the best part. Attendance was taken every week.,positive
+100450,DS100,Week to week the course felt clear. The capstone was the best part. The module ran on Tuesday mornings.,positive
+100452,DS100,Really engaging lecturer. The course itself was poorly organised.,negative
+100453,DS100,I found the course hard to follow. I never understood the modelling week. The module ran on Tuesday mornings.,negative
+100454,DS100,The material was the best this term. Feedback on assignments was fast and useful. Assessment deadlines clustered in week 10.,positive
+100455,DS100,Week to week the course felt very well organised. The capstone was the best part. Rooms were sometimes too small.,positive
+100456,DS100,Overall the module was clear and well paced. Feedback on assignments was fast and useful. Recordings appeared a few days late.,positive
+100457,DS100,I found the course genuinely excellent. The capstone was the best part. Recordings appeared a few days late.,positive
+100458,DS100,Overall the module was hard to follow. The pace was not right for me. The dataset used in labs was helpful.,negative
+100459,DS100,The lectures were the best this term. The pace was about right for me. The reading list was long.,positive
+100461,DS100,The lectures were clear but the labs were rushed at the end. I would still recommend it.,positive
+100463,DS100,The best part was the capstone. Everything before it was hard to follow.,negative
+100464,DS100,The lectures were clear but the labs were rushed at the end. I would still recommend it.,positive
+100465,DS100,"Well organised, though I struggled to keep up after week 6. The worked examples helped a lot.",positive
+100466,DS100,The lectures were clear but the labs were rushed at the end. I would still recommend it.,positive
+100467,DS100,Overall the module was genuinely excellent. The pace was about right for me. Attendance was taken every week.,positive
+100473,DS100,The lectures were the best this term. The capstone was the best part. Rooms were sometimes too small.,positive
+100474,DS100,Teaching on this course was disconnected from the labs. The pace was not right for me. Recordings appeared a few days late.,negative
+100475,DS100,Week to week the course felt not clear at all. I never understood the modelling week. Assessment deadlines clustered in week 10.,negative
+100476,DS100,The lab sessions were rushed at the end. The statistics section needed more time. The reading list was long.,negative
+100477,DS100,The lectures were not clear at all. The pace was not right for me. Recordings appeared a few days late.,negative
+100481,DS100,Teaching on this course was disconnected from the labs. More worked examples would help. Assessment deadlines clustered in week 10.,negative
+100482,DS100,The lectures were poorly organised. I never understood the modelling week. The reading list was long.,negative
+100484,DS100,The lectures were well structured. Feedback on assignments was fast and useful. Assessment deadlines clustered in week 10.,positive
+100486,DS100,Teaching on this course was not clear at all. The pace was not right for me. The dataset used in labs was helpful.,negative
+100487,DS100,The lectures were the best this term. The pace was about right for me. The module ran on Tuesday mornings.,positive
+100488,DS100,The lab sessions were poorly organised. The statistics section needed more time. The module ran on Tuesday mornings.,negative
+100489,DS100,Overall the module was clear and well paced. The pace was about right for me. Assessment deadlines clustered in week 10.,positive
+100491,DS100,Week to week the course felt clear and well paced. Feedback on assignments was fast and useful. Recordings appeared a few days late.,positive
+100496,DS100,Really engaging lecturer. The course itself was poorly organised.,negative
+100497,DS100,I found the course well structured. The worked examples helped a lot. The dataset used in labs was helpful.,positive
+100499,DS100,"Not clear at all in week 1, but it became well structured later on.",positive
+100501,DS100,The material was rushed at the end. I never understood the modelling week. The reading list was long.,negative
+100504,DS100,The material was very well organised. The pace was about right for me. The dataset used in labs was helpful.,positive
+100505,DS100,The material was genuinely excellent. The worked examples helped a lot. Recordings appeared a few days late.,positive
+100506,DS100,The lectures were clear but the labs were rushed at the end. I would still recommend it.,positive
+100508,DS100,The lectures were hard to follow. I never understood the modelling week. Rooms were sometimes too small.,negative
+100511,DS100,The lab sessions were well structured. The pace was about right for me. The reading list was long.,positive
+100512,DS100,The lectures were hard to follow. I never understood the modelling week. Recordings appeared a few days late.,negative
+100513,DS100,The lectures were far too fast. The statistics section needed more time. Rooms were sometimes too small.,negative
+100516,DS100,The lab sessions were not clear at all. I never understood the modelling week. Recordings appeared a few days late.,negative
+100519,DS100,I found the course far too fast. The statistics section needed more time. The dataset used in labs was helpful.,negative
+100520,DS100,The lectures were disconnected from the labs. I struggled to keep up after week 6. Attendance was taken every week.,negative
+100521,DS100,Teaching on this course was really engaging. Feedback on assignments was fast and useful. The dataset used in labs was helpful.,positive
+100523,DS100,Teaching on this course was genuinely excellent. Feedback on assignments was fast and useful. Assessment deadlines clustered in week 10.,positive
+100526,DS100,"Engaging material, but not enough time on the statistics section. I never understood the modelling week.",negative
+100527,DS100,Overall the module was not well structured. I never understood the modelling week. Recordings appeared a few days late.,negative
+100528,DS100,I found the course well structured. Feedback on assignments was fast and useful. Attendance was taken every week.,positive
+100529,DS100,The material was disconnected from the labs. The pace was not right for me. Recordings appeared a few days late.,negative
+100530,DS100,Week to week the course felt very well organised. I would recommend it to next year's cohort. Assessment deadlines clustered in week 10.,positive
+100531,DS100,The best part was the capstone. Everything before it was hard to follow.,negative
+100532,DS100,Teaching on this course was not well structured. The pace was not right for me. Attendance was taken every week.,negative
+100533,DS100,Overall the module was genuinely excellent. The capstone was the best part. The reading list was long.,positive
+100536,DS100,I found the course very well organised. I would recommend it to next year's cohort. Assessment deadlines clustered in week 10.,positive
+100537,DS100,The lectures were genuinely excellent. The capstone was the best part. The reading list was long.,positive
+100539,DS100,Week to week the course felt not clear at all. The statistics section needed more time. The module ran on Tuesday mornings.,negative
+100540,DS100,Week to week the course felt the best this term. Feedback on assignments was fast and useful. The dataset used in labs was helpful.,positive
+100541,DS100,The material was really engaging. The pace was about right for me. The dataset used in labs was helpful.,positive
+100545,DS100,The lectures were clear but the labs were rushed at the end. I would still recommend it.,positive
+100546,DS100,Overall the module was clear and well paced. I would recommend it to next year's cohort. The module ran on Tuesday mornings.,positive
+100547,DS100,Overall the module was not well structured. The statistics section needed more time. Assessment deadlines clustered in week 10.,negative
+100548,DS100,The lectures were clear. The capstone was the best part. Rooms were sometimes too small.,positive
+100549,DS100,Overall the module was far too fast. I struggled to keep up after week 6. Recordings appeared a few days late.,negative
+100550,DS100,Teaching on this course was far too fast. I never understood the modelling week. The dataset used in labs was helpful.,negative
+100551,DS100,The material was genuinely excellent. The capstone was the best part. Recordings appeared a few days late.,positive
+100553,DS100,Teaching on this course was clear. The worked examples helped a lot. The reading list was long.,positive
+100554,DS100,"Not clear at all in week 1, but it became well structured later on.",positive
+100555,DS100,Overall the module was clear and well paced. I would recommend it to next year's cohort. The reading list was long.,positive
+100556,DS100,Week to week the course felt disconnected from the labs. More worked examples would help. Attendance was taken every week.,positive
+100557,DS100,The material was rushed at the end. The statistics section needed more time. Rooms were sometimes too small.,negative
+100561,DS100,The lab sessions were very well organised. The worked examples helped a lot. The dataset used in labs was helpful.,positive
+100563,DS100,The material was clear and well paced. I would recommend it to next year's cohort. Attendance was taken every week.,positive
+100564,DS100,I found the course the best this term. Feedback on assignments was fast and useful. Rooms were sometimes too small.,positive
+100565,DS100,The lectures were clear and well paced. The pace was about right for me. The dataset used in labs was helpful.,positive
+100566,DS100,The lab sessions were the best this term. The worked examples helped a lot. Recordings appeared a few days late.,positive
+100567,DS100,I found the course hard to follow. More worked examples would help. Assessment deadlines clustered in week 10.,negative
+100568,DS100,I found the course the best this term. The pace was about right for me. Assessment deadlines clustered in week 10.,positive
+100569,DS100,The material was not clear at all. The pace was not right for me. The module ran on Tuesday mornings.,negative
+100570,DS100,I found the course really engaging. The worked examples helped a lot. The dataset used in labs was helpful.,positive
+100571,DS100,Teaching on this course was well structured. The worked examples helped a lot. Recordings appeared a few days late.,negative
+100573,DS100,Week to week the course felt poorly organised. I struggled to keep up after week 6. The reading list was long.,negative
+100574,DS100,The lab sessions were rushed at the end. I never understood the modelling week. The module ran on Tuesday mornings.,negative
+100575,DS100,"Engaging material, but not enough time on the statistics section. I never understood the modelling week.",negative
+100576,DS100,Week to week the course felt rushed at the end. More worked examples would help. Attendance was taken every week.,negative
+100579,DS100,The best part was the capstone. Everything before it was hard to follow.,negative
+100580,DS100,The lab sessions were very well organised. The capstone was the best part. The reading list was long.,positive
+100581,DS100,The lectures were genuinely excellent. The capstone was the best part. Attendance was taken every week.,negative
+100582,DS100,"Not clear at all in week 1, but it became well structured later on.",positive
+100584,DS100,Teaching on this course was disconnected from the labs. I never understood the modelling week. Attendance was taken every week.,negative
+100585,DS100,"Not clear at all in week 1, but it became well structured later on.",positive
+100587,DS100,The lab sessions were disconnected from the labs. I never understood the modelling week. Assessment deadlines clustered in week 10.,negative
+100588,DS100,I found the course poorly organised. The pace was not right for me. The reading list was long.,negative
+100590,DS100,I found the course very well organised. The pace was about right for me. Assessment deadlines clustered in week 10.,positive
+100593,DS100,I found the course far too fast. More worked examples would help. Rooms were sometimes too small.,negative
+100595,DS100,Teaching on this course was really engaging. The worked examples helped a lot. Recordings appeared a few days late.,positive
+100597,DS100,Overall the module was not clear at all. The statistics section needed more time. Attendance was taken every week.,negative
+100599,DS100,I found the course clear and well paced. Feedback on assignments was fast and useful. The reading list was long.,negative
+100600,DS100,The lectures were disconnected from the labs. I never understood the modelling week. Attendance was taken every week.,negative
+100601,DS100,I found the course hard to follow. I struggled to keep up after week 6. Attendance was taken every week.,negative
+100602,DS100,The lectures were poorly organised. I struggled to keep up after week 6. Attendance was taken every week.,negative
+100603,DS100,The lectures were the best this term. The capstone was the best part. The dataset used in labs was helpful.,positive
+100605,DS100,The material was really engaging. The pace was about right for me. Rooms were sometimes too small.,positive
+100610,DS100,The lectures were poorly organised. The statistics section needed more time. The reading list was long.,negative
+100611,DS100,Teaching on this course was not well structured. The statistics section needed more time. The reading list was long.,negative
+100612,DS100,Overall the module was disconnected from the labs. I struggled to keep up after week 6. Recordings appeared a few days late.,negative
+100615,DS100,Overall the module was clear. The capstone was the best part. Assessment deadlines clustered in week 10.,positive
+100616,DS100,"Not clear at all in week 1, but it became well structured later on.",positive
+100617,DS100,"Well organised, though I struggled to keep up after week 6. The worked examples helped a lot.",positive
+100618,DS100,"Well organised, though I struggled to keep up after week 6. The worked examples helped a lot.",positive
+100620,DS100,The material was clear. Feedback on assignments was fast and useful. Rooms were sometimes too small.,positive
+100622,DS100,Overall the module was very well organised. I would recommend it to next year's cohort. The module ran on Tuesday mornings.,positive
+100623,DS100,Overall the module was rushed at the end. I never understood the modelling week. Assessment deadlines clustered in week 10.,negative
+100625,DS100,I found the course well structured. The pace was about right for me. Recordings appeared a few days late.,negative
+100626,DS100,I found the course hard to follow. The statistics section needed more time. Recordings appeared a few days late.,negative
+100627,DS100,The lectures were hard to follow. I struggled to keep up after week 6. The reading list was long.,negative
+100628,DS100,Teaching on this course was very well organised. I would recommend it to next year's cohort. Attendance was taken every week.,positive
+100629,DS100,Week to week the course felt far too fast. I never understood the modelling week. The dataset used in labs was helpful.,negative
+100630,DS100,The lab sessions were well structured. I would recommend it to next year's cohort. The dataset used in labs was helpful.,positive
+100631,DS100,Week to week the course felt the best this term. The worked examples helped a lot. The module ran on Tuesday mornings.,positive
+100632,DS100,The material was rushed at the end. More worked examples would help. The reading list was long.,negative
+100634,DS100,The material was very well organised. The pace was about right for me. The dataset used in labs was helpful.,positive
+100635,DS100,The lectures were really engaging. The pace was about right for me. The dataset used in labs was helpful.,positive
+100636,DS100,Week to week the course felt genuinely excellent. The worked examples helped a lot. Recordings appeared a few days late.,positive
+100640,DS100,Week to week the course felt rushed at the end. I never understood the modelling week. The dataset used in labs was helpful.,negative
+100641,DS100,I found the course rushed at the end. I struggled to keep up after week 6. The reading list was long.,negative
+100643,DS100,Teaching on this course was not clear at all. More worked examples would help. Assessment deadlines clustered in week 10.,positive
+100645,DS100,Overall the module was genuinely excellent. The capstone was the best part. Attendance was taken every week.,positive
+100646,DS100,The lectures were poorly organised. The statistics section needed more time. Recordings appeared a few days late.,negative
+100647,DS100,I found the course genuinely excellent. The pace was about right for me. Recordings appeared a few days late.,positive
+100649,DS100,The material was really engaging. The pace was about right for me. Recordings appeared a few days late.,positive
+100651,DS100,The material was really engaging. Feedback on assignments was fast and useful. Recordings appeared a few days late.,negative
+100652,DS100,Teaching on this course was really engaging. Feedback on assignments was fast and useful. The dataset used in labs was helpful.,positive
+100653,DS100,The lectures were disconnected from the labs. More worked examples would help. The dataset used in labs was helpful.,negative
+100655,DS100,Teaching on this course was far too fast. I struggled to keep up after week 6. The module ran on Tuesday mornings.,negative
+100657,DS100,Overall the module was really engaging. I would recommend it to next year's cohort. The reading list was long.,positive
+100658,DS100,Teaching on this course was genuinely excellent. I would recommend it to next year's cohort. Attendance was taken every week.,negative
+100659,DS100,The lab sessions were the best this term. I would recommend it to next year's cohort. The module ran on Tuesday mornings.,positive
+100661,DS100,Week to week the course felt not clear at all. I never understood the modelling week. The module ran on Tuesday mornings.,negative
+100662,DS100,I found the course genuinely excellent. The worked examples helped a lot. The module ran on Tuesday mornings.,positive
+100664,DS100,Week to week the course felt hard to follow. I struggled to keep up after week 6. Attendance was taken every week.,negative
+100665,DS100,The material was clear and well paced. I would recommend it to next year's cohort. The module ran on Tuesday mornings.,positive
+100666,DS100,The lab sessions were hard to follow. I struggled to keep up after week 6. Recordings appeared a few days late.,negative
+100667,DS100,Week to week the course felt rushed at the end. The pace was not right for me. Assessment deadlines clustered in week 10.,negative
+100668,DS100,The lectures were not well structured. I struggled to keep up after week 6. The module ran on Tuesday mornings.,positive
+100669,DS100,The lectures were poorly organised. I never understood the modelling week. The reading list was long.,negative
+100670,DS100,The lab sessions were well structured. Feedback on assignments was fast and useful. The module ran on Tuesday mornings.,positive
+100672,DS100,I found the course clear and well paced. The capstone was the best part. Assessment deadlines clustered in week 10.,positive
+100673,DS100,Overall the module was very well organised. The capstone was the best part. Recordings appeared a few days late.,positive
+100674,DS100,Overall the module was well structured. I would recommend it to next year's cohort. The module ran on Tuesday mornings.,positive
+100675,DS100,The material was not well structured. The statistics section needed more time. The reading list was long.,negative
+100677,DS100,The lab sessions were not well structured. I struggled to keep up after week 6. The reading list was long.,negative
+100678,DS100,"Engaging material, but not enough time on the statistics section. I never understood the modelling week.",negative
+100679,DS100,The material was rushed at the end. I struggled to keep up after week 6. The module ran on Tuesday mornings.,negative
+100682,DS100,Overall the module was well structured. The pace was about right for me. Rooms were sometimes too small.,positive
+100683,DS100,"Well organised, though I struggled to keep up after week 6. The worked examples helped a lot.",positive
+100684,DS100,The material was poorly organised. The pace was not right for me. The dataset used in labs was helpful.,negative
+100685,DS100,The lab sessions were genuinely excellent. Feedback on assignments was fast and useful. The module ran on Tuesday mornings.,positive
+100687,DS100,Teaching on this course was really engaging. The capstone was the best part. Attendance was taken every week.,positive
+100688,DS100,"Not clear at all in week 1, but it became well structured later on.",positive
+100689,DS100,The best part was the capstone. Everything before it was hard to follow.,negative
+100691,DS100,Week to week the course felt poorly organised. The statistics section needed more time. Attendance was taken every week.,negative
+100694,DS100,Teaching on this course was not clear at all. The pace was not right for me. The reading list was long.,negative
+100695,DS100,The lectures were the best this term. The worked examples helped a lot. Recordings appeared a few days late.,positive
+100696,DS100,Teaching on this course was far too fast. I never understood the modelling week. Recordings appeared a few days late.,negative
+100699,DS100,The material was really engaging. Feedback on assignments was fast and useful. Attendance was taken every week.,positive
+100701,DS100,The material was rushed at the end. I struggled to keep up after week 6. Rooms were sometimes too small.,negative
+100703,DS100,The lectures were poorly organised. I never understood the modelling week. Recordings appeared a few days late.,negative
+100705,DS100,Teaching on this course was genuinely excellent. I would recommend it to next year's cohort. The reading list was long.,positive
+100707,DS100,Week to week the course felt hard to follow. I never understood the modelling week. Recordings appeared a few days late.,negative
+100708,DS100,"Engaging material, but not enough time on the statistics section. I never understood the modelling week.",negative
+100709,DS100,"Engaging material, but not enough time on the statistics section. I never understood the modelling week.",negative
+100710,DS100,The lectures were not well structured. I struggled to keep up after week 6. Rooms were sometimes too small.,negative
+100714,DS100,Week to week the course felt disconnected from the labs. More worked examples would help. The reading list was long.,negative
+100715,DS100,The lectures were clear but the labs were rushed at the end. I would still recommend it.,positive
+100717,DS100,Overall the module was the best this term. I would recommend it to next year's cohort. Rooms were sometimes too small.,positive
+100718,DS100,Overall the module was rushed at the end. More worked examples would help. The dataset used in labs was helpful.,negative
+100719,DS100,Week to week the course felt rushed at the end. The statistics section needed more time. The reading list was long.,negative
+100720,DS100,I found the course really engaging. Feedback on assignments was fast and useful. The reading list was long.,positive
+100723,DS100,The material was hard to follow. More worked examples would help. Attendance was taken every week.,negative
+100727,DS100,The lectures were really engaging. The worked examples helped a lot. The reading list was long.,positive
+100728,DS100,The lectures were hard to follow. The pace was not right for me. Assessment deadlines clustered in week 10.,negative
+100730,DS100,Overall the module was poorly organised. The pace was not right for me. The reading list was long.,negative
+100731,DS100,Overall the module was clear. The pace was about right for me. Recordings appeared a few days late.,positive
+100732,DS100,The lab sessions were the best this term. The pace was about right for me. The dataset used in labs was helpful.,positive
+100733,DS100,The lectures were the best this term. Feedback on assignments was fast and useful. The dataset used in labs was helpful.,positive
+100738,DS100,I found the course very well organised. The worked examples helped a lot. Recordings appeared a few days late.,positive
+100741,DS100,Teaching on this course was clear and well paced. Feedback on assignments was fast and useful. The reading list was long.,positive
+100742,DS100,Teaching on this course was not well structured. I struggled to keep up after week 6. Recordings appeared a few days late.,negative
+100743,DS100,The material was very well organised. I would recommend it to next year's cohort. The dataset used in labs was helpful.,positive
+100745,DS100,I found the course poorly organised. The pace was not right for me. The reading list was long.,negative
+100746,DS100,Week to week the course felt hard to follow. More worked examples would help. The reading list was long.,negative
+100748,DS100,Overall the module was far too fast. I never understood the modelling week. Rooms were sometimes too small.,positive
+100750,DS100,Teaching on this course was not clear at all. The pace was not right for me. Attendance was taken every week.,negative
+100752,DS100,The material was hard to follow. I never understood the modelling week. Assessment deadlines clustered in week 10.,negative
+100753,DS100,"Engaging material, but not enough time on the statistics section. I never understood the modelling week.",negative
+100754,DS100,Week to week the course felt hard to follow. The pace was not right for me. The reading list was long.,negative
+100755,DS100,Week to week the course felt well structured. I would recommend it to next year's cohort. Rooms were sometimes too small.,positive
+100756,DS100,I found the course hard to follow. The pace was not right for me. The module ran on Tuesday mornings.,negative
+100757,DS100,Really engaging lecturer. The course itself was poorly organised.,negative
+100758,DS100,Week to week the course felt genuinely excellent. Feedback on assignments was fast and useful. Recordings appeared a few days late.,positive
+100760,DS100,The material was the best this term. I would recommend it to next year's cohort. The reading list was long.,positive
+100761,DS100,"Well organised, though I struggled to keep up after week 6. The worked examples helped a lot.",positive
+100762,DS100,Overall the module was clear and well paced. The pace was about right for me. Attendance was taken every week.,positive
+100763,DS100,I found the course well structured. The capstone was the best part. Rooms were sometimes too small.,positive
+100768,DS100,Week to week the course felt disconnected from the labs. The statistics section needed more time. Recordings appeared a few days late.,negative
+100770,DS100,Week to week the course felt rushed at the end. I never understood the modelling week. Recordings appeared a few days late.,negative
+100772,DS100,The material was not clear at all. The pace was not right for me. Rooms were sometimes too small.,negative
+100773,DS100,Overall the module was clear and well paced. The pace was about right for me. Rooms were sometimes too small.,positive
+100774,DS100,Week to week the course felt rushed at the end. I never understood the modelling week. Attendance was taken every week.,negative
+100775,DS100,The material was the best this term. The pace was about right for me. Recordings appeared a few days late.,positive
+100778,DS100,The lectures were far too fast. More worked examples would help. Recordings appeared a few days late.,negative
+100779,DS100,The lectures were not clear at all. I struggled to keep up after week 6. Attendance was taken every week.,negative
+100781,DS100,The material was really engaging. The pace was about right for me. The dataset used in labs was helpful.,positive
+100783,DS100,I found the course hard to follow. I never understood the modelling week. Recordings appeared a few days late.,negative
+100786,DS100,Overall the module was very well organised. The worked examples helped a lot. Recordings appeared a few days late.,positive
+100787,DS100,Teaching on this course was far too fast. The pace was not right for me. The reading list was long.,negative
+100788,DS100,The lectures were clear. The capstone was the best part. Assessment deadlines clustered in week 10.,positive
+100789,DS100,The material was clear. I would recommend it to next year's cohort. Attendance was taken every week.,positive
+100790,DS100,Week to week the course felt poorly organised. I struggled to keep up after week 6. The reading list was long.,negative
+100791,DS100,The lectures were clear and well paced. The pace was about right for me. The dataset used in labs was helpful.,positive
+100794,DS100,The material was not well structured. I struggled to keep up after week 6. Assessment deadlines clustered in week 10.,negative
+100795,DS100,The lab sessions were genuinely excellent. Feedback on assignments was fast and useful. Recordings appeared a few days late.,positive
+100796,DS100,Overall the module was not well structured. The statistics section needed more time. The dataset used in labs was helpful.,negative
+100797,DS100,"Not clear at all in week 1, but it became well structured later on.",positive
+100800,DS100,The best part was the capstone. Everything before it was hard to follow.,negative
+100802,DS100,Teaching on this course was really engaging. The pace was about right for me. Attendance was taken every week.,positive
+100803,DS100,Overall the module was not clear at all. The pace was not right for me. The module ran on Tuesday mornings.,negative
+100804,DS100,I found the course clear and well paced. Feedback on assignments was fast and useful. Attendance was taken every week.,positive
+100807,DS100,Teaching on this course was the best this term. Feedback on assignments was fast and useful. Attendance was taken every week.,negative
+100808,DS100,Week to week the course felt poorly organised. I never understood the modelling week. The reading list was long.,negative
+100810,DS100,I found the course not clear at all. The statistics section needed more time. The module ran on Tuesday mornings.,negative
+100811,DS100,Week to week the course felt not clear at all. I never understood the modelling week. Recordings appeared a few days late.,negative
+100812,DS100,"Not clear at all in week 1, but it became well structured later on.",positive
+100813,DS100,Overall the module was clear and well paced. The pace was about right for me. The reading list was long.,positive
+100815,DS100,Week to week the course felt well structured. The capstone was the best part. Rooms were sometimes too small.,positive
+100816,DS100,I found the course well structured. Feedback on assignments was fast and useful. The reading list was long.,positive
+100817,DS100,Week to week the course felt rushed at the end. I never understood the modelling week. Assessment deadlines clustered in week 10.,negative
+100818,DS100,The best part was the capstone. Everything before it was hard to follow.,negative
+100819,DS100,Overall the module was not clear at all. I never understood the modelling week. The dataset used in labs was helpful.,negative
+100820,DS100,I found the course clear. The pace was about right for me. The dataset used in labs was helpful.,positive
+100821,DS100,I found the course the best this term. The capstone was the best part. The dataset used in labs was helpful.,positive
+100822,DS100,Overall the module was poorly organised. More worked examples would help. Rooms were sometimes too small.,negative
+100824,DS100,The material was not well structured. More worked examples would help. Recordings appeared a few days late.,negative
+100825,DS100,Teaching on this course was genuinely excellent. The capstone was the best part. The module ran on Tuesday mornings.,negative
+100827,DS100,The material was not clear at all. The statistics section needed more time. Rooms were sometimes too small.,negative
+100828,DS100,I found the course hard to follow. The statistics section needed more time. The reading list was long.,negative
+100829,DS100,Overall the module was not well structured. The statistics section needed more time. The module ran on Tuesday mornings.,negative
+100831,DS100,The lectures were clear but the labs were rushed at the end. I would still recommend it.,positive
+100832,DS100,"Well organised, though I struggled to keep up after week 6. The worked examples helped a lot.",positive
+100833,DS100,The lab sessions were the best this term. The worked examples helped a lot. Attendance was taken every week.,positive
+100834,DS100,Teaching on this course was really engaging. Feedback on assignments was fast and useful. Attendance was taken every week.,positive
+100835,DS100,The lectures were disconnected from the labs. The statistics section needed more time. The dataset used in labs was helpful.,negative
+100836,DS100,The lab sessions were clear. Feedback on assignments was fast and useful. Attendance was taken every week.,positive
+100837,DS100,The lectures were not clear at all. I never understood the modelling week. Recordings appeared a few days late.,positive
+100839,DS100,The lectures were really engaging. The capstone was the best part. The dataset used in labs was helpful.,positive
+100840,DS100,The material was well structured. Feedback on assignments was fast and useful. Recordings appeared a few days late.,positive
+100842,DS100,I found the course poorly organised. More worked examples would help. The dataset used in labs was helpful.,negative
+100845,DS100,"Engaging material, but not enough time on the statistics section. I never understood the modelling week.",negative
+100849,DS100,Teaching on this course was very well organised. I would recommend it to next year's cohort. The module ran on Tuesday mornings.,positive
+100851,DS100,I found the course very well organised. The pace was about right for me. Rooms were sometimes too small.,positive
+100852,DS100,The lectures were rushed at the end. I struggled to keep up after week 6. Attendance was taken every week.,negative
+100854,DS100,The lab sessions were not clear at all. I struggled to keep up after week 6. The module ran on Tuesday mornings.,negative
+100856,DS100,Week to week the course felt clear and well paced. Feedback on assignments was fast and useful. The reading list was long.,positive
+100857,DS100,I found the course really engaging. The pace was about right for me. Recordings appeared a few days late.,positive
+100860,DS100,I found the course genuinely excellent. Feedback on assignments was fast and useful. Assessment deadlines clustered in week 10.,negative
+100863,DS100,The lectures were genuinely excellent. The worked examples helped a lot. Assessment deadlines clustered in week 10.,positive
+100865,DS100,The material was really engaging. I would recommend it to next year's cohort. The dataset used in labs was helpful.,positive
+100866,DS100,Teaching on this course was very well organised. The worked examples helped a lot. The module ran on Tuesday mornings.,positive
+100867,DS100,Overall the module was disconnected from the labs. More worked examples would help. Rooms were sometimes too small.,negative
+100868,DS100,Week to week the course felt poorly organised. I never understood the modelling week. Attendance was taken every week.,negative
+100869,DS100,The material was clear and well paced. The capstone was the best part. The dataset used in labs was helpful.,positive
+100870,DS100,Overall the module was rushed at the end. The statistics section needed more time. The module ran on Tuesday mornings.,positive
+100873,DS100,I found the course far too fast. The pace was not right for me. Attendance was taken every week.,negative
+100874,DS100,Teaching on this course was really engaging. The pace was about right for me. Attendance was taken every week.,positive
+100875,DS100,I found the course the best this term. Feedback on assignments was fast and useful. The module ran on Tuesday mornings.,positive
+100876,DS100,The best part was the capstone. Everything before it was hard to follow.,negative
+100877,DS100,Teaching on this course was well structured. The pace was about right for me. Recordings appeared a few days late.,negative
+100878,DS100,The lectures were really engaging. Feedback on assignments was fast and useful. Recordings appeared a few days late.,positive
+100879,DS100,Overall the module was really engaging. Feedback on assignments was fast and useful. Rooms were sometimes too small.,positive
+100881,DS100,Overall the module was rushed at the end. The pace was not right for me. Rooms were sometimes too small.,negative
+100882,DS100,Overall the module was far too fast. More worked examples would help. Attendance was taken every week.,negative
+100883,DS100,The lectures were disconnected from the labs. More worked examples would help. The dataset used in labs was helpful.,negative
+100884,DS100,Teaching on this course was rushed at the end. I never understood the modelling week. Attendance was taken every week.,negative
+100885,DS100,The material was far too fast. I struggled to keep up after week 6. Recordings appeared a few days late.,negative
+100888,DS100,Week to week the course felt clear and well paced. I would recommend it to next year's cohort. The module ran on Tuesday mornings.,positive
+100890,DS100,The lectures were poorly organised. The pace was not right for me. The module ran on Tuesday mornings.,negative
+100894,DS100,Teaching on this course was rushed at the end. The pace was not right for me. Recordings appeared a few days late.,negative
+100900,DS100,The material was really engaging. The pace was about right for me. Attendance was taken every week.,negative
+100903,DS100,Week to week the course felt genuinely excellent. The worked examples helped a lot. The reading list was long.,positive
+100906,DS100,"Not clear at all in week 1, but it became well structured later on.",positive
+100909,DS100,Week to week the course felt disconnected from the labs. I struggled to keep up after week 6. Recordings appeared a few days late.,negative
+100912,DS100,The lab sessions were clear. The capstone was the best part. The module ran on Tuesday mornings.,positive
+100914,DS100,"Engaging material, but not enough time on the statistics section. I never understood the modelling week.",negative
+100915,DS100,Week to week the course felt disconnected from the labs. The statistics section needed more time. Rooms were sometimes too small.,negative
+100916,DS100,The lab sessions were poorly organised. I struggled to keep up after week 6. The dataset used in labs was helpful.,negative
+100918,DS100,The best part was the capstone. Everything before it was hard to follow.,negative
+100920,DS100,Teaching on this course was not clear at all. The statistics section needed more time. The module ran on Tuesday mornings.,negative
+100921,DS100,I found the course hard to follow. The pace was not right for me. Assessment deadlines clustered in week 10.,negative
+100923,DS100,The lectures were very well organised. I would recommend it to next year's cohort. The module ran on Tuesday mornings.,positive
+100924,DS100,The material was well structured. I would recommend it to next year's cohort. The module ran on Tuesday mornings.,positive
+100928,DS100,Overall the module was not well structured. More worked examples would help. Assessment deadlines clustered in week 10.,negative
+100939,DS100,The lectures were clear. The worked examples helped a lot. Assessment deadlines clustered in week 10.,positive
+100940,DS100,I found the course not well structured. The pace was not right for me. The reading list was long.,negative
+100941,DS100,The lab sessions were well structured. The capstone was the best part. The reading list was long.,positive
+100942,DS100,The material was hard to follow. The statistics section needed more time. The dataset used in labs was helpful.,negative
+100943,DS100,The lab sessions were disconnected from the labs. The statistics section needed more time. Attendance was taken every week.,negative
+100944,DS100,I found the course very well organised. The pace was about right for me. The dataset used in labs was helpful.,positive
+100945,DS100,"Well organised, though I struggled to keep up after week 6. The worked examples helped a lot.",positive
+100946,DS100,The lectures were clear. Feedback on assignments was fast and useful. The reading list was long.,positive
+100947,DS100,Overall the module was clear. The worked examples helped a lot. Attendance was taken every week.,positive
+100950,DS100,The lab sessions were really engaging. The worked examples helped a lot. The dataset used in labs was helpful.,positive
+100951,DS100,I found the course poorly organised. The statistics section needed more time. The dataset used in labs was helpful.,negative
+100952,DS100,The material was clear and well paced. I would recommend it to next year's cohort. The dataset used in labs was helpful.,positive
+100954,DS100,The lectures were hard to follow. The pace was not right for me. The dataset used in labs was helpful.,negative
+100955,DS100,Week to week the course felt disconnected from the labs. I struggled to keep up after week 6. The module ran on Tuesday mornings.,negative
+100956,DS100,The lab sessions were far too fast. I struggled to keep up after week 6. Attendance was taken every week.,negative
+100960,DS100,Overall the module was clear and well paced. Feedback on assignments was fast and useful. The dataset used in labs was helpful.,positive
+100961,DS100,The material was genuinely excellent. The pace was about right for me. The module ran on Tuesday mornings.,negative
+100962,DS100,I found the course really engaging. The capstone was the best part. Recordings appeared a few days late.,positive
+100963,DS100,The material was poorly organised. I struggled to keep up after week 6. Recordings appeared a few days late.,negative
+100964,DS100,I found the course well structured. The worked examples helped a lot. The reading list was long.,positive
+100965,DS100,Teaching on this course was genuinely excellent. The capstone was the best part. Recordings appeared a few days late.,positive
+100967,DS100,The material was far too fast. The pace was not right for me. Attendance was taken every week.,negative
+100968,DS100,Overall the module was clear and well paced. The worked examples helped a lot. Assessment deadlines clustered in week 10.,negative
+100970,DS100,The lab sessions were hard to follow. More worked examples would help. The module ran on Tuesday mornings.,negative
+100971,DS100,The material was rushed at the end. The statistics section needed more time. The reading list was long.,positive
+100974,DS100,The lectures were clear but the labs were rushed at the end. I would still recommend it.,positive
+100975,DS100,I found the course clear and well paced. I would recommend it to next year's cohort. The dataset used in labs was helpful.,negative
+100978,DS100,I found the course disconnected from the labs. The statistics section needed more time. The dataset used in labs was helpful.,positive
+100979,DS100,The lab sessions were clear. The pace was about right for me. Recordings appeared a few days late.,positive
+100981,DS100,The material was not well structured. I struggled to keep up after week 6. Rooms were sometimes too small.,negative
+100982,DS100,The lab sessions were clear and well paced. The worked examples helped a lot. Rooms were sometimes too small.,positive
+100983,DS100,The material was well structured. Feedback on assignments was fast and useful. Assessment deadlines clustered in week 10.,positive
+100984,DS100,Teaching on this course was really engaging. Feedback on assignments was fast and useful. Recordings appeared a few days late.,positive
+100987,DS100,Overall the module was far too fast. I never understood the modelling week. The module ran on Tuesday mornings.,negative
+100988,DS100,Overall the module was clear and well paced. I would recommend it to next year's cohort. Attendance was taken every week.,positive
+100989,DS100,The material was clear. The capstone was the best part. The reading list was long.,positive
+100992,DS100,The lab sessions were not well structured. I struggled to keep up after week 6. The module ran on Tuesday mornings.,positive
+100993,DS100,Week to week the course felt hard to follow. More worked examples would help. Assessment deadlines clustered in week 10.,negative
+100995,DS100,"Engaging material, but not enough time on the statistics section. I never understood the modelling week.",negative
+100997,DS100,The lectures were far too fast. More worked examples would help. The module ran on Tuesday mornings.,negative
+100998,DS100,"Not clear at all in week 1, but it became well structured later on.",positive
+101000,DS100,Overall the module was well structured. I would recommend it to next year's cohort. The dataset used in labs was helpful.,positive
+101002,DS100,The lectures were hard to follow. The pace was not right for me. The reading list was long.,negative
+101003,DS100,Overall the module was genuinely excellent. The worked examples helped a lot. The reading list was long.,positive
+101005,DS100,The lectures were far too fast. I never understood the modelling week. The reading list was long.,negative
+101006,DS100,"Well organised, though I struggled to keep up after week 6. The worked examples helped a lot.",positive
+101007,DS100,The lectures were the best this term. The capstone was the best part. The module ran on Tuesday mornings.,negative
+101008,DS100,Teaching on this course was really engaging. The capstone was the best part. Recordings appeared a few days late.,positive
+101009,DS100,Week to week the course felt disconnected from the labs. I struggled to keep up after week 6. Attendance was taken every week.,negative
+101011,DS100,The lab sessions were really engaging. The capstone was the best part. The reading list was long.,positive
+101012,DS100,Overall the module was well structured. The pace was about right for me. Assessment deadlines clustered in week 10.,negative
+101013,DS100,The lectures were the best this term. I would recommend it to next year's cohort. Attendance was taken every week.,positive
+101014,DS100,I found the course not clear at all. The pace was not right for me. The dataset used in labs was helpful.,negative
+101015,DS100,"Not clear at all in week 1, but it became well structured later on.",positive
+101017,DS100,Week to week the course felt not well structured. More worked examples would help. The dataset used in labs was helpful.,negative
+101018,DS100,I found the course very well organised. The pace was about right for me. The reading list was long.,positive
+101021,DS100,The lectures were clear but the labs were rushed at the end. I would still recommend it.,positive
+101022,DS100,The material was clear and well paced. I would recommend it to next year's cohort. The module ran on Tuesday mornings.,positive
+101023,DS100,Overall the module was not well structured. I never understood the modelling week. The dataset used in labs was helpful.,negative
+101026,DS100,The lectures were genuinely excellent. The capstone was the best part. Assessment deadlines clustered in week 10.,positive
+101027,DS100,Overall the module was the best this term. The worked examples helped a lot. Rooms were sometimes too small.,positive
+101029,DS100,The material was poorly organised. The pace was not right for me. Attendance was taken every week.,negative
+101030,DS100,Week to week the course felt well structured. The capstone was the best part. The dataset used in labs was helpful.,positive
+101032,DS100,Week to week the course felt poorly organised. I struggled to keep up after week 6. Recordings appeared a few days late.,positive
+101033,DS100,Teaching on this course was far too fast. I never understood the modelling week. Recordings appeared a few days late.,negative
+101034,DS100,The material was really engaging. Feedback on assignments was fast and useful. The dataset used in labs was helpful.,positive
+101035,DS100,The lectures were clear and well paced. The worked examples helped a lot. Rooms were sometimes too small.,positive
+101037,DS100,I found the course genuinely excellent. Feedback on assignments was fast and useful. The dataset used in labs was helpful.,positive
+101038,DS100,Teaching on this course was rushed at the end. I struggled to keep up after week 6. The dataset used in labs was helpful.,negative
+101039,DS100,The material was very well organised. The worked examples helped a lot. The module ran on Tuesday mornings.,positive
+101040,DS100,Overall the module was rushed at the end. The pace was not right for me. Attendance was taken every week.,negative
+101041,DS100,I found the course really engaging. The pace was about right for me. Rooms were sometimes too small.,negative
+101042,DS100,The lab sessions were hard to follow. More worked examples would help. The module ran on Tuesday mornings.,negative
+101043,DS100,Overall the module was really engaging. I would recommend it to next year's cohort. The dataset used in labs was helpful.,positive
+101044,DS100,Week to week the course felt disconnected from the labs. The statistics section needed more time. Recordings appeared a few days late.,negative
+101046,DS100,I found the course hard to follow. The statistics section needed more time. The dataset used in labs was helpful.,negative
+101050,DS100,The material was poorly organised. The pace was not right for me. Recordings appeared a few days late.,negative
+101051,DS100,"Well organised, though I struggled to keep up after week 6. The worked examples helped a lot.",positive
+101056,DS100,The lab sessions were clear. Feedback on assignments was fast and useful. Attendance was taken every week.,positive
+101058,DS100,I found the course disconnected from the labs. I struggled to keep up after week 6. Assessment deadlines clustered in week 10.,negative
+101060,DS100,Overall the module was disconnected from the labs. I struggled to keep up after week 6. The module ran on Tuesday mornings.,negative
+101061,DS100,"Not clear at all in week 1, but it became well structured later on.",positive
+101064,DS100,Really engaging lecturer. The course itself was poorly organised.,negative
+101066,DS100,Teaching on this course was far too fast. I struggled to keep up after week 6. The dataset used in labs was helpful.,negative
+101067,DS100,"Well organised, though I struggled to keep up after week 6. The worked examples helped a lot.",positive
+101069,DS100,I found the course poorly organised. I struggled to keep up after week 6. Recordings appeared a few days late.,negative
+101070,DS100,The lectures were really engaging. The capstone was the best part. The reading list was long.,positive
+101075,DS100,Teaching on this course was not well structured. More worked examples would help. The reading list was long.,negative
+101078,DS100,Week to week the course felt really engaging. The pace was about right for me. Attendance was taken every week.,positive
+101079,DS100,The best part was the capstone. Everything before it was hard to follow.,negative
+101080,DS100,Teaching on this course was well structured. The capstone was the best part. Recordings appeared a few days late.,positive
+101081,DS100,Overall the module was clear and well paced. The pace was about right for me. Assessment deadlines clustered in week 10.,positive
+101082,DS100,The lab sessions were genuinely excellent. The capstone was the best part. Assessment deadlines clustered in week 10.,positive
+101085,DS100,The lectures were not well structured. The pace was not right for me. Recordings appeared a few days late.,negative
+101087,DS100,"Well organised, though I struggled to keep up after week 6. The worked examples helped a lot.",positive
+101088,DS100,The lectures were clear but the labs were rushed at the end. I would still recommend it.,positive
+101089,DS100,Teaching on this course was the best this term. The capstone was the best part. Recordings appeared a few days late.,positive
+101090,DS100,The lectures were clear but the labs were rushed at the end. I would still recommend it.,positive
+101092,DS100,Week to week the course felt rushed at the end. The pace was not right for me. Recordings appeared a few days late.,negative
+101093,DS100,"Well organised, though I struggled to keep up after week 6. The worked examples helped a lot.",positive
+101095,DS100,Teaching on this course was disconnected from the labs. The statistics section needed more time. Assessment deadlines clustered in week 10.,positive
+101097,DS100,The lectures were not clear at all. The pace was not right for me. Recordings appeared a few days late.,negative
+101098,DS100,Teaching on this course was clear and well paced. Feedback on assignments was fast and useful. Attendance was taken every week.,positive
+101099,DS100,Teaching on this course was disconnected from the labs. I never understood the modelling week. Assessment deadlines clustered in week 10.,negative
+101100,DS100,Week to week the course felt not clear at all. I struggled to keep up after week 6. Recordings appeared a few days late.,negative
+101103,DS100,The lectures were clear but the labs were rushed at the end. I would still recommend it.,positive
+101104,DS100,Overall the module was very well organised. The capstone was the best part. Assessment deadlines clustered in week 10.,positive
+101106,DS100,The material was the best this term. The pace was about right for me. The module ran on Tuesday mornings.,positive
+101108,DS100,Overall the module was very well organised. The pace was about right for me. Attendance was taken every week.,positive
+101109,DS100,The lectures were hard to follow. The pace was not right for me. The dataset used in labs was helpful.,negative
+101111,DS100,The material was well structured. I would recommend it to next year's cohort. Recordings appeared a few days late.,positive
+101113,DS100,"Engaging material, but not enough time on the statistics section. I never understood the modelling week.",negative
+101114,DS100,The lectures were really engaging. The worked examples helped a lot. Rooms were sometimes too small.,positive
+101115,DS100,Overall the module was really engaging. The worked examples helped a lot. The module ran on Tuesday mornings.,positive
+101117,DS100,The lab sessions were the best this term. Feedback on assignments was fast and useful. Assessment deadlines clustered in week 10.,negative
+101118,DS100,Overall the module was clear. The capstone was the best part. The dataset used in labs was helpful.,positive
+101120,DS100,The material was poorly organised. The statistics section needed more time. The module ran on Tuesday mornings.,negative
+101123,DS100,Teaching on this course was disconnected from the labs. The statistics section needed more time. Rooms were sometimes too small.,negative
+101124,DS100,I found the course very well organised. Feedback on assignments was fast and useful. Attendance was taken every week.,negative
+101125,DS100,The lab sessions were hard to follow. I struggled to keep up after week 6. Assessment deadlines clustered in week 10.,negative
+101126,DS100,I found the course very well organised. The capstone was the best part. The reading list was long.,positive
+101128,DS100,I found the course far too fast. I struggled to keep up after week 6. Recordings appeared a few days late.,negative
+101129,DS100,Overall the module was rushed at the end. More worked examples would help. Attendance was taken every week.,negative
+101131,DS100,The lectures were the best this term. The worked examples helped a lot. The module ran on Tuesday mornings.,positive
+101134,DS100,The lectures were genuinely excellent. The capstone was the best part. The dataset used in labs was helpful.,positive
+101135,DS100,Overall the module was clear. Feedback on assignments was fast and useful. Recordings appeared a few days late.,positive
+101136,DS100,The lectures were clear but the labs were rushed at the end. I would still recommend it.,positive
+101137,DS100,"Well organised, though I struggled to keep up after week 6. The worked examples helped a lot.",positive
+101138,DS100,I found the course disconnected from the labs. I never understood the modelling week. Rooms were sometimes too small.,negative
+101140,DS100,"Not clear at all in week 1, but it became well structured later on.",positive
+101141,DS100,Teaching on this course was the best this term. The worked examples helped a lot. The reading list was long.,positive
+101142,DS100,Week to week the course felt hard to follow. I struggled to keep up after week 6. Attendance was taken every week.,negative
+101143,DS100,Week to week the course felt disconnected from the labs. I struggled to keep up after week 6. Recordings appeared a few days late.,negative
+101144,DS100,Overall the module was far too fast. I struggled to keep up after week 6. Attendance was taken every week.,negative
+101145,DS100,Really engaging lecturer. The course itself was poorly organised.,negative
+101148,DS100,The material was clear. Feedback on assignments was fast and useful. The module ran on Tuesday mornings.,positive
+101149,DS100,I found the course clear and well paced. The worked examples helped a lot. Attendance was taken every week.,positive
+101151,DS100,Teaching on this course was rushed at the end. More worked examples would help. Recordings appeared a few days late.,negative
+101153,DS100,Week to week the course felt poorly organised. I never understood the modelling week. Rooms were sometimes too small.,negative
+101155,DS100,I found the course well structured. I would recommend it to next year's cohort. Assessment deadlines clustered in week 10.,positive
+101156,DS100,"Engaging material, but not enough time on the statistics section. I never understood the modelling week.",negative
+101157,DS100,Overall the module was very well organised. The pace was about right for me. Attendance was taken every week.,positive
+101159,DS100,Overall the module was genuinely excellent. The capstone was the best part. The dataset used in labs was helpful.,positive
+101162,DS100,The material was well structured. The worked examples helped a lot. The dataset used in labs was helpful.,positive
+101163,DS100,"Not clear at all in week 1, but it became well structured later on.",positive
+101164,DS100,The lab sessions were well structured. I would recommend it to next year's cohort. The reading list was long.,positive
+101165,DS100,Overall the module was not clear at all. I struggled to keep up after week 6. Recordings appeared a few days late.,negative
+101167,DS100,Week to week the course felt well structured. The capstone was the best part. The reading list was long.,positive
+101168,DS100,The material was rushed at the end. More worked examples would help. Recordings appeared a few days late.,negative
+101170,DS100,The lab sessions were clear. I would recommend it to next year's cohort. The dataset used in labs was helpful.,negative
+101173,DS100,The lab sessions were clear and well paced. The capstone was the best part. Rooms were sometimes too small.,positive
+101175,DS100,I found the course disconnected from the labs. The pace was not right for me. Recordings appeared a few days late.,negative
+101180,DS100,"Not clear at all in week 1, but it became well structured later on.",positive
+101181,DS100,"Not clear at all in week 1, but it became well structured later on.",positive
+101182,DS100,I found the course far too fast. The pace was not right for me. The module ran on Tuesday mornings.,negative
+101183,DS100,"Well organised, though I struggled to keep up after week 6. The worked examples helped a lot.",positive
+101184,DS100,"Well organised, though I struggled to keep up after week 6. The worked examples helped a lot.",positive
+101185,DS100,The best part was the capstone. Everything before it was hard to follow.,negative
+101186,DS100,Overall the module was rushed at the end. I struggled to keep up after week 6. Rooms were sometimes too small.,negative
+101189,DS100,Overall the module was well structured. I would recommend it to next year's cohort. Rooms were sometimes too small.,positive
+101190,DS100,The lectures were not clear at all. I struggled to keep up after week 6. The module ran on Tuesday mornings.,negative
+101191,DS100,The best part was the capstone. Everything before it was hard to follow.,negative
+101193,DS100,Teaching on this course was well structured. The worked examples helped a lot. Attendance was taken every week.,positive
+101194,DS100,The lab sessions were really engaging. The worked examples helped a lot. The dataset used in labs was helpful.,positive
+101195,DS100,"Well organised, though I struggled to keep up after week 6. The worked examples helped a lot.",positive
+101198,DS100,Teaching on this course was well structured. The pace was about right for me. Recordings appeared a few days late.,positive
+101200,DS100,I found the course genuinely excellent. The capstone was the best part. The dataset used in labs was helpful.,positive
