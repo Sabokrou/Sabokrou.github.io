@@ -62,23 +62,20 @@
 
     <section id="course-materials">
       <div class="card week-one">
-        <span class="label">Published student resources</span>
-        <h2 class="section-title">Available course materials</h2>
-        <p class="muted">Only resources that are ready for class are published here. The course book is listed once; each released session appears with its slide deck and lab.</p>
+        <span class="label">Course book</span>
+        <h2 class="section-title">Fundamentals of Data Science</h2>
+        <p class="muted">The book is listed once. Slides and labs are released inside their matching week below.</p>
         <div class="materials">
-          <article class="material"><span class="label">Course book</span><h3>Fundamentals of Data Science</h3><p>The course text for self-study and reference.</p><a href="./materials/student/FDS_Volume_1_Main_Text.pdf" target="_blank" rel="noopener">Open book</a></article>
-          <article class="material"><span class="label">Week 1</span><h3>Lecture slides</h3><p>Questions, datasets, rows, and responsible evidence.</p><a href="./materials/student/Week_1_Thinking_Like_a_Data_Scientist_SLIDES.pdf" target="_blank" rel="noopener">Open slides</a></article>
-          <article class="material"><span class="label">Lab 0</span><h3>Colab and Python</h3><p>Use the short guide, then complete the starter notebook.</p><a href="./materials/student/Lab_0_Colab_and_Python.pdf" target="_blank" rel="noopener">Open guide</a><br><a href="./materials/student/Lab_0_Colab_and_Python_STARTER.ipynb" download>Download notebook</a></article>
-          <article class="material"><span class="label">Lab 1</span><h3>From a vague concern to evidence</h3><p>Individualised notebook: frame a question, analyse evidence, and write a cautious conclusion.</p><a href="./materials/student/Lab_01_Rows_Joins_Missingness_Student.ipynb" download>Download notebook</a></article>
+          <article class="material"><span class="label">Book</span><h3>Volume 1 Main Text</h3><p>The course text for self-study and reference.</p><a href="./materials/student/FDS_Volume_1_Main_Text.pdf" target="_blank" rel="noopener">Open book</a></article>
         </div>
-        <p style="margin:.8rem 0 0;color:#405b8c;font-size:.82rem;font-weight:700">Public PDFs are student copies. Instructor solutions and teaching notes are not published here.</p>
+        <p style="margin:.8rem 0 0;color:#405b8c;font-size:.82rem;font-weight:700">Only ready student materials are published. Instructor solutions and teaching notes remain private.</p>
       </div>
     </section>
 
     <section>
       <span class="label">Semester schedule</span>
       <h2 class="section-title">16-week learning plan</h2>
-      <p class="schedule-hint">This is the topic overview. Files are published above only when they are ready.</p>
+      <p class="schedule-hint">Select a published week to open its slides and lab. Future weeks have no public files yet.</p>
       <div class="schedule">
         <article class="week current"><div class="week-number">01</div><div><h3>Questions, data, and evidence</h3><p>Chapters 1–2 · Rows, variables, sources, samples, and responsible framing.</p></div><span class="status">Week 1</span></article>
         <article class="week current"><div class="week-number">02</div><div><h3>Describing data with care</h3><p>Chapter 3 · Centre, spread, distributions, skew, and outliers.</p></div><span class="status">Week 2</span></article>
@@ -101,11 +98,30 @@
   </main>
   <footer><div class="container">© 2026 Mohammad Sabokrou · Data Science Fundamentals</div></footer>
 <script>
-const weeklyMaterials = Array.from({ length: 16 }, (_, index) => ({
-  reading: 'Published files appear above only when the relevant session is ready.',
-  lab: index === 0 ? 'Week 1: Lab 0 and Lab 1 are available above.' : 'No additional public files are released yet.',
-  links: []
-}));
+const weeklyMaterials = [
+  {
+    reading: 'Week 1 materials: questions, data, and evidence.',
+    lab: 'Lab 0: Colab and Python foundations.',
+    links: [
+      ['Week 1 slides', './materials/student/Week_1_Thinking_Like_a_Data_Scientist_SLIDES.pdf'],
+      ['Lab 0 guide', './materials/student/Lab_0_Colab_and_Python.pdf'],
+      ['Lab 0 notebook', './materials/student/Lab_0_Colab_and_Python_STARTER.ipynb']
+    ]
+  },
+  {
+    reading: 'Week 2 materials: describing data with care.',
+    lab: 'Lab 1: from a vague concern to defensible evidence.',
+    links: [
+      ['Week 2 slides', './materials/student/Week_2_Describing_Data_SLIDES.pdf'],
+      ['Lab 1 notebook', './materials/student/Lab_01_Rows_Joins_Missingness_Student.ipynb']
+    ]
+  },
+  ...Array.from({ length: 14 }, () => ({
+    reading: 'Files will appear here only after the relevant lecture and lab are ready.',
+    lab: 'No public files released yet.',
+    links: []
+  }))
+];
 
 document.querySelectorAll('.schedule .week').forEach((week, index) => {
   const item = weeklyMaterials[index];
@@ -116,7 +132,7 @@ document.querySelectorAll('.schedule .week').forEach((week, index) => {
   panel.id = `week-materials-${number}`;
   panel.hidden = true;
   const links = item.links || [];
-  panel.innerHTML = `<div class="week-materials-grid"><p><strong>Reading:</strong> ${item.reading}</p><p><strong>Lab / assessment:</strong> ${item.lab}</p></div><div class="resource-links">${links.map(([label, href]) => `<a href="${href}"${href.endsWith('.pdf') ? ' target="_blank" rel="noopener"' : ''}>${label}</a>`).join('')}</div>${!item.links && index > 0 ? '<p class="resource-note">Weekly slides and notebooks will appear here when released.</p>' : ''}`;
+  panel.innerHTML = `<div class="week-materials-grid"><p><strong>Reading:</strong> ${item.reading}</p><p><strong>Lab / assessment:</strong> ${item.lab}</p></div><div class="resource-links">${links.map(([label, href]) => `<a href="${href}"${href.endsWith('.pdf') ? ' target="_blank" rel="noopener"' : ''}>${label}</a>`).join('')}</div>${!links.length && index > 1 ? '<p class="resource-note">Weekly slides and notebooks will appear here when released.</p>' : ''}`;
   week.appendChild(panel);
   week.tabIndex = 0;
   week.setAttribute('role', 'button');
