@@ -133,7 +133,7 @@ document.querySelectorAll('.schedule .week').forEach((week, index) => {
   panel.id = `week-materials-${number}`;
   panel.hidden = true;
   const links = item.links || [];
-  panel.innerHTML = `<div class="week-materials-grid"><p><strong>Reading:</strong> ${item.reading}</p><p><strong>Lab / assessment:</strong> ${item.lab}</p></div><div class="resource-links">${links.map(([label, href]) => `<a href="${href}"${href.endsWith('.pdf') ? ' target="_blank" rel="noopener"' : ''}>${label}</a>`).join('')}</div>${!links.length && index > 1 ? '<p class="resource-note">Weekly slides and notebooks will appear here when released.</p>' : ''}`;
+  panel.innerHTML = `<div class="week-materials-grid"><p><strong>Reading:</strong> ${item.reading}</p><p><strong>Lab / assessment:</strong> ${item.lab}</p></div><div class="resource-links">${links.map(([label, href]) => `<a href="${href}"${(href.endsWith('.pdf') || href.startsWith('http')) ? ' target="_blank" rel="noopener"' : ''}>${label}</a>`).join('')}</div>${!links.length && index > 1 ? '<p class="resource-note">Weekly slides and notebooks will appear here when released.</p>' : ''}`;
   week.appendChild(panel);
   week.tabIndex = 0;
   week.setAttribute('role', 'button');
