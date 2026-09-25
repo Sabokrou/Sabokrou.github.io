@@ -38,8 +38,31 @@ function numeric(value) {
   return value === null || value === undefined || value === '' ? null : Number(value);
 }
 
-function roundPoints(value) { return Math.round((Number(value) + Number.EPSILON) * 100) / 100; }
+function roundPoints(value) { return Math.round((Number(value) + 1e-10) * 100) / 100; }
 function format(value) { return roundPoints(value).toFixed(2); }
+// Grade inputs have at most two decimal places. Six decimals retain the lab
+// average while removing binary floating-point noise at an exact cutoff.
+function calculatedPoints(value) { return Number(Number(value).toFixed(6)); }
+
+const GRADE_BANDS = [
+  { label: 'A+', min: 93 }, { label: 'A', min: 85 },
+  { label: 'B+', min: 75 }, { label: 'B', min: 65 },
+  { label: 'C+', min: 60 }, { label: 'C', min: 50 },
+  { label: 'D', min: 40 }, { label: 'F', min: 0 }
+];
+function gradeBand(points) { return GRADE_BANDS.find(band => Number(points) >= band.min)?.label || 'F'; }
+
+function formatTotal(points, passMark) {
+  const rounded = roundPoints(points);
+  const cutoffs = GRADE_BANDS.map(band => band.min);
+  if (passMark !== null) cutoffs.push(passMark);
+  // Show extra decimals when two-place display would hide which side of a
+  // grade/pass boundary the unrounded total falls on.
+  if (cutoffs.some(cutoff => (points >= cutoff) !== (rounded >= cutoff))) {
+    return Number(points).toFixed(6).replace(/0+$/, '').replace(/\.$/, '');
+  }
+  return format(points);
+}
 
 function outcomeLabel(value) {
   return value === 'pass' ? 'Pass' : value === 'fail' ? 'Fail' : value === 'revise' ? 'Revise' : 'Score posted';
@@ -68,7 +91,7 @@ function pointsForStudent(allEntries) {
   const gradedLabs = labs.filter(item => released(byKey.get(item.key))).length;
   const gradedOther = other.filter(item => released(byKey.get(item.key))).length;
   const schemeComplete = labs.length === 12 && other.length === 6 && Math.abs(labWeight + other.reduce((sum, item) => sum + Number(item.weight), 0) - 100) < 0.001;
-  return { total: labPoints + otherPoints, labPoints, gradedLabs, gradedOther, labs: labs.length, other: other.length, complete: schemeComplete && gradedLabs === labs.length && gradedOther === other.length };
+  return { total: calculatedPoints(labPoints + otherPoints), labPoints, gradedLabs, gradedOther, labs: labs.length, other: other.length, complete: schemeComplete && gradedLabs === labs.length && gradedOther === other.length };
 }
 
 function appendText(parent, tag, text, className) {
@@ -91,28 +114,31 @@ function renderStudent() {
   $('student-meta').textContent = `${student.cohort || 'Course student'} · University ID ${student.university_id}`;
   const byKey = new Map(entries.map(entry => [entry.assessment_key, entry]));
   const result = pointsForStudent(entries);
-  $('student-points').textContent = `${format(result.total)} / 100`;
+  const target = numeric(settings.pass_threshold);
+  $('student-points').textContent = `${formatTotal(result.total, target)} / 100`;
   $('student-points-note').textContent = `${result.gradedLabs} of ${result.labs} labs and ${result.gradedOther} of ${result.other} other assessments released`;
   $('lab-points').textContent = `${format(result.labPoints)} / ${format(settings.labs_weight)} points`;
   $('student-bar').style.width = `${Math.max(0, Math.min(100, result.total))}%`;
-  const target = numeric(settings.pass_threshold);
   $('student-target').textContent = target === null ? 'Not set' : `${format(target)} / 100`;
   $('student-target-note').textContent = target === null ? 'The instructor has not set the passing threshold.' : 'Set by the instructor';
   $('student-bar-target').hidden = target === null;
   if (target !== null) $('student-bar-target').style.left = `${target}%`;
   const progress = $('student-progress');
   const note = $('student-progress-note');
-  const displayedTotal = roundPoints(result.total);
   if (target === null) {
     progress.textContent = 'In progress';
     note.textContent = 'A pass decision is unavailable until the mark is set.';
   } else if (!result.complete) {
-    progress.textContent = displayedTotal >= target ? 'Pass line reached' : 'In progress';
+    progress.textContent = result.total >= target ? 'Pass line reached' : 'In progress';
     note.textContent = 'More results are still to be released; this is not a final decision.';
   } else {
-    progress.textContent = displayedTotal >= target ? 'Pass' : 'Below pass mark';
+    progress.textContent = result.total >= target ? 'Pass' : 'Below pass mark';
     note.textContent = `All ${result.labs + result.other} results have been released.`;
   }
+  $('student-grade-band').textContent = result.complete ? gradeBand(result.total) : 'Pending';
+  $('student-band-note').textContent = result.complete
+    ? 'Based on the unrounded total; the university record is authoritative.'
+    : 'Shown when all results are released';
 
   const labGrid = $('student-labs');
   labGrid.replaceChildren();
@@ -140,8 +166,11 @@ function renderStudent() {
     appendText(row, 'td', `${format(item.weight)}%`);
     const grade = document.createElement('td');
     if (visible) {
-      grade.append(makePill(entry.outcome));
-      if (numeric(entry.score) !== null) appendText(grade, 'small', `${format(entry.score)} / ${format(item.max_score)}`);
+      if (VALID_OUTCOMES.has(entry.outcome)) grade.append(makePill(entry.outcome));
+      if (numeric(entry.score) !== null) {
+        const percent = 100 * Number(entry.score) / Number(item.max_score);
+        appendText(grade, 'small', `${format(entry.score)} / ${format(item.max_score)} · ${gradeBand(percent)} scale reference`);
+      }
       if (entry.note) appendText(grade, 'small', entry.note);
     } else appendText(grade, 'span', 'Awaiting publication', 'muted');
     row.append(grade);

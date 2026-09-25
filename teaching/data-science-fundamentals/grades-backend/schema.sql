@@ -29,8 +29,10 @@
 --  4. Configure the Auth email template with {{ .Token }} for the OTP flow.
 --     Set Auth email rate limits, allowed domains or enrollment restrictions,
 --     and a production SMTP provider as appropriate for the university.
---  5. When the instructor confirms the official pass mark, update
---     public.grading_settings.pass_threshold; it starts NULL deliberately.
+--  5. The university minimum passing grade is seeded at 40% per the NewUU
+--     Academic Regulations approved March 2026, effective Fall
+--     2026/27, sections 14.1-14.2. An approved course-specific threshold
+--     may be configured later by the instructor.
 
 -- All statements below are transactional. A failure rolls back the entire
 -- migration rather than leaving a partially configured gradebook.
@@ -169,7 +171,7 @@ on conflict (key) do nothing;
 
 insert into public.grading_settings
   (id, pass_threshold, labs_weight, labs_best_count)
-values (1, null, 15, 9)
+values (1, 40, 15, 9)
 on conflict (id) do nothing;
 
 -- The private functions use a fixed empty search_path and fully qualified
