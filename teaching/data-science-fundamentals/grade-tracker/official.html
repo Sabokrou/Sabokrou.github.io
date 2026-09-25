@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Private Data Science Fundamentals grades for students and teaching staff.">
+  <title>Official results | Data Science Fundamentals</title>
+  <link rel="icon" type="image/png" href="/images/people/profile.PNG">
+  <link rel="stylesheet" href="./official.css">
+</head>
+<body>
+  <header class="site-header"><div class="container header-inner"><a class="course-name" href="../">Data Science Fundamentals</a><div class="header-actions"><span id="account-label" class="account-label"></span><button class="text-button" id="sign-out" type="button" hidden>Sign out</button><a href="../">Course page</a></div></div></header>
+  <main class="container">
+    <div class="intro"><div class="eyebrow">New Uzbekistan University · Private results</div><h1>Course results</h1><p id="page-subtitle">Sign in to see grades released by the instructor or teaching assistant.</p></div>
+    <div class="alert" id="site-message" role="status" aria-live="polite" hidden></div>
+    <section id="setup-panel" class="panel" hidden><h2>Results are not available yet</h2><p>The instructor is setting up the grade portal. Please check back later.</p></section>
+
+    <section id="auth-panel" class="panel auth-panel" hidden aria-labelledby="auth-heading">
+      <h2 id="auth-heading">Sign in with your email</h2>
+      <p>We will send a one-time code to an email inbox you can access. Students also need their own private invitation code from the teaching team to connect their record.</p>
+      <form id="email-form" class="form-stack">
+        <label for="email">Email address</label>
+        <div class="form-line"><input id="email" type="email" autocomplete="email" required placeholder="you@example.com"><button class="primary" type="submit">Send code</button></div>
+      </form>
+      <form id="code-form" class="form-stack" hidden>
+        <label for="email-code">Code from your email</label>
+        <div class="form-line"><input id="email-code" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6,8}" required placeholder="One-time code"><button class="primary" type="submit">Verify code</button></div>
+      </form>
+      <p class="fine-print">Your university ID alone does not provide access to grades.</p>
+    </section>
+
+    <section id="claim-panel" class="panel auth-panel" hidden aria-labelledby="claim-heading">
+      <h2 id="claim-heading">Connect your student record</h2>
+      <p>Enter the private invitation code given to you by the teaching team. This links your account to your course record once.</p>
+      <form id="claim-form" class="form-stack"><label for="claim-code">Invitation code</label><div class="form-line"><input id="claim-code" type="text" autocomplete="off" required placeholder="Your private code"><button class="primary" type="submit">Connect record</button></div></form>
+      <p class="fine-print">If your code is missing or does not work, contact the TA at <a href="mailto:a.hossein@newuu.uz">a.hossein@newuu.uz</a>. Do not share your code with classmates.</p>
+    </section>
+
+    <section id="student-panel" hidden aria-labelledby="student-heading">
+      <div class="identity-row"><div><div class="eyebrow">Your published results</div><h2 id="student-heading"></h2><p id="student-meta" class="muted"></p></div><button class="outline" id="refresh-student" type="button">Refresh results</button></div>
+      <div class="summary-grid"><div class="panel summary-card"><span class="summary-label">Published course points</span><strong id="student-points">0.00 / 100</strong><span class="muted" id="student-points-note"></span></div><div class="panel summary-card"><span class="summary-label">Pass mark</span><strong id="student-target">—</strong><span class="muted" id="student-target-note"></span></div><div class="panel summary-card"><span class="summary-label">Progress</span><strong id="student-progress">In progress</strong><span class="muted" id="student-progress-note"></span></div><div class="panel summary-card"><span class="summary-label">Course grade band</span><strong id="student-grade-band">Pending</strong><span class="muted" id="student-band-note">Shown when all results are released</span></div></div>
+      <div class="bar-wrap"><div class="bar"><div class="bar-fill" id="student-bar"></div><div class="bar-target" id="student-bar-target" hidden></div></div><div class="bar-ends"><span>0</span><span>100 course points</span></div></div>
+      <section class="panel section" aria-labelledby="student-labs-heading"><div class="section-heading"><div><h3 id="student-labs-heading">Weekly labs</h3><p>The best nine of 12 notebooks contribute 15% of the course grade.</p></div><strong id="lab-points" class="points-label"></strong></div><div id="student-labs" class="lab-grid"></div></section>
+      <section class="panel section" aria-labelledby="student-other-heading"><div class="section-heading"><div><h3 id="student-other-heading">Exams and assignments</h3><p>Only released scores are shown. The letter beside each numeric score is a grading-scale reference for that assessment; the final course band appears only after every result is released.</p></div></div><div class="table-scroll"><table><thead><tr><th scope="col">Assessment</th><th scope="col">Weight</th><th scope="col">Result</th><th scope="col">Course points</th></tr></thead><tbody id="student-assessments"></tbody></table></div></section>
+      <section class="panel section" aria-labelledby="scale-heading"><h3 id="scale-heading">University grading scale</h3><p class="muted">NewUU sets 40 course points as the passing minimum. The configured course pass mark is shown above; the grade band appears after all results are released.</p><table class="scale-table"><thead><tr><th scope="col">Band</th><th scope="col">Course score</th></tr></thead><tbody><tr><td>A+</td><td>93–100</td></tr><tr><td>A</td><td>85–92.9</td></tr><tr><td>B+</td><td>75–84.9</td></tr><tr><td>B</td><td>65–74.9</td></tr><tr><td>C+</td><td>60–64.9</td></tr><tr><td>C</td><td>50–59.9</td></tr><tr><td>D</td><td>40–49.9</td></tr><tr><td>F</td><td>0–39.9</td></tr></tbody></table><p class="fine-print">Source: <a href="https://www.newuu.uz/uploads/docs_text/b6779248be1112193391d8250d9ab779.pdf" target="_blank" rel="noopener">New Uzbekistan University Academic Regulations (2026), §§14.1–14.2</a>. The listed intervals use one decimal; the grade calculation compares the unrounded total with each band’s lower cutoff.</p></section>
+      <p class="fine-print section">Results shown here are course feedback. The official university record remains authoritative. For a suspected error, contact the teaching team.</p>
+    </section>
+
+    <section id="staff-panel" hidden aria-labelledby="staff-heading">
+      <div class="identity-row"><div><div class="eyebrow">Teaching team</div><h2 id="staff-heading">Enter and release results</h2><p class="muted">Choose an assessment, enter grades, then publish the results you want students to see.</p></div><button class="outline" id="refresh-staff" type="button">Refresh roster</button></div>
+      <div class="staff-tools panel"><div class="tool-field"><label for="staff-item">Assessment</label><select id="staff-item"></select></div><div class="tool-field"><label for="staff-search">Find student</label><input id="staff-search" type="search" autocomplete="off" placeholder="Name, ID or group"></div><div class="tool-field"><label for="staff-group">Group</label><select id="staff-group"><option value="">All groups</option></select></div></div>
+      <div class="panel section staff-table-panel"><div class="section-heading"><div><h3 id="staff-list-heading">Student results</h3><p id="staff-count" class="muted"></p></div><button id="save-visible" class="primary" type="button">Save edited rows</button></div><div class="table-scroll"><table class="staff-table"><thead><tr><th scope="col">Student</th><th scope="col">Status</th><th scope="col">Score / 100</th><th scope="col">Visible to student</th><th scope="col">Saved</th></tr></thead><tbody id="staff-rows"></tbody></table></div><p class="fine-print">To release a lab, choose Pass, Revise, or Fail; its numeric score is optional. To release an exam or assignment, enter a numeric score. Save edited rows to apply changes.</p></div>
+      <div class="panel section"><div class="section-heading"><div><h3>Pass mark</h3><p>NewUU regulations set 40/100 as the passing minimum. Verify the course mark here; change it only under an approved course rule.</p></div></div><form id="pass-form" class="pass-form"><label for="pass-mark">Points required to pass</label><input id="pass-mark" type="number" min="0" max="100" step="0.01" placeholder="Not set" required><button class="primary" type="submit">Save pass mark</button></form><p class="fine-print" id="pass-updated"></p></div>
+      <section id="invitations-panel" class="panel section" hidden aria-labelledby="invitations-heading"><div class="section-heading"><div><h3 id="invitations-heading">Student invitation codes</h3><p>Generate a private CSV for students who have not connected their record yet.</p></div></div><button id="download-invitations" class="outline" type="button">Generate and download invitations</button><p class="fine-print">Each download replaces all unused codes for unclaimed students. Earlier unused codes will stop working. Store the downloaded file privately and share each code only with its student.</p></section>
+    </section>
+  </main>
+  <footer class="container footer">© 2026 Mohammad Sabokrou · Data Science Fundamentals</footer>
+  <script type="module" src="./official.mjs"></script>
+</body>
+</html>
