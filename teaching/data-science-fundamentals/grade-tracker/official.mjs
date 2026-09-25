@@ -262,6 +262,7 @@ async function loadStaff() {
   $('pass-mark').value = numeric(settings.pass_threshold) === null ? '' : String(settings.pass_threshold);
   $('pass-mark').disabled = role !== 'instructor';
   $('pass-form').querySelector('button').hidden = role !== 'instructor';
+  $('invitations-panel').hidden = role !== 'instructor';
   $('pass-updated').textContent = role !== 'instructor' ? 'Only the instructor can change the course pass mark.' : numeric(settings.pass_threshold) === null ? 'No official pass mark has been set yet.' : `Current pass mark: ${format(settings.pass_threshold)} / 100`;
   renderStaffRows();
   showPanel('staff-panel');
@@ -388,6 +389,65 @@ $('pass-form').addEventListener('submit', async event => {
       $('pass-updated').textContent = `Current pass mark: ${format(value)} / 100`;
       message('Course pass mark saved.', 'success');
     } catch (error) { tellError(error, 'Pass mark could not be saved.'); }
+  });
+});
+
+// Spreadsheet cells must not be allowed to execute formulas when opened in Excel.
+function csvCell(value) {
+  let string = String(value ?? '');
+  if (/^\s*[=+\-@]/.test(string)) string = `'${string}`;
+  return `"${string.replaceAll('"', '""')}"`;
+}
+
+async function countUnclaimedStudents() {
+  const { count, error } = await db.from('course_students')
+    .select('id', { count: 'exact', head: true })
+    .is('auth_user_id', null);
+  if (error) throw error;
+  if (!Number.isInteger(count) || count < 0) throw new Error('Unclaimed student count unavailable');
+  return count;
+}
+
+$('download-invitations').addEventListener('click', async event => {
+  if (role !== 'instructor') return;
+  if (!confirm('Generate new invitation codes for ALL unclaimed students? This invalidates their previous unused codes. Download and privately distribute the new CSV.')) return;
+  await busy(event.currentTarget, async () => {
+    let result = null;
+    let csv = null;
+    let rotationStarted = false;
+    try {
+      const expectedCount = await countUnclaimedStudents();
+      if (expectedCount === 0) { message('Every student record is already connected; there are no new invitations to download.'); return; }
+      rotationStarted = true;
+      result = check(await db.rpc('issue_unclaimed_invites'));
+      if (!Array.isArray(result)) throw new Error('Unexpected invitation response');
+      // A count-only request is not constrained by Data API Max rows. A second
+      // count catches roster claims that race with the code-generation call.
+      const remainingCount = await countUnclaimedStudents();
+      if (result.length !== expectedCount || result.length !== remainingCount) {
+        message(`Invitation download stopped: the response had ${result.length} rows, while the unclaimed roster counted ${expectedCount} before and ${remainingCount} after generation. Codes may have rotated. Check the Data API Max rows setting and any student claims, then generate a fresh complete file. Do not use an older CSV.`, 'error');
+        return;
+      }
+      const columns = ['university_id', 'full_name', 'cohort', 'invitation_code'];
+      csv = `\uFEFF${columns.join(',')}\r\n${result.map(row => columns.map(key => csvCell(row[key])).join(',')).join('\r\n')}\r\n`;
+      const objectUrl = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
+      const link = document.createElement('a');
+      link.href = objectUrl;
+      link.download = `fds-private-invitations-${new Date().toISOString().slice(0, 10)}.csv`;
+      link.hidden = true;
+      document.body.append(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(objectUrl), 10000);
+      message(`Downloaded ${result.length} private invitation codes. Keep the file secure and distribute each code only to its student.`, 'success');
+    } catch (_) {
+      message(rotationStarted
+        ? 'The invitation download could not be completed. Codes may have rotated; check the roster and Data API Max rows before generating again. Do not distribute an older file.'
+        : 'Could not count the unclaimed students. No invitation codes were generated; please try again.', 'error');
+    } finally {
+      result = null;
+      csv = null;
+    }
   });
 });
 
