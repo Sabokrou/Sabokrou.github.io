@@ -2,6 +2,8 @@
 
 This page is a private, staff-managed gradebook. The static course site cannot authenticate students or keep grades private by itself. `official.html` requires the backend in `../grades-backend/schema.sql` and must not be linked to students until email delivery, roster enrollment, and access checks are complete.
 
+**Project status (25 September 2026):** The dedicated Supabase project and 155 private roster records are in place. Custom SMTP and the Magic Link / OTP template containing `{{ .Token }}` have been saved. Email delivery, a complete sign-in, staff enrollment, and a student access test still need verification before the portal is linked from the course page. The roster contains no student email addresses: each student signs in with an inbox they control and uses their own privately distributed invitation code to connect the right record. Where a verified address becomes available, bind it with `allowed_email` before sharing that student's code.
+
 ## 1. Create the private gradebook
 
 1. Create a dedicated Supabase project. In **Integrations → Data API**, turn **Default privileges for new entities** off so future public tables/functions are not automatically granted to `anon` and `authenticated`. Run `../grades-backend/schema.sql` in its SQL editor as an administrator. The migration explicitly revokes and grants access for the current objects. Keep the `grade_private` schema **out of the exposed API schemas**. See [Supabase's Data API access guide](https://supabase.com/docs/guides/api/securing-your-api).
