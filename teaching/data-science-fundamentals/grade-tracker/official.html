@@ -41,6 +41,7 @@
     </section>
 
     <section id="student-panel" hidden aria-labelledby="student-heading">
+      <div id="preview-notice" class="panel section" hidden><strong>Administrator preview — student view</strong><p class="muted">This shows only saved, published results for the selected student. No student sign-in or code is used.</p><button class="outline" id="back-to-staff" type="button">Back to teaching-team dashboard</button></div>
       <div class="identity-row"><div><div class="eyebrow">Your published results</div><h2 id="student-heading"></h2><p id="student-meta" class="muted"></p></div><button class="outline" id="refresh-student" type="button">Refresh results</button></div>
       <div class="summary-grid"><div class="panel summary-card"><span class="summary-label">Published course points</span><strong id="student-points">0.00 / 100</strong><span class="muted" id="student-points-note"></span></div><div class="panel summary-card"><span class="summary-label">Pass mark</span><strong id="student-target">—</strong><span class="muted" id="student-target-note"></span></div><div class="panel summary-card"><span class="summary-label">Progress</span><strong id="student-progress">In progress</strong><span class="muted" id="student-progress-note"></span></div><div class="panel summary-card"><span class="summary-label">Course grade band</span><strong id="student-grade-band">Pending</strong><span class="muted" id="student-band-note">Shown when all results are released</span></div></div>
       <div class="bar-wrap"><div class="bar"><div class="bar-fill" id="student-bar"></div><div class="bar-target" id="student-bar-target" hidden></div></div><div class="bar-ends"><span>0</span><span>100 course points</span></div></div>
@@ -52,6 +53,7 @@
 
     <section id="staff-panel" hidden aria-labelledby="staff-heading">
       <div class="identity-row"><div><div class="eyebrow">Teaching team</div><h2 id="staff-heading">Enter and release results</h2><p class="muted">Choose an assessment, enter grades, then publish the results you want students to see.</p></div><button class="outline" id="refresh-staff" type="button">Refresh roster</button></div>
+      <section class="panel section" aria-labelledby="preview-heading"><h3 id="preview-heading">Preview a student’s results</h3><p class="muted">See the same published results layout a student sees, using your teaching-team access.</p><div class="form-line"><label for="preview-student">Student</label><select id="preview-student"></select><button class="primary" id="open-preview" type="button">Open student view</button></div></section>
       <section class="panel section" aria-labelledby="connections-heading">
         <div class="section-heading"><div><h3 id="connections-heading">Student connection requests</h3><p>Confirm the student's identity in person or through a trusted channel before approving. Email verification alone does not prove ownership of a student ID.</p></div><button id="refresh-connections" class="outline" type="button">Refresh requests</button></div>
         <p id="connections-count" class="muted" role="status"></p>
@@ -64,7 +66,7 @@
     </section>
   </main>
   <footer class="container footer">© 2026 Mohammad Sabokrou · Data Science Fundamentals</footer>
-  <script type="module" src="./official.mjs?v=20260926-approval"></script>
+  <script type="module" src="./official.mjs?v=20260927-admin-preview"></script>
 </body>
 </html>
 
