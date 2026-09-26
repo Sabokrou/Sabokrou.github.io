@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Computer Vision results | Mohammad Sabokrou</title>
+  <style>
+    :root{font-family:Inter,system-ui,Arial,sans-serif;color:#17243b;background:#f4f7fb}
+    *{box-sizing:border-box}body{margin:0}a{color:#1d5ea6}header{background:#102645;color:white;padding:1.1rem max(1rem,calc((100vw - 1050px)/2))}header a{color:white}header nav{display:flex;justify-content:space-between;gap:1rem;align-items:center}main{max-width:1050px;margin:2rem auto;padding:0 1rem}h1{font-size:clamp(2rem,5vw,3rem);margin:.25rem 0}h2{margin-top:0}p{line-height:1.55}.eyebrow{text-transform:uppercase;letter-spacing:.1em;color:#ad6e30;font-size:.76rem;font-weight:800}.panel{background:white;border:1px solid #d9e2ee;border-radius:16px;padding:1.4rem;margin:1.1rem 0;box-shadow:0 7px 20px #1733540a}.muted{color:#5b6980}.notice{background:#eaf4fd;border-left:4px solid #347bb5;padding:.8rem 1rem;border-radius:6px}.error{background:#fff0ec;border-color:#bb4b35}.success{background:#e8f6ed;border-color:#298453}.row{display:flex;gap:.75rem;align-items:end;flex-wrap:wrap}.field{display:grid;gap:.35rem;flex:1 1 180px}label{font-weight:700;font-size:.93rem}input,select,button{font:inherit;border:1px solid #b9c6d8;border-radius:8px;padding:.65rem .75rem}input[type=checkbox]{width:1.1rem;height:1.1rem}button{cursor:pointer;background:#173b68;color:#fff;border-color:#173b68;font-weight:700}button.alt{background:#fff;color:#173b68}button:disabled{opacity:.55;cursor:wait}.wrap{overflow-x:auto}table{width:100%;border-collapse:collapse}th,td{padding:.7rem .55rem;border-bottom:1px solid #e2e8f1;text-align:left;vertical-align:middle}th{font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:#596a80}td input[type=number]{width:7rem}td input[type=text]{min-width:12rem;width:100%}.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem}.summary>div{background:#eef3f9;padding:1rem;border-radius:10px}.summary strong{display:block;font-size:1.6rem;margin:.3rem 0}.actions{display:flex;gap:.45rem;flex-wrap:wrap}small{color:#5b6980}#message{border-left:4px solid #347bb5}#signout{background:transparent;border-color:#fff;padding:.45rem .7rem}footer{max-width:1050px;margin:3rem auto;padding:0 1rem 2rem;color:#69758a}@media(max-width:620px){header nav{align-items:start;flex-direction:column}th,td{padding:.5rem .4rem}}
+  </style>
+</head>
+<body>
+  <header><nav><a href="../">Computer Vision course</a><div><span id="account"></span> <button id="signout" type="button" hidden>Sign out</button></div></nav></header>
+  <main>
+    <div class="eyebrow">New Uzbekistan University · Private results</div>
+    <h1>Computer Vision grades</h1>
+    <p class="muted">See results released by the teaching team. Your university record remains authoritative.</p>
+    <p id="message" class="panel notice" role="status" aria-live="polite" hidden></p>
+    <section id="auth" class="panel" hidden>
+      <h2>Sign in with email</h2><p>We will send a one-time code to an email inbox you can access. After verifying it, enter your six-digit university student ID and wait for teaching-team approval.</p>
+      <form id="email-form" class="row"><div class="field"><label for="email">Email address</label><input id="email" type="email" autocomplete="email" required></div><button>Send code</button></form>
+      <form id="otp-form" class="row" hidden><div class="field"><label for="otp">Code from email</label><input id="otp" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6,8}" required></div><button>Verify code</button></form>
+      <p><small>Your student ID is used only to request a connection; it does not unlock grades without staff approval.</small></p>
+    </section>
+    <section id="claim" class="panel" hidden>
+      <h2>Connect your student record</h2><p id="claim-status"></p>
+      <form id="claim-form" class="row"><div class="field"><label for="student-id">Six-digit university ID (IDSS)</label><input id="student-id" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required autocomplete="off"></div><button>Request connection</button></form>
+      <p><button id="check-approval" class="alt" type="button">Check approval status</button></p>
+      <p><small>Ask the teaching team if you used the wrong ID or need to change a linked email. Staff must verify identity before approving.</small></p>
+    </section>
+    <section id="student" hidden>
+      <div class="panel"><h2 id="student-name"></h2><p id="student-meta" class="muted"></p><button id="refresh-student" class="alt" type="button">Refresh results</button></div>
+      <div class="panel"><h2>Published course work</h2><div class="summary"><div><span>Lab portfolio</span><strong id="lab-total">0 / 10</strong><small id="lab-count"></small></div><div><span>Project work</span><strong id="project-total">0 / 15</strong><small id="project-count"></small></div><div><span>Earned from released work</span><strong id="known-total">0 / 25</strong><small>Partial course contribution</small></div></div>
+      <p class="notice">The lecture specifies 10% for Labs 1–15 and 15% for the project. The official module plan defines the remaining 75%. A final course grade and pass status will appear only after that policy is configured.</p></div>
+      <div class="panel"><h2>Lab results</h2><p>Each lab is marked out of 20; Lab 0 is compulsory setup work and carries no portfolio score.</p><div class="wrap"><table><thead><tr><th>Lab</th><th>Score</th><th>Feedback</th></tr></thead><tbody id="student-labs"></tbody></table></div></div>
+      <div class="panel"><h2>Project result</h2><div class="wrap"><table><thead><tr><th>Assessment</th><th>Score</th><th>Feedback</th></tr></thead><tbody id="student-project"></tbody></table></div></div>
+    </section>
+    <section id="staff" hidden>
+      <div class="panel"><h2>Student connection requests</h2><p>Verify each person's identity through a trusted university channel before approving their requested ID.</p><button id="refresh-requests" class="alt" type="button">Refresh requests</button><div class="wrap"><table><thead><tr><th>Verified email</th><th>Requested record</th><th>Action</th></tr></thead><tbody id="requests"></tbody></table></div></div>
+      <div class="panel"><h2>Enter and release results</h2><div class="row"><div class="field"><label for="assessment">Assessment</label><select id="assessment"></select></div><div class="field"><label for="group">Group</label><select id="group"><option value="">All groups</option></select></div><div class="field"><label for="search">Find student</label><input id="search" type="search" placeholder="Name or ID"></div></div><p id="staff-count" class="muted"></p>
+      <div class="wrap"><table><thead><tr><th>Student</th><th>Score</th><th>Student visible</th><th>Feedback</th></tr></thead><tbody id="staff-rows"></tbody></table></div><p><button id="save" type="button">Save edited rows</button></p><p><small>Enter a number before publishing. Unpublished drafts remain hidden from students. The page keeps each edit until saved or refreshed.</small></p></div>
+    </section>
+  </main><footer>© 2026 Mohammad Sabokrou · Computer Vision</footer>
+  <script type="module" src="./gradebook.mjs?v=20260926"></script>
+</body></html>
