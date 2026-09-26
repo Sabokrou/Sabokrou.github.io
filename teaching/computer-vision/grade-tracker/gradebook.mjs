@@ -1,7 +1,7 @@
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from '../../data-science-fundamentals/grade-tracker/official-config.mjs';
 
 const $ = id => document.getElementById(id);
-let db, roster = [], definitions = [], grades = [], me = null, role = null;
+let db, roster = [], definitions = [], grades = [], me = null, role = null, previewRecord = null;
 const edits = new Map();
 const visible = id => { for (const name of ['auth','claim','student','staff']) $(name).hidden = name !== id; $('signout').hidden = id === 'auth'; };
 const alert = (value, error=false) => { $('message').textContent=value; $('message').className=`panel notice ${error?'error':'success'}`; $('message').hidden=!value; };
@@ -13,12 +13,12 @@ async function run(button,action) { button.disabled=true;try{await action();}cat
 async function enter() {
   alert('');
   const {data:{session},error}=await db.auth.getSession();if(error)throw error;
-  if(!session){$('account').textContent='';visible('auth');return;}
+  if(!session){$('account').textContent='';previewRecord=null;$('preview-banner').hidden=true;visible('auth');return;}
   $('account').textContent=session.user.email||'';
   role=result(await db.rpc('my_grade_role'));
   if(role==='instructor'||role==='ta'){await loadStaff();visible('staff');return;}
   const rows=result(await db.from('cv_students').select('id,learner_id,university_id,full_name,cohort').eq('auth_user_id',session.user.id));
-  me=rows[0];if(me){await loadStudent();visible('student');return;}
+  me=rows[0];if(me){previewRecord=null;$('preview-banner').hidden=true;await loadStudent();visible('student');return;}
   const request=result(await db.rpc('cv_my_connection'));
   $('claim-form').hidden=request?.status==='pending';
   $('claim-status').textContent=request?.status==='pending'
@@ -31,9 +31,13 @@ async function enter() {
 async function loadStudent() {
   definitions=result(await db.from('cv_assessments').select('*').order('sort_order'));
   grades=result(await db.from('cv_grades').select('assessment_key,score,note,published').eq('student_id',me.id).eq('published',true));
-  const byKey=new Map(grades.map(g=>[g.assessment_key,g]));
-  $('student-name').textContent=me.full_name;
-  $('student-meta').textContent=`${me.cohort} · University ID ${me.university_id}`;
+  renderStudent(me,grades);
+}
+
+function renderStudent(student,studentGrades) {
+  const byKey=new Map(studentGrades.filter(g=>g.published).map(g=>[g.assessment_key,g]));
+  $('student-name').textContent=student.full_name;
+  $('student-meta').textContent=`${student.cohort} · University ID ${student.university_id}`;
   const labs=definitions.filter(d=>d.category==='lab');
   const scored=labs.filter(d=>byKey.has(d.key));
   const labPoints=scored.reduce((sum,d)=>sum+Number(byKey.get(d.key).score)/Number(d.max_score),0)*10/labs.length;
@@ -55,14 +59,32 @@ async function loadStudent() {
 async function loadStaff() {
   [definitions,roster,grades]=await Promise.all([
     db.from('cv_assessments').select('*').order('sort_order').then(result),
-    db.from('cv_students').select('id,learner_id,university_id,full_name,cohort').order('full_name').then(result),
+    db.from('cv_students').select('id,learner_id,university_id,full_name,cohort,auth_user_id').order('full_name').then(result),
     db.from('cv_grades').select('student_id,assessment_key,score,published,note').then(result)
   ]);
   edits.clear();
   $('assessment').replaceChildren();for(const d of definitions){const o=new Option(`${d.label} · ${money(d.max_score)} marks`,d.key);$('assessment').append(o);}
   $('group').replaceChildren(new Option('All groups',''));
   for(const group of [...new Set(roster.map(s=>s.cohort))].sort())$('group').append(new Option(group,group));
+  const selected=$('preview-student').value;
+  $('preview-student').replaceChildren();
+  for(const student of roster)$('preview-student').append(new Option(`${student.full_name} · ${student.university_id}`,student.id));
+  if(roster.some(s=>s.id===selected))$('preview-student').value=selected;
+  $('open-preview').disabled=!roster.length;
+  $('preview-help').textContent=roster.some(s=>s.auth_user_id)
+    ? 'Select a record to preview the results currently released to that student.'
+    : 'No student accounts are connected yet. You can still inspect how a roster record will appear after approval.';
   renderStaff();await loadRequests();
+}
+
+function openPreview(student) {
+  previewRecord=student;
+  renderStudent(student,grades.filter(g=>g.student_id===student.id));
+  $('preview-banner').hidden=false;
+  $('preview-status').textContent=student.auth_user_id
+    ? `Previewing ${student.full_name}. Only saved, released results are shown. This does not sign in as the student.`
+    : `Previewing ${student.full_name}. This record is not connected to a student account yet; no student can access it. Only saved, released results are shown.`;
+  visible('student');window.scrollTo(0,0);
 }
 
 function renderStaff() {
@@ -101,7 +123,9 @@ $('email-form').onsubmit=e=>{e.preventDefault();run(e.submitter,async()=>{const 
 $('otp-form').onsubmit=e=>{e.preventDefault();run(e.submitter,async()=>{result(await db.auth.verifyOtp({email:$('email').value.trim(),token:$('otp').value.trim(),type:'email'}));await enter();});};
 $('claim-form').onsubmit=e=>{e.preventDefault();run(e.submitter,async()=>{result(await db.rpc('cv_request_connection',{student_id:$('student-id').value.trim()}));await enter();alert('Request sent. The teaching team will verify your identity.');});};
 $('check-approval').onclick=e=>run(e.currentTarget,enter);
-$('refresh-student').onclick=e=>run(e.currentTarget,loadStudent);
+$('refresh-student').onclick=e=>run(e.currentTarget,async()=>{if(previewRecord){grades=result(await db.from('cv_grades').select('student_id,assessment_key,score,published,note'));renderStudent(previewRecord,grades.filter(g=>g.student_id===previewRecord.id));}else await loadStudent();});
+$('open-preview').onclick=()=>{const student=roster.find(s=>s.id===$('preview-student').value);if(student)openPreview(student);};
+$('back-to-staff').onclick=()=>{previewRecord=null;$('preview-banner').hidden=true;visible('staff');window.scrollTo(0,0);};
 $('refresh-requests').onclick=e=>run(e.currentTarget,loadRequests);
 $('signout').onclick=e=>run(e.currentTarget,async()=>{result(await db.auth.signOut());me=null;role=null;await enter();});
 $('assessment').onchange=renderStaff;$('group').onchange=renderStaff;$('search').oninput=renderStaff;
