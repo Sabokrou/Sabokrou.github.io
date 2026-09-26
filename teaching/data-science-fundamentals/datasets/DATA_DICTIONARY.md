@@ -99,9 +99,3 @@ Chapter 1 and enforced in the marking rubric, is that these are legitimate
 features in a model that allocates or withholds something**. If your model uses
 one of them as an input, you must say so explicitly and justify it.
 
-## Known structure
-
-Instructors: the generator plants a Simpson's paradox (study mode × course
-difficulty), an MNAR missingness pattern in `midterm_satisfaction`, and a real
-but modest predictive signal for `withdrew`. Details are in the docstring of
-`src/make_dataset.py`. Do not distribute that file before Week 6.
