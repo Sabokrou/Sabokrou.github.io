@@ -14,7 +14,7 @@ create table if not exists public.cv_students (
 create table if not exists public.cv_assessments (
   key text primary key,
   label text not null,
-  category text not null check (category in ('lab','project')),
+  category text not null check (category in ('lab','project','exam')),
   max_score numeric(7,2) not null check (max_score > 0),
   weight numeric(5,2) not null check (weight between 0 and 100),
   sort_order integer not null unique
@@ -57,6 +57,13 @@ select 'lab_' || lpad(n::text,2,'0'), 'Lab ' || n, 'lab', 20, 0, n
 from generate_series(1,15) n on conflict(key) do nothing;
 insert into public.cv_assessments(key,label,category,max_score,weight,sort_order)
 values ('project','Project work','project',100,15,16) on conflict(key) do nothing;
+-- Exam scores can be recorded, but the source slide does not state their
+-- weights. Zero here means "unconfigured", not that exams count for zero
+-- in the official course grade. Do not calculate a final total yet.
+insert into public.cv_assessments(key,label,category,max_score,weight,sort_order)
+values ('midterm','Midterm exam','exam',100,0,17),
+       ('final','Final exam','exam',100,0,18)
+on conflict(key) do nothing;
 
 create or replace function grade_private.cv_validate_grade()
 returns trigger language plpgsql security definer set search_path = '' as $$
