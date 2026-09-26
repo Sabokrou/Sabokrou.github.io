@@ -45,10 +45,10 @@ async function loadStudent() {
   $('project-total').textContent=`${money(projectPoints)} / 15`;
   $('project-count').textContent=projectGrade?'Project released':'Project pending';
   $('known-total').textContent=`${money(labPoints+projectPoints)} / 25`;
-  $('student-labs').replaceChildren();$('student-project').replaceChildren();
+  $('student-labs').replaceChildren();$('student-project').replaceChildren();$('student-exams').replaceChildren();
   for(const d of definitions){const row=document.createElement('tr'),g=byKey.get(d.key);
     cell(row,d.label);cell(row,g?`${money(g.score)} / ${money(d.max_score)}`:'Not released');cell(row,g?.note||'—');
-    (d.category==='lab'?$('student-labs'):$('student-project')).append(row);
+    (d.category==='lab'?$('student-labs'):d.category==='project'?$('student-project'):$('student-exams')).append(row);
   }
 }
 
