@@ -19,6 +19,10 @@ create table if not exists public.cv_assessments (
   weight numeric(5,2) not null check (weight between 0 and 100),
   sort_order integer not null unique
 );
+-- Also upgrades a gradebook created before exam slots were added.
+alter table public.cv_assessments drop constraint if exists cv_assessments_category_check;
+alter table public.cv_assessments add constraint cv_assessments_category_check
+  check (category in ('lab','project','exam'));
 create table if not exists public.cv_grades (
   student_id uuid not null references public.cv_students(id) on delete cascade,
   assessment_key text not null references public.cv_assessments(key),
