@@ -291,10 +291,10 @@ async function loadStaff() {
   $('pass-mark').value = numeric(settings.pass_threshold) === null ? '' : String(settings.pass_threshold);
   $('pass-mark').disabled = role !== 'instructor';
   $('pass-form').querySelector('button').hidden = role !== 'instructor';
-  $('invitations-panel').hidden = role !== 'instructor';
   $('pass-updated').textContent = role !== 'instructor' ? 'Only the instructor can change the course pass mark.' : numeric(settings.pass_threshold) === null ? 'No official pass mark has been set yet.' : `Current pass mark: ${format(settings.pass_threshold)} / 100`;
   renderStaffRows();
   showPanel('staff-panel');
+  await loadConnectionRequests();
 }
 
 async function enter() {
@@ -306,7 +306,7 @@ async function enter() {
   if (role === 'instructor' || role === 'ta') { await loadStaff(); return; }
   const rows = check(await db.from('course_students').select('id,university_id,full_name,cohort').limit(2));
   if (rows.length > 1) throw new Error('Your account is connected to more than one record. Contact the teaching team.');
-  if (!rows.length) { showPanel('claim-panel'); return; }
+  if (!rows.length) { await loadConnectionStatus(); showPanel('claim-panel'); return; }
   student = rows[0];
   await loadStudent();
 }
@@ -341,12 +341,10 @@ $('claim-form').addEventListener('submit', async event => {
   const button = event.currentTarget.querySelector('button');
   await busy(button, async () => {
     try {
-      const claimed = check(await db.rpc('claim_my_student', { invite_code: $('claim-code').value.trim() }));
-      if (!claimed) throw new Error('That invitation code is invalid, expired, or already linked to another account. Contact the teaching team.');
-      $('claim-code').value = '';
-      message('Your student record is connected.', 'success');
-      await enter();
-    } catch (error) { tellError(error, 'That invitation code could not be used. Contact the teaching team.'); }
+      check(await db.rpc('request_student_connection', { student_id: $('claim-code').value.trim() }));
+      await loadConnectionStatus();
+      message('Request submitted. The instructor or TA must approve it before you can see grades.', 'success');
+    } catch (error) { tellError(error, 'Could not submit your student ID. Please try again.'); }
   });
 });
 
@@ -421,63 +419,68 @@ $('pass-form').addEventListener('submit', async event => {
   });
 });
 
-// Spreadsheet cells must not be allowed to execute formulas when opened in Excel.
-function csvCell(value) {
-  let string = String(value ?? '');
-  if (/^\s*[=+\-@]/.test(string)) string = `'${string}`;
-  return `"${string.replaceAll('"', '""')}"`;
+async function loadConnectionStatus() {
+  const request = check(await db.rpc('my_student_connection_request'));
+  const pending = request?.status === 'pending';
+  $('claim-form').hidden = pending || request?.status === 'approved';
+  $('connection-status').textContent = pending
+    ? `Waiting for approval for student ID ${request.university_id}. You can check again here after the teaching team reviews your request.`
+    : request?.status === 'rejected'
+      ? `Your request for student ID ${request.university_id} was not approved. Check your ID and contact the teaching team before submitting again.`
+      : request?.status === 'approved'
+        ? 'Your request was approved. Check approval status to load your results, or contact the teaching team if your record is unavailable.'
+        : 'Your email is confirmed. Submit your student ID to request access.';
 }
 
-async function countUnclaimedStudents() {
-  const { count, error } = await db.from('course_students')
-    .select('id', { count: 'exact', head: true })
-    .is('auth_user_id', null);
-  if (error) throw error;
-  if (!Number.isInteger(count) || count < 0) throw new Error('Unclaimed student count unavailable');
-  return count;
-}
-
-$('download-invitations').addEventListener('click', async event => {
-  if (role !== 'instructor') return;
-  if (!confirm('Generate new invitation codes for ALL unclaimed students? This invalidates their previous unused codes. Download and privately distribute the new CSV.')) return;
-  await busy(event.currentTarget, async () => {
-    let result = null;
-    let csv = null;
-    let rotationStarted = false;
-    try {
-      const expectedCount = await countUnclaimedStudents();
-      if (expectedCount === 0) { message('Every student record is already connected; there are no new invitations to download.'); return; }
-      rotationStarted = true;
-      result = check(await db.rpc('issue_unclaimed_invites'));
-      if (!Array.isArray(result)) throw new Error('Unexpected invitation response');
-      // A count-only request is not constrained by Data API Max rows. A second
-      // count catches roster claims that race with the code-generation call.
-      const remainingCount = await countUnclaimedStudents();
-      if (result.length !== expectedCount || result.length !== remainingCount) {
-        message(`Invitation download stopped: the response had ${result.length} rows, while the unclaimed roster counted ${expectedCount} before and ${remainingCount} after generation. Codes may have rotated. Check the Data API Max rows setting and any student claims, then generate a fresh complete file. Do not use an older CSV.`, 'error');
-        return;
-      }
-      const columns = ['university_id', 'full_name', 'cohort', 'invitation_code'];
-      csv = `\uFEFF${columns.join(',')}\r\n${result.map(row => columns.map(key => csvCell(row[key])).join(',')).join('\r\n')}\r\n`;
-      const objectUrl = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
-      const link = document.createElement('a');
-      link.href = objectUrl;
-      link.download = `fds-private-invitations-${new Date().toISOString().slice(0, 10)}.csv`;
-      link.hidden = true;
-      document.body.append(link);
-      link.click();
-      link.remove();
-      setTimeout(() => URL.revokeObjectURL(objectUrl), 10000);
-      message(`Downloaded ${result.length} private invitation codes. Keep the file secure and distribute each code only to its student.`, 'success');
-    } catch (_) {
-      message(rotationStarted
-        ? 'The invitation download could not be completed. Codes may have rotated; check the roster and Data API Max rows before generating again. Do not distribute an older file.'
-        : 'Could not count the unclaimed students. No invitation codes were generated; please try again.', 'error');
-    } finally {
-      result = null;
-      csv = null;
+async function loadConnectionRequests() {
+  const requests = [];
+  for (let offset = 0; ; offset += 200) {
+    const page = check(await db.rpc('list_student_connection_requests', { page_offset: offset }));
+    requests.push(...page);
+    if (page.length < 200) break;
+  }
+  const rows = $('connection-rows');
+  rows.replaceChildren();
+  $('connections-count').textContent = requests.length ? `${requests.length} pending request${requests.length === 1 ? '' : 's'}` : 'No pending requests.';
+  for (const request of requests) {
+    const row = document.createElement('tr');
+    appendText(row, 'td', request.email);
+    const identity = appendText(row, 'td', '');
+    appendText(identity, 'strong', request.full_name || 'ID not found in roster');
+    appendText(identity, 'small', `${request.university_id} · ${request.cohort || '—'}`);
+    const actions = appendText(row, 'td', '');
+    const approve = appendText(actions, 'button', 'Approve', 'primary');
+    const reject = appendText(actions, 'button', 'Reject', 'outline');
+    approve.type = reject.type = 'button';
+    approve.disabled = !request.available;
+    if (!request.available) appendText(actions, 'small', 'Cannot approve: check the roster, existing connection, or verified email.');
+    for (const [button, approved] of [[approve, true], [reject, false]]) {
+      button.addEventListener('click', async () => {
+        const question = approved
+          ? `Have you confirmed that ${request.email} belongs to ${request.full_name} (${request.university_id})? Approving gives this account access to that student's published grades.`
+          : `Reject the connection request from ${request.email} for student ID ${request.university_id}?`;
+        if (!confirm(question)) return;
+        approve.disabled = reject.disabled = true;
+        try {
+          check(await db.rpc('review_student_connection', { request_id: request.id, approve: approved }));
+          await loadConnectionRequests();
+          message(approved ? 'Connection approved. The student can now refresh to see published results.' : 'Request rejected. The student can correct their ID and submit again.', 'success');
+        } catch (error) {
+          tellError(error);
+          approve.disabled = !request.available;
+          reject.disabled = false;
+        }
+      });
     }
-  });
+    rows.append(row);
+  }
+}
+
+$('refresh-connection').addEventListener('click', event => {
+  busy(event.currentTarget, async () => { try { await enter(); } catch (error) { tellError(error); } });
+});
+$('refresh-connections').addEventListener('click', event => {
+  busy(event.currentTarget, async () => { try { await loadConnectionRequests(); } catch (error) { tellError(error); } });
 });
 
 async function start() {
@@ -493,3 +496,4 @@ async function start() {
 }
 
 start();
+

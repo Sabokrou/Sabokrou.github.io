@@ -18,7 +18,7 @@
 
     <section id="auth-panel" class="panel auth-panel" hidden aria-labelledby="auth-heading">
       <h2 id="auth-heading">Sign in with your email</h2>
-      <p>We will send a one-time code to an email inbox you can access. Students also need their own private invitation code from the teaching team to connect their record.</p>
+      <p>We will send a one-time code to an email inbox you can access. After confirming your email, enter your student ID and wait for the instructor or TA to approve your connection.</p>
       <form id="email-form" class="form-stack">
         <label for="email">Email address</label>
         <div class="form-line"><input id="email" type="email" autocomplete="email" required placeholder="you@example.com"><button class="primary" type="submit">Send code</button></div>
@@ -32,9 +32,11 @@
 
     <section id="claim-panel" class="panel auth-panel" hidden aria-labelledby="claim-heading">
       <h2 id="claim-heading">Connect your student record</h2>
-      <p>Enter the private invitation code given to you by the teaching team. This links your account to your course record once.</p>
-      <form id="claim-form" class="form-stack"><label for="claim-code">Invitation code</label><div class="form-line"><input id="claim-code" type="text" autocomplete="off" required placeholder="Your private code"><button class="primary" type="submit">Connect record</button></div></form>
-      <p class="fine-print">If your code is missing or does not work, contact the TA at <a href="mailto:a.hossein@newuu.uz">a.hossein@newuu.uz</a>. Do not share your code with classmates.</p>
+      <p>Enter your six-digit student ID. The instructor or TA will check your identity before connecting this email to your course record.</p>
+      <p id="connection-status" role="status" aria-live="polite"></p>
+      <form id="claim-form" class="form-stack"><label for="claim-code">Student ID</label><div class="form-line"><input id="claim-code" type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="off" required placeholder="Your six-digit ID"><button class="primary" type="submit">Request connection</button></div></form>
+      <button id="refresh-connection" class="outline" type="button">Check approval status</button>
+      <p class="fine-print">Your student ID is not a password. Grades remain private until approval. If you entered the wrong ID or need to change a connected account, contact <a href="mailto:a.hossein@newuu.uz">a.hossein@newuu.uz</a>.</p>
     </section>
 
     <section id="student-panel" hidden aria-labelledby="student-heading">
@@ -49,13 +51,19 @@
 
     <section id="staff-panel" hidden aria-labelledby="staff-heading">
       <div class="identity-row"><div><div class="eyebrow">Teaching team</div><h2 id="staff-heading">Enter and release results</h2><p class="muted">Choose an assessment, enter grades, then publish the results you want students to see.</p></div><button class="outline" id="refresh-staff" type="button">Refresh roster</button></div>
+      <section class="panel section" aria-labelledby="connections-heading">
+        <div class="section-heading"><div><h3 id="connections-heading">Student connection requests</h3><p>Confirm the student's identity in person or through a trusted channel before approving. Email verification alone does not prove ownership of a student ID.</p></div><button id="refresh-connections" class="outline" type="button">Refresh requests</button></div>
+        <p id="connections-count" class="muted" role="status"></p>
+        <div class="table-scroll"><table><thead><tr><th scope="col">Verified email</th><th scope="col">Requested student</th><th scope="col">Review</th></tr></thead><tbody id="connection-rows"></tbody></table></div>
+      </section>
       <div class="staff-tools panel"><div class="tool-field"><label for="staff-item">Assessment</label><select id="staff-item"></select></div><div class="tool-field"><label for="staff-search">Find student</label><input id="staff-search" type="search" autocomplete="off" placeholder="Name, ID or group"></div><div class="tool-field"><label for="staff-group">Group</label><select id="staff-group"><option value="">All groups</option></select></div></div>
       <div class="panel section staff-table-panel"><div class="section-heading"><div><h3 id="staff-list-heading">Student results</h3><p id="staff-count" class="muted"></p></div><button id="save-visible" class="primary" type="button">Save edited rows</button></div><div class="table-scroll"><table class="staff-table"><thead><tr><th scope="col">Student</th><th scope="col">Status</th><th scope="col">Score / 100</th><th scope="col">Visible to student</th><th scope="col">Saved</th></tr></thead><tbody id="staff-rows"></tbody></table></div><p class="fine-print">To release a lab, choose Pass, Revise, or Fail; its numeric score is optional. To release an exam or assignment, enter a numeric score. Save edited rows to apply changes.</p></div>
       <div class="panel section"><div class="section-heading"><div><h3>Pass mark</h3><p>NewUU regulations set 40/100 as the passing minimum. Verify the course mark here; change it only under an approved course rule.</p></div></div><form id="pass-form" class="pass-form"><label for="pass-mark">Points required to pass</label><input id="pass-mark" type="number" min="0" max="100" step="0.01" placeholder="Not set" required><button class="primary" type="submit">Save pass mark</button></form><p class="fine-print" id="pass-updated"></p></div>
-      <section id="invitations-panel" class="panel section" hidden aria-labelledby="invitations-heading"><div class="section-heading"><div><h3 id="invitations-heading">Student invitation codes</h3><p>Generate a private CSV for students who have not connected their record yet.</p></div></div><button id="download-invitations" class="outline" type="button">Generate and download invitations</button><p class="fine-print">Each download replaces all unused codes for unclaimed students. Earlier unused codes will stop working. Store the downloaded file privately and share each code only with its student.</p></section>
+
     </section>
   </main>
   <footer class="container footer">© 2026 Mohammad Sabokrou · Data Science Fundamentals</footer>
-  <script type="module" src="./official.mjs"></script>
+  <script type="module" src="./official.mjs?v=20260926-approval"></script>
 </body>
 </html>
+

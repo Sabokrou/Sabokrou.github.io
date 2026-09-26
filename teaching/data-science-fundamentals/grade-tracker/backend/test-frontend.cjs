@@ -1,0 +1,46 @@
+// Run: node backend/test-frontend.cjs
+const fs = require('node:fs');
+const vm = require('node:vm');
+const assert = require('node:assert/strict');
+const path = require('node:path');
+const base = path.resolve(__dirname, '..');
+const source = fs.readFileSync(path.join(base, 'official.mjs'), 'utf8');
+const html = fs.readFileSync(path.join(base, 'official.html'), 'utf8');
+const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]));
+for (const m of source.matchAll(/\$\('([^']+)'\)/g)) assert(ids.has(m[1]), `Missing element: ${m[1]}`);
+const nodes = new Map([...ids].map(id => [id, { hidden: false, textContent: '', addEventListener() {} }]));
+const ctx = vm.createContext({ document: { getElementById: id => nodes.get(id) }, console, assert });
+vm.runInContext(source.replace(/^import[^\n]+\n/, '').replace(/\nstart\(\);\s*$/, ''), ctx);
+(async () => {
+ await vm.runInContext(`(async () => {
+  let response = null;
+  db = { rpc: async () => ({ data: response, error: null }) };
+  await loadConnectionStatus();
+  assert.equal($('claim-form').hidden, false);
+  response = {status:'pending',university_id:'000001'};
+  await loadConnectionStatus();
+  assert.equal($('claim-form').hidden, true);
+  assert.match($('connection-status').textContent,/Waiting for approval/);
+  response.status='rejected';
+  await loadConnectionStatus();
+  assert.equal($('claim-form').hidden, false);
+  assert.match($('connection-status').textContent,/not approved/);
+  settings={labs_best_count:9,labs_weight:15};
+  definitions=Array.from({length:12},(_,i)=>({key:'lab_'+i,category:'lab',max_score:100}));
+  definitions.push(...[20,25,10,10,10,10].map((weight,i)=>({key:'other_'+i,category:'other',max_score:100,weight})));
+  const full=definitions.map(d=>({assessment_key:d.key,score:100,published:true}));
+  assert.equal(pointsForStudent(full).total,100);
+  assert.equal(pointsForStudent(full).complete,true);
+  const hidden=full.map(x=>({...x,published:false}));
+  assert.equal(pointsForStudent(hidden).total,0);
+  assert.equal(pointsForStudent(hidden).complete,false);
+  const labs=full.slice(0,12).map((x,i)=>({...x,score:i<3?0:100}));
+  assert.equal(pointsForStudent(labs).total,15);
+  assert.equal(pointsForStudent(labs).complete,false);
+  assert.equal(gradeBand(39.9999),'F');
+  assert.equal(gradeBand(40),'D');
+  assert.equal(gradeBand(93),'A+');
+  assert.notEqual(formatTotal(39.9999,40),'40.00');
+ })()`,ctx);
+ console.log('PASS: HTML bindings, request states, published-only grades, best-nine labs, weights and grade boundaries');
+})().catch(error => { console.error(error); process.exitCode=1; });
