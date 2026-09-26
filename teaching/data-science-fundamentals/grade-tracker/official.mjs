@@ -109,11 +109,11 @@ function makePill(status) {
   return pill;
 }
 
-function renderStudent() {
-  $('student-heading').textContent = student.full_name;
-  $('student-meta').textContent = `${student.cohort || 'Course student'} · University ID ${student.university_id}`;
-  const byKey = new Map(entries.map(entry => [entry.assessment_key, entry]));
-  const result = pointsForStudent(entries);
+function renderStudent(person = student, visibleEntries = entries) {
+  $('student-heading').textContent = person.full_name;
+  $('student-meta').textContent = `${person.cohort || 'Course student'} · University ID ${person.university_id}`;
+  const byKey = new Map(visibleEntries.map(entry => [entry.assessment_key, entry]));
+  const result = pointsForStudent(visibleEntries);
   const target = numeric(settings.pass_threshold);
   $('student-points').textContent = `${formatTotal(result.total, target)} / 100`;
   $('student-points-note').textContent = `${result.gradedLabs} of ${result.labs} labs and ${result.gradedOther} of ${result.other} other assessments released`;
@@ -186,6 +186,8 @@ async function loadStudent() {
     db.from('grade_entries').select('*').then(check)
   ]);
   renderStudent();
+  $('preview-notice').hidden = true;
+  $('refresh-student').hidden = false;
   showPanel('student-panel');
 }
 
@@ -283,6 +285,11 @@ async function loadStaff() {
   for (const definition of definitions) itemSelect.add(new Option(`${definition.label} · ${definition.category === 'lab' ? 'Lab' : definition.weight + '%'}`, definition.key));
   selectedItemKey = definitions.some(item => item.key === previous) ? previous : definitions[0]?.key || '';
   itemSelect.value = selectedItemKey;
+  const previewSelect = $('preview-student');
+  const previousPreview = previewSelect.value;
+  previewSelect.replaceChildren();
+  for (const person of roster) previewSelect.add(new Option(`${person.full_name} · ${person.university_id}`, person.id));
+  previewSelect.value = roster.some(person => person.id === previousPreview) ? previousPreview : roster.find(person => person.university_id === '240143')?.id || roster[0]?.id || '';
   const groupSelect = $('staff-group');
   const oldGroup = groupSelect.value;
   groupSelect.replaceChildren(new Option('All groups', ''));
@@ -357,6 +364,19 @@ $('sign-out').addEventListener('click', async () => {
     await enter();
   } catch (error) { tellError(error); }
 });
+
+$('open-preview').addEventListener('click', () => {
+  if (role !== 'instructor' && role !== 'ta') return;
+  const person = roster.find(item => item.id === $('preview-student').value);
+  if (!person) { message('Select a student to preview.', 'error'); return; }
+  message('');
+  const publishedEntries = entries.filter(entry => entry.student_id === person.id && entry.published);
+  renderStudent(person, publishedEntries);
+  $('preview-notice').hidden = false;
+  $('refresh-student').hidden = true;
+  showPanel('student-panel');
+});
+$('back-to-staff').addEventListener('click', () => { if (role === 'instructor' || role === 'ta') showPanel('staff-panel'); });
 
 $('refresh-student').addEventListener('click', async event => {
   await busy(event.currentTarget, async () => { try { await loadStudent();message('Results refreshed.', 'success'); } catch (error) { tellError(error); } });
