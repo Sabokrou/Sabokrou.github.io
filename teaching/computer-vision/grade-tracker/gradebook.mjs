@@ -49,10 +49,18 @@ function renderStudent(student,studentGrades) {
   $('project-total').textContent=`${money(projectPoints)} / 15`;
   $('project-count').textContent=projectGrade?'Project released':'Project pending';
   $('known-total').textContent=`${money(labPoints+projectPoints)} / 25`;
-  $('student-labs').replaceChildren();$('student-project').replaceChildren();$('student-exams').replaceChildren();
-  for(const d of definitions){const row=document.createElement('tr'),g=byKey.get(d.key);
-    cell(row,d.label);cell(row,g?`${money(g.score)} / ${money(d.max_score)}`:'Not released');cell(row,g?.note||'—');
-    (d.category==='lab'?$('student-labs'):d.category==='project'?$('student-project'):$('student-exams')).append(row);
+  $('lab-points').textContent=`${money(labPoints)} / 10 points`;
+  $('known-bar').style.width=`${Math.max(0,Math.min(100,(labPoints+projectPoints)*4))}%`;
+  $('known-meter').setAttribute('aria-valuenow',String(Math.max(0,Math.min(25,labPoints+projectPoints))));
+  $('student-labs').replaceChildren();$('student-other').replaceChildren();
+  for(const d of definitions){const g=byKey.get(d.key);
+    if(d.category==='lab'){
+      const card=document.createElement('article');card.className=`lab-card ${g?'released':''}`;
+      cell(card,d.label,'h4');cell(card,g?`${money(g.score)} / ${money(d.max_score)}`:'Awaiting publication','strong');
+      if(g?.note)cell(card,g.note,'small');$('student-labs').append(card);
+    }else{
+      const row=document.createElement('tr');cell(row,d.label);cell(row,g?`${money(g.score)} / ${money(d.max_score)}`:'Awaiting publication');cell(row,g?.note||'—');$('student-other').append(row);
+    }
   }
 }
 
