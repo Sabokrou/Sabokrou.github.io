@@ -40,12 +40,13 @@ function renderStudent(student,studentGrades) {
   $('student-meta').textContent=`${student.cohort} · University ID ${student.university_id}`;
   const labs=definitions.filter(d=>d.category==='lab');
   const scored=labs.filter(d=>byKey.has(d.key));
+  const passed=scored.filter(d=>Number(byKey.get(d.key).score)>15).length;
   const labPoints=scored.reduce((sum,d)=>sum+Number(byKey.get(d.key).score)/Number(d.max_score),0)*10/labs.length;
   const project=definitions.find(d=>d.category==='project');
   const projectGrade=project&&byKey.get(project.key);
   const projectPoints=projectGrade?Number(projectGrade.score)/Number(project.max_score)*Number(project.weight):0;
   $('lab-total').textContent=`${money(labPoints)} / 10`;
-  $('lab-count').textContent=`${scored.length} of ${labs.length} labs released`;
+  $('lab-count').textContent=`${passed} pass · ${scored.length-passed} fail · ${labs.length-scored.length} not reported`;
   $('project-total').textContent=`${money(projectPoints)} / 15`;
   $('project-count').textContent=projectGrade?'Project released':'Project pending';
   $('known-total').textContent=`${money(labPoints+projectPoints)} / 25`;
@@ -55,9 +56,12 @@ function renderStudent(student,studentGrades) {
   $('student-labs').replaceChildren();$('student-other').replaceChildren();
   for(const d of definitions){const g=byKey.get(d.key);
     if(d.category==='lab'){
-      const card=document.createElement('article');card.className=`lab-card ${g?'released':''}`;
-      cell(card,d.label,'h4');cell(card,g?`${money(g.score)} / ${money(d.max_score)}`:'Awaiting publication','strong');
-      if(g?.note)cell(card,g.note,'small');$('student-labs').append(card);
+      const status=!g?'pending':Number(g.score)>15?'pass':'fail';
+      const card=document.createElement('article');card.className=`lab-card ${status}`;
+      cell(card,d.label,'h4');cell(card,status==='pending'?'Not reported':status==='pass'?'Pass':'Fail','strong');
+      if(g)cell(card,`${money(g.score)} / ${money(d.max_score)}`,'small').className='lab-score';
+      if(g?.note)cell(card,g.note,'small').className='lab-feedback';
+      $('student-labs').append(card);
     }else{
       const row=document.createElement('tr');cell(row,d.label);cell(row,g?`${money(g.score)} / ${money(d.max_score)}`:'Awaiting publication');cell(row,g?.note||'—');$('student-other').append(row);
     }
