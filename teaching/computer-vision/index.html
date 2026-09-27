@@ -68,7 +68,7 @@
       <p class="schedule-hint">Select any week to view its lecture focus, practical work, and available files.</p>
       <div class="schedule">
         <article class="week"><div class="week-number">01</div><div><h3>Images as numbers</h3><p>Arrays, channels, bit depth, nuisance factors, and the limits of pixel matching.</p></div><span class="status">Materials ready</span></article>
-        <article class="week current"><div class="week-number">02</div><div><h3>Light, colour, and histograms</h3><p>Image formation, colour spaces, contrast, and histogram equalisation.</p></div><span class="status">Materials ready</span></article>
+        <article class="week current" id="week-02"><div class="week-number">02</div><div><h3>Light, colour, and histograms</h3><p>Image formation, colour spaces, contrast, and histogram equalisation.</p></div><span class="status">Materials ready</span></article>
         <article class="week"><div class="week-number">03</div><div><h3>Filtering and edges</h3><p>Convolution, kernels, separability, gradients, and edge detection.</p></div><span class="status">Planned</span></article>
         <article class="week"><div class="week-number">04</div><div><h3>Features and matching</h3><p>Corners, local descriptors, robust matching, RANSAC, and panoramas.</p></div><span class="status">Planned</span></article>
         <article class="week"><div class="week-number">05</div><div><h3>Learning a classifier</h3><p>Linear models, softmax, loss functions, gradients, and optimisation.</p></div><span class="status">Planned</span></article>
@@ -90,7 +90,7 @@
   <script>
     const weeklyMaterials = [
       {lecture:'Chapter 1: applications, human and machine vision, image formation, image types, arrays, nuisance factors, pixel distance, and representations',lab:'Lab 1: build a raw-pixel classifier, measure its failure under a personal nuisance condition, repair intensity effects, and report group results.',links:[['Session 1 slides','./materials/Session01_Images_as_Numbers.pdf'],['Lab 1 student guide','./materials/Lab01_Observe_First_Light_Colour_Histograms_Manual.pdf'],['Open Lab 1 in Google Colab','https://colab.research.google.com/github/Sabokrou/Sabokrou.github.io/blob/main/teaching/computer-vision/materials/Lab01_Light_Colour_Histograms_Student.ipynb'],['Lab 0 notebook','./materials/Lab00_Getting_Set_Up.ipynb']]},
-      {lecture:'Chapter 2: light, colour spaces, histograms, contrast, and image range conventions',lab:'Lab 2: implement histogram equalisation and measure when it increases noise.',links:[['Week 2 slides','./materials/Week02_Light_Colour_Histograms_Watermarked.pdf']]},
+      {lecture:'Chapter 2: light, colour spaces, histograms, contrast, and image range conventions',lab:'Lab 2: image quality, detail, noise, and sampling. Run visual experiments, fill a few values, and explain focus, denoising, resolution, aliasing, and quantisation. Easy to medium; about two hours.',links:[['Week 2 slides','./materials/Week02_Light_Colour_Histograms_Watermarked.pdf'],['Download Lab 2 notebook','./materials/Lab02_CV_Light_to_Pixels_Student.ipynb'],['Open Lab 2 in Google Colab','https://colab.research.google.com/github/Sabokrou/Sabokrou.github.io/blob/main/teaching/computer-vision/materials/Lab02_CV_Light_to_Pixels_Student.ipynb']]},
       {lecture:'Chapter 3: convolution, filtering, separability, gradients, and edge detection',lab:'Lab 3: write convolution by hand, verify it, and measure the speed gap.'},
       {lecture:'Chapter 4: corners, descriptors, matching, homographies, and RANSAC',lab:'Lab 4: build a panorama, break it on a low-texture scene, and diagnose the failure.'},
       {lecture:'Chapter 5: linear classifiers, softmax, cross-entropy, gradients, and learning rates',lab:'Lab 5: implement softmax regression and compare stable, slow, and divergent optimisation.'},
@@ -111,9 +111,10 @@
       const panel=document.createElement('div');
       panel.className='week-materials'; panel.id=`week-materials-${String(index+1).padStart(2,'0')}`; panel.hidden=true;
       const links=item.links||[['Student lab manual','./materials/CV_Lab_Manual_Students.pdf']];
-      panel.innerHTML=`<div class="week-materials-grid"><p><strong>Lecture:</strong> ${item.lecture}</p><p><strong>Lab / assessment:</strong> ${item.lab}</p></div><div class="resource-links">${links.map(([label,href])=>`<a href="${href}"${(href.endsWith('.pdf')||href.startsWith('https:'))?' target="_blank" rel="noopener"':href.endsWith('.ipynb')?' download':''}>${label}</a>`).join('')}</div>${index>0?'<p class="resource-note">Weekly slides and notebooks will appear here when released.</p>':''}`;
+      panel.innerHTML=`<div class="week-materials-grid"><p><strong>Lecture:</strong> ${item.lecture}</p><p><strong>Lab / assessment:</strong> ${item.lab}</p></div><div class="resource-links">${links.map(([label,href])=>`<a href="${href}"${(href.endsWith('.pdf')||href.startsWith('https:'))?' target="_blank" rel="noopener"':href.endsWith('.ipynb')?' download':''}>${label}</a>`).join('')}</div>${index>0&&!item.links?'<p class="resource-note">Weekly slides and notebooks will appear here when released.</p>':''}`;
       week.appendChild(panel); week.tabIndex=0; week.setAttribute('role','button'); week.setAttribute('aria-expanded','false'); week.setAttribute('aria-controls',panel.id);
       const toggle=()=>{const opening=panel.hidden;panel.hidden=!opening;week.classList.toggle('open',opening);week.setAttribute('aria-expanded',String(opening));};
+      if(index===1 && window.location.hash==='#week-02') toggle();
       week.addEventListener('click',event=>{if(!event.target.closest('a'))toggle();});
       week.addEventListener('keydown',event=>{if(event.target===week&&(event.key==='Enter'||event.key===' ')){event.preventDefault();toggle();}});
     });
