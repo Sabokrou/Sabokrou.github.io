@@ -81,12 +81,13 @@ create table if not exists grade_private.student_invites (
 create table if not exists public.assessment_definitions (
   key text primary key,
   label text not null,
-  category text not null check (category in ('lab', 'assessment')),
+  category text not null check (category in ('lab', 'assessment', 'engagement')),
   due_label text not null,
   max_score numeric(7,2) not null default 100 check (max_score > 0),
   weight numeric(5,2) not null default 0 check (weight between 0 and 100),
   sort_order integer not null unique,
-  constraint labs_weight_zero check (category <> 'lab' or weight = 0)
+  constraint labs_weight_zero check (category <> 'lab' or weight = 0),
+  constraint engagement_weight_zero check (category <> 'engagement' or weight = 0)
 );
 
 create table if not exists public.grading_settings (
@@ -177,6 +178,14 @@ on conflict (id) do nothing;
 -- The private functions use a fixed empty search_path and fully qualified
 -- references. Only these narrow functions, not the underlying private tables,
 -- are callable by authenticated users.
+-- Engagement is tracked separately; the existing 100-point weights are preserved.
+insert into public.assessment_definitions
+  (key, label, category, due_label, max_score, weight, sort_order)
+select 'engagement_' || lpad(w::text, 2, '0'), 'Week ' || w,
+  'engagement', 'Week ' || w, 10, 0, 30 + w
+from generate_series(3, 12) w
+on conflict (key) do nothing;
+
 create or replace function grade_private.staff_role()
 returns text
 language sql stable security definer set search_path = ''
@@ -321,8 +330,12 @@ begin
   if new.published and assessment_category = 'lab' and new.outcome is null then
     raise exception 'Published labs require pass, revise, or fail';
   end if;
-  if new.published and assessment_category = 'assessment' and new.score is null then
+  if new.published and assessment_category in ('assessment', 'engagement') and new.score is null then
     raise exception 'Published assessments require a numeric score';
+  end if;
+  if new.published and assessment_category = 'engagement' and
+     (new.outcome is null or nullif(btrim(new.note), '') is null) then
+    raise exception 'Published engagement requires a status and feedback reason';
   end if;
   new.updated_at := now();
   new.updated_by := auth.uid();

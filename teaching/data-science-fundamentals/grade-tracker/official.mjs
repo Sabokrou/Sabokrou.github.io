@@ -82,7 +82,7 @@ function released(entry) {
 function pointsForStudent(allEntries) {
   const byKey = new Map(allEntries.map(entry => [entry.assessment_key, entry]));
   const labs = definitions.filter(item => item.category === 'lab');
-  const other = definitions.filter(item => item.category !== 'lab');
+  const other = definitions.filter(item => item.category === 'assessment');
   const top = labs.map(item => gradeFraction(byKey.get(item.key), item)).sort((a, b) => b - a);
   const bestCount = Number(settings?.labs_best_count ?? 9);
   const labWeight = Number(settings?.labs_weight ?? 15);
@@ -153,9 +153,35 @@ function renderStudent(person = student, visibleEntries = entries) {
     if (visible && entry.note) appendText(card, 'small', entry.note);
     labGrid.append(card);
   }
+  const engagementGrid = $('student-engagement');
+  const feedback = $('engagement-feedback');
+  engagementGrid.replaceChildren();
+  feedback.replaceChildren();
+  const engagementItems = definitions.filter(item => item.category === 'engagement');
+  let engagementReleased = 0;
+  for (const item of engagementItems) {
+    const entry = byKey.get(item.key);
+    const visible = released(entry);
+    const card = document.createElement('article');
+    card.className = `lab-card ${visible && VALID_OUTCOMES.has(entry.outcome) ? entry.outcome : ''}`;
+    appendText(card, 'h4', item.label);
+    appendText(card, 'div', visible ? outcomeLabel(entry.outcome) : 'Awaiting publication', 'lab-status');
+    if (visible) {
+      engagementReleased++;
+      appendText(card, 'small', `${format(entry.score)} / ${format(item.max_score)}`);
+      const detail = document.createElement('article');
+      detail.className = 'engagement-feedback-item';
+      appendText(detail, 'h4', `${item.label} · ${format(entry.score)} / ${format(item.max_score)}`);
+      appendText(detail, 'p', entry.note || 'Feedback has not been added yet.');
+      feedback.append(detail);
+    }
+    engagementGrid.append(card);
+  }
+  $('engagement-summary').textContent = `${engagementReleased} of ${engagementItems.length} released`;
+  if (!engagementReleased) appendText(feedback, 'p', 'Your feedback will appear when an engagement result is published.', 'muted');
   const assessmentRows = $('student-assessments');
   assessmentRows.replaceChildren();
-  for (const item of definitions.filter(x => x.category !== 'lab')) {
+  for (const item of definitions.filter(x => x.category === 'assessment')) {
     const entry = byKey.get(item.key);
     const visible = released(entry);
     const row = document.createElement('tr');
@@ -234,6 +260,7 @@ function renderStaffRows() {
   const rows = $('staff-rows');
   rows.replaceChildren();
   const visible = listVisibleStudents();
+  $('staff-score-heading').textContent = `Score / ${item.max_score}`;
   $('staff-count').textContent = `${visible.length} of ${roster.length} students · ${item.label}`;
   for (const person of visible) {
     const grade = currentRow(person.id, item.key);
@@ -258,6 +285,15 @@ function renderStaffRows() {
     score.value = numeric(grade.score) === null ? '' : String(grade.score);
     score.addEventListener('change', () => updateRow(person.id, item.key, { score: score.value.trim() === '' ? null : Number(score.value) }));
     scoreCell.append(score);tr.append(scoreCell);
+    const feedbackCell = document.createElement('td');
+    const note = document.createElement('textarea');
+    note.rows = 3;
+    note.maxLength = 4000;
+    note.placeholder = 'Strengths, corrections, or reason for the result';
+    note.value = grade.note || '';
+    note.setAttribute('aria-label', `${person.full_name} feedback for ${item.label}`);
+    note.addEventListener('input', () => updateRow(person.id, item.key, { note: note.value }));
+    feedbackCell.append(note); tr.append(feedbackCell);
     const visibility = document.createElement('td');
     const published = document.createElement('input');
     published.type = 'checkbox'; published.checked = Boolean(grade.published);
@@ -282,7 +318,7 @@ async function loadStaff() {
   const itemSelect = $('staff-item');
   const previous = selectedItemKey;
   itemSelect.replaceChildren();
-  for (const definition of definitions) itemSelect.add(new Option(`${definition.label} · ${definition.category === 'lab' ? 'Lab' : definition.weight + '%'}`, definition.key));
+  for (const definition of definitions) itemSelect.add(new Option(`${definition.label} · ${definition.category === 'lab' ? 'Lab' : definition.category === 'engagement' ? 'Engagement / 10' : definition.weight + '%'}`, definition.key));
   selectedItemKey = definitions.some(item => item.key === previous) ? previous : definitions[0]?.key || '';
   itemSelect.value = selectedItemKey;
   const previewSelect = $('preview-student');
@@ -404,7 +440,10 @@ $('save-visible').addEventListener('click', async event => {
       message('Choose Pass, Revise, or Fail for every lab you release.', 'error');return;
     }
     if (edit.published && item.category !== 'lab' && score === null) {
-      message('Enter a numeric score before releasing an exam or assignment.', 'error');return;
+      message('Enter a numeric score before releasing engagement, an exam, or an assignment.', 'error');return;
+    }
+    if (edit.published && item.category === 'engagement' && (!VALID_OUTCOMES.has(edit.outcome) || !edit.note?.trim())) {
+      message('Choose a status and write a feedback reason for every engagement score you release.', 'error');return;
     }
     if (score === null && !VALID_OUTCOMES.has(edit.outcome)) {
       if (entryFor(edit.student_id, edit.assessment_key)) removals.push(edit);
