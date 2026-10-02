@@ -40,7 +40,7 @@ function renderStudent(student,studentGrades) {
   $('student-meta').textContent=`${student.cohort} · University ID ${student.university_id}`;
   const labs=definitions.filter(d=>d.category==='lab');
   const scored=labs.filter(d=>byKey.has(d.key));
-  const passed=scored.filter(d=>Number(byKey.get(d.key).score)>15).length;
+  const passed=scored.filter(d=>Number(byKey.get(d.key).score)>=15).length;
   const labPoints=scored.reduce((sum,d)=>sum+Number(byKey.get(d.key).score)/Number(d.max_score),0)*10/labs.length;
   const project=definitions.find(d=>d.category==='project');
   const projectGrade=project&&byKey.get(project.key);
@@ -56,7 +56,7 @@ function renderStudent(student,studentGrades) {
   $('student-labs').replaceChildren();$('student-other').replaceChildren();
   for(const d of definitions){const g=byKey.get(d.key);
     if(d.category==='lab'){
-      const status=!g?'pending':Number(g.score)>15?'pass':'fail';
+      const status=!g?'pending':Number(g.score)>=15?'pass':'fail';
       const card=document.createElement('article');card.className=`lab-card ${status}`;
       cell(card,d.label,'h4');cell(card,status==='pending'?'Not reported':status==='pass'?'Pass':'Fail','strong');
       if(g)cell(card,`${money(g.score)} / ${money(d.max_score)}`,'small').className='lab-score';
