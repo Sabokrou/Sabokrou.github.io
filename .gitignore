@@ -1,0 +1,33 @@
+# Local secrets and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.pfx
+*.key
+*service_role*
+*service-role*
+*sb_secret_*
+*credentials*.json
+
+# Real student records, invitations, assessment exports, and local databases
+*PRIVATE*
+*_private*
+**/student_invitations*.csv
+**/roster_seed*.sql
+**/student_roster*.csv
+**/student_roster*.md
+**/roster_export*.csv
+**/grade_export*.csv
+**/grades_export*.csv
+**/student_marks*.csv
+**/student_results*.csv
+*.sqlite
+*.sqlite3
+*.db
+
+# Local working files
+.DS_Store
+__pycache__/
+*.pyc
