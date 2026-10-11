@@ -1,4 +1,4 @@
-/* Editable offer-letter frontend for status=Offered. The owner sends from Gmail. */
+/* Editable owner-only offer and non-selection email drafts for the private hiring dashboard. */
 (function () {
   'use strict';
   if (!location.pathname.startsWith('/hiring')) return;
@@ -40,28 +40,129 @@
     if (!profile || !isOwner()) return;
     var head = profile.querySelector('.profile-head');
     if (!head) return;
-    var offered = Array.from(head.querySelectorAll('.badge')).some(function(e){
-      return e.textContent.trim() === 'Offered';
-    });
-    var old = profile.querySelector('[data-offer-launch]');
-    if (!offered) { if (old) old.remove(); return; }
-    if (old) return;
-    var name = profile.querySelector('#profile-title');
+    var badge = head.querySelector('.badge');
+    var status = badge ? badge.textContent.trim() : '';
+    var offer = status === 'Offered';
+    var notSelected = status === 'Shortlisted' || status === 'Not shortlisted';
+    var oldOffer = profile.querySelector('[data-offer-launch]');
+    var oldDecision = profile.querySelector('[data-decision-launch]');
+    if (!offer && oldOffer) oldOffer.remove();
+    if (!notSelected && oldDecision) oldDecision.remove();
+    if ((!offer || oldOffer) && (!notSelected || oldDecision)) return;
+    var nameNode = profile.querySelector('#profile-title');
     var link = head.querySelector('a[href^="mailto:"]');
-    if (!name || !link) return;
+    if (!nameNode || !link) return;
+    var name = nameNode.textContent.trim();
     var email = link.getAttribute('href').slice(7).trim();
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return;
-    var box = document.createElement('div');
-    box.className = 'offer-launch';
-    box.setAttribute('data-offer-launch', '1');
-    var button = document.createElement('button');
-    button.type = 'button';
-    button.textContent = 'Prepare offer letter';
-    button.onclick = function(){ editOffer(name.textContent.trim(),email,callTitle()); };
-    var hint = document.createElement('span');
-    hint.textContent = 'Edit and preview before opening the message in Gmail.';
-    box.append(button,hint);
-    head.insertAdjacentElement('afterend',box);
+    if (offer && !oldOffer) {
+      var offerBox = document.createElement('div');
+      offerBox.className = 'offer-launch';
+      offerBox.setAttribute('data-offer-launch', '1');
+      var offerButton = document.createElement('button');
+      offerButton.type = 'button';
+      offerButton.textContent = 'Prepare offer letter';
+      offerButton.onclick = function(){ editOffer(name,email,callTitle()); };
+      var offerHint = document.createElement('span');
+      offerHint.textContent = 'Edit and preview before opening the message in Gmail.';
+      offerBox.append(offerButton,offerHint);
+      head.insertAdjacentElement('afterend',offerBox);
+    }
+    if (notSelected && !oldDecision) {
+      var decisionBox = document.createElement('div');
+      decisionBox.className = 'offer-launch';
+      decisionBox.setAttribute('data-decision-launch', '1');
+      var decisionButton = document.createElement('button');
+      decisionButton.type = 'button';
+      decisionButton.textContent = 'Prepare non-selection email';
+      decisionButton.onclick = function(){ editNotSelected(name,email,callTitle(),status); };
+      var decisionHint = document.createElement('span');
+      decisionHint.textContent = status === 'Shortlisted'
+        ? 'For candidates you have decided not to select; editing or sending does not change their status.'
+        : 'Edit and preview a respectful decision message before sending.';
+      decisionBox.append(decisionButton,decisionHint);
+      head.insertAdjacentElement('afterend',decisionBox);
+    }
+  }
+
+  function editNotSelected(name,email,role,status) {
+    if (status !== 'Shortlisted' && status !== 'Not shortlisted') return;
+    var old = document.querySelector('.offer-shade');
+    if (old) old.remove();
+    var shade = document.createElement('div');
+    shade.className = 'offer-shade';
+    shade.innerHTML =
+      '<section class="offer-modal" role="dialog" aria-modal="true" aria-labelledby="decision-title">' +
+      '<h2 id="decision-title">Prepare non-selection email</h2>' +
+      '<p class="offer-hint" id="decision-to"></p>' +
+      '<div class="offer-grid"><div><label for="decision-role">Opportunity</label><input id="decision-role"></div>' +
+      '<div><label for="decision-subject">Subject</label><input id="decision-subject"></div></div>' +
+      '<label for="decision-body">Message — edit freely</label><textarea id="decision-body"></textarea>' +
+      '<p class="offer-hint">Use {{NAME}} and {{ROLE}}. The message does not disclose scores, reviewer comments, or another applicant’s details.</p>' +
+      '<h3>Live preview</h3><div class="offer-preview" id="decision-preview"></div>' +
+      '<div class="offer-warning" id="decision-warning"></div>' +
+      '<p class="offer-error" role="alert" id="decision-error"></p>' +
+      '<div class="offer-buttons"><button type="button" class="offer-neutral" id="decision-close">Cancel</button>' +
+      '<button type="button" class="offer-neutral" id="decision-copy">Copy message</button>' +
+      '<button type="button" class="offer-primary" id="decision-gmail">Open in Gmail to send ↗</button></div>' +
+      '</section>';
+    document.body.appendChild(shade);
+    var el = function(id){ return shade.querySelector('#'+id); };
+    el('decision-to').textContent = 'Applicant: '+name+' — '+email+' · Current status: '+status;
+    el('decision-role').value = role;
+    el('decision-subject').value = 'Update on your research application — {{ROLE}}';
+    el('decision-body').value = [
+      'Dear {{NAME}},','',
+      'Thank you for your interest in joining our research team at New Uzbekistan University and for the time you invested in the selection process for {{ROLE}}.','',
+      'After careful consideration, we regret to inform you that we will not be moving forward with your application for this opportunity. This was a competitive process, and we appreciate the effort you put into your application and discussions with our team.','',
+      'Thank you again for your interest. We wish you every success in your studies and future research.','',
+      'Best regards,','Mohammad Sabokrou','Associate Professor, School of Computing','New Uzbekistan University'
+    ].join('\n');
+    el('decision-warning').textContent =
+      (status === 'Shortlisted'
+      ? 'This applicant is still marked Shortlisted. Confirm that the decision is final before sending. '
+      : '') +
+      'Gmail opens an editable draft; you must click Send there. Neither opening the draft nor sending it through Gmail automatically updates applicant status or records delivery in this dashboard.';
+    function render() {
+      var vals = {NAME:name, ROLE:el('decision-role').value};
+      var replace = function(s) {return s.replace(/\{\{(NAME|ROLE)\}\}/g,function(_,k){return vals[k];});};
+      var subject = replace(el('decision-subject').value);
+      var body = replace(el('decision-body').value);
+      el('decision-preview').textContent = 'To: '+email+'\nSubject: '+subject+'\n\n'+body;
+      return {subject:subject,body:body};
+    }
+    function valid() {
+      el('decision-error').textContent = '';
+      if (!el('decision-role').value.trim() || !el('decision-subject').value.trim() || !el('decision-body').value.trim()) {
+        el('decision-error').textContent = 'Complete the opportunity, subject and message before sending.';
+        return false;
+      }
+      return true;
+    }
+    function close(){ document.removeEventListener('keydown',onKeydown);shade.remove(); }
+    function onKeydown(e){ if(e.key === 'Escape') close(); }
+    document.addEventListener('keydown',onKeydown);
+    shade.addEventListener('click',function(e){if(e.target===shade)close();});
+    el('decision-close').onclick=close;
+    ['decision-role','decision-subject','decision-body'].forEach(function(id){el(id).addEventListener('input',render);});
+    el('decision-copy').onclick=async function(){
+      if(!valid())return;
+      var draft=render();
+      try{
+        await navigator.clipboard.writeText('To: '+email+'\nSubject: '+draft.subject+'\n\n'+draft.body);
+        el('decision-copy').textContent='Copied';
+      }catch(_) {el('decision-error').textContent='Unable to copy. Select the preview text instead.';}
+    };
+    el('decision-gmail').onclick=function(){
+      if(!valid())return;
+      if(!confirm('Confirm that '+name+' has not been selected for this opportunity. Open the message in Gmail for final review and sending?'))return;
+      var draft=render();
+      var url='https://mail.google.com/mail/?view=cm&fs=1&to='+encodeURIComponent(email)+
+        '&su='+encodeURIComponent(draft.subject)+'&body='+encodeURIComponent(draft.body);
+      window.open(url,'_blank','noopener,noreferrer');
+    };
+    render();
+    el('decision-subject').focus();
   }
 
   function editOffer(name,email,role) {
