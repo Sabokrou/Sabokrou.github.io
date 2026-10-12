@@ -14,7 +14,7 @@ esc = html.escape
 
 def article(row, inline=False):
     links = ''.join(
-        f'<a class="pub-resource" href="{esc(row[key])}" target="_blank" rel="noopener" aria-label="{label} for {esc(row["title"])}">{label} ↗</a>'
+        f'<a class="btn pub-resource" href="{esc(row[key])}" target="_blank" rel="noopener" aria-label="{label} for {esc(row["title"])}">{label} ↗</a>'
         for key, label in [('paper', 'Paper'), ('pdf', 'PDF'), ('code', 'Code')]
         if row.get(key)
     )
@@ -38,7 +38,7 @@ def render(inline=False):
     topics = sorted({r['topic'] for r in rows + preprints})
     template = (HERE / 'template.html').read_text()
     template = template.replace('@@TOPICS@@', ''.join(f'<option value="{esc(t)}">{esc(t)}</option>' for t in topics))
-    template = template.replace('@@YEARS@@', '<button class="cursor-interaction" data-year-filter="all" aria-pressed="true" type="button">All years</button>' + ''.join(f'<button class="cursor-interaction" data-year-filter="{y}" aria-pressed="false" type="button">{y}</button>' for y in years))
+    template = template.replace('@@YEARS@@', '<button class="btn" data-year-filter="all" aria-pressed="true" type="button">All years</button>' + ''.join(f'<button class="btn" data-year-filter="{y}" aria-pressed="false" type="button">{y}</button>' for y in years))
     content = '<section class="pub-year-section pub-preprint-section" aria-labelledby="pub-preprint-title"><div class="pub-year-heading"><h2 id="pub-preprint-title">Recent preprints</h2><span>' + str(len(preprints)) + ' preprints</span></div><p class="pub-preprint-policy">First posted on arXiv in the last six months · no known journal or conference publication</p>' + ''.join(article(r, inline) for r in preprints) + '</section>'
     for year in years:
         group = [r for r in rows if r['year'] == year]
@@ -56,4 +56,4 @@ if __name__ == '__main__':
     else:
         fragment = render()
         metadata = (HERE / 'head-metadata.html').read_text()
-        (HERE / 'index.html').write_text('<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Publications | Mohammad Sabokrou</title><meta name="description" content="Selected publications by year, with paper figures, resource links and recent arXiv preprints."><link rel="canonical" href="https://sabokrou.github.io/publications/"><link rel="icon" href="/images/profile.jpeg">' + metadata + '</head><body style="margin:0">' + fragment + '</body></html>')
+        (HERE / 'index.html').write_text('<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Publications | Mohammad Sabokrou</title><meta name="description" content="Selected publications by year, with paper figures, resource links and recent arXiv preprints."><link rel="canonical" href="https://sabokrou.github.io/publications/"><link rel="icon" href="/images/profile.jpeg">' + metadata + '<link rel="stylesheet" href="/assets/css/minimal-site.css"><link rel="stylesheet" href="/assets/css/publications.css"></head><body>' + fragment + '</body></html>')

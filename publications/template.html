@@ -1,60 +1,9 @@
-<div id="academic-publications-preview">
-<style>
-#academic-publications-preview{--pub-bg:light-dark(#fff,#121a28);--pub-text:light-dark(#172033,#edf1f8);--pub-muted:light-dark(#596579,#b4becf);--pub-line:light-dark(#e4e9f1,#314059);--pub-blue:light-dark(#1f5eff,#8ab0ff);--pub-soft:light-dark(#f3f6fc,#1c283b);font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:var(--pub-text);background:var(--pub-bg);line-height:1.6;color-scheme:light dark}
-#academic-publications-preview *{box-sizing:border-box}
-#academic-publications-preview a{color:var(--pub-blue);text-decoration:none}
-#academic-publications-preview a:hover{text-decoration:underline}
-#academic-publications-preview .pub-wrap{max-width:1100px;margin:auto;padding:0 28px}
-#academic-publications-preview .pub-header{border-bottom:1px solid var(--pub-line);padding:20px 0}
-#academic-publications-preview .pub-navigation{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-#academic-publications-preview .pub-brand{color:var(--pub-text);font-weight:700;letter-spacing:-.025em}
-#academic-publications-preview .pub-navigation nav{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
-#academic-publications-preview .pub-navigation nav a{color:var(--pub-muted)}
-#academic-publications-preview .pub-navigation nav a[aria-current]{color:var(--pub-blue)}
-#academic-publications-preview .pub-hero{padding:44px 0 26px}
-#academic-publications-preview .pub-kicker{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--pub-blue);font-weight:600;margin:0 0 12px}
-#academic-publications-preview h1{font-size:clamp(30px,4vw,44px);font-weight:600;letter-spacing:-.04em;line-height:1.15;margin:0 0 14px}
-#academic-publications-preview .pub-lead{max-width:740px;color:var(--pub-muted);font-size:15px;margin:0}
-#academic-publications-preview .pub-toolbar{display:grid;grid-template-columns:minmax(0,1fr) 200px;gap:12px;margin:0 0 14px}
-#academic-publications-preview label{font-size:12px;color:var(--pub-muted);display:grid;gap:6px}
-#academic-publications-preview input,#academic-publications-preview select{font:inherit;font-size:14px;padding:12px;border:1px solid var(--pub-line);border-radius:8px;background:var(--pub-bg);color:var(--pub-text);width:100%;min-width:0}
-#academic-publications-preview .pub-years{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 14px}
-#academic-publications-preview .pub-years button{font:inherit;font-size:13px;color:var(--pub-muted);background:var(--pub-bg);padding:7px 13px;border:1px solid var(--pub-line);border-radius:6px}
-#academic-publications-preview .pub-years button[aria-pressed="true"]{background:var(--pub-soft);color:var(--pub-blue);border-color:var(--pub-blue)}
-#academic-publications-preview .pub-count{font-size:12px;color:var(--pub-muted);margin:0 0 16px}
-#academic-publications-preview .pub-year-section{margin:30px 0 0}
-#academic-publications-preview .pub-year-heading{display:flex;align-items:baseline;gap:12px;border-bottom:2px solid var(--pub-line);padding-bottom:12px}
-#academic-publications-preview h2{font-size:24px;font-weight:600;letter-spacing:-.03em;margin:0}
-#academic-publications-preview .pub-year-heading span{font-size:12px;color:var(--pub-muted)}
-#academic-publications-preview .pub-entry{display:grid;grid-template-columns:142px minmax(0,1fr);gap:24px;border-bottom:1px solid var(--pub-line);padding:25px 0;align-items:start}
-#academic-publications-preview .pub-thumb{height:115px;border:1px solid var(--pub-line);border-radius:8px;background:var(--pub-soft);display:flex;align-items:center;justify-content:center;overflow:hidden;margin:0}
-#academic-publications-preview .pub-thumb img{width:100%;height:100%;object-fit:contain;background:#fff;display:block}
-#academic-publications-preview .pub-thumb .pub-fallback{font-size:12px;color:var(--pub-muted);padding:12px;text-align:center}
-#academic-publications-preview .pub-image-credit{display:block;font-size:11px;color:var(--pub-muted);margin-top:5px}
-#academic-publications-preview .pub-preprint-policy{font-size:12px;color:var(--pub-muted);margin:12px 0 0}
-#academic-publications-preview .pub-details{min-width:0}
-#academic-publications-preview .pub-meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:11px;color:var(--pub-muted);margin:0 0 8px}
-#academic-publications-preview .pub-venue{color:var(--pub-blue);font-weight:600}
-#academic-publications-preview h3{font-size:17px;line-height:1.45;letter-spacing:-.015em;font-weight:600;margin:0 0 8px}
-#academic-publications-preview h3 a{color:var(--pub-text)}
-#academic-publications-preview .pub-authors{font-size:13px;line-height:1.6;color:var(--pub-muted);margin:0 0 12px;overflow-wrap:anywhere}
-#academic-publications-preview .pub-authors strong{color:var(--pub-text);font-weight:600}
-#academic-publications-preview .pub-resources{display:flex;gap:8px;flex-wrap:wrap}
-#academic-publications-preview .pub-resource{display:inline-flex;gap:6px;align-items:center;padding:6px 11px;border:1px solid var(--pub-line);border-radius:6px;color:var(--pub-text);font-size:12px;font-weight:500}
-#academic-publications-preview .pub-resource:first-child{background:var(--pub-soft);color:var(--pub-blue)}
-#academic-publications-preview .pub-empty{padding:35px 0;color:var(--pub-muted)}
-#academic-publications-preview footer{font-size:12px;color:var(--pub-muted);padding:36px 0}
-#academic-publications-preview [hidden]{display:none!important}
-#academic-publications-preview :focus-visible{outline:3px solid var(--pub-blue);outline-offset:3px}
-@media(max-width:600px){#academic-publications-preview .pub-wrap{padding:0 18px}#academic-publications-preview .pub-toolbar{grid-template-columns:1fr}#academic-publications-preview .pub-entry{grid-template-columns:100px minmax(0,1fr);gap:14px}#academic-publications-preview .pub-thumb{height:100px}#academic-publications-preview h3{font-size:16px}#academic-publications-preview .pub-hero{padding-top:30px}#academic-publications-preview input,#academic-publications-preview select{font-size:16px}#academic-publications-preview .pub-resource{min-height:40px}}
-@media(max-width:400px){#academic-publications-preview .pub-entry{grid-template-columns:1fr}#academic-publications-preview .pub-thumb{width:142px;height:110px}}
-</style>
-<header class="pub-header"><div class="pub-wrap pub-navigation"><a class="pub-brand" href="https://sabokrou.github.io/" target="_blank" rel="noopener">Mohammad Sabokrou</a><nav aria-label="Website"><a href="https://sabokrou.github.io/" target="_blank" rel="noopener">Home</a><a href="https://sabokrou.github.io/research/" target="_blank" rel="noopener">Research</a><a aria-current="page" href="https://sabokrou.github.io/publications/" target="_blank" rel="noopener">Publications</a><a href="https://sabokrou.github.io/people/" target="_blank" rel="noopener">People</a><a href="https://sabokrou.github.io/teaching/" target="_blank" rel="noopener">Teaching</a></nav></div></header>
-<main class="pub-wrap"><div class="pub-hero"><p class="pub-kicker">Research publications</p><h1>Selected publications</h1><p class="pub-lead">Papers in trustworthy AI, anomaly detection and computer vision, organized by publication year, with recent unpublished arXiv work listed separately. Explore the complete list on <a href="https://scholar.google.com/citations?user=jqHXvT0AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar ↗</a>.</p></div>
-<div class="pub-toolbar"><label>Search publications<input class="cursor-interaction" id="pub-query" type="search" placeholder="Title, author, venue or year"></label><label>Research topic<select class="cursor-interaction" id="pub-topic"><option value="all">All topics</option>@@TOPICS@@</select></label></div>
+<div id="academic-publications-preview"><header class="site-header"><div class="container nav"><a class="nav__brand" href="/">Mohammad Sabokrou</a><nav class="nav__links" aria-label="Primary"><a href="/">Home</a><a href="/research/">Research</a><a href="/publications/" aria-current="page">Publications</a><a href="/people/">People</a><a href="/consulting/">Consulting</a><details class="more-menu"><summary>More</summary><div class="more-menu__panel"><a href="/news/">News</a><a href="/service/">Academic Service</a><a href="/talks/">Talks</a><a href="/teaching/">Teaching</a><a href="/join/">Join the Group</a><a href="/blog/">Writing</a><a href="/recommendation-letter/">Recommendation Letter</a></div></details></nav></div></header>
+
+  <main><section class="page-hero"><div class="container"><span class="eyebrow">Research papers</span><h1>Publications</h1><p>Selected papers organized by publication year, with recent unpublished arXiv work listed separately. Explore the complete list on <a href="https://scholar.google.com/citations?user=jqHXvT0AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>.</p></div></section><section class="content-section"><div class="container"><div class="publication-tools"><label>Search publications<input id="pub-query" type="search" placeholder="Title, author, venue or year"></label><label>Research topic<select id="pub-topic"><option value="all">All topics</option>@@TOPICS@@</select></label></div>
 <div class="pub-years" role="group" aria-label="Filter by year">@@YEARS@@</div><p class="pub-count" id="pub-count" aria-live="polite">26 papers · includes recent preprints</p>
 <div id="pub-results">@@PAPERS@@</div><p class="pub-empty" id="pub-empty" hidden>No papers match your search. Try another title, topic or year.</p>
-<footer>© 2026 Mohammad Sabokrou · <a href="https://scholar.google.com/citations?user=jqHXvT0AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a></footer></main>
+</div></section></main><footer class="footer"><div class="container footer-row"><span>© 2026 Mohammad Sabokrou · Tashkent, Uzbekistan · Okinawa, Japan</span><div class="footer-links"><a href="/service/">Academic Service</a><a href="mailto:m.sabokrou@newuu.uz">Email</a><a href="https://scholar.google.com/citations?user=jqHXvT0AAAAJ&amp;hl=en">Scholar</a><a href="https://github.com/sabokrou">GitHub</a><a href="https://www.linkedin.com/in/mohammad-sabokrou-76464434/">LinkedIn</a></div></div></footer>
 <script>
 (function(){
 const root=document.getElementById('academic-publications-preview');
