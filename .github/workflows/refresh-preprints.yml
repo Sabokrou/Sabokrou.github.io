@@ -1,0 +1,37 @@
+name: Refresh recent arXiv preprints
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '25 3 * * *'
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: recent-arxiv-preprints
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Refresh metadata and rebuild the Publications page
+        run: python publications/refresh_preprints.py
+      - name: Save changed metadata and page
+        id: changes
+        run: |
+          if ! git diff --quiet -- publications/preprints.json publications/index.html; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add publications/preprints.json publications/index.html
+            git commit -m 'Refresh recent arXiv preprints'
+            git push
+            echo 'changed=true' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Request a GitHub Pages rebuild
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"

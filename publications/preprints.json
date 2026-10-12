@@ -1,0 +1,61 @@
+{
+  "checked_at": "2026-10-12",
+  "window_start": "2026-04-12",
+  "window_end": "2026-10-12",
+  "papers": [
+    {
+      "id": "causa",
+      "arxiv_id": "2610.13112",
+      "title": "Does Location Matter? A Black-Box Causal Audit Reveals Model-Dependent Audio Grounding in LALM Hallucination",
+      "authors": "Mohammad Khalooei, <strong>Mohammad Sabokrou</strong>",
+      "year": 2026,
+      "meta": "Preprint \u00b7 2026-10-09",
+      "topic": "Audio & speech robustness",
+      "paper": "https://arxiv.org/abs/2610.13112",
+      "pdf": "https://arxiv.org/pdf/2610.13112",
+      "code": "https://github.com/khalooei/causa",
+      "image": "causa-figure.webp",
+      "image_kind": "paper-figure",
+      "figure_page": 4,
+      "first_posted": "2026-10-09",
+      "publication_status": "preprint",
+      "comment": "5 pages, 1 figures, 4 tables. Submitted to IEEE ICASSP 2027",
+      "verified_at": "2026-10-12",
+      "publication_checks": [
+        "arXiv metadata",
+        "Known publications",
+        "Crossref title and author match"
+      ]
+    },
+    {
+      "id": "hierarchical-speech",
+      "arxiv_id": "2610.05310",
+      "title": "Transferable Adversarial Robustness for Speech Foundation Models via Hierarchical Stabilization",
+      "authors": "Aref Mousavi, Shahab Sherafat, Kiarash Kiani Feriz, Amirparsa Safari, Raoof Zare Moayedi, Mohammad Hossein Rohban, <strong>Mohammad Sabokrou</strong>",
+      "year": 2026,
+      "meta": "Preprint \u00b7 2026-10-04",
+      "topic": "Audio & speech robustness",
+      "paper": "https://arxiv.org/abs/2610.05310",
+      "pdf": "https://arxiv.org/pdf/2610.05310",
+      "code": "https://github.com/arefmousavi/hierarchical-robust-sfm",
+      "image": "hierarchical-speech-figure.webp",
+      "image_kind": "paper-figure",
+      "figure_page": 2,
+      "first_posted": "2026-10-04",
+      "publication_status": "preprint",
+      "comment": "5 pages, 2 figures, 2 tables. Submitted to IEEE ICASSP 2027",
+      "verified_at": "2026-10-12",
+      "publication_checks": [
+        "arXiv metadata",
+        "Known publications",
+        "Crossref title and author match"
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "arxiv_id": "2604.13610",
+      "reason": "Publication DOI: 10.1016/j.neucom.2026.133679"
+    }
+  ]
+}
