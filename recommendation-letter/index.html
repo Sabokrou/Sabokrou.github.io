@@ -1,13 +1,14 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Recommendation Letter Requests | Mohammad Sabokrou</title>
-  <meta name="description" content="Guidelines for requesting a recommendation letter from Mohammad Sabokrou.">
-  <link rel="canonical" href="https://sabokrou.github.io/recommendation-letter/">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Inter+Tight:wght@600;700;800&amp;display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Recommendation Letter Requests | Mohammad Sabokrou</title>
+<meta content="Guidelines for requesting a recommendation letter from Mohammad Sabokrou." name="description"/>
+<link href="https://sabokrou.github.io/recommendation-letter/" rel="canonical"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Inter+Tight:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
     :root {
       --bg: #f7f9fc;
       --surface: #ffffff;
@@ -103,152 +104,103 @@
     .btn:hover { color: #fff; background: var(--accent-dark); }
     footer { padding: 1.8rem 0 2.5rem; color: var(--muted); font-size: 0.95rem; }
   </style>
-<link rel="stylesheet" href="/assets/css/site-shell.css">
-</head>
-<body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="nav__brand" href="/">Mohammad Sabokrou</a>
-      <nav class="nav__links" aria-label="Primary">
-        <a href="/">Home</a>
-        <a href="/publications/">Publications</a>
-        <a href="/talks/">Talks</a>
-        <a href="/people/">People</a>
-        <a href="/consulting/">Consulting</a>
-        <a href="/blog/">Writing</a>
-        
-      </nav>
-    </div>
-  </header>
-
-  <main class="hero">
-    <div class="container">
-      <article class="card content">
-        <span class="eyebrow">Recommendation Letter Requests</span>
-        <h1>Requesting a Recommendation Letter</h1>
-        <p class="note">
+<link href="/assets/css/site-shell.css" rel="stylesheet"/>
+<link href="/assets/css/site-refinements.css" rel="stylesheet"/></head>
+<body class="page-recommendation"><a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header"><div class="container nav"><a class="nav__brand" href="/">Mohammad Sabokrou</a><nav aria-label="Primary" class="nav__links"><a href="/">Home</a><a href="/research/">Research</a><a href="/publications/">Publications</a><a href="/people/">People</a><a href="/consulting/">Consulting</a><details class="more-menu"><summary>More</summary><div class="more-menu__panel"><a href="/cv/">CV</a><a href="/news/">News</a><a href="/service/">Academic Service</a><a href="/talks/">Talks</a><a href="/teaching/">Teaching</a><a href="/join/">Join the Group</a><a href="/blog/">Writing</a><a aria-current="page" href="/recommendation-letter/">Recommendation Letter</a></div></details></nav></div></header>
+<main class="hero" id="main-content" tabindex="-1">
+<div class="container">
+<article class="card content">
+<span class="eyebrow">Recommendation Letter Requests</span>
+<h1>Requesting a Recommendation Letter</h1>
+<p class="note">
           Before asking me for a recommendation letter, please first check whether I can write a meaningful and professional letter for you. A strong letter requires direct evidence of your work, reliability, and potential. If the criteria below do not apply, please do not send a request.
         </p>
-
-        <h2>Can I write a recommendation letter for you?</h2>
-        <p>Please answer the questions below in order. If your answer is <strong>No</strong> at any step, please do not send a request; it is better to ask someone who knows your work more closely.</p>
-
-        <div class="decision-flow" aria-label="Recommendation letter decision flow">
-          <div class="flow-step" id="step-1">
-            <strong>1. Have we worked together directly?</strong>
-            <p>You took a course with me, completed a research project, internship, thesis, or assistantship under my supervision, or collaborated with me on a paper or research activity.</p>
-            <div class="flow-actions">
-              <button class="choice-btn choice-btn--yes" data-next="step-2">Yes</button>
-              <button class="choice-btn" data-no="no-result">No</button>
-            </div>
-          </div>
-
-          <div class="flow-step" id="step-2" hidden>
-            <strong>2. Do I know your work well enough?</strong>
-            <p>I should be able to comment on specific evidence, such as your technical ability, research maturity, independence, writing, implementation skills, teamwork, presentations, or consistency.</p>
-            <div class="flow-actions">
-              <button class="choice-btn choice-btn--yes" data-next="step-3">Yes</button>
-              <button class="choice-btn" data-no="no-result">No</button>
-            </div>
-          </div>
-
-          <div class="flow-step" id="step-3" hidden>
-            <strong>3. Was the interaction substantial?</strong>
-            <p>A short meeting, a few emails, or attending one talk is usually not enough for a strong recommendation letter.</p>
-            <div class="flow-actions">
-              <button class="choice-btn choice-btn--yes" data-next="step-4">Yes</button>
-              <button class="choice-btn" data-no="no-result">No</button>
-            </div>
-          </div>
-
-          <div class="flow-step" id="step-4" hidden>
-            <strong>4. Is there enough time?</strong>
-            <p>Please ask early. Last-minute requests are difficult to support, especially when the letter requires careful evaluation or a detailed institutional form.</p>
-            <div class="flow-actions">
-              <button class="choice-btn choice-btn--yes" data-next="yes-result">Yes</button>
-              <button class="choice-btn" data-no="no-result">No</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="result-box warning" id="no-result" hidden>
-          <strong>Please do not send a recommendation-letter request.</strong>
-          <p>If one of the answers above is no, I probably cannot write a meaningful and well-supported letter. A weak or generic letter will not help your application. Please ask someone who has worked with you more closely.</p>
-        </div>
-
-        <div class="result-box success" id="yes-result" hidden>
-          <strong>Yes — you may send a request.</strong>
-          <p>If all four answers are yes, I may be able to write a specific and professional recommendation letter for you. Please send one complete email with the information below.</p>
-        </div>
-
-        <section class="materials-section" id="materials" hidden>
-          <h2>What should you send?</h2>
-          <ul class="checklist">
-            <li>Your current CV or resume.</li>
-            <li>A short description of the program, position, scholarship, internship, or opportunity.</li>
-            <li>A brief reminder of our work together, including the course name, project title, internship, thesis, publication, or dates of collaboration.</li>
-            <li>A short paragraph describing what you would like me to emphasize, such as research ability, programming, independence, leadership, writing, teamwork, or perseverance.</li>
-            <li>Your transcript, selected papers, project report, GitHub page, or any other evidence that may help me write a specific and well-supported letter <strong>(optional, but helpful)</strong>.</li>
-            <li>The exact deadline, submission link or email address, and any official instructions from the institution.</li>
-          </ul>
-
-          <h2>How to contact me</h2>
-          <p>
+<h2>Can I write a recommendation letter for you?</h2>
+<p>Please answer the questions below in order. If your answer is <strong>No</strong> at any step, please do not send a request; it is better to ask someone who knows your work more closely.</p>
+<div aria-label="Recommendation letter decision flow" class="decision-flow">
+<div class="flow-step" id="step-1" tabindex="-1">
+<strong>1. Have we worked together directly?</strong>
+<p>You took a course with me, completed a research project, internship, thesis, or assistantship under my supervision, or collaborated with me on a paper or research activity.</p>
+<div class="flow-actions" hidden="">
+<button class="choice-btn choice-btn--yes" data-next="step-2">Yes</button>
+<button class="choice-btn" data-no="no-result">No</button>
+</div>
+</div>
+<div class="flow-step" id="step-2" tabindex="-1">
+<strong>2. Do I know your work well enough?</strong>
+<p>I should be able to comment on specific evidence, such as your technical ability, research maturity, independence, writing, implementation skills, teamwork, presentations, or consistency.</p>
+<div class="flow-actions" hidden="">
+<button class="choice-btn choice-btn--yes" data-next="step-3">Yes</button>
+<button class="choice-btn" data-no="no-result">No</button>
+</div>
+</div>
+<div class="flow-step" id="step-3" tabindex="-1">
+<strong>3. Was the interaction substantial?</strong>
+<p>A short meeting, a few emails, or attending one talk is usually not enough for a strong recommendation letter.</p>
+<div class="flow-actions" hidden="">
+<button class="choice-btn choice-btn--yes" data-next="step-4">Yes</button>
+<button class="choice-btn" data-no="no-result">No</button>
+</div>
+</div>
+<div class="flow-step" id="step-4" tabindex="-1">
+<strong>4. Is there enough time?</strong>
+<p>Please ask early. Last-minute requests are difficult to support, especially when the letter requires careful evaluation or a detailed institutional form.</p>
+<div class="flow-actions" hidden="">
+<button class="choice-btn choice-btn--yes" data-next="yes-result">Yes</button>
+<button class="choice-btn" data-no="no-result">No</button>
+</div>
+</div>
+</div><p aria-atomic="true" aria-live="polite" class="sr-only" id="flow-status" role="status"></p>
+<div class="result-box warning" hidden="" id="no-result" tabindex="-1">
+<strong>Please do not send a recommendation-letter request.</strong>
+<p>If one of the answers above is no, I probably cannot write a meaningful and well-supported letter. A weak or generic letter will not help your application. Please ask someone who has worked with you more closely.</p>
+</div>
+<div class="result-box success" hidden="" id="yes-result" tabindex="-1">
+<strong>Yes — you may send a request.</strong>
+<p>If all four answers are yes, I may be able to write a specific and professional recommendation letter for you. Please send one complete email with the information below.</p>
+</div>
+<section class="materials-section" id="materials"><p>If all four criteria above apply, include the following information in your request.</p>
+<h2>What should you send?</h2>
+<ul class="checklist">
+<li>Your current CV or resume.</li>
+<li>A short description of the program, position, scholarship, internship, or opportunity.</li>
+<li>A brief reminder of our work together, including the course name, project title, internship, thesis, publication, or dates of collaboration.</li>
+<li>A short paragraph describing what you would like me to emphasize, such as research ability, programming, independence, leadership, writing, teamwork, or perseverance.</li>
+<li>Your transcript, selected papers, project report, GitHub page, or any other evidence that may help me write a specific and well-supported letter <strong>(optional, but helpful)</strong>.</li>
+<li>The exact deadline, submission link or email address, and any official instructions from the institution.</li>
+</ul>
+<h2>How to contact me</h2>
+<p>
             Send your request to <a href="mailto:mohammad.sabokrou@oist.jp">mohammad.sabokrou@oist.jp</a> with a clear subject line such as “Recommendation Letter Request — Your Name”.
           </p>
-        </section>
-
-        <div class="note">
-          <strong>Do not forget:</strong> I may be busy and can sometimes miss or overlook emails. After sending your complete request, please follow up politely if you do not receive a reply. A short reminder is helpful and appreciated.
+</section>
+<div class="note">
+<strong>Do not forget:</strong> I may be busy and can sometimes miss or overlook emails. After sending your complete request, please follow up politely if you do not receive a reply. A short reminder is helpful and appreciated.
         </div>
-
-        <a class="btn" href="/">Back to Home</a>
-      </article>
-    </div>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>© 2026 Mohammad Sabokrou.</p>
-    </div>
-  </footer>
-
-  <script>
-    const steps = ["step-1", "step-2", "step-3", "step-4"];
-    const noResult = document.getElementById("no-result");
-    const yesResult = document.getElementById("yes-result");
-    const materials = document.getElementById("materials");
-
-    function hideAfter(currentId) {
-      const index = steps.indexOf(currentId);
-      steps.slice(index + 1).forEach((id) => {
-        document.getElementById(id).hidden = true;
-      });
-      noResult.hidden = true;
-      yesResult.hidden = true;
-      materials.hidden = true;
-    }
-
-    document.querySelectorAll(".choice-btn").forEach((button) => {
-      button.addEventListener("click", () => {
-        const currentStep = button.closest(".flow-step").id;
-        hideAfter(currentStep);
-
-        if (button.dataset.next) {
-          const target = document.getElementById(button.dataset.next);
-          target.hidden = false;
-          if (button.dataset.next === "yes-result") {
-            materials.hidden = false;
-          }
-          target.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        }
-
-        if (button.dataset.no) {
-          noResult.hidden = false;
-          noResult.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        }
-      });
-    });
-  </script>
+<a class="btn" href="/">Back to Home</a>
+</article>
+</div>
+</main>
+<footer class="site-footer"><div class="container footer-row"><span>© 2026 Mohammad Sabokrou</span><div class="footer-links"><a href="mailto:m.sabokrou@newuu.uz">Email</a><a href="https://scholar.google.com/citations?user=jqHXvT0AAAAJ&amp;hl=en">Scholar</a><a href="https://github.com/sabokrou">GitHub</a><a href="/cv/">CV</a></div></div></footer>
+<script>
+(function(){
+  const steps=["step-1","step-2","step-3","step-4"];
+  const noResult=document.getElementById("no-result"),yesResult=document.getElementById("yes-result"),materials=document.getElementById("materials"),status=document.getElementById("flow-status");
+  steps.slice(1).forEach(id=>document.getElementById(id).hidden=true);
+  document.querySelectorAll(".flow-actions").forEach(actions=>actions.hidden=false);
+  materials.hidden=true;
+  function hideAfter(id){steps.slice(steps.indexOf(id)+1).forEach(next=>document.getElementById(next).hidden=true);noResult.hidden=true;yesResult.hidden=true;materials.hidden=true;}
+  document.querySelectorAll(".choice-btn").forEach(button=>button.addEventListener("click",()=>{
+    hideAfter(button.closest(".flow-step").id);
+    const id=button.dataset.next||button.dataset.no,target=document.getElementById(id);
+    target.hidden=false;
+    if(id==="yes-result")materials.hidden=false;
+    status.textContent=target.querySelector("strong").textContent;
+    target.focus({preventScroll:true});
+    target.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"nearest"});
+  }));
+})();
+</script>
 </body>
 </html>
