@@ -1,1 +1,2 @@
 Publication HTML fragments live here so GitHub Pages does not publish raw builder placeholders. The GitHub Pages artifact excludes `.github`. Run `python publications/render_publications.py` to rebuild the page; the scheduled preprint refresh uses the same renderer.
+The shared refinement stylesheet uses a version query to avoid stale browser styles after deployment. Update this version across public pages and the renderer when changing the stylesheet.
