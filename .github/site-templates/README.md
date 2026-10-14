@@ -1,0 +1,1 @@
+Publication HTML fragments live here so GitHub Pages does not publish raw builder placeholders. The GitHub Pages artifact excludes `.github`. Run `python publications/render_publications.py` to rebuild the page; the scheduled preprint refresh uses the same renderer.

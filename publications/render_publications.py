@@ -36,7 +36,8 @@ def render(inline=False):
     rows.sort(key=lambda r: -r['year'])
     years = sorted({r['year'] for r in rows + preprints}, reverse=True)
     topics = sorted({r['topic'] for r in rows + preprints})
-    template = (HERE / 'template.html').read_text()
+    template = (ROOT / '.github/site-templates/publications.html').read_text()
+    template = template.replace('@@COUNT@@', str(len(rows) + len(preprints)))
     template = template.replace('@@TOPICS@@', ''.join(f'<option value="{esc(t)}">{esc(t)}</option>' for t in topics))
     template = template.replace('@@YEARS@@', '<button class="btn" data-year-filter="all" aria-pressed="true" type="button">All years</button>' + ''.join(f'<button class="btn" data-year-filter="{y}" aria-pressed="false" type="button">{y}</button>' for y in years))
     content = '<section class="pub-year-section pub-preprint-section" aria-labelledby="pub-preprint-title"><div class="pub-year-heading"><h2 id="pub-preprint-title">Recent preprints</h2><span>' + str(len(preprints)) + ' preprints</span></div><p class="pub-preprint-policy">First posted on arXiv in the last six months · no known journal or conference publication</p>' + ''.join(article(r, inline) for r in preprints) + '</section>'
@@ -55,5 +56,5 @@ if __name__ == '__main__':
         Path(args.preview).write_text(render(inline=True))
     else:
         fragment = render()
-        metadata = (HERE / 'head-metadata.html').read_text()
+        metadata = (ROOT / '.github/site-templates/publications-head.html').read_text()
         (HERE / 'index.html').write_text('<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Selected Publications | Mohammad Sabokrou</title><meta name="description" content="Selected publications by year, with paper figures, resource links and recent arXiv preprints."><link rel="canonical" href="https://sabokrou.github.io/publications/"><link rel="icon" href="/images/profile.jpeg">' + metadata + '<link rel="stylesheet" href="/assets/css/minimal-site.css"><link rel="stylesheet" href="/assets/css/publications.css"><link rel="stylesheet" href="/assets/css/site-refinements.css"></head><body class="page-publications">' + fragment + '</body></html>')

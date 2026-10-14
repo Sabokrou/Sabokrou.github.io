@@ -18,14 +18,16 @@ jobs:
         with:
           python-version: '3.12'
       - name: Refresh metadata and rebuild the Publications page
-        run: python publications/refresh_preprints.py
+        run: |
+          python publications/refresh_preprints.py
+          python .github/scripts/build_public_metadata.py
       - name: Save changed metadata and page
         id: changes
         run: |
-          if ! git diff --quiet -- publications/preprints.json publications/index.html; then
+          if ! git diff --quiet -- publications/preprints.json publications/index.html sitemap.xml feed.xml; then
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add publications/preprints.json publications/index.html
+            git add publications/preprints.json publications/index.html sitemap.xml feed.xml
             git commit -m 'Refresh recent arXiv preprints'
             git push
             echo 'changed=true' >> "$GITHUB_OUTPUT"
