@@ -44,7 +44,8 @@ def render(inline=False):
     for year in years:
         group = [r for r in rows if r['year'] == year]
         if group:
-            content += f'<section class="pub-year-section" aria-labelledby="pub-year-{year}"><div class="pub-year-heading"><h2 id="pub-year-{year}">{year}</h2><span>{len(group)} {'paper' if len(group) == 1 else 'papers'}</span></div>' + ''.join(article(r, inline) for r in group) + '</section>'
+            paper_label = 'paper' if len(group) == 1 else 'papers'
+            content += f'<section class="pub-year-section" aria-labelledby="pub-year-{year}"><div class="pub-year-heading"><h2 id="pub-year-{year}">{year}</h2><span>{len(group)} {paper_label}</span></div>' + ''.join(article(r, inline) for r in group) + '</section>'
     return template.replace('@@PAPERS@@', content)
 
 
