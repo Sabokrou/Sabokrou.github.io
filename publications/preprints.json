@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-10-15",
-  "window_start": "2026-04-15",
-  "window_end": "2026-10-15",
+  "checked_at": "2026-10-17",
+  "window_start": "2026-04-17",
+  "window_end": "2026-10-17",
   "papers": [
     {
       "id": "causa",
@@ -20,7 +20,7 @@
       "first_posted": "2026-10-09",
       "publication_status": "preprint",
       "comment": "5 pages, 1 figures, 4 tables. Submitted to IEEE ICASSP 2027",
-      "verified_at": "2026-10-15",
+      "verified_at": "2026-10-17",
       "publication_checks": [
         "arXiv metadata",
         "Known publications",
@@ -44,7 +44,7 @@
       "first_posted": "2026-10-04",
       "publication_status": "preprint",
       "comment": "5 pages, 2 figures, 2 tables. Submitted to IEEE ICASSP 2027",
-      "verified_at": "2026-10-15",
+      "verified_at": "2026-10-17",
       "publication_checks": [
         "arXiv metadata",
         "Known publications",
@@ -52,10 +52,5 @@
       ]
     }
   ],
-  "excluded": [
-    {
-      "arxiv_id": "2604.13610",
-      "reason": "Publication DOI: 10.1016/j.neucom.2026.133679"
-    }
-  ]
+  "excluded": []
 }
