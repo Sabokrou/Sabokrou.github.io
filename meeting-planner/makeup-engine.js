@@ -39,6 +39,7 @@ function candidates(model,target,settings,reservations=[]){
  for(const date of days){if(date<settings.today||date>=settings.travelFrom&&date<=settings.travelTo||excluded.has(date))continue;
  const d=day(date);if(d>=5&&!settings.weekends)continue;
  for(let start=settings.start;start+duration<=settings.end;start+=30){
+ if(date===settings.today && start < (settings.currentMinute||0))continue;
  const slot={date,day:d,start,end:start+duration,weekend:d>=5};
  const nearby=model.blocks.filter(b=>b.day===d&&overlap(slot,b));
  const teacher=nearby.filter(b=>b.teacher===target.teacher);

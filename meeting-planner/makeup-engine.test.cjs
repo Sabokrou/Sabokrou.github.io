@@ -17,3 +17,5 @@ assert.throws(()=>E.candidates(small,{...target,groups:[]},settings));assert.thr
 assert(!E.candidates(small,target,{...settings,weekends:false}).some(s=>s.day>=5));
 assert(!E.candidates(small,target,{...settings,today:'2026-11-12'}).some(s=>s.date<'2026-11-12'));
 console.log('Passed: affected dates, room parsing, curriculum/group inference, lecturer/student/room conflicts, Saturday, travel/excluded/past dates, ordering, duration, reservations and date validation.');
+
+assert(!E.candidates(small,target,{...settings,today:'2026-11-12',currentMinute:630}).some(s=>s.date==='2026-11-12'&&s.start<630));
