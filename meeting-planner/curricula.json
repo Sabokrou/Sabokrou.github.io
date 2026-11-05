@@ -1,0 +1,3080 @@
+{
+  "retrievedAt": "2026-11-05T08:49:39.829197+00:00",
+  "programs": [
+    {
+      "name": "Executive Master of Business Administration (MBA)",
+      "url": "https://newuu.uz/en/graduate-program/executive-master-of-business-administration-mba",
+      "courses": [
+        {
+          "semester": 1,
+          "code": "BUS501",
+          "name": "Competitive and Corporate Strategy",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "BUS502",
+          "name": "Financial Accounting",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "BUS503",
+          "name": "Elective",
+          "type": "Elective"
+        },
+        {
+          "semester": 1,
+          "code": "BUS504",
+          "name": "Residential Period I",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "BUS511",
+          "name": "Managerial Accounting",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "BUS512",
+          "name": "Strategy Implementation",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "BUS513",
+          "name": "Elective",
+          "type": "Elective"
+        },
+        {
+          "semester": 2,
+          "code": "BUS514",
+          "name": "Residential Period II",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "BUS601",
+          "name": "Global Operations and Supply Management",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "BUS602",
+          "name": "Financial Management",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "BUS603",
+          "name": "Elective",
+          "type": "Elective"
+        },
+        {
+          "semester": 3,
+          "code": "BUS604",
+          "name": "Residential Period III",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "BUS611",
+          "name": "Board Leadership module",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "BUS612",
+          "name": "CEO Challenge",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "BUS613",
+          "name": "Residential Period IV",
+          "type": "Core"
+        }
+      ],
+      "status": "parsed"
+    },
+    {
+      "name": "MA in Applied Linguistics and TESOL",
+      "url": "https://newuu.uz/en/graduate-program/ma-in-applied-linguistics-and-tesol",
+      "courses": [
+        {
+          "semester": 1,
+          "code": "APLT610",
+          "name": "Applied Linguistics for Educators in Multilingual Context",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "APLT620",
+          "name": "TESOL Skills: Planning, Teaching, and Assessing",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "GRAD601",
+          "name": "Research Methods in Humanities, Natural & Social Sciences",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "APLT640",
+          "name": "Language, Culture, and Communication in TESOL",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "APLT650",
+          "name": "Artificial Intelligence and Technology Integration in TESOL",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "APLT660",
+          "name": "Multilingual Pedagogies and Multimodal Literacy in TESOL",
+          "type": "Core"
+        }
+      ],
+      "status": "parsed"
+    },
+    {
+      "name": "M.Sc. in Agrotechnology",
+      "url": "https://newuu.uz/en/graduate-program/msc-in-agrotechnology",
+      "courses": [
+        {
+          "semester": 1,
+          "code": "AGR610",
+          "name": "Integrated Agricultural Systems",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "GRAD601",
+          "name": "Research Methods in Humanities, Natural & Social Sciences",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "AGR620",
+          "name": "Crop Production Technology",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "AGR630",
+          "name": "Environmental Science and Technology in Agriculture",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "AGR640",
+          "name": "Agricultural Economics",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "ECON790",
+          "name": "Master Project",
+          "type": "Core"
+        }
+      ],
+      "status": "parsed"
+    },
+    {
+      "name": "M.Sc. in Artificial Intelligence and Machine Learning",
+      "url": "https://newuu.uz/en/graduate-program/msc-in-artificial-intelligence-and-machine-learning",
+      "courses": [
+        {
+          "semester": 1,
+          "code": "CS610",
+          "name": "Algorithm Design Techniques",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "CS620",
+          "name": "Artificial Intelligence",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "CS630",
+          "name": "Machine Learning",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "CS631",
+          "name": "Deep Learning",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "CS632",
+          "name": "Mathematical Foundations of Machine Learning",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "AIML790",
+          "name": "Master Project",
+          "type": "Core"
+        }
+      ],
+      "status": "parsed"
+    },
+    {
+      "name": "M.Sc. in Computational Data Science",
+      "url": "https://newuu.uz/en/graduate-program/msc-in-computational-data-science",
+      "courses": [
+        {
+          "semester": 1,
+          "code": "CODS610",
+          "name": "Model Estimation",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "CODS620",
+          "name": "Advanced Statistical Inference",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "COSC621",
+          "name": "Data Science and Generative AI",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "CODS622",
+          "name": "Machine Learning",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "ENGR695",
+          "name": "Seminar in Research Methods",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "CODS623",
+          "name": "Health Data Science",
+          "type": "Elective"
+        },
+        {
+          "semester": 2,
+          "code": "CODS645",
+          "name": "Financial Machine Learning",
+          "type": "Elective"
+        },
+        {
+          "semester": 2,
+          "code": "CODS644",
+          "name": "Data Science for Business Applications",
+          "type": "Elective"
+        },
+        {
+          "semester": 2,
+          "code": "CODS699",
+          "name": "Thesis",
+          "type": "Core"
+        }
+      ],
+      "status": "parsed"
+    },
+    {
+      "name": "M.Sc. in Economics and Data Science",
+      "url": "https://newuu.uz/en/graduate-program/msc-in-economics-and-data-science",
+      "courses": [
+        {
+          "semester": 1,
+          "code": "ECON650",
+          "name": "Macroeconomic Theory 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "ECON640",
+          "name": "English for Academic Purposes",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "ECON612",
+          "name": "Math for Economics",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "ECON611",
+          "name": "Probability Theory and Statistics",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "ECON690",
+          "name": "Econometrics 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "ECON610",
+          "name": "Microeconomics 1",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "ECON670",
+          "name": "Macroeconomic Theory 2",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "ECON680",
+          "name": "Foundations of Data Science",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "ECON620",
+          "name": "Microeconomics 2",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "ECON630",
+          "name": "Microeconomics 3",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "ECON660",
+          "name": "Game theory",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "ECON695",
+          "name": "Econometrics 2",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "GRAD601",
+          "name": "Research Methods in Humanities, Natural & Social Sciences",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "ECON720",
+          "name": "Data science and machine learning",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "ECON790",
+          "name": "Capstone project/Master Thesis",
+          "type": "Core"
+        }
+      ],
+      "status": "parsed"
+    },
+    {
+      "name": "M.Sc. in Financial Mathematics",
+      "url": "https://newuu.uz/en/graduate-program/msc-in-financial-mathematics",
+      "courses": [
+        {
+          "semester": 1,
+          "code": "MATH610",
+          "name": "Stochastic Analysis",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "MATH620",
+          "name": "Mathematical Finance",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "ECON620",
+          "name": "Derivative Pricing & Risk Management",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "ENT610",
+          "name": "Corporate Finance & Asset Management",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "MATH630",
+          "name": "Numerical Methods for Finance",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "MATH640",
+          "name": "Nonlinear Optimization",
+          "type": "Elective"
+        },
+        {
+          "semester": 2,
+          "code": "MATH700",
+          "name": "Master Project",
+          "type": "Core"
+        }
+      ],
+      "status": "parsed"
+    },
+    {
+      "name": "M.Sc. in Industrial Management",
+      "url": "https://newuu.uz/en/graduate-program/msc-in-industrial-management",
+      "courses": [
+        {
+          "semester": 1,
+          "code": "GMGT501",
+          "name": "Data Mining and Big Data Analytics",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "GMGT550",
+          "name": "Strategic Management",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "HASS503",
+          "name": "Basic German",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "GMGT503",
+          "name": "IT Management",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "GMGT540",
+          "name": "Financial Management",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "HASS510",
+          "name": "History and Philosophy of Science",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "GMGT560",
+          "name": "Organizational Network Analysis & Strategy",
+          "type": ""
+        },
+        {
+          "semester": 2,
+          "code": "GMGT570",
+          "name": "Global Leadership",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "GMGT575",
+          "name": "Change Management",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "GMGT590",
+          "name": "Project Management for Sustainability",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "GMGT520",
+          "name": "Organizational Behavior",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "GMGT565",
+          "name": "Strategic and International Marketing",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "GMGT700",
+          "name": "Research Project (+Scientific internship)",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "GMGT750",
+          "name": "Master Thesis",
+          "type": "Core"
+        }
+      ],
+      "status": "parsed"
+    },
+    {
+      "name": "M.Sc. in Computational Physics",
+      "url": "https://newuu.uz/en/graduate-program/msc-in-modern-physics1",
+      "courses": [
+        {
+          "semester": 1,
+          "code": "PHYS610",
+          "name": "Mathematical Methods For Physics",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "PHYS620",
+          "name": "Theoretical Mechanics",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "PHYS641",
+          "name": "Electrodynamics",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "GRAD603",
+          "name": "Research Methods",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "PHYS651",
+          "name": "Quantum Mechanics I",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "PHYS719",
+          "name": "Solid State Physics and Electronics Properties",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "PHYS631",
+          "name": "Statistical Methods",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "PHYS612",
+          "name": "Numerical Methods For Physics I",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "PHYS751",
+          "name": "Research Seminar Series (Guided Study)",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "PHYS652",
+          "name": "Quantum Mechanics II",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "PHYS741",
+          "name": "Quantum Optics & Quantum Information Processing",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "ECON640",
+          "name": "English For Academic Purposes",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "PHYS613",
+          "name": "Numerical Methods For Physics II",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "PHYS751",
+          "name": "Research Seminar Series (Guided Study)",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "PHYS780",
+          "name": "Master Thesis",
+          "type": "Core"
+        }
+      ],
+      "status": "parsed"
+    },
+    {
+      "name": "M.Sc. in Project Management",
+      "url": "https://newuu.uz/en/graduate-program/msc-in-project-management",
+      "courses": [
+        {
+          "semester": 1,
+          "code": "GMGT502",
+          "name": "Project Planning, Execution and Control",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "GMGT535",
+          "name": "Managerial Accounting & Cost Control",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "GMGT515",
+          "name": "Project Risk Management",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "GMGT545",
+          "name": "Financial Analysis & Budgeting for Projects",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "GMGT580",
+          "name": "Leadership & Organizational Dynamics",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "GMGT525",
+          "name": "Research Methods in Management",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "GMGT800",
+          "name": "Dissertation",
+          "type": "Core"
+        }
+      ],
+      "status": "parsed"
+    },
+    {
+      "name": "M.Sc. in Sustainable Chemical Engineering & Materials",
+      "url": "https://newuu.uz/en/graduate-program/msc-in-sustainable-chemical-engineering-materia",
+      "courses": [
+        {
+          "semester": 1,
+          "code": "CENG510",
+          "name": "Thermodynamics and Kinetics of Materials",
+          "type": "8"
+        },
+        {
+          "semester": 1,
+          "code": "CENG520",
+          "name": "Advanced Chemical Reaction Engineering",
+          "type": "8"
+        },
+        {
+          "semester": 1,
+          "code": "CENG530",
+          "name": "Chemical Process Safety",
+          "type": "8"
+        },
+        {
+          "semester": 1,
+          "code": "CENG540",
+          "name": "Seminar in Research Methods",
+          "type": "8"
+        },
+        {
+          "semester": 1,
+          "code": "GRAD580",
+          "name": "Thesis Work (Phase-I)",
+          "type": "15"
+        },
+        {
+          "semester": 2,
+          "code": "CENG630",
+          "name": "Elective Course 1 (choose from elective list)",
+          "type": "8"
+        },
+        {
+          "semester": 2,
+          "code": "CENG550",
+          "name": "Process Systems Design",
+          "type": "8"
+        },
+        {
+          "semester": 2,
+          "code": "CENG560",
+          "name": "Sustainable Energy Conversion Processes,",
+          "type": "8"
+        },
+        {
+          "semester": 2,
+          "code": "CENG650",
+          "name": "Elective Course 2 (choose from elective list)",
+          "type": "8"
+        },
+        {
+          "semester": 2,
+          "code": "GRAD581",
+          "name": "Thesis Work (Phase-II)",
+          "type": "15"
+        }
+      ],
+      "status": "parsed"
+    },
+    {
+      "name": "B.Sc. Aerospace Engineering",
+      "url": "https://newuu.uz/en/undergraduate-program/bsc-aerospace-engineering",
+      "courses": [
+        {
+          "semester": 1,
+          "code": "PHYS101",
+          "name": "Physics 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "HASS101",
+          "name": "Academic and Communication Skills 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "CS100",
+          "name": "Information Systems and Digital Technologies",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "MATH111",
+          "name": "Calculus 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "HASS100",
+          "name": "First Principles of NEwUU",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "CHEM101",
+          "name": "General Chemistry",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "HASS111",
+          "name": "Academic and Communication Skills 2",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "DSG101",
+          "name": "Creative Thinking and Design",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "MATH211",
+          "name": "Calculus 2",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "PHYS111",
+          "name": "Physics 2",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "MENG201",
+          "name": "Engineering Mechanics 1",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "EENG201",
+          "name": "Electrical and Electronic Circuits",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "CS102",
+          "name": "Computer Programming 1",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "MENG351",
+          "name": "Basics of Machines Drawing and Computer-Aided Design",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "MATH201",
+          "name": "Linear Algebra",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "MENG301",
+          "name": "Engineering Mechanics 2",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "MENG231",
+          "name": "Introduction to Manufacturing technology",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "MENG211",
+          "name": "Engineering Materials 1",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "MATH241",
+          "name": "Ordinary Differential Equations",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "PHYS221",
+          "name": "Engineering Thermodynamics",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "HASS110",
+          "name": "History of Uzbekistan",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "AERO301",
+          "name": "Aerospace Materials",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "MENG241",
+          "name": "Fluid Mechanics",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "MATH301",
+          "name": "Numerical Methods for Engineers",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "MENG401",
+          "name": "Engineering Mechanics 3",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "AERO311",
+          "name": "Aerospace Structures",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "AERO321",
+          "name": "Flight Dynamics and Stability",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "MATH232",
+          "name": "Probability and Statistics",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "MENG321",
+          "name": "Production Engineering",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "MENG361",
+          "name": "Heat Transfer Phenomena",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "MENG331",
+          "name": "Automatic Control",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "AERO401",
+          "name": "Aerospace propulsion",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "MENG310",
+          "name": "Computational Solid & Fluid Mechanics",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "MGT101",
+          "name": "Principles of Management",
+          "type": "Elective"
+        },
+        {
+          "semester": 7,
+          "code": "MENG120",
+          "name": "Engineering in Society",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "GRAD490",
+          "name": "Graduation Project 1 / Internship 1",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "HASS200",
+          "name": "Communications Ethics",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "AERO421",
+          "name": "Space dynamics and Control",
+          "type": "Elective"
+        },
+        {
+          "semester": 8,
+          "code": "PHYS431",
+          "name": "Space Environment",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "GRAD491",
+          "name": "Graduation Project 2 / Internship 2",
+          "type": "Core"
+        }
+      ],
+      "status": "parsed"
+    },
+    {
+      "name": "B.Sc. AI & Robotics",
+      "url": "https://newuu.uz/en/undergraduate-program/bsc-ai-robotics",
+      "courses": [
+        {
+          "semester": 1,
+          "code": "CS102",
+          "name": "Computer Programming 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "HASS101",
+          "name": "Academic and Communication Skills 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "CS100",
+          "name": "Information Systems and Digital Technologies",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "HASS100",
+          "name": "First Principles of NewUU",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "MATH111",
+          "name": "Calculus 1",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "CS210",
+          "name": "Computer Programming 2",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "HASS111",
+          "name": "Academic and Communication Skills 2",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "MATH221",
+          "name": "Discrete Mathematics",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "MATH211",
+          "name": "Calculus 2",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "PHYS101",
+          "name": "Physics 1",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "CS203",
+          "name": "Data Science Fundamentals",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "MATH201",
+          "name": "Linear Algebra",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "CS111",
+          "name": "Algorithms & Data Struсtures",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "CS202",
+          "name": "Digital Logic Design",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "PHYS111",
+          "name": "Physics 2",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "CS231",
+          "name": "Computer Architecture",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "CS411",
+          "name": "Artificial Intelligence",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "CS301",
+          "name": "Fundamentals of Databases",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "HASS110",
+          "name": "History of Uzbekistan",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "MATH232",
+          "name": "Probability and Statistics",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "ENT201",
+          "name": "Introduction to Entrepreneurship",
+          "type": "Elective"
+        },
+        {
+          "semester": 5,
+          "code": "MATH241",
+          "name": "Ordinary Differential Equations",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "CS331",
+          "name": "Introduction to Machine Learning",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "CS212",
+          "name": "Design & Analysis of Algorithms",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "CS311",
+          "name": "Computer Networks",
+          "type": "Elective"
+        },
+        {
+          "semester": 6,
+          "code": "CS351",
+          "name": "Signals & Systems",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "CS332",
+          "name": "Mathematical Foundations of Machine Learning",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "HASS305",
+          "name": "Philosophy",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "CS413",
+          "name": "Robotics",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "CS412",
+          "name": "Deep Learning",
+          "type": "Elective"
+        },
+        {
+          "semester": 7,
+          "code": "CS414",
+          "name": "Embedded Systems",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "GRAD490",
+          "name": "Graduation Project 1 / Internship 1",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "HASS200",
+          "name": "Communications Ethics",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "GRAD491",
+          "name": "Graduation Project 2 / Internship 2",
+          "type": "Core"
+        }
+      ],
+      "status": "parsed"
+    },
+    {
+      "name": "B.Sc. Applied Mathematics",
+      "url": "https://newuu.uz/en/undergraduate-program/bsc-applied-mathematics",
+      "courses": [
+        {
+          "semester": 1,
+          "code": "MATH111",
+          "name": "Calculus 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "MATH221",
+          "name": "Discrete Mathematics",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "CS102",
+          "name": "Computer Programming 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "HASS101",
+          "name": "Academic and Communication Skills 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "HASS100",
+          "name": "First Principles of NewUU",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "MATH211",
+          "name": "Calculus 2",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "MATH201",
+          "name": "Linear Algebra",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "CS210",
+          "name": "Computer Programming 2",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "DSG101",
+          "name": "Creative Thinking and Design",
+          "type": "Elective"
+        },
+        {
+          "semester": 2,
+          "code": "HASS111",
+          "name": "Academic and Communication Skills 2",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "MATH222",
+          "name": "Calculus 3",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "MATH202",
+          "name": "Advanced Linear Algebra",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "MATH232",
+          "name": "Probability and Statistics",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "PHYS101",
+          "name": "Physics 1",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "CS111",
+          "name": "Algorithms & Data Struсtures",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "MATH250",
+          "name": "Topology",
+          "type": "Elective"
+        },
+        {
+          "semester": 4,
+          "code": "MATH270",
+          "name": "Abstract Algebra",
+          "type": "Elective"
+        },
+        {
+          "semester": 4,
+          "code": "MATH241",
+          "name": "Ordinary Differential Equations",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "HASS110",
+          "name": "History of Uzbekistan",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "PHYS111",
+          "name": "Physics 2",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "MATH311",
+          "name": "Partial Differential Equations",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "MATH390",
+          "name": "Composing Scientific Texts",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "MATH303",
+          "name": "Game Theory",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "MATH321",
+          "name": "Introduction to Number Theory and Cryptography",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "CS212",
+          "name": "Design & Analysis of Algorithms",
+          "type": "Elective"
+        },
+        {
+          "semester": 6,
+          "code": "MATH233",
+          "name": "Optimization Theory",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "MATH313",
+          "name": "Numerical Analysis",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "MATH305",
+          "name": "Complex Analysis",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "HASS305",
+          "name": "Philosophy",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "MATH406",
+          "name": "Functional Analysis",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "CS321",
+          "name": "Theory of Computation",
+          "type": "Elective"
+        },
+        {
+          "semester": 7,
+          "code": "MATH402",
+          "name": "Combinatorial Analysis",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "GRAD490",
+          "name": "Graduation Project 1 / Internship 1",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "MATH403",
+          "name": "Basic Algebraic Geometry",
+          "type": "Elective"
+        },
+        {
+          "semester": 8,
+          "code": "MATH414",
+          "name": "Advanced Probability Theory and Statistics",
+          "type": "Elective"
+        },
+        {
+          "semester": 8,
+          "code": "HASS200",
+          "name": "Communications Ethics",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "GRAD491",
+          "name": "Graduation Project 2 / Internship 2",
+          "type": "Core"
+        }
+      ],
+      "status": "parsed"
+    },
+    {
+      "name": "B.Sc. Chemical & Materials Engineering",
+      "url": "https://newuu.uz/en/undergraduate-program/bsc-chemical-materials-engineering",
+      "courses": [
+        {
+          "semester": 1,
+          "code": "PHYS101",
+          "name": "Physics 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "HASS101",
+          "name": "Academic and Communication Skills 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "CS100",
+          "name": "Information Systems and Digital Technologies",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "MATH111",
+          "name": "Calculus 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "HASS100",
+          "name": "First Principles of NewUU",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "CHEM101",
+          "name": "General Chemistry",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "HASS111",
+          "name": "Academic and Communication Skills 2",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "DSG101",
+          "name": "Creative Thinking and Design",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "MATH211",
+          "name": "Calculus 2",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "PHYS111",
+          "name": "Physics 2",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "CHEM201",
+          "name": "Analytical Chemistry",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "MATH201",
+          "name": "Linear Algebra",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "CHEM211",
+          "name": "Fundamentals of Physical Chemistry",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "MENG201",
+          "name": "Engineering Mechanics 1",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "CENG201",
+          "name": "Chemical Engineering Principles",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "MGT101",
+          "name": "Principles of Management",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "PHYS231",
+          "name": "Solid State Physics",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "CHEM231",
+          "name": "Organic Chemistry",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "MATH241",
+          "name": "Ordinary Differential Equations",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "HASS110",
+          "name": "History of Uzbekistan",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "PHYS221",
+          "name": "Engineering Thermodynamics",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "MSE301",
+          "name": "Nanotechnology and Advanced Materials Engineering",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "MENG241",
+          "name": "Fluid Mechanics",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "MATH301",
+          "name": "Numerical Methods for Engineers",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "EENG201",
+          "name": "Electrical and Electronic Circuits",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "MENG361",
+          "name": "Heat Transfer Phenomena",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "CENG311",
+          "name": "Separation processes",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "CENG351",
+          "name": "Chemical Engineering Lab 1",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "CENG331",
+          "name": "Biochemistry",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "HASS305",
+          "name": "Philosophy",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "CENG301",
+          "name": "Chemical Reaction Engineering",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "CENG341",
+          "name": "Chemical Engineering Design 1",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "CENG451",
+          "name": "Chemical Engineering Lab 2",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "CENG361",
+          "name": "Bioengineering",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "CENG400",
+          "name": "Process Control and Safety",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "GRAD490",
+          "name": "Graduation Project 1 / Internship 1",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "HASS200",
+          "name": "Communications Ethics",
+          "type": "Elective"
+        },
+        {
+          "semester": 8,
+          "code": "CENG401",
+          "name": "Fundamentals of Electrochemistry",
+          "type": "Elective"
+        },
+        {
+          "semester": 8,
+          "code": "EENG411",
+          "name": "Optoelectronics Device and Display Technology",
+          "type": "Elective"
+        },
+        {
+          "semester": 8,
+          "code": "CENG441",
+          "name": "Chemical Engineering Design 2",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "GRAD491",
+          "name": "Graduation Project 2 / Internship 2",
+          "type": "Core"
+        }
+      ],
+      "status": "parsed"
+    },
+    {
+      "name": "B.Sc. Cyber Security",
+      "url": "https://newuu.uz/en/undergraduate-program/bsc-cyber-security",
+      "courses": [
+        {
+          "semester": 1,
+          "code": "CS102",
+          "name": "Computer Programming 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "HASS101",
+          "name": "Academic and Communication Skills 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "CS100",
+          "name": "Information Systems and Digital Technologies",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "HASS100",
+          "name": "First Principles of NewUU",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "MATH111",
+          "name": "Calculus 1",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "CS210",
+          "name": "Computer Programming 2",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "HASS111",
+          "name": "Academic and Communication Skills 2",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "MATH221",
+          "name": "Discrete Mathematics",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "MATH211",
+          "name": "Calculus 2",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "PHYS101",
+          "name": "Physics 1",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "CS203",
+          "name": "Data Science Fundamentals",
+          "type": "Elective"
+        },
+        {
+          "semester": 3,
+          "code": "MATH201",
+          "name": "Linear Algebra",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "CS111",
+          "name": "Algorithms & Data Struсtures",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "CS202",
+          "name": "Digital Logic Design",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "PHYS111",
+          "name": "Physics 2",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "CS231",
+          "name": "Computer Architecture",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "MATH321",
+          "name": "Introduction to Number Theory and Cryptography",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "HASS110",
+          "name": "History of Uzbekistan",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "MATH232",
+          "name": "Probability and Statistics",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "ENT201",
+          "name": "Introduction to Entrepreneurship",
+          "type": "Elective"
+        },
+        {
+          "semester": 5,
+          "code": "CS311",
+          "name": "Computer Networks",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "CS302",
+          "name": "Operating Systems",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "CS212",
+          "name": "Design & Analysis of Algorithms",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "SEC201",
+          "name": "Network Security",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "SEC101",
+          "name": "Cybercrime and Digital Forensics",
+          "type": "Elective"
+        },
+        {
+          "semester": 6,
+          "code": "HASS305",
+          "name": "Philosophy",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "SEC211",
+          "name": "Ethical Hacking and Penetration Testing",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "SEC401",
+          "name": "Secure Software Design and Development",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "SEC402",
+          "name": "Cyber Security",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "GRAD490",
+          "name": "Graduation Project 1 / Internship 1",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "HASS200",
+          "name": "Communications Ethics",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "GRAD491",
+          "name": "Graduation Project 2 / Internship 2",
+          "type": "Core"
+        }
+      ],
+      "status": "parsed"
+    },
+    {
+      "name": "B.Sc. Economics & Data Science",
+      "url": "https://newuu.uz/en/undergraduate-program/bsc-economics-data-science",
+      "courses": [
+        {
+          "semester": 1,
+          "code": "ECON101",
+          "name": "Microeconomics 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "HASS101",
+          "name": "Academic and Communication Skills 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "DSG101",
+          "name": "Creative Thinking and Design",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "MATH111",
+          "name": "Calculus 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "HASS100",
+          "name": "First Principles of NewUU",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "ECON102",
+          "name": "Macroeconomics 1",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "HASS111",
+          "name": "Academic and Communication Skills 2",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "MATH130",
+          "name": "Statistical Methods",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "MATH211",
+          "name": "Calculus 2",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "CS100",
+          "name": "Information Systems and Digital Technologies",
+          "type": "Elective"
+        },
+        {
+          "semester": 3,
+          "code": "ECON202",
+          "name": "Macroeconomics 2",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "MATH201",
+          "name": "Linear Algebra",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "CS102",
+          "name": "Computer Programming 1",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "FINA201",
+          "name": "Financial Accounting",
+          "type": "Elective"
+        },
+        {
+          "semester": 3,
+          "code": "ECON221",
+          "name": "Contemporary issues in Economics",
+          "type": "Elective"
+        },
+        {
+          "semester": 4,
+          "code": "MATH232",
+          "name": "Probability and Statistics",
+          "type": "Elective"
+        },
+        {
+          "semester": 4,
+          "code": "ECON201",
+          "name": "Microeconomics 2",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "ECON231",
+          "name": "Economic and Social Statistics",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "ECON212",
+          "name": "Energy Environmental Economics",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "HASS110",
+          "name": "History of Uzbekistan",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "ECON330",
+          "name": "Circular Economy",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "MGT101",
+          "name": "Principles of Management",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "ECON315",
+          "name": "Game Theory for Economics",
+          "type": "Elective"
+        },
+        {
+          "semester": 5,
+          "code": "ECON301",
+          "name": "Econometrics",
+          "type": "Elective"
+        },
+        {
+          "semester": 5,
+          "code": "CS210",
+          "name": "Computer Programming 2",
+          "type": "Elective"
+        },
+        {
+          "semester": 6,
+          "code": "ECON351",
+          "name": "Research Methods in Economics",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "ECON311",
+          "name": "Money and Banking",
+          "type": "Elective"
+        },
+        {
+          "semester": 6,
+          "code": "HASS305",
+          "name": "Philosophy",
+          "type": "Elective"
+        },
+        {
+          "semester": 6,
+          "code": "ECON302",
+          "name": "International Trade",
+          "type": "Elective"
+        },
+        {
+          "semester": 6,
+          "code": "CS331",
+          "name": "Introduction to Machine Learning",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "ECON460",
+          "name": "Mathematical methods for Economic analysis",
+          "type": "Elective"
+        },
+        {
+          "semester": 7,
+          "code": "CS111",
+          "name": "Algorithms & Data Struсtures",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "ECON402",
+          "name": "Development Economics",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "ECON490",
+          "name": "Research project  1 (Capstone)",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "ECON470",
+          "name": "Time Series Analysis",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "ECON491",
+          "name": "Research project  2 (Capstone)",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "HASS200",
+          "name": "Communications Ethics",
+          "type": "Elective"
+        },
+        {
+          "semester": 8,
+          "code": "ECON410",
+          "name": "Behavioral Economics",
+          "type": "Elective"
+        },
+        {
+          "semester": 8,
+          "code": "CS301",
+          "name": "Fundamentals of Databases",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "ECON420",
+          "name": "Economic Policy",
+          "type": "Elective"
+        }
+      ],
+      "status": "parsed"
+    },
+    {
+      "name": "B.Sc. Industrial Management",
+      "url": "https://newuu.uz/en/undergraduate-program/bsc-industrial-management",
+      "courses": [
+        {
+          "semester": 1,
+          "code": "DSG101",
+          "name": "Creative Thinking and Design",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "MGT101",
+          "name": "Principles of Management",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "HASS101",
+          "name": "Academic and Communication Skills 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "HASS100",
+          "name": "First Principles of NewUU",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "MATH101",
+          "name": "Precalculus",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "CS100",
+          "name": "Information Systems and Digital Technologies",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "MGT102",
+          "name": "Principles of Business",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "HASS111",
+          "name": "Academic and Communication Skills 2",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "MATH111",
+          "name": "Calculus 1",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "IMGT205",
+          "name": "Introduction to Operations Management",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "FINA201",
+          "name": "Financial Accounting",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "ENT201",
+          "name": "Introduction to Entrepreneurship",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "MGT303",
+          "name": "Business Ethics and Law",
+          "type": "Elective"
+        },
+        {
+          "semester": 3,
+          "code": "ECON101",
+          "name": "Microeconomics 1",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "MATH130",
+          "name": "Statistical Methods",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "IMGT210",
+          "name": "Introduction to Manufacturing Processes",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "FINA301",
+          "name": "Cost Accounting",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "ENT210",
+          "name": "Entrepreneurial Marketing",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "ECON102",
+          "name": "Macroeconomics 1",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "HASS110",
+          "name": "History of Uzbekistan",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "MATH201",
+          "name": "Linear Algebra",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "IMGT310",
+          "name": "Quality Management and Six Sigma",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "DSG201",
+          "name": "Interaction Design",
+          "type": "Elective"
+        },
+        {
+          "semester": 5,
+          "code": "FINA330",
+          "name": "Sustainable Investment & Financial Management",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "MGT320",
+          "name": "Project Management",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "MGT305",
+          "name": "Business Communications",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "IMGT340",
+          "name": "Logistics and Supply Chain Management",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "CS381",
+          "name": "Management Information Systems",
+          "type": "Elective"
+        },
+        {
+          "semester": 6,
+          "code": "MGT303",
+          "name": "Business Ethics and Law",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "HASS305",
+          "name": "Philosophy",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "ENT310",
+          "name": "Business Model Innovation",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "IMGT420",
+          "name": "Sustainable Operations & Environment Management",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "IMGT301",
+          "name": "Occupational and Industrial Safety",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "GRAD490",
+          "name": "Graduation Project 1 / Internship 1",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "MGT450",
+          "name": "Strategic Management",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "MATH303",
+          "name": "Game Theory",
+          "type": "Elective"
+        },
+        {
+          "semester": 8,
+          "code": "IMGT430",
+          "name": "Industry 4.0",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "IMGT410",
+          "name": "Factory Planning & Management",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "GRAD491",
+          "name": "Graduation Project 2 / Internship 2",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "MGT330",
+          "name": "Business Intelligence",
+          "type": "Elective"
+        },
+        {
+          "semester": 8,
+          "code": "HASS200",
+          "name": "Communications Ethics",
+          "type": "Core"
+        }
+      ],
+      "status": "parsed"
+    },
+    {
+      "name": "B.Sc. Mechanical Engineering",
+      "url": "https://newuu.uz/en/undergraduate-program/bsc-mechanical-engineering",
+      "courses": [
+        {
+          "semester": 1,
+          "code": "PHYS101",
+          "name": "Physics 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "HASS101",
+          "name": "Academic and Communication Skills 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "CS100",
+          "name": "Information Systems and Digital Technologies",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "MATH111",
+          "name": "Calculus 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "HASS100",
+          "name": "First Principles of NEwUU",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "CHEM101",
+          "name": "General Chemistry",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "HASS111",
+          "name": "Academic and Communication Skills 2",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "DSG101",
+          "name": "Creative Thinking and Design",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "MATH211",
+          "name": "Calculus 2",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "PHYS111",
+          "name": "Physics 2",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "MENG201",
+          "name": "Engineering Mechanics 1",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "EENG201",
+          "name": "Electrical and Electronic Circuits",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "CS102",
+          "name": "Computer Programming 1",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "MENG351",
+          "name": "Basics of Machines Drawing and Computer-Aided Design",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "MATH201",
+          "name": "Linear Algebra",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "MENG301",
+          "name": "Engineering Mechanics 2",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "MENG231",
+          "name": "Introduction to Manufacturing technology",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "MENG211",
+          "name": "Engineering Materials 1",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "MATH241",
+          "name": "Ordinary Differential Equations",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "PHYS221",
+          "name": "Engineering Thermodynamics",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "HASS110",
+          "name": "History of Uzbekistan",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "MSE301",
+          "name": "Nanotechnology and Advanced Materials Engineering",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "MENG241",
+          "name": "Fluid Mechanics",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "MATH301",
+          "name": "Numerical Methods for Engineers",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "MENG401",
+          "name": "Engineering Mechanics 3",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "MENG341",
+          "name": "Machine Elements",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "HASS305",
+          "name": "Philosophy",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "MATH232",
+          "name": "Probability and Statistics",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "MENG321",
+          "name": "Production Engineering",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "MENG361",
+          "name": "Heat Transfer Phenomena",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "MENG331",
+          "name": "Automatic Control",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "MENG551",
+          "name": "Energy Conversion & Power Plants",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "MENG310",
+          "name": "Computational Solid & Fluid Mechanics",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "MGT101",
+          "name": "Principles of Management",
+          "type": "Elective"
+        },
+        {
+          "semester": 7,
+          "code": "MENG120",
+          "name": "Engineering in Society",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "GRAD490",
+          "name": "Graduation Project 1 / Internship 1",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "HASS200",
+          "name": "Communications Ethics",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "IMGT401",
+          "name": "Ergonomics",
+          "type": "Elective"
+        },
+        {
+          "semester": 8,
+          "code": "IMGT410",
+          "name": "Factory Planning & Management",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "GRAD491",
+          "name": "Graduation Project 2 / Internship 2",
+          "type": "Core"
+        }
+      ],
+      "status": "parsed"
+    },
+    {
+      "name": "B.Sc. STEM Education",
+      "url": "https://newuu.uz/en/undergraduate-program/bsc-pedagogy-stem-specialization",
+      "courses": [
+        {
+          "semester": 1,
+          "code": "ED311",
+          "name": "Education, Society, Culture and STEM",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "HASS101",
+          "name": "Academic and Communication Skills 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "CS100",
+          "name": "Information Systems and Digital Technologies",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "MATH101",
+          "name": "Precalculus",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "HASS100",
+          "name": "First Principles of NewUU",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "ED111",
+          "name": "Introduction to STEM Education and Teaching",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "HASS111",
+          "name": "Academic and Communication Skills 2",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "CS102",
+          "name": "Computer Programming 1",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "MATH111",
+          "name": "Calculus 1",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "MATH130",
+          "name": "Statistical Methods",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "ED410",
+          "name": "Game-based Learning and Gamification for the Classroom",
+          "type": "Elective"
+        },
+        {
+          "semester": 3,
+          "code": "CS210",
+          "name": "Computer Programming 2",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "MATH211",
+          "name": "Calculus 2",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "ED302",
+          "name": "Introduction to Teaching Math",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "ED321",
+          "name": "Foundations of AI Literacy",
+          "type": "Elective"
+        },
+        {
+          "semester": 4,
+          "code": "ED211",
+          "name": "Assessment & Evaluation in Education",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "CS301",
+          "name": "Fundamentals of Databases",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "MATH221",
+          "name": "Discrete Mathematics",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "HASS110",
+          "name": "History of Uzbekistan",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "ED291",
+          "name": "Pedagogical Internship 1",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "ED310",
+          "name": "Introduction to Teaching Technology",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "ED241",
+          "name": "The Art of STEAM Communcation",
+          "type": "Elective"
+        },
+        {
+          "semester": 5,
+          "code": "MATH321",
+          "name": "Introduction to Number Theory and Cryptography",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "CS331",
+          "name": "Introduction to Machine Learning",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "SEC111",
+          "name": "Computer Security",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "ED320",
+          "name": "Interdisciplinary literacies in STEM",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "ED231",
+          "name": "Educational Psychology",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "HASS305",
+          "name": "Philosophy",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "ED331",
+          "name": "Research Methodology",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "MATH380",
+          "name": "Foundations and Applications of Geometry",
+          "type": "Elective"
+        },
+        {
+          "semester": 6,
+          "code": "ED391",
+          "name": "Pedagogical Internship 2",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "ED421",
+          "name": "Teaching, Technology and AI Pedagogies",
+          "type": "Elective"
+        },
+        {
+          "semester": 7,
+          "code": "ED221",
+          "name": "Curriculum Development & Instruction",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "ED402",
+          "name": "Real-World Learning, Project, Case and Problem-based Learning",
+          "type": "Elective"
+        },
+        {
+          "semester": 7,
+          "code": "ED460",
+          "name": "Foundations of Research Proposal Writing",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "ED315",
+          "name": "Coding for Educators",
+          "type": "Elective"
+        },
+        {
+          "semester": 7,
+          "code": "ED450",
+          "name": "Digital Media and Technology in STEM Education",
+          "type": "Elective"
+        },
+        {
+          "semester": 8,
+          "code": "ED491",
+          "name": "Pedagogical Internship 3",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "ED441",
+          "name": "Graduation Project",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "ED431",
+          "name": "Professional Development and Leadership in STEM Education",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "ED411",
+          "name": "Professional Ethics and Legal Issues in Education",
+          "type": "Core"
+        }
+      ],
+      "status": "parsed"
+    },
+    {
+      "name": "B.Sc. Software Engineering",
+      "url": "https://newuu.uz/en/undergraduate-program/bsc-software-engineering",
+      "courses": [
+        {
+          "semester": 1,
+          "code": "CS102",
+          "name": "Computer Programming 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "HASS101",
+          "name": "Academic and Communication Skills 1",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "CS100",
+          "name": "Information Systems and Digital Technologies",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "HASS100",
+          "name": "First Principles of NewUU",
+          "type": "Core"
+        },
+        {
+          "semester": 1,
+          "code": "MATH111",
+          "name": "Calculus 1",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "CS210",
+          "name": "Computer Programming 2",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "HASS111",
+          "name": "Academic and Communication Skills 2",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "MATH221",
+          "name": "Discrete Mathematics",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "MATH211",
+          "name": "Calculus 2",
+          "type": "Core"
+        },
+        {
+          "semester": 2,
+          "code": "PHYS101",
+          "name": "Physics 1",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "CS203",
+          "name": "Data Science Fundamentals",
+          "type": "Elective"
+        },
+        {
+          "semester": 3,
+          "code": "MATH201",
+          "name": "Linear Algebra",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "CS111",
+          "name": "Algorithms & Data Struсtures",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "CS202",
+          "name": "Digital Logic Design",
+          "type": "Core"
+        },
+        {
+          "semester": 3,
+          "code": "PHYS111",
+          "name": "Physics 2",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "CS231",
+          "name": "Computer Architecture",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "CS301",
+          "name": "Fundamentals of Databases",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "HASS110",
+          "name": "History of Uzbekistan",
+          "type": "Core"
+        },
+        {
+          "semester": 4,
+          "code": "MATH232",
+          "name": "Probability and Statistics",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "ENT201",
+          "name": "Introduction to Entrepreneurship",
+          "type": "Elective"
+        },
+        {
+          "semester": 5,
+          "code": "CS302",
+          "name": "Operating Systems",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "CS360",
+          "name": "Fundamentals of Software Engineering",
+          "type": "Core"
+        },
+        {
+          "semester": 5,
+          "code": "CS212",
+          "name": "Design & Analysis of Algorithms",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "CS311",
+          "name": "Computer Networks",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "HASS305",
+          "name": "Philosophy",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "CS362",
+          "name": "Software Quality Engineering",
+          "type": "Core"
+        },
+        {
+          "semester": 6,
+          "code": "CS331",
+          "name": "Introduction to Machine Learning",
+          "type": "Elective"
+        },
+        {
+          "semester": 7,
+          "code": "CS363",
+          "name": "Software Project Management",
+          "type": "Core"
+        },
+        {
+          "semester": 7,
+          "code": "GRAD490",
+          "name": "Graduation Project 1 / Internship 1",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "HASS200",
+          "name": "Communications Ethics",
+          "type": "Core"
+        },
+        {
+          "semester": 8,
+          "code": "GRAD491",
+          "name": "Graduation Project 2 / Internship 2",
+          "type": "Core"
+        }
+      ],
+      "status": "parsed"
+    },
+    {
+      "name": "M.D. Doctor of Medicine",
+      "url": "https://newuu.uz/en/undergraduate-program/md-doctor-of-medicine",
+      "courses": [],
+      "status": "No structured semester/course-code table found"
+    }
+  ]
+}
