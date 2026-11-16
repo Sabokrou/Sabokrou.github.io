@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+ <meta name="theme-color" content="#f7f7f0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
+ <meta name="apple-mobile-web-app-title" content="Research Signal"><meta name="description" content="A useful research and career briefing. Refresh on your terms, read offline, save what matters."><meta name="robots" content="noindex,nofollow">
+ <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+ <meta name="referrer" content="no-referrer"><title>Research Signal · A quieter research briefing</title>
+ <link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="icon-180.png"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="styles.css">
+ <script type="module" src="app.mjs"></script>
+</head>
+<body>
+ <a class="skip" href="#main">Skip to briefing</a>
+ <svg class="icon-sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+  <symbol id="i-brief" viewBox="0 0 24 24"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 15h5"/></symbol>
+  <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16M8 3v6M16 9v6M10 15v6"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 7a8 8 0 1 0 1 8M20 3v5h-5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M14 3h7v7M21 3 10 14M11 5H4v15h15v-7"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6zM8 12l3 3 5-6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v6l4 2"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+ </defs></svg>
+ <aside class="sidebar">
+  <a class="brand" href="./" aria-label="Research Signal home"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span>research<span class="brand-light">signal</span><small>YOUR ATTENTION, WELL SPENT</small></span></a>
+  <p class="nav-label">YOUR WORKSPACE</p>
+  <nav aria-label="Main navigation"><button data-view="brief" class="active"><svg><use href="#i-brief"/></svg> My briefing <span class="nav-dot"></span></button><button data-view="saved"><svg><use href="#i-bookmark"/></svg> Saved <span id="saved-count" class="nav-count">0</span></button><button data-view="settings"><svg><use href="#i-settings"/></svg> Preferences</button></nav>
+  <div class="sidebar-note"><span class="eyebrow">A LITTLE LESS, A LITTLE BETTER</span><p>Useful research.<br>Real opportunities.<br>Room to think.</p><div class="manual-badge"><span></span> Manual refresh only</div></div>
+  <div class="sidebar-bottom"><svg><use href="#i-shield"/></svg><p>Cached on this device.<br>Your Claude key stays private.</p></div>
+ </aside>
+ <div class="workspace">
+  <header class="topbar"><div class="mobile-brand"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><strong>research<span>signal</span></strong></div><p class="desktop-breadcrumb">Your workspace <span>/</span> <strong id="breadcrumb">My briefing</strong></p><div class="topbar-right"><span id="online-status"><i></i> Online</span><span class="avatar" aria-label="Personal workspace">M</span></div></header>
+  <main id="main" tabindex="-1">
+   <div id="notice" class="notice" role="status" hidden></div>
+   <section id="brief-view">
+    <div class="heading-row"><div><p class="eyebrow" id="date-label"></p><h1>Your research.<br><em>Without the noise.</em></h1><p class="intro">A thoughtful selection of what moves your work forward.</p></div><button class="primary refresh-action"><svg><use href="#i-refresh"/></svg> Refresh <span class="desktop-only">my briefing</span></button></div>
+    <div class="brief-status"><span class="status-pip"></span><span id="updated-label">Your first briefing is waiting to be made.</span><span class="status-separator">·</span><span>You choose when to refresh</span></div>
+    <div class="filter-bar"><div class="filters" role="group" aria-label="Filter by category"><button class="selected" data-category="all">All signals</button><button data-category="grant">Funding</button><button data-category="paper">Research</button><button data-category="career">Career</button><button data-category="development">Field notes</button><button data-category="debate">Debates</button></div><label class="search"><svg><use href="#i-search"/></svg><input id="search" type="search" placeholder="Find something…" aria-label="Search briefing"></label></div>
+    <div class="section-label"><span id="section-label">A BRIEFING BUILT AROUND YOUR WORK</span><span id="result-count"></span></div>
+    <div id="brief-items" class="items"></div>
+    <section id="first-brief" class="first-brief"><div class="signal-orbit" aria-hidden="true"><span class="orbit o1"></span><span class="orbit o2"></span><span class="orbit o3"></span><span class="signal-core"><i></i><i></i><i></i><i></i></span><span class="orbit-dot d1"></span><span class="orbit-dot d2"></span><span class="orbit-dot d3"></span></div><p class="eyebrow">LESS SCROLLING. MORE SUBSTANCE.</p><h2>Start with what matters.</h2><p>Find relevant papers, open grants and useful career opportunities. Claude reads the sources and explains why each item deserves your attention.</p><div class="lens-tags"><span>Trustworthy AI</span><span>Computer vision</span><span>Anomaly & OOD</span><span>VLM reliability</span></div><button class="primary refresh-action">Create my first briefing <svg><use href="#i-arrow"/></svg></button><small>Connect your Claude API key on the private refresh page.</small></section>
+    <div class="quiet-end"><span></span><p>Enough to stay informed. Space to do your work.</p><span></span></div>
+   </section>
+   <section id="saved-view" hidden><p class="eyebrow">KEEP THE GOOD PARTS</p><h1>Worth coming<br><em>back to.</em></h1><p class="intro">Your saved reading and opportunities, available on this device.</p><div id="saved-items" class="items saved-list"></div></section>
+   <section id="settings-view" hidden><p class="eyebrow">MAKE IT YOURS</p><h1>A quieter<br><em>way to keep up.</em></h1><p class="intro">A few useful connections. No endless feed.</p><div class="settings-grid">
+    <article class="setting-card"><div class="setting-icon"><svg><use href="#i-shield"/></svg></div><h2>Claude & your research lens</h2><p>Search and summarization run in your existing private Research Signal service. Your Claude API key is encrypted there and never published to GitHub.</p><button class="secondary refresh-action">Open secure connection <svg><use href="#i-link"/></svg></button><small>Anthropic charges for API usage. The service has an estimated $5 monthly app limit.</small></article>
+    <article class="setting-card"><div class="setting-icon"><svg><use href="#i-brief"/></svg></div><h2>On your iPhone Home Screen</h2><p>Open this page in Safari. Tap <strong>Share → Add to Home Screen</strong>, then choose <strong>Open as Web App</strong> if shown.</p><p>Read your downloaded briefing offline. Refresh needs an internet connection and may open the private service in Safari.</p></article>
+    <article class="setting-card"><div class="setting-icon warm"><svg><use href="#i-clock"/></svg></div><h2>Your pace, always</h2><p>Opening the app reads your cache. It does not start research, send messages or run a morning schedule. New research starts only after you choose Refresh on the secure page.</p></article>
+    <article class="setting-card"><div class="setting-icon warm"><svg><use href="#i-link"/></svg></div><h2>LinkedIn connection</h2><span class="status-tag">Not connected</span><p>Claude can sometimes find accessible public posts. Your private messages, connection requests and post reactions are not available through a Claude key alone.</p><p>Reading and replying inside this app remains a separate, unfinished integration.</p></article>
+   </div><details class="local-data"><summary>Manage data on this device</summary><p>Only the briefing and saved items are cached here. Clearing them does not remove the copy in your private service.</p><div class="data-actions"><button id="export-brief" class="secondary">Export briefing</button><label class="secondary file-label">Import briefing<input id="import-brief" type="file" accept="application/json,.json"></label><button id="clear-cache" class="text-button">Clear this device’s cache</button></div><p class="fine">Import is useful if Safari and your installed web app have separate storage. Download a briefing file from the secure refresh page, then import it here.</p></details></section>
+  </main>
+  <footer><span class="eyebrow">RESEARCH SIGNAL</span><p>Sources before hype. Usefulness before popularity.</p><span id="cache-status">No briefing cached</span></footer>
+ </div>
+ <nav class="mobile-nav" aria-label="Mobile navigation"><button class="active" data-view="brief"><svg><use href="#i-brief"/></svg><span>Briefing</span></button><button data-view="saved"><svg><use href="#i-bookmark"/></svg><span>Saved</span></button><button data-view="settings"><svg><use href="#i-settings"/></svg><span>Preferences</span></button></nav>
+ <dialog id="clear-dialog"><h2>Clear this device’s cache?</h2><p>This removes the downloaded briefing and saved items from this browser. Your private service keeps its latest briefing.</p><div><button id="cancel-clear" class="secondary">Keep my data</button><button id="confirm-clear" class="primary">Clear local data</button></div></dialog>
+ <noscript>This app needs JavaScript to read your saved briefing. Enable JavaScript in your browser.</noscript>
+</body></html>
