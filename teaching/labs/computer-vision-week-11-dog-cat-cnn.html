@@ -1,0 +1,1953 @@
+<!doctype html>
+<html lang="en" data-visualize-standalone>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dog and Cat CNN Training | CS418 Computer Vision</title>
+<meta name="description" content="Trace a dog or cat image through a small CNN, calculate its loss, and see how backpropagation updates all seven trainable parameters.">
+<link rel="canonical" href="https://sabokrou.github.io/teaching/labs/computer-vision-week-11-dog-cat-cnn.html">
+<style>
+:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 16px);
+  --blue: light-dark(rgb(51 156 255), rgb(51 156 255));
+  --orange: light-dark(rgb(226 85 7), rgb(251 106 34));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --red: light-dark(rgb(224 46 42), rgb(255 103 100));
+  --purple: light-dark(rgb(146 79 247), rgb(173 123 249));
+  --yellow: light-dark(rgb(255 195 0), rgb(255 210 64));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans:
+    -apple-system-body, ui-sans-serif, -apple-system, system-ui, "Segoe UI",
+    Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  --font-mono:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono",
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --icon-size: 16px;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --corner-shape: round;
+  --radius: var(--border-radius-lg, 8px);
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: calc(var(--radius) * 0.75);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 2);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 17 17'%3E%3Cpath d='M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z'/%3E%3C/svg%3E");
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html > body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: var(--visualize-paint-gutter, 0px);
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  -webkit-font-smoothing: antialiased;
+  font-size: var(--font-size-base);
+  line-height: calc(var(--font-size-base) * 1.625);
+  font-weight: var(--font-weight-normal);
+}
+
+:root:not([data-app-block-surface], [data-visualize-standalone]) > body {
+  padding: 12px;
+}
+
+.cursor-interaction {
+  cursor: var(--cursor-interaction, pointer);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: var(--cursor-interaction, pointer);
+  text-decoration: none;
+  text-underline-offset: 2px;
+  font-weight: inherit;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+.table {
+  font-family: var(--font-sans);
+}
+
+h1 {
+  font-size: calc(var(--font-size-base) * 1.5);
+  line-height: 1.3333333333;
+}
+
+h2 {
+  font-size: calc(var(--font-size-base) * 1.25);
+  line-height: 1.4;
+}
+h3 {
+  font-size: calc(var(--font-size-base) * 1.125);
+  line-height: 1.5555555556;
+}
+h4 {
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+}
+h5,
+h6 {
+  font-size: var(--font-size-base);
+  line-height: calc(var(--font-size-base) * 1.625);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+strong,
+th {
+  font-weight: 600;
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+pre,
+pre code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: calc(var(--font-size-base) * 0.875);
+  line-height: calc(var(--font-size-base) * 1.625);
+  font-family: var(--font-sans);
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 5%, transparent);
+}
+.table :is(th, td):not(:last-child) {
+  padding-inline-end: calc(var(--font-size-base) * 1.5);
+}
+
+.table-responsive > .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead :is(th, td) {
+  border-bottom-color: var(--border-strong, var(--input));
+  padding-block: calc(var(--font-size-base) / 2);
+  line-height: var(--font-size-base);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+.table tbody :is(th, td) {
+  padding-block: calc(var(--font-size-base) * 0.625);
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 8px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align="right"]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align="center"]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: var(--corner-shape);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+.widget {
+  min-width: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  box-shadow: 0 0 0 0.5px var(--border-strong, var(--border));
+  color: var(--foreground);
+  background: var(--background);
+}
+
+#widget > :not(.card, .widget, .progress) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  border: 1px solid var(--border);
+  corner-shape: var(--corner-shape);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+  font-family: var(--font-sans);
+  padding: 5px 12px;
+  border-color: color-mix(
+    in oklab,
+    light-dark(var(--primary-foreground), var(--foreground)) 5%,
+    transparent
+  );
+  border-radius: var(--radius-2xl);
+  color: light-dark(var(--primary-foreground), var(--foreground));
+  background: light-dark(var(--foreground), var(--popover));
+  box-shadow: 0 8px 18px rgb(15 23 42 / 20%);
+  letter-spacing: -0.15px;
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+}
+
+/* The shared runtime owns data-tooltip; suppress AppBlock's pseudo-tooltip. */
+main [data-tooltip]::after {
+  content: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  margin-block: 6px;
+  border: 0;
+  background: var(--border);
+}
+
+.nav {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 4px;
+}
+
+.progress {
+  display: flex;
+  height: 8px;
+  margin-block: calc((var(--line-height-normal, 1.5em) - 8px) / 2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+}
+
+.progress-bar:only-child {
+  border-radius: var(--radius-full);
+}
+
+.progress-bar {
+  height: 100%;
+  flex-shrink: 0;
+  border: 0;
+  background: var(--viz-series-1);
+}
+
+.viz-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  color: color-mix(in srgb, var(--foreground) 40%, var(--muted-foreground));
+  background: color-mix(in srgb, var(--foreground) 5%, transparent);
+  font-family: var(--font-sans);
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: var(--font-weight-normal);
+  line-height: 1;
+}
+
+small,
+.text-small {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls > .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls > .form-label > :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.nav-link,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+/* Match inline alignment without overriding a containing flex or grid layout. */
+.btn,
+.nav-link,
+.form-control,
+.form-select,
+.form-range,
+.form-check {
+  vertical-align: middle;
+}
+
+.btn,
+.nav-link {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  corner-shape: var(--corner-shape);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: inherit;
+  font-family: var(--font-sans);
+  height: fit-content;
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  padding-inline: var(--control-spacing, 12px);
+  border-color: transparent;
+  border-radius: var(--radius-full);
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 5%, transparent);
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: var(--font-weight-normal);
+  line-height: 18px;
+}
+
+.btn {
+  border-color: var(--border);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: var(--cursor-interaction, pointer);
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover {
+  background: light-dark(
+    color-mix(in srgb, var(--foreground) 5.5%, transparent),
+    color-mix(in srgb, var(--foreground) 8%, transparent)
+  );
+}
+
+.nav-link:not(:disabled):not([aria-disabled="true"]):hover {
+  background: color-mix(in srgb, var(--foreground) 10%, transparent);
+}
+
+.btn-primary {
+  border-color: var(--border);
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: border-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: border-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--muted-foreground);
+  background: light-dark(
+    color-mix(in srgb, var(--foreground) 5.5%, transparent),
+    color-mix(in srgb, var(--foreground) 8%, transparent)
+  );
+}
+
+.nav-pills .nav-link {
+  min-width: 0;
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.nav-justified .nav-link {
+  flex: 1 1 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.nav-pills .nav-link.active {
+  color: var(--foreground);
+  background: var(--muted);
+}
+
+/* Shared preview chrome; product styles stay inside each variant. */
+.viz-dotted-background {
+  background-image: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--foreground) 14%, transparent) 0.8px,
+    transparent 0.8px
+  );
+  background-position: center;
+  background-size: 16px 16px;
+}
+
+.viz-carousel {
+  position: relative;
+  min-width: 0;
+}
+
+.viz-carousel:has(> .viz-carousel-controls) {
+  min-height: calc(60px + var(--viz-carousel-picker-height, 0px));
+  padding-bottom: 60px;
+}
+
+.viz-carousel > [data-variant][hidden] {
+  display: none !important;
+}
+
+.viz-carousel > [data-variant] {
+  isolation: isolate;
+}
+
+.viz-carousel-controls {
+  --viz-carousel-hover: light-dark(
+    color-mix(in srgb, var(--foreground) 5.4%, transparent),
+    color-mix(in srgb, var(--foreground) 7.8%, transparent)
+  );
+  position: absolute;
+  z-index: 2;
+  bottom: 8px;
+  left: 50%;
+  display: flex;
+  width: max-content;
+  /* Leave room for the host's design-controls launcher at the trailing edge. */
+  max-width: calc(100% - 96px);
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sans);
+  /* Match the settings dropdown chrome independently of the content font size. */
+  font-size: 13px;
+  font-weight: var(--font-weight-normal);
+  line-height: 18px;
+  transform: translateX(-50%);
+  user-select: none;
+}
+
+/* Keep authored mockup button styles out of the shared carousel chrome. */
+.viz-carousel-controls button,
+.viz-carousel-picker > summary {
+  display: flex !important;
+  height: auto !important;
+  min-height: 30px;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px;
+  padding: 0 6px !important;
+  -webkit-app-region: no-drag;
+  border: 0 !important;
+  border-radius: 14px !important;
+  color: inherit !important;
+  background: transparent !important;
+  font: inherit !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.viz-carousel-controls > button,
+.viz-carousel-picker > summary {
+  position: relative;
+  isolation: isolate;
+}
+
+.viz-carousel-controls > button {
+  --icon-size: 16px;
+  width: 30px !important;
+  padding: 0 !important;
+}
+
+.viz-carousel-picker > summary {
+  padding-inline: 12px !important;
+}
+
+.viz-carousel-controls .viz-carousel-caret {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  margin: 0;
+  color: inherit;
+  transform: rotate(180deg);
+}
+
+.viz-carousel-controls > button > svg,
+.viz-carousel-controls .viz-carousel-caret,
+.viz-carousel-count {
+  opacity: 0.5;
+}
+
+.viz-carousel-controls > button::before,
+.viz-carousel-picker > summary::before {
+  position: absolute;
+  z-index: -1;
+  inset: 3px;
+  border-radius: 12px;
+  content: "";
+  pointer-events: none;
+}
+
+.viz-carousel-controls > button:hover::before,
+.viz-carousel-picker > summary:hover::before {
+  background: var(--viz-carousel-hover);
+}
+
+.viz-carousel-controls > button,
+.viz-carousel-controls [data-lucide],
+.viz-carousel-controls .lucide {
+  flex-shrink: 0;
+}
+
+.viz-carousel-picker {
+  min-width: 0;
+}
+
+.viz-carousel-picker > summary {
+  min-width: 0;
+  list-style: none;
+}
+
+.viz-carousel-picker > summary::-webkit-details-marker {
+  display: none;
+}
+
+.viz-carousel-count {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.viz-carousel-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.viz-carousel-options {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 4px);
+  left: 0;
+  display: flex;
+  max-height: 240px;
+  flex-direction: column;
+  gap: 2px;
+  overflow: auto;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--background);
+  box-shadow: 0 4px 12px light-dark(rgb(0 0 0 / 6%), rgb(0 0 0 / 25%));
+}
+
+.viz-carousel-options > button {
+  border-radius: max(0px, calc(var(--radius-lg) - 5px)) !important;
+  width: 100% !important;
+  min-height: 28px;
+  justify-content: flex-start !important;
+  padding: 4px 8px !important;
+  font-size: var(--font-size-small) !important;
+  text-align: start;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.viz-carousel-options > [aria-current="true"],
+.viz-carousel-options > button:hover {
+  background: var(--viz-carousel-hover) !important;
+}
+
+.btn:disabled,
+.nav-link:disabled,
+.nav-link[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  height: calc(12px + 2 * var(--control-spacing, 12px));
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  padding-inline: calc(4px + var(--control-spacing, 12px) / 2);
+  border-color: var(--input);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--popover) 96%, transparent);
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.4285714286;
+}
+.form-control:is(
+  [type="file"],
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="week"],
+  [type="color"]
+) {
+  height: calc(12px + 2 * var(--control-spacing, 12px));
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  line-height: 18px;
+}
+.form-control:is(
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="week"]
+) {
+  padding-inline: var(--control-spacing, 12px);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type="file"] {
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+  padding: 0;
+}
+
+.form-control[type="file"]::file-selector-button {
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+  min-height: calc(10px + 2 * var(--control-spacing, 12px));
+  padding-inline: var(--control-spacing, 12px);
+  margin-inline-end: var(--control-spacing, 12px);
+}
+
+.form-control[type="file"]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type="color"] {
+  width: 40px;
+  height: calc(12px + 2 * var(--control-spacing, 12px));
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type="color"]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: var(--corner-shape);
+}
+
+textarea.form-control {
+  height: auto;
+  resize: vertical;
+  min-height: 96px;
+  padding: 8px 10px;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: none;
+}
+.form-control:disabled {
+  color: var(--muted-foreground);
+  background: color-mix(in srgb, var(--foreground) 5%, transparent);
+  opacity: 1;
+}
+.form-control[aria-invalid="true"] {
+  border-color: var(--red);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--red) 20%, transparent);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: fit-content;
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  margin: 0;
+  /* The secondary icon role is 14px at compact density and 16px at web density. */
+  --icon-size: calc(10px + var(--control-spacing, 12px) / 2);
+  /* Settings dropdowns retain a 12px inset and a 4px text-to-chevron gap. */
+  padding: 0 calc(16px + var(--icon-size)) 0 12px;
+  outline: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(
+      45deg,
+      transparent calc(50% - 0.6px),
+      var(--muted-foreground) calc(50% - 0.6px) calc(50% + 0.6px),
+      transparent calc(50% + 0.6px)
+    ),
+    linear-gradient(
+      135deg,
+      transparent calc(50% - 0.6px),
+      var(--muted-foreground) calc(50% - 0.6px) calc(50% + 0.6px),
+      transparent calc(50% + 0.6px)
+    );
+  background-position:
+    calc(100% - 12px - var(--icon-size) / 2) 50%,
+    calc(100% - 12px - var(--icon-size) * 0.18) 50%;
+  background-repeat: no-repeat;
+  background-size: calc(var(--icon-size) * 0.32) calc(var(--icon-size) * 0.32);
+  cursor: var(--cursor-interaction, default);
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: var(--font-weight-normal);
+  line-height: 18px;
+}
+
+.form-select :is(option, optgroup) {
+  color: var(--popover-foreground);
+  background-color: var(--popover);
+}
+
+.form-select :is(option, optgroup):disabled {
+  color: var(--muted-foreground);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: light-dark(
+    color-mix(in srgb, var(--foreground) 5.5%, transparent),
+    color-mix(in srgb, var(--foreground) 8%, transparent)
+  );
+}
+
+.form-select:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+.form-select:disabled {
+  opacity: 0.4;
+}
+
+.form-check {
+  display: flex;
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type="checkbox"] {
+  corner-shape: round;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  width: calc(10px + var(--control-spacing, 12px) / 2);
+  height: calc(10px + var(--control-spacing, 12px) / 2);
+  border-color: var(--border-strong, var(--input));
+  border-radius: calc(var(--radius-sm) / 2);
+  background-color: transparent;
+  color: var(--foreground);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type="checkbox"]:is(:checked, :indeterminate) {
+  border-color: var(--border-strong, var(--input));
+  background-color: color-mix(in srgb, var(--popover) 96%, transparent);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type="checkbox"]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: "";
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+  background-color: var(--foreground);
+}
+.form-check:not(.form-switch)
+  .form-check-input[type="checkbox"]:indeterminate::before {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 65%;
+  height: 6.65%;
+  margin: auto;
+  border-radius: var(--radius-full);
+  background: var(--foreground);
+  mask: none;
+  content: "";
+}
+
+.form-check-input[type="radio"] {
+  border-radius: var(--radius-full);
+  width: 16px;
+  height: 16px;
+  border: 0;
+  box-shadow: inset 0 0 0 1px var(--input);
+}
+
+.form-check-input[type="radio"]:checked {
+  border: 0;
+  background: radial-gradient(
+    circle,
+    var(--primary-foreground) 0 3px,
+    var(--foreground) 3px
+  );
+  box-shadow: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+.form-check:not(.form-switch) .form-check-input[type="checkbox"]:focus-visible {
+  border-color: var(--ring);
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+.form-check:not(.form-switch) .form-check-input[type="radio"]:disabled,
+.form-check:not(.form-switch)
+  .form-check-input[type="radio"]:disabled
+  + .form-check-label {
+  opacity: 0.5;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  content: "";
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+  border-color: #fff;
+  background: #fff;
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--blue);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+  outline: none;
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  accent-color: var(--primary);
+  height: calc(12px + 2 * var(--control-spacing, 12px));
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  outline: none;
+  border-radius: var(--radius-full);
+  color: var(--foreground);
+  background: transparent;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  background: var(--form-range-track, var(--border));
+  height: 2px;
+  border-radius: var(--radius-full);
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  margin-top: -9px;
+  border-color: transparent;
+  background: currentColor;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Outline the native track and thumb, preserving the larger input hit area. */
+.form-range:focus-visible::-webkit-slider-runnable-track {
+  outline: 2px auto Highlight;
+  outline-color: -webkit-focus-ring-color;
+}
+
+.form-range::-moz-range-track {
+  background: var(--form-range-track, var(--border));
+  height: 2px;
+  border-radius: var(--radius-full);
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  border-color: transparent;
+  background: currentColor;
+  box-shadow: var(--shadow-sm);
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  outline: 2px solid Highlight;
+  outline-offset: 2px;
+}
+
+.form-range:disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+  [aria-pressed="true"],
+  [aria-selected="true"],
+  .is-selected
+) {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--blue);
+}
+
+.btn.viz-tile:is([aria-pressed="true"], [aria-selected="true"], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible,
+.nav-link:focus-visible {
+  outline-offset: 2px;
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.viz-carousel-controls :is(button, summary):focus-visible {
+  outline: 2px solid var(--ring) !important;
+  outline-offset: 2px !important;
+}
+
+/* Web recipes are the default, including on renderers without inline style queries. */
+@supports (border-radius: if(style(--corner-shape: round): 1px; else: 2px)) {
+  /* Match the host's proportional text-sm scale at every text preference. */
+  .tooltip,
+  .viz-badge,
+  .btn,
+  .nav-link,
+  .form-control,
+  .form-select {
+    font-size: if(
+      style(--corner-shape: round): round(
+          nearest,
+          calc(var(--font-size-base) * 14 / 16),
+          1px
+        );
+        else: round(nearest, calc(var(--font-size-base) * 13 / 14), 1px)
+    );
+  }
+
+  .btn,
+  .nav-link,
+  .form-select {
+    border-radius: if(
+      style(--corner-shape: round): var(--radius-full); else: var(--radius-lg)
+    );
+  }
+
+  .form-check:not(.form-switch) .form-check-input[type="checkbox"] {
+    border-radius: if(
+      style(--corner-shape: round): calc(var(--radius-sm) / 2);
+        else: calc(var(--radius-lg) * 0.4)
+    );
+  }
+
+  .tooltip {
+    font-weight: if(
+      style(--corner-shape: round): 600; else: var(--font-weight-normal)
+    );
+  }
+}
+
+@media (pointer: coarse) {
+  .viz-carousel:has(> .viz-carousel-controls) {
+    min-height: calc(76px + var(--viz-carousel-picker-height, 0px));
+    padding-bottom: 76px;
+  }
+
+  .btn,
+  .nav-link,
+  .viz-carousel-controls button,
+  .viz-carousel-picker > summary,
+  .form-control,
+  .form-select {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Keep small-screen WebKit from zooming when a text field receives focus. */
+  .form-control,
+  .form-select {
+    font-size: max(16px, calc(var(--font-size-base) * 14 / 16));
+    font-size: max(
+      16px,
+      round(nearest, calc(var(--font-size-base) * 14 / 16), 1px)
+    );
+  }
+  .form-control:is(
+    [type="file"],
+    [type="date"],
+    [type="datetime-local"],
+    [type="month"],
+    [type="week"],
+    [type="time"],
+    [type="color"]
+  ) {
+    height: 44px;
+    min-height: 44px;
+    font-size: max(16px, calc(var(--font-size-base) * 14 / 16));
+    font-size: max(
+      16px,
+      round(nearest, calc(var(--font-size-base) * 14 / 16), 1px)
+    );
+  }
+
+  .form-control[type="file"]::file-selector-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control-color[type="color"] {
+    width: 44px;
+    height: 44px;
+  }
+
+  .form-control:is(
+    [type="date"],
+    [type="datetime-local"],
+    [type="month"],
+    [type="time"],
+    [type="week"]
+  ) {
+    min-width: 0;
+    max-width: 100%;
+    padding-block: 8px;
+  }
+
+  .form-check {
+    min-height: 44px;
+    padding-inline: 15px;
+  }
+
+  .form-check-input {
+    position: relative;
+  }
+
+  .form-check-input::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    content: "";
+    transform: translate(-50%, -50%);
+  }
+
+  .form-check-label {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .form-range {
+    height: 44px;
+    touch-action: pan-y;
+  }
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget > svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: var(--icon-size) !important;
+  height: var(--icon-size) !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html>body{padding:0}
+.course-shell { max-width: 56rem; margin: 0 auto; padding: clamp(1rem, 3vw, 2rem); }
+.course-nav { margin: 0 0 1.15rem; }
+.course-nav a { color: var(--foreground); text-decoration: underline; text-underline-offset: .2em; }
+#animal-cnn .cnn-top h1 { font-size: clamp(1.6rem, 4vw, 2.3rem); line-height: 1.15; margin: 0; }
+#animal-cnn .cnn-stage-head h2 { font-size: clamp(1.15rem, 2.7vw, 1.45rem); line-height: 1.3; }
+</style>
+</head>
+<body>
+<main class="course-shell">
+<nav class="course-nav" aria-label="Course navigation"><a href="/teaching/#computer-vision-week-11">Computer Vision · Week 11</a></nav>
+<noscript>Enable JavaScript to step through the calculations and apply a weight update.</noscript>
+<div id="animal-cnn" aria-label="Dog and cat convolutional neural network training walkthrough">
+  <header class="cnn-top">
+    <h1>Inside a dog–cat CNN</h1>
+    <div id="cnn-pass" class="text-small text-muted tabular-nums"></div>
+  </header>
+  <div class="cnn-controls">
+    <div role="group" aria-label="Training image" class="cnn-example">
+      <span class="text-small text-muted">Training image</span>
+      <div class="viz-row">
+        <button class="btn" type="button" data-example="dog" aria-pressed="true">Dog</button>
+        <button class="btn" type="button" data-example="cat" aria-pressed="false">Cat</button>
+      </div>
+    </div>
+    <label class="form-label">Jump to step
+      <select class="form-select" id="cnn-stage"></select>
+    </label>
+  </div>
+  <hr>
+  <div id="cnn-route" aria-label="Network architecture"></div>
+  <div class="cnn-stage-head">
+    <p class="text-small text-muted" id="cnn-phase"></p>
+    <h2 id="cnn-title"></h2>
+    <p id="cnn-caption"></p>
+  </div>
+  <section id="cnn-figure" aria-labelledby="cnn-title"></section>
+  <hr>
+  <nav class="cnn-nav" aria-label="Training walkthrough">
+    <button type="button" class="btn" id="cnn-back">← Back</button>
+    <button type="button" class="btn btn-primary" id="cnn-next">Next →</button>
+    <button type="button" class="btn btn-ghost" id="cnn-reset" hidden>Reset weights</button>
+  </nav>
+  <span class="sr-only" aria-live="polite" id="cnn-live"></span>
+</div>
+<style>
+#animal-cnn { width:100%; min-width:0; container-type:inline-size }
+#animal-cnn [hidden] { display:none!important }
+#animal-cnn h2,#animal-cnn h3,#animal-cnn p,#animal-cnn figure { margin:0 }
+#animal-cnn .cnn-top { display:flex; flex-wrap:wrap; align-items:baseline; gap:.35rem 1rem; padding-inline-end:4rem }
+#animal-cnn strong {font-weight:500}
+#animal-cnn .cnn-controls { display:flex; flex-wrap:wrap; align-items:end; gap:.6rem 1.4rem; margin-block:1rem }
+#animal-cnn .cnn-example,#animal-cnn .cnn-controls label {display:grid;gap:.35rem}
+#animal-cnn .cnn-controls label { min-width:0; max-width:100% }
+#animal-cnn .cnn-stage-head { display:grid; gap:.25rem; margin:.85rem 0 1rem }
+#animal-cnn .cnn-board {display:flex;flex-wrap:wrap;align-items:flex-start;gap:.8rem 1.7rem;margin:.45rem 0 1rem}
+#animal-cnn .cnn-item {display:grid;align-content:start;gap:.35rem;max-width:100%;min-width:0}
+#animal-cnn .cnn-label {font-weight:500}
+#animal-cnn .cnn-pic {display:grid; width:9.5rem;max-width:100%;position:relative}
+#animal-cnn .cnn-pic img,#animal-cnn .cnn-pic svg {display:block;width:100%;height:auto}
+#animal-cnn .cnn-pic svg {position:absolute;inset:0}
+#animal-cnn .cnn-matrix {border-collapse:separate;border-spacing:2px;max-width:100%;font-variant-numeric:tabular-nums}
+#animal-cnn .cnn-matrix td {padding:0;text-align:center}
+#animal-cnn .cnn-matrix .cnn-cell {min-width:2.25rem;min-height:2.14rem;padding:.18rem .33rem;display:grid;place-content:center;background:var(--cellbg,var(--muted));box-sizing:border-box}
+#animal-cnn .cnn-matrix .cnn-inpatch {box-shadow:inset 0 0 0 2px var(--foreground)}
+#animal-cnn .cnn-matrix .cnn-picked {box-shadow:inset 0 0 0 2px var(--foreground);font-weight:500}
+#animal-cnn .cnn-coordinate {font-weight:500;white-space:nowrap}
+#animal-cnn .cnn-math {display:grid;align-content:start;gap:.46rem;margin-block:.8rem}
+#animal-cnn .cnn-math math {color:var(--foreground);max-width:100%;font-family:math}
+#animal-cnn .cnn-work {display:flex;flex-wrap:wrap;align-items:baseline;gap:.15rem .45rem;font-variant-numeric:tabular-nums}
+#animal-cnn .cnn-work span {display:inline-block}
+#animal-cnn .cnn-work .term {white-space:nowrap}
+#animal-cnn .cnn-math .cnn-values {font-variant-numeric:tabular-nums}
+#animal-cnn details {margin-top:.6rem}
+#animal-cnn summary {color:var(--foreground);width:fit-content;max-width:100%}
+#animal-cnn details[open] > :not(summary) {margin-top:.45rem}
+#animal-cnn .cnn-bars {display:grid;gap:.65rem;width:min(100%,31rem);margin-block:.8rem}
+#animal-cnn .cnn-bar-label {display:flex;justify-content:space-between;gap:.5rem;margin-bottom:.2rem}
+#animal-cnn .cnn-bars .cnn-dog-mark {background:var(--viz-series-2)}
+#animal-cnn .cnn-bars .cnn-cat-mark {background:var(--viz-series-3)}
+#animal-cnn .cnn-outcome {margin-block:.7rem;font-weight:500}
+#animal-cnn .cnn-nav {display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin-top:.65rem}
+#animal-cnn .cnn-comparison,#animal-cnn .cnn-params {width:min(100%,40rem)}
+#animal-cnn .cnn-eq-pair {display:flex;flex-wrap:wrap;gap:.4rem 1.5rem;align-items:center}
+#animal-cnn .cnn-passline {display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap}
+#animal-cnn .cnn-facts {margin-top:.65rem}
+#animal-cnn .cnn-result-line {margin:.6rem 0}
+#animal-cnn .cnn-route-map {display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:.12rem;max-width:40rem;margin:.8rem 0 .6rem}
+#animal-cnn .cnn-layer {display:grid;justify-items:center;align-content:center;gap:.22rem;min-width:0;text-align:center}
+#animal-cnn .cnn-layer-visual {min-height:2.1rem;display:grid;place-items:center;font-variant-numeric:tabular-nums}
+#animal-cnn .cnn-layer-name {font-weight:400}
+#animal-cnn .cnn-current .cnn-layer-name {font-weight:500;text-decoration:underline;text-underline-offset:.27em}
+#animal-cnn .cnn-micro {display:block;width:2.1rem;height:2.1rem}
+#animal-cnn .cnn-link {position:relative;display:grid;place-items:center;color:var(--muted-foreground)}
+#animal-cnn .cnn-link.active {color:var(--foreground);font-weight:500}
+#animal-cnn .cnn-route-map .cnn-layer-visual em {font-family:math;font-weight:400}
+@media (prefers-reduced-motion:no-preference) {
+ #animal-cnn .cnn-link[data-flow]::after {content:"";position:absolute;top:100%;width:.3rem;height:.3rem;border-radius:50%;background:var(--viz-series-1);opacity:0;animation:cnn-send .5s ease-out var(--flow-delay,0s) 1}
+ #animal-cnn .cnn-link[data-flow="back"]::after {animation-direction:reverse}
+ @keyframes cnn-send {0%{opacity:0;transform:translateX(-.62rem)}20%{opacity:1}80%{opacity:1}100%{opacity:0;transform:translateX(.62rem)}}
+}
+@container (max-width:430px) {
+ #animal-cnn .cnn-top {padding-inline-end:2.25rem}
+ #animal-cnn .cnn-board {column-gap:.85rem;row-gap:.75rem}
+ #animal-cnn .cnn-pic {width:7rem}
+ #animal-cnn .cnn-matrix .cnn-cell {min-width:1.85rem;min-height:1.85rem;padding:.13rem .22rem}
+ #animal-cnn .cnn-params td,#animal-cnn .cnn-params th {overflow-wrap:normal}
+}
+</style>
+<script type="application/json" id="cnn-example-data">{"dog":{"name":"Dog","y":0,"mean":[[223.19732,237.47192,236.62967,213.56341],[131.21305,212.65139,202.94221,134.71172],[225.68973,195.75553,162.84786,235.4972],[255.0,243.71614,237.78414,255.0]],"x":[[0,0,0,1],[2,1,1,2],[0,1,1,0],[0,0,0,0]],"image":"data:image/png;base64,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"},"cat":{"name":"Cat","y":1,"mean":[[239.36881,243.51353,243.86513,236.55586],[229.74292,187.42389,184.25147,225.85012],[213.29177,132.14189,122.654,207.51437],[248.90121,217.6352,216.90558,247.00015]],"x":[[0,0,0,0],[0,1,1,0],[1,2,2,1],[0,1,1,0]],"image":"data:image/png;base64,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"}}</script>
+<script type="application/json" id="visualization-share-metadata">{"version":1,"sources":[{"title":"Noto Emoji dog and cat illustrations","provider":"Google Fonts","type":"Illustration","url":"https://github.com/googlefonts/noto-emoji"}]}</script>
+<script>
+(() => {
+  const root = document.getElementById('animal-cnn');
+  const examples = JSON.parse(document.getElementById('cnn-example-data').textContent);
+  const element = (id) => root.querySelector('#cnn-' + id);
+  const stageSelect = element('stage');
+  const kernelCells = [[0,0], [0,1], [1,0], [1,1]];
+  const learningRate = 0.1;
+  const steps = [
+    ['Input image', 'Input', 'What does the CNN see?'],
+    ['Convolution', 'Forward pass', 'Slide one filter across the image'],
+    ['ReLU and pooling', 'Forward pass', 'Turn nine responses into one feature'],
+    ['Class prediction', 'Forward pass', 'Predict dog or cat'],
+    ['Cross-entropy loss', 'Loss', 'How much probability went to the correct class?'],
+    ['Classifier gradients', 'Backward pass', 'Send the loss back through the classifier'],
+    ['Filter gradients', 'Backward pass', 'Add up every use of the same filter weight'],
+    ['Weight update', 'Gradient descent', 'Update all seven parameters together'],
+    ['New prediction', 'Forward pass after the update', 'Run the same image through the updated CNN']
+  ];
+  const captions = [
+    'The network receives a 4 × 4 grid. Select a numbered cell to see which part of the drawing produced it.',
+    'The same four weights are used at all nine positions. Select an output cell to inspect its input patch.',
+    'ReLU keeps positive responses. Global average pooling takes the mean of all nine cells, including the zeros.',
+    'The classifier converts the pooled feature into a score, then turns that score into two class probabilities.',
+    'Cross-entropy takes the negative natural logarithm of the probability assigned to the training label.',
+    'Follow the derivative from the output score to the classifier parameters and the pooled feature.',
+    'Each active position sends a gradient back. Select a filter weight to see its contributions from all nine positions.',
+    'Gradient descent subtracts the learning rate times the gradient from each parameter.',
+    'The input and its label are the same. The new prediction uses the updated filter, classifier, and biases.'
+  ];
+  const sig = (score) => score >= 0 ? 1 / (1 + Math.exp(-score)) : Math.exp(score) / (1 + Math.exp(score));
+  const softplus = (x) => Math.max(x, 0) + Math.log1p(Math.exp(-Math.abs(x)));
+  const grid = (n, fn) => Array.from({length:n}, (_, i) => Array.from({length:n}, (_, j) => fn(i, j)));
+  const sum = (numbers) => numbers.reduce((a, b) => a + b, 0);
+  const total = (matrix) => sum(matrix.flat());
+  const newModel = () => ({k:[[1,0],[0,-1]], b:0.25, v:1, c:-0.5});
+  function forward(x, y, model) {
+    const z = grid(3, (i, j) => model.b + sum(kernelCells.map(([u, v]) => model.k[u][v] * x[i+u][j+v])));
+    const a = z.map(row => row.map(value => Math.max(0, value)));
+    const h = total(a) / 9;
+    const score = model.v * h + model.c;
+    const p = sig(score);
+    const loss = softplus(y === 1 ? -score : score);
+    return {z, a, h, score, p, loss};
+  }
+  function traceExample(example, before) {
+    const {x, y} = example;
+    const f = forward(x, y, before);
+    const delta = f.p - y;
+    const dh = before.v * delta;
+    const da = dh / 9;
+    const dz = grid(3, (i, j) => f.z[i][j] > 0 ? da : 0);
+    const contributions = (u, v) => grid(3, (i, j) => dz[i][j] * x[i+u][j+v]);
+    const dk = grid(2, (u, v) => total(contributions(u, v)));
+    const gradients = {k:dk, b:total(dz), v:delta * f.h, c:delta};
+    const after = {
+      k:grid(2, (u, v) => before.k[u][v] - learningRate * dk[u][v]),
+      b:before.b - learningRate * gradients.b,
+      v:before.v - learningRate * gradients.v,
+      c:before.c - learningRate * gradients.c
+    };
+    return {before, f, delta, dh, da, dz, gradients, contributions, after, applied:false};
+  }
+
+  const number = (x, precision=4) => {
+    if (Math.abs(x) < 0.5 * 10 ** -precision) return '0';
+    return Number(x.toFixed(precision)).toString().replace('-', '−');
+  };
+  const signedTerm = (x, p=4) => x < 0 ? '(' + number(x,p) + ')' : number(x,p);
+  const pct = (p) => (p * 100).toFixed(1) + '%';
+  const coord = (i,j) => '('+i+', '+j+')';
+  const tag = (kind, inside) => '<'+kind+'>'+inside+'</'+kind+'>';
+  const mi = x => tag('mi',x), mn = x => tag('mn',x), mo = x => tag('mo',x);
+  const textM = x => tag('mtext',x), group = x => tag('mrow',x);
+  const sub = (x,y) => tag('msub',group(x)+group(y));
+  const sup = (x,y) => tag('msup',group(x)+group(y));
+  const frac = (x,y) => tag('mfrac',group(x)+group(y));
+  const par = x => mo('(')+x+mo(')');
+  const s = (sym, indices) => sub(mi(sym),textM(indices));
+  const D = (name) => frac(mo('∂')+mi('L'),mo('∂')+name);
+  const math = (body,label='') => '<math xmlns="http://www.w3.org/1998/Math/MathML"'+(label?' aria-label="'+label+'"':'')+'>'+group(body)+'</math>';
+  const equals = mo('='), minus = mo('−'), plus = mo('+'), mult = mo('·');
+  const symSum = (ix) => tag('munder',mo('∑')+group(textM(ix)));
+  const pieces = (...chunks) => '<div class="cnn-work">'+chunks.map(x=>'<span>'+x+'</span>').join('')+'</div>';
+  const term = x => '<span class="term">'+x+'</span>';
+  const series = (values) => values.map((value, index) => term((index ? '+ ' : '') + value)).join(' ');
+  const mathBlock = (...parts) => '<div class="cnn-math">'+parts.join('')+'</div>';
+  const label = x => '<div class="cnn-label">'+x+'</div>';
+  const board = (...items) => '<div class="cnn-board">'+items.join('')+'</div>';
+  const block = (caption, content) => '<div class="cnn-item">'+label(caption)+content+'</div>';
+  const note = x => '<div class="text-small text-muted">'+x+'</div>';
+  const details = (name,body) => '<details><summary class="cursor-interaction">'+name+'</summary>'+body+'</details>';
+  const htmlSub = (name, indices) => '<var>'+name+'</var><sub>'+indices+'</sub>';
+  function matrix(values, caption, opts={}) {
+    const digits = opts.digits ?? 3;
+    const aria = opts.name || caption;
+    const rows = values.map((row, i) => '<tr>'+row.map((value, j) => {
+      const shown = number(value, digits);
+      const selected = opts.selected && opts.selected[0] === i && opts.selected[1] === j;
+      const patch = opts.patch && i >= opts.patch[0] && i < opts.patch[0]+2 && j >= opts.patch[1] && j < opts.patch[1]+2;
+      if (opts.pick) {
+        return '<td><button type="button" class="btn viz-tile" aria-label="'+aria+' row '+i+' column '+j+', '+shown+'" aria-pressed="'+Boolean(selected)+'" data-pick="'+opts.pick+'" data-row="'+i+'" data-col="'+j+'">'+shown+'</button></td>';
+      }
+      const tone = opts.ink ? Math.min(32, 4+value*7) : (Math.abs(value)<1e-12 ? 4 : 13);
+      const tint = opts.ink || value === 0 ? '--foreground' : (value > 0 ? '--viz-series-2' : '--viz-series-3');
+      const style = '--cellbg:color-mix(in srgb,var('+tint+') '+tone+'%,var(--background))';
+      return '<td aria-label="row '+i+' column '+j+', '+shown+'"><span class="cnn-cell'+(patch?' cnn-inpatch':'')+(selected?' cnn-picked':'')+'" style="'+style+'">'+shown+'</span></td>';
+    }).join('')+'</tr>').join('');
+    return block(caption,'<table class="cnn-matrix" aria-label="'+aria+'"><tbody>'+rows+'</tbody></table>');
+  }
+  function paramRows(tr) {
+    return [
+      ...kernelCells.map(([i,j])=>[htmlSub('K',i+','+j),tr.before.k[i][j],tr.gradients.k[i][j],tr.after.k[i][j]]),
+      ['<var>b</var> · filter bias',tr.before.b,tr.gradients.b,tr.after.b],
+      ['<var>v</var> · classifier weight',tr.before.v,tr.gradients.v,tr.after.v],
+      ['<var>c</var> · classifier bias',tr.before.c,tr.gradients.c,tr.after.c]
+    ];
+  }
+  function comparisonTable(caption,header,rows,cls) {
+    const headers = header.map((h,i)=>'<th scope="col"'+(i?' class="text-end"':'')+'>'+h+'</th>').join('');
+    const body = rows.map(row=>'<tr><th scope="row">'+row[0]+'</th>'+row.slice(1).map(cell=>'<td class="text-end">'+cell+'</td>').join('')+'</tr>').join('');
+    return '<div class="table-responsive"><table class="table table-sm tabular-nums '+cls+'" aria-label="'+caption+'"><thead><tr>'+headers+'</tr></thead><tbody>'+body+'</tbody></table></div>';
+  }
+
+  let which='dog', stage=0, updates=0, passNumber=1, model=newModel();
+  let trace=traceExample(examples[which],model), replay=null;
+  let pixel=[1,0], position=[1,0], weight=[0,0];
+  function startPass(exampleName) {
+    which=exampleName; stage=0; passNumber=updates+1;
+    trace=traceExample(examples[which],model); replay=null;
+    pixel=which==='dog'?[1,0]:[2,1];
+    position=which==='dog'?[1,0]:[2,1]; weight=[0,0];
+  }
+  function photo(example) {
+    const [r,c]=pixel;
+    let lines='';
+    for(const k of [32,64,96]) lines+='<path d="M '+k+' 0 V 128 M 0 '+k+' H 128"/>';
+    return '<div class="cnn-pic"><img alt="'+example.name+' training drawing" width="128" height="128" src="'+example.image+'"><svg viewBox="0 0 128 128" aria-hidden="true"><g fill="none" stroke="var(--muted-foreground)" stroke-width=".8" opacity=".8">'+lines+'</g><rect x="'+(c*32+1.1)+'" y="'+(r*32+1.1)+'" width="29.8" height="29.8" fill="none" stroke="var(--viz-series-2)" stroke-width="3.6"/></svg></div>';
+  }
+  function microGrid(values,visible,grayscale=false) {
+    const n=values.length, max=Math.max(...values.flat().map(Math.abs),0.000001);
+    let boxes='';
+    values.forEach((row,i)=>row.forEach((value,j)=>{
+      const alpha=visible ? 0.09+.78*Math.abs(value)/max : .1;
+      const paint=grayscale || !visible ? '--foreground' : (value<0?'--viz-series-3':'--viz-series-2');
+      boxes+='<rect x="'+j*10+'" y="'+i*10+'" width="8.5" height="8.5" fill="var('+paint+')" opacity="'+alpha+'"/>';
+    }));
+    return '<svg class="cnn-micro" aria-hidden="true" viewBox="0 0 '+(n*10-1.5)+' '+(n*10-1.5)+'">'+boxes+'</svg>';
+  }
+  function networkRoute(ex,animate) {
+    const backwards=stage===5 || stage===6,changing=stage===7;
+    const f=stage===8?replay:trace.f;
+    const active=[[0],[1],[1,2],[3],[4],[2,3],[1],[1,3],[3,4]][stage];
+    const route=backwards?'Backward gradients':changing?'Trainable parameters':'Forward values';
+    const names=backwards?['Input','∂L/∂Z','∂L/∂h','∂L/∂s','∂L/∂L']:
+      changing?['Input','Filter K, b','Mean','Head v, c','Loss']:['Input','Conv','Pool','P(cat)','Loss'];
+    const values=[
+      microGrid(ex.x,true,true),
+      microGrid(backwards?trace.dz:changing?trace.before.k:f.z,stage>0),
+      backwards?number(trace.dh,3):stage>=2?number(f.h,3):'<em>h</em>',
+      backwards?number(trace.delta,3):changing?'v, c':stage>=3?pct(f.p):'<em>p</em>',
+      backwards?'1':stage>=4?number(f.loss,3):'<em>L</em>'
+    ];
+    let map='';
+    names.forEach((name,i)=>{
+      if(i) {
+        const symbol=changing || (backwards&&i===1)?'·':backwards?'←':'→';
+        const activeLink=backwards?(stage===5?i>=3:i===2):!changing&&stage>=i;
+        const carriesSignal=animate&&activeLink&&(backwards || stage===8 || stage===i);
+        const delay=stage===8?(i-1)*.14:stage===5?(4-i)*.14:0;
+        const flow=carriesSignal?' data-flow="'+(backwards?'back':'forward')+'" style="--flow-delay:'+delay+'s"':'';
+        map+='<span class="cnn-link'+(activeLink?' active':'')+'"'+flow+' aria-hidden="true">'+symbol+'</span>';
+      }
+      map+='<div class="cnn-layer'+(active.includes(i)?' cnn-current':'')+'"><span class="cnn-layer-visual">'+values[i]+'</span><span class="text-small cnn-layer-name">'+name+'</span></div>';
+    });
+    return '<div class="cnn-route-map" role="img" aria-label="'+route+' across the network. '+(backwards?'Loss to output score to pooled feature to convolution.':changing?'Filter weights and biases, classifier weight and bias.':'Input image to convolution to ReLU and mean to class probability to loss.')+'">'+map+'</div>';
+  }
+  function inputPage(example) {
+    const [i,j]=pixel;
+    const brightness=example.mean[i][j];
+    return board(block(example.name+' drawing',photo(example)+note('128 × 128 pixels')),matrix(example.x,'Input X',{name:'Input pixel',pick:'pixel',selected:pixel}),block('Training label',math(mi('y')+equals+mn(example.y))+note('Dog = 0 · Cat = 1'))) +
+      mathBlock(label('Pixel '+coord(i,j)),pieces('Mean brightness = '+number(brightness,2)+' / 255.',
+        'Input darkness = round[4 × (1 − '+number(brightness,2)+' / 255)] = <strong>'+example.x[i][j]+'</strong>.')) +
+      details('How the input is made', '<p>For each pixel, brightness = 0.299R + 0.587G + 0.114B. Each cell averages a 32 × 32 block and rounds its darkness to the nearest integer from 0 (white) to 4 (black). Row and column indices start at 0.</p><p class="text-small">Illustrations from <a href="https://github.com/googlefonts/noto-emoji" target="_blank" rel="noreferrer">Google Noto Emoji</a>.</p>');
+  }
+  function convPage(example) {
+    const [i,j]=position, {before,f}=trace;
+    const products=kernelCells.map(([u,v]) => signedTerm(before.k[u][v])+' × '+example.x[i+u][j+v]);
+    return board(matrix(example.x,'Input X · patch outlined',{ink:true,patch:position}),
+      matrix(before.k,'Filter K'),matrix(f.z,'Output Z · pick a cell',{pick:'position',selected:position,name:'Convolution output'})) +
+      mathBlock(math(s('Z','i,j')+equals+mi('b')+plus+symSum('u,v')+s('K','u,v')+s('X','i+u,j+v')),
+        pieces('<strong>Cell '+coord(i,j)+'</strong>',series([signedTerm(before.b),...products]),'≈ <strong>'+number(f.z[i][j])+'</strong>'),
+        note('Filter bias b = '+number(before.b)+' · stride 1 · no padding · filter stays in the same orientation.')) ;
+  }
+  function reluPage() {
+    const {f}=trace,[i,j]=position;
+    return board(matrix(f.z,'Filter responses Z',{name:'Filter response',pick:'position',selected:position}),
+      matrix(f.a,'After ReLU · A',{selected:position}))+
+      mathBlock(math(s('A','i,j')+equals+mi('max')+par(mn(0)+mo(',')+s('Z','i,j'))),
+        pieces('At '+coord(i,j)+', max(0, '+number(f.z[i][j])+') = <strong>'+number(f.a[i][j])+'</strong>.'),
+        math(mi('h')+equals+frac(symSum('i,j')+s('A','i,j'),mn(9))),
+        pieces('Pooled feature h ≈ '+number(total(f.a))+' / 9 ≈ <strong>'+number(f.h)+'</strong>.'))+
+      details('See all nine terms',pieces(series(f.a.flat().map(x=>number(x))),'≈ '+number(total(f.a))));
+  }
+  function probabilities(f,example) {
+    return '<div class="cnn-bars">'+[['Dog',1-f.p,'dog'],['Cat',f.p,'cat']].map(([name,p,key])=>
+      '<div><div class="cnn-bar-label"><span>'+name+(name===example.name?' · true label':'')+'</span><span class="tabular-nums">'+pct(p)+'</span></div><div class="progress" role="meter" aria-label="'+name+' probability" aria-valuenow="'+(100*p).toFixed(2)+'" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar cnn-'+key+'-mark" style="width:'+(100*p)+'%"></div></div></div>').join('')+'</div>';
+  }
+  function pred(f) {return f.p===0.5?'Tie':(f.p>0.5?'Cat':'Dog')}
+  function predictPage(example) {
+    const {f,before}=trace;
+    return probabilities(f,example) + '<div class="cnn-outcome">Prediction · '+pred(f)+'</div>' +
+      mathBlock(math(mi('s')+equals+mi('v')+mi('h')+plus+mi('c')),
+        pieces('Score s ≈ '+number(before.v)+' × '+number(f.h)+' + '+signedTerm(before.c)+' ≈ <strong>'+number(f.score)+'</strong>.'),
+        math(mi('p')+equals+mi('P')+par(textM('cat'))+equals+frac(mn(1),mn(1)+plus+sup(mi('e'),minus+mi('s')))),
+        pieces('P(cat) ≈ 1 / (1 + exp('+number(-f.score)+')) ≈ '+number(f.p)+'.', 'P(dog) = 1 − p ≈ '+number(1-f.p)+'.'));
+  }
+  function lossPage(example) {
+    const {f}=trace, pTrue=example.y ? f.p : 1-f.p;
+    return probabilities(f,example) +
+      mathBlock(pieces('<strong>True label · '+example.name+'</strong>','y = '+example.y),
+        math(mi('L')+equals+minus+mo('[')+mi('y')+mi('ln')+par(mi('p'))+plus+par(mn(1)+minus+mi('y'))+mi('ln')+par(mn(1)+minus+mi('p'))+mo(']')),
+        pieces('With y = '+example.y+', L = '+(example.y?'−ln(p)':'−ln(1 − p)')+' ≈ −ln('+number(pTrue)+') ≈ <strong>'+number(f.loss)+'</strong>.'),
+        note('Here p means P(cat). A higher probability for the true class gives a smaller loss.'));
+  }
+  function headBackPage(example) {
+    const {before,f,delta,dh,gradients}=trace;
+    return mathBlock(math(mi('δ')+equals+D(mi('s'))+equals+mi('p')+minus+mi('y')),
+      pieces('Score gradient δ ≈ '+number(f.p)+' − '+example.y+' ≈ <strong>'+number(delta)+'</strong>.'),
+      note(delta>0?'Lowering the cat score would reduce the loss for this dog.':delta<0?'Raising the cat score would reduce the loss for this cat.':'The score gradient is zero.'))+
+      comparisonTable('Gradients through the classifier',['Derivative','Chain rule','Value'],[
+        ['Classifier weight v','δ × h',number(delta)+' × '+number(f.h)+' ≈ '+number(gradients.v)],
+        ['Classifier bias c','δ',number(gradients.c)],
+        ['Pooled feature h','δ × v',number(delta)+' × '+signedTerm(before.v)+' ≈ '+number(dh)]
+      ],'cnn-comparison')+
+      details('Why does the score gradient equal p − y?',mathBlock(
+        math(D(mi('p'))+equals+minus+frac(mi('y'),mi('p'))+plus+frac(mn(1)+minus+mi('y'),mn(1)+minus+mi('p'))),
+        math(frac(mo('∂')+mi('p'),mo('∂')+mi('s'))+equals+mi('p')+par(mn(1)+minus+mi('p'))),
+        math(D(mi('s'))+equals+D(mi('p'))+mult+frac(mo('∂')+mi('p'),mo('∂')+mi('s'))+equals+mi('p')+minus+mi('y'))));
+  }
+  function filterBackPage(example) {
+    const {dz,da,dh,gradients,contributions}=trace, [u,v]=weight;
+    const terms=contributions(u,v), ds=dz.flat();
+    const inputs=grid(3,(i,j)=>example.x[i+u][j+v]).flat();
+    return mathBlock(pieces('Mean pooling sends the same gradient to every A cell.',
+        '∂L/∂Aᵢⱼ = '+number(dh)+' / 9 ≈ <strong>'+number(da)+'</strong>.'),
+      math(s('D','i,j')+equals+D(s('Z','i,j'))+equals+frac(D(mi('h')),mn(9))+mult+mn(1)+mo('[')+s('Z','i,j')+mo('&gt;')+mn(0)+mo(']')),
+      pieces('ReLU passes it where Z > 0. Where Z ≤ 0, it sends 0.')) +
+      board(matrix(dz,'Gradient at Z · D',{digits:4}),matrix(gradients.k,'Filter gradient · pick a weight',{name:'Filter gradient',pick:'weight',selected:weight,digits:4}))+
+      mathBlock(math(D(s('K','u,v'))+equals+symSum('i,j')+s('D','i,j')+s('X','i+u,j+v')),
+        pieces('<strong>Weight '+coord(u,v)+'</strong>', 'Sum of contributions from its nine uses'),
+        pieces(series(terms.flat().map(x=>signedTerm(x))), '≈ <strong>'+number(gradients.k[u][v])+'</strong>.'),
+        pieces('Filter bias gradient = sum of all D cells ≈ '+number(gradients.b)+'.'))+
+      details('See each pixel × gradient',comparisonTable('Spatial gradient contributions',['Position in Z','Input pixel','Gradient D','Product'],terms.flat().map((value,k)=>[coord(Math.floor(k/3),k%3),number(inputs[k]),number(ds[k]),number(value)]),'cnn-comparison'));
+  }
+  function updatePage() {
+    const [u,v]=weight;
+    const rows=paramRows(trace);
+    return mathBlock(math(sub(mi('θ'),textM('new'))+equals+sub(mi('θ'),textM('old'))+minus+mi('η')+D(mi('θ'))),
+      pieces('Learning rate η = 0.1.','<strong>'+htmlSub('K',u+','+v)+'</strong> ≈ '+number(trace.before.k[u][v])+' − 0.1 × '+signedTerm(trace.gradients.k[u][v])+' ≈ <strong>'+number(trace.after.k[u][v])+'</strong>.'))+
+      comparisonTable('All seven gradient-descent updates',['Parameter','Old','Gradient',trace.applied?'New':'Proposed'],rows.map(row=>[row[0],...row.slice(1).map(x=>number(x))]),'cnn-params')+
+      '<div class="cnn-facts">'+note('Four filter weights, one filter bias, one classifier weight, and one classifier bias. Values are rounded for display.')+'</div>';
+  }
+  function afterPage(example) {
+    const {f,after}=trace, next=replay;
+    const pTrue = v => example.y?v.p:1-v.p;
+    return comparisonTable('Prediction before and after one update',['Same '+which+' image','Before','After'],[
+      ['P(dog)',pct(1-f.p),pct(1-next.p)],
+      ['P(cat)',pct(f.p),pct(next.p)],
+      ['Predicted class',pred(f),pred(next)],
+      ['Cross-entropy loss',number(f.loss),number(next.loss)]
+    ],'cnn-comparison')+
+      mathBlock(pieces('<strong>New feature</strong>','h′ ≈ '+number(total(next.a))+' / 9 ≈ '+number(next.h)+'.'),
+        pieces('<strong>New score</strong>','s′ ≈ '+number(after.v)+' × '+number(next.h)+' + '+signedTerm(after.c)+' ≈ '+number(next.score)+'.'),
+        pieces('<strong>New loss</strong>','L′ = −ln P('+which+') ≈ −ln('+number(pTrue(next))+') ≈ '+number(next.loss)+'.'))+
+      details('Compare the filter responses before and after',board(matrix(f.z,'Before · Z'),matrix(next.z,'After · Z′')))+
+      '<div class="cnn-facts">'+note('Next pass keeps the learned weights. Choose the other drawing to train with the opposite label.')+'</div>';
+  }
+  const pages=[inputPage,convPage,reluPage,predictPage,lossPage,headBackPage,filterBackPage,updatePage,afterPage];
+  stageSelect.innerHTML=steps.map((step,i)=>'<option value="'+i+'">'+(i+1)+' · '+step[0]+'</option>').join('');
+  function render(announce=false) {
+    const ex=examples[which];
+    root.querySelectorAll('[data-example]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.example===which)));
+    stageSelect.value=String(stage);
+    stageSelect.options[8].disabled=!trace.applied;
+    element('route').innerHTML=networkRoute(ex,announce);
+    element('phase').textContent=steps[stage][1]+' · '+(stage+1)+' of '+steps.length;
+    element('title').textContent=steps[stage][2];
+    element('caption').textContent=captions[stage];
+    element('pass').textContent='Pass '+passNumber+' · '+updates+(updates===1?' update applied':' updates applied');
+    element('figure').innerHTML=pages[stage](ex);
+    element('back').disabled=stage===0;
+    element('next').textContent=stage===8?'Start next pass →':stage===7?(trace.applied?'See result →':'Apply update →'):'Next →';
+    element('reset').hidden=updates===0;
+    if(announce) element('live').textContent=ex.name+'. '+(stage+1)+' of 9. '+steps[stage][2]+'.';
+  }
+  function advance() {
+    if (stage===8) { startPass(which); }
+    else {
+      if(stage===7&&!trace.applied) {
+        model=trace.after;
+        trace.applied=true;
+        updates+=1;
+        replay=forward(examples[which].x,examples[which].y,model);
+      }
+      stage+=1;
+    }
+    render(true);
+  }
+  element('next').addEventListener('click',advance);
+  element('back').addEventListener('click',()=>{if(stage>0){stage-=1;render(true);}});
+  stageSelect.addEventListener('change',()=>{
+    const selected=Number(stageSelect.value);
+    if(selected!==8 || trace.applied)stage=selected;
+    render(true);
+  });
+  root.addEventListener('click',event=>{
+    const button=event.target.closest('button');
+    if(!button || !root.contains(button))return;
+    if(button.dataset.example && button.dataset.example!==which) {
+      startPass(button.dataset.example); render(true);
+    } else if(button.dataset.pick) {
+      const selected=[Number(button.dataset.row),Number(button.dataset.col)];
+      if(button.dataset.pick==='pixel')pixel=selected;
+      if(button.dataset.pick==='position')position=selected;
+      if(button.dataset.pick==='weight')weight=selected;
+      render();
+      const replacement=root.querySelector('[data-pick="'+button.dataset.pick+'"][data-row="'+selected[0]+'"][data-col="'+selected[1]+'"]');
+      if(replacement)replacement.focus({preventScroll:true});
+      element('live').textContent=button.dataset.pick+' '+coord(...selected)+' selected.';
+    }
+  });
+  element('reset').addEventListener('click',()=>{
+    model=newModel();updates=0;startPass(which);render(true);element('next').focus({preventScroll:true});
+  });
+  render();
+})();
+</script>
+
+</main>
+</body>
+</html>
