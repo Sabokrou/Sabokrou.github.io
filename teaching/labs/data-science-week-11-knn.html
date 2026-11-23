@@ -1,0 +1,79 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>K-nearest neighbors · CS203</title><style>
+:root{font:16px/1.5 system-ui,sans-serif;color:#163c38;background:#f7f8f2;--ink:#163c38;--green:#087160;--rust:#a44624;--rule:#c5d4c9}*{box-sizing:border-box}body{margin:0}header{background:#153d37;color:#fffdf4;padding:27px max(5vw,calc((100vw - 1100px)/2)) 24px}header small{letter-spacing:.1em;color:#c6e7d7}h1,h2{font-family:Georgia,serif;font-weight:500;line-height:1.12}h1{margin:8px 0;font-size:clamp(2rem,5vw,3.2rem)}header p{margin:.4em 0}main{max-width:1170px;padding:16px clamp(14px,3vw,35px) 46px;margin:auto}h2{font-size:1.7rem;margin:6px 0 10px}h3{font-size:1.09rem;margin:8px 0}p{margin:.55em 0}button,select,input{font:inherit}button,select{color:var(--ink);background:#fffefa;border:1px solid #8aa799;border-radius:6px;padding:7px 12px;cursor:pointer}button[aria-pressed=true]{background:#165449;color:white}button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #af6d1f;outline-offset:2px}.row{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px}.mode{margin:0 0 14px}.layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(275px,.85fr);gap:24px;align-items:start}.card{border:1px solid var(--rule);padding:clamp(12px,2vw,20px);border-radius:10px;background:#fffef9}.plot{display:block;width:100%;touch-action:none;user-select:none}.legend{display:flex;gap:14px;flex-wrap:wrap;color:#344f47;font-size:.92rem}.label{display:block;font-weight:600}.controls{display:grid;gap:12px;margin:14px 0}.controls label{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.controls input[type=range]{accent-color:var(--green);width:min(190px,44vw)}output{font-variant-numeric:tabular-nums}.call{background:#e7f1e6;border-left:4px solid var(--green);padding:9px 12px;margin:10px 0}.hint{color:#496258;font-size:.94rem}.tablebox{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:.96rem}td,th{border-bottom:1px solid var(--rule);text-align:left;padding:6px 8px}tbody tr.chosen{background:#eaf3e8}td:nth-child(3){font-variant-numeric:tabular-nums}details{padding:6px 0;border-bottom:1px solid var(--rule)}summary{cursor:pointer;font-weight:600;padding:5px 0}.calc{font:1.12rem/1.6 Georgia,serif;overflow-wrap:anywhere}.legend b{font-size:1.1em}.below{margin-top:16px}#work{scroll-margin-top:8px}#plot text{font:13px system-ui,sans-serif;fill:var(--ink)}#plot .id{font-weight:650;paint-order:stroke;stroke:#fffef9;stroke-width:3px;stroke-linejoin:round}#plot .axis{font-size:14px;font-weight:600}a{color:#075e51} [hidden]{display:none!important}@media(max-width:750px){.layout{grid-template-columns:1fr;gap:12px}.card{padding:13px}#plot text{font-size:15px}}
+</style></head><body><header><small>CS203 · DATA SCIENCE FUNDAMENTALS · WEEK 11</small><h1>K-nearest neighbors</h1><p>Move the unknown point. Choose how many neighbors vote. See when the prediction changes.</p></header><main>
+<div class="row mode" role="group" aria-label="Choose a dataset"><button id="tiles" type="button" aria-pressed="true">1 · Tiles in two dimensions</button><button id="delivery" type="button" aria-pressed="false">2 · Delivery orders</button></div>
+<noscript><p>Enable JavaScript in your browser to move the point and recalculate the vote. For U = (4, 3), the nearest tile is Type B, but two of the three nearest are Type A. For delivery Q = (3.2 km, dry), C was on time and E and D were late.</p></noscript>
+<div class="layout"><section class="card"><h2 id="title">Which tiles are closest?</h2><p id="intro"></p><svg id="plot" class="plot" role="img" aria-label="Labeled training points, query and voting neighbors"></svg><div id="legend" class="legend"></div><p class="hint" id="gesture"></p><div class="controls"><label><strong id="xlabel">Width</strong><input id="x" type="range" step="0.1"><output id="xval"></output></label><label id="yrow"><strong>Height</strong><input id="y" type="range" min="0" max="7" step="0.1"><output id="yval"></output></label><label id="wrow" hidden><strong>Weather</strong><select id="weather"><option value="0">Dry · 0</option><option value="1">Rain · 1</option></select></label></div><div class="row"><button type="button" id="preset1"></button><button type="button" id="preset2" hidden>Use Q · 3.2 km, dry</button></div></section>
+<section class="card"><h2>Who gets a vote?</h2><p>Every training point has a known class. Sort the points by their distance from the unknown point. Each of the closest <em>k</em> gets one vote.</p><label class="row"><strong>Number of neighbors, k</strong><select id="k"></select></label><div class="call" role="status" id="vote"></div><div class="tablebox"><table><thead><tr><th>Rank</th><th>Point</th><th>Distance</th><th>Class</th><th>Votes?</th></tr></thead><tbody id="ranks"></tbody></table></div><p class="hint" id="ties"></p></section></div>
+<section class="card below" id="work"><h2>Calculate a distance</h2><p>Subtract the two coordinates separately, square the gaps, add them, then take the square root.</p><label class="row"><strong>Compare the query with</strong><select id="inspect"></select></label><p id="pair"></p><p class="calc" id="formula"></p><p id="scale" class="hint"></p></section>
+<section class="below"><h2>Try this in class</h2><p id="exercise"></p><details id="solution"><summary>Check the worked example</summary><p id="answer"></p></details><details><summary>What does training do in kNN?</summary><p>Training stores the feature values and known class of each example. Prediction compares a new example with these stored points. A small k makes the result sensitive to one nearby point. A larger k includes more distant examples. Choose k and the feature scaling using validation data, and reserve unseen test labels for evaluation.</p></details></section><p class="below"><a href="https://sabokrou.github.io/teaching/#data-science-week-11">CS203 · Week 11 course materials</a></p></main>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+const tileRows=[['A1',2,3,0],['A2',5,5,0],['A3',1,1,0],['B1',4,4,1],['B2',6,1,1],['B3',1,6,1]];
+const deliveryRows=[['A',2,0,0],['B',2,1,0],['C',3,0,0],['D',3,1,1],['E',4,0,1],['F',4,1,1],['G',5,0,0],['H',5,1,1]];
+let mode='tiles',qx=4,qy=3,k=3,inspected='B1',drag=false,transform;
+const isTile=()=>mode==='tiles',rows=()=>isTile()?tileRows:deliveryRows,classes=()=>isTile()?['Type A','Type B']:['On time','Late'];
+const coord=v=>String(Math.round(v*100)/100), cl=(v,a,b)=>Math.max(a,Math.min(b,v));
+const rank=(data,x,y)=>data.map(([id,px,py,label])=>({id,px,py,label,sq:Math.round(((px-x)**2+(py-y)**2)*1e8)/1e8})).sort((a,b)=>a.sq-b.sq||a.id.localeCompare(b.id));
+function option(v,s){return '<option value="'+v+'">'+s+'</option>'}
+function queryName(){return isTile()?(qx===4&&qy===3?'U':'Query'):(qx===4.2&&qy===1?'P':qx===3.2&&qy===0?'Q':'Query')}
+function setMode(which){
+ mode=which;const tile=isTile();[qx,qy]=tile?[4,3]:[4.2,1];k=3;inspected=tile?'B1':'F';
+ $('tiles').setAttribute('aria-pressed',String(tile));$('delivery').setAttribute('aria-pressed',String(!tile));
+ $('title').textContent=tile?'Which tiles are closest?':'Will the delivery be late?';
+ $('intro').textContent=tile?'Width and height place each tile on the plane. Its shape shows its known type. The diamond is the tile to classify.':'Trip length and weather locate each order. The markers show the known outcomes of eight training deliveries. Late means more than 30 minutes.';
+ $('gesture').textContent=tile?'Click or drag on the plot, or use the coordinate sliders.':'Click or drag on the plot. Weather snaps to dry or rainy. You can also use the controls below.';
+ $('xlabel').textContent=tile?'Width':'Trip length';$('x').min=tile?0:1;$('x').max=tile?7:6;$('yrow').hidden=!tile;$('wrow').hidden=tile;
+ $('preset1').textContent=tile?'Use U · (4, 3)':'Use P · 4.2 km, rain';$('preset2').hidden=tile;
+ $('k').innerHTML=rows().filter((_,i)=>i%2===0).map((_,i)=>option(2*i+1,2*i+1)).join('');$('k').value='3';
+ $('inspect').innerHTML=rows().map(([id,x,y])=>option(id,id+' · ('+x+', '+y+')')).join('');
+ $('legend').innerHTML='<span><b style="color:#087160">●</b> '+classes()[0]+'</span><span><b style="color:#a44624">▲</b> '+classes()[1]+'</span><span>◆ Unknown point</span>';
+ $('scale').textContent=tile?'Both axes are in centimeters. The distance is also in centimeters.':'The lecture uses one coordinate unit per kilometer and rain codes 0 and 1. A weather mismatch therefore contributes the same squared gap as a 1 km difference. This is a modeling choice.';
+ $('exercise').textContent=tile?'Use U = (4, 3). Compare k = 1 and k = 3. Can the closest tile belong to a different class from the three-neighbor majority?':'Select Q and set k = 3. Name its neighbors before reading their outcomes. Then change k to 1. Does the app still warn?';
+ $('answer').textContent=tile?'B1 at (4, 4) is closest at 1 cm and predicts Type B by itself. With k = 3, A1 at 2 cm and A2 at √5 cm also vote. Type A wins 2 to 1.':'For Q, C (0.20), E (0.80) and D (about 1.02) vote. E and D were late, so 2/3 vote late and the app warns. At k = 1 only C votes. C was on time, so the app stays silent.';
+ $('solution').open=false;render();
+}
+function draw(sorted){
+ const svg=$('plot'),tile=isTile(),w=Math.max(260,Math.round(svg.getBoundingClientRect().width)||420);
+ const lo=tile?0:1,hi=tile?7:6,bottom=tile?0:-.35,top=tile?7:1.35;
+ const ml=tile?47:52,mr=19,mt=22,mb=45,s=(w-ml-mr)/(hi-lo),h=mt+mb+(top-bottom)*s;
+ const X=x=>ml+(x-lo)*s,Y=y=>mt+(top-y)*s;transform={w,h,s,lo,top,ml,mt};
+ svg.setAttribute('viewBox','0 0 '+w+' '+h);svg.style.aspectRatio=w+'/'+h;
+ const attr=(x,y)=>'x="'+x+'" y="'+y+'"';
+ const line=(x1,y1,x2,y2,color,width=1,dash='')=>'<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="'+color+'" stroke-width="'+width+'" '+(dash?'stroke-dasharray="'+dash+'"':'')+'/>';
+ const txt=(x,y,str,anchor='middle',c='')=>'<text '+attr(x,y)+' text-anchor="'+anchor+'" class="'+c+'">'+str+'</text>';
+ let parts=['<title>Query '+queryName()+' at ('+coord(qx)+', '+coord(qy)+'). Voting neighbors '+sorted.slice(0,k).map(r=>r.id).join(', ')+'.</title>'];
+ for(let x=lo;x<=hi;x++){parts.push(line(X(x),mt,X(x),h-mb,'#d3dfd5'),txt(X(x),h-mb+18,x))}
+ for(let y=0;y<=(tile?7:1);y++){parts.push(line(ml,Y(y),w-mr,Y(y),'#c9d8ce'),txt(ml-9,Y(y)+4,tile?y:(y?'Rain':'Dry'),'end'))}
+ parts.push(txt((ml+w-mr)/2,h-4,tile?'Width (cm)':'Trip length (km)','middle','axis'));
+ if(tile)parts.push('<text transform="translate(13 '+((mt+h-mb)/2)+') rotate(-90)" text-anchor="middle" class="axis">Height (cm)</text>');
+ sorted.slice(0,k).forEach(r=>parts.push(line(X(qx),Y(qy),X(r.px),Y(r.py),'#357465',2,'5 3')));
+ sorted.forEach((r,i)=>{const x=X(r.px),y=Y(r.py),col=r.label?'#a44624':'#087160';
+ if(i<k)parts.push('<circle cx="'+x+'" cy="'+y+'" r="11" fill="none" stroke="'+col+'" stroke-width="1.5"/>');
+ parts.push(r.label?'<path d="M '+x+' '+(y-7)+' l 7 13 h -14 z" fill="'+col+'"/>':'<circle cx="'+x+'" cy="'+y+'" r="6" fill="'+col+'"/>');
+ parts.push(txt(x,y-13,r.id,'middle','id'))});
+ const x=X(qx),y=Y(qy);parts.push('<path d="M '+x+' '+(y-6)+' l 6 6 -6 6 -6 -6 z" fill="#102f44" stroke="white" stroke-width="1.5"/>',txt(x+(qx>hi-.8?-8:8),y+19,queryName(),qx>hi-.8?'end':'start','id'));
+ svg.innerHTML=parts.join('');
+}
+function render(){
+ const sorted=rank(rows(),qx,qy),voters=sorted.slice(0,k),b=voters.filter(r=>r.label===1).length,a=k-b,labels=classes(),win=b>a?1:0;
+ $('x').value=qx;$('y').value=qy;$('weather').value=qy;$('xval').textContent=coord(qx)+(isTile()?' cm':' km');$('yval').textContent=coord(qy)+' cm';
+ $('vote').innerHTML='<strong>Prediction · '+labels[win]+'</strong><br>'+labels[0]+': '+a+' vote'+(a===1?'':'s')+' · '+labels[1]+': '+b+' vote'+(b===1?'':'s')+
+ (isTile()?'':'<br>Late vote share = '+b+'/'+k+' = '+coord(100*b/k)+'% · '+(b/k>=.5?'Warn':'Stay silent')+' at the 50% cutoff.');
+ $('ranks').innerHTML=sorted.map((r,i)=>'<tr class="'+(i<k?'chosen':'')+'"><td>'+String(i+1)+'</td><td>'+r.id+'</td><td>'+Math.sqrt(r.sq).toFixed(2)+'</td><td>'+labels[r.label]+'</td><td>'+(i<k?'Yes':'—')+'</td></tr>').join('');
+ $('ties').textContent=(sorted[k]&&sorted[k-1].sq===sorted[k].sq?'There is a distance tie at the last voting position. ':'')+'Equal distances are ordered by point ID. Odd k gives a majority for these two classes.';
+ const r=sorted.find(n=>n.id===inspected);$('inspect').value=inspected;
+ $('pair').textContent=queryName()+' = ('+coord(qx)+', '+coord(qy)+') and '+r.id+' = ('+r.px+', '+r.py+'). '+r.id+' is ranked '+(sorted.indexOf(r)+1)+' of '+sorted.length+'.';
+ $('formula').textContent='d = √[(x gap)² + (y gap)²]'+' = √[('+coord(qx)+' − '+r.px+')² + ('+coord(qy)+' − '+r.py+')²] = √'+coord(r.sq)+' ≈ '+Math.sqrt(r.sq).toFixed(3)+(isTile()?' cm':'');
+ draw(sorted);
+}
+function place(evt){const svg=$('plot'),pt=svg.createSVGPoint();pt.x=evt.clientX;pt.y=evt.clientY;const p=pt.matrixTransform(svg.getScreenCTM().inverse()),t=transform;
+ qx=cl(Math.round((t.lo+(p.x-t.ml)/t.s)*10)/10,+$('x').min,+$('x').max);
+ const y=t.top-(p.y-t.mt)/t.s;qy=isTile()?cl(Math.round(y*10)/10,0,7):cl(Math.round(y),0,1);render();}
+$('plot').onpointerdown=e=>{drag=true;$('plot').setPointerCapture(e.pointerId);place(e)};$('plot').onpointermove=e=>{if(drag)place(e)};$('plot').onpointerup=$('plot').onpointercancel=$('plot').onlostpointercapture=()=>{drag=false};
+$('tiles').onclick=()=>setMode('tiles');$('delivery').onclick=()=>setMode('delivery');
+$('x').oninput=e=>{qx=+e.target.value;render()};$('y').oninput=e=>{qy=+e.target.value;render()};$('weather').onchange=e=>{qy=+e.target.value;render()};$('k').onchange=e=>{k=+e.target.value;render()};$('inspect').onchange=e=>{inspected=e.target.value;render()};
+$('preset1').onclick=()=>{[qx,qy]=isTile()?[4,3]:[4.2,1];render()};$('preset2').onclick=()=>{qx=3.2;qy=0;render()};
+setMode('tiles');window.addEventListener('resize',()=>draw(rank(rows(),qx,qy)));
+</script></body></html>
