@@ -1,0 +1,733 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#153e36">
+  <title>Will this delivery be late? · CS203 Classifier Explorer</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #182e28; --muted: #4c6259; --pine: #153e36; --green: #126750;
+      --mint: #e1f1e7; --late: #a44024; --peach: #f9e7dd; --line: #ccd8ce;
+      --paper: #f7f8f2; --surface: #fffefa; --blue: #205377; --pale-blue: #e8f0f5;
+      --radius: 14px; font: 16px/1.5 Inter, "Segoe UI", system-ui, sans-serif;
+      color: var(--ink); background: var(--paper);
+    }
+    * { box-sizing: border-box }
+    [hidden] { display: none !important }
+    body { margin: 0 }
+    a { color: var(--green); text-underline-offset: .18em }
+    button, input, select { font: inherit }
+    button, select { cursor: pointer; color: inherit }
+    button { touch-action: manipulation }
+    button:disabled { cursor: default; opacity: .58 }
+    button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible {
+      outline: 3px solid #3675a3; outline-offset: 3px;
+    }
+    .wrap { width: min(1220px, 100%); padding-inline: clamp(16px, 4.8vw, 66px); margin: auto }
+    .mast { border-bottom: 1px solid var(--line); background: var(--surface) }
+    .mast .wrap, .mast-left { display: flex; gap: 12px; align-items: center }
+    .mast .wrap { justify-content: space-between; min-height: 51px }
+    .mast-left { gap: 9px; font-size: .85rem }
+    .course-code { font-weight: 800; letter-spacing: .045em }
+    .marker { color: #92a89a }
+    .mast a, footer a { font-size: .84rem; font-weight: 650 }
+    .mast a { text-decoration: none }
+    .mast a:hover, footer a:hover { text-decoration: underline }
+    h1, h2, h3, h4, p { margin: 0 }
+    h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 500; letter-spacing: -.038em; line-height: 1.08 }
+    h1 { font-size: clamp(2.3rem, 5vw, 4.1rem) }
+    h2 { font-size: clamp(1.9rem, 3.5vw, 2.65rem) }
+    h3 { font-size: 1.02rem; line-height: 1.34 }
+    h4 { font-size: .94rem }
+    .intro { padding-top: clamp(23px, 4vw, 45px); padding-bottom: 22px }
+    .intro p { color: var(--muted); margin-top: 9px; font-size: clamp(.98rem, 1.55vw, 1.12rem); max-width: 74ch }
+    .scenario { background: var(--pine); border-radius: var(--radius); color: #fff; padding: 17px clamp(16px, 2.1vw, 25px) 19px }
+    .scenario-grid { display: grid; grid-template-columns: 1.13fr 1.24fr .92fr 1fr; align-items: stretch }
+    .control { padding-inline: clamp(12px, 2.1vw, 28px); border-left: 1px solid #486b60; min-width: 0 }
+    .control:first-child { padding-left: 0; border-left: 0 }
+    .control:last-child { padding-right: 0 }
+    .control-title { display: flex; justify-content: space-between; align-items: center; gap: 6px; font-size: .83rem; font-weight: 650; color: #daeee0; margin-bottom: 8px }
+    output { font-variant-numeric: tabular-nums; font-size: .88rem; font-weight: 700 }
+    .control output { color: #fff }
+    .seg, .chips, .answers, .tools { display: flex; flex-wrap: wrap; gap: 7px; align-items: center }
+    .seg { gap: 4px }
+    .seg button, .switch, .chip, .button, .answer {
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+      border: 1px solid var(--line); background: var(--surface); border-radius: 7px; font-weight: 650;
+      line-height: 1.25; padding: 8px 12px; min-height: 37px; font-size: .88rem;
+    }
+    .seg button { background: transparent; color: #e4f3e9; border-color: #628376; min-height: 34px; padding: 5px 13px }
+    .seg button[aria-pressed="true"] { color: #153e36; background: #d7f4c9; border-color: #d7f4c9 }
+    .seg button:hover { border-color: #d7f4c9 }
+    .seg button:focus-visible, .control input:focus-visible { outline-color: #d7f4c9 }
+    input[type=range] { cursor: pointer; width: 100%; margin: 0; accent-color: #c7ecad; min-height: 30px; display: block }
+    .tabs { display: flex; gap: 5px; border-bottom: 1px solid #b8c9bd; margin-block: 15px 21px }
+    .tabs button { flex: 1; background: transparent; border: 0; color: var(--muted); font-size: .94rem; font-weight: 630; padding: 12px 4px 14px; position: relative; min-width: 0 }
+    .tabs button:hover { color: var(--pine); background: #edf2ea }
+    .tabs button[aria-selected="true"] { color: var(--pine); font-weight: 750 }
+    .tabs button[aria-selected="true"]::after { content: ""; position: absolute; inset: auto 4px -1px; height: 3px; background: var(--green); border-radius: 2px }
+    .tab-short { display: none }
+    .panel-head { margin-bottom: 17px }
+    .panel-head p { margin-top: 6px; color: var(--muted); max-width: 85ch }
+    .board { display: grid; grid-template-columns: minmax(0, 1.78fr) minmax(225px, .86fr); gap: 14px; align-items: start }
+    .card, .result { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(15px, 1.9vw, 24px); min-width: 0 }
+    .card + .card, .board + .card, .panel-foot, .shared-data { margin-top: 14px }
+    .result { background: #eaf1e8; border-color: #b9cdbe }
+    .result h3 { font-size: .91rem }
+    .big-number { display: block; font: 500 clamp(2.9rem, 5.3vw, 4.4rem)/1.12 Georgia, serif; color: var(--pine); letter-spacing: -.065em; font-variant-numeric: lining-nums tabular-nums; margin-block: 5px }
+    .math, .fig, .mono { font-variant-numeric: tabular-nums }
+    .math { font-family: Georgia, "Times New Roman", serif; font-size: 1.12rem; overflow-wrap: anywhere }
+    .fine, .hint { color: var(--muted); font-size: .86rem }
+    .hint { margin-top: 5px }
+    .result .rule { margin-top: 13px; border-top: 1px solid #bccdbd; padding-top: 12px }
+    .result .rule strong { display: block; margin-bottom: 2px }
+    .meter { height: 9px; border-radius: 8px; display: flex; overflow: hidden; background: #d1e2d6; margin-block: 10px 7px }
+    .meter .late-bar { background: var(--late) } .meter .on-bar { background: #14735c }
+    .meter-key { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 3px 10px; font-size: .78rem; font-weight: 650 }
+    .late-text { color: var(--late) } .on-text { color: var(--green) }
+    .rowhead { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 10px }
+    .switch[aria-pressed="true"], .chip[aria-pressed="true"], .answer[aria-pressed="true"] { color: var(--pine); background: var(--mint); border-color: #618b74 }
+    .switch::before { content: "+"; font-size: 1rem; font-weight: 700 }
+    .switch[aria-pressed="true"]::before { content: "✓" }
+    .switch:hover, .button:hover, .chip:hover, .answer:hover { border-color: var(--green) }
+    .button.primary { background: var(--green); color: white; border-color: var(--green) }
+    .button.small, .chip.small { font-size: .8rem; min-height: 33px; padding: 5px 9px }
+    .groups { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; margin-top: 15px }
+    .group { border: 1px solid var(--line); border-top: 3px solid var(--group-ink); border-radius: 9px; padding: 12px 13px; min-width: 0 }
+    .group.delay { --group-ink: var(--late); --group-fill: var(--peach) }
+    .group.ontime { --group-ink: var(--green); --group-fill: var(--mint) }
+    .group h4 { color: var(--group-ink) }
+    .group .prior { font-size: .81rem; color: var(--muted); margin-top: 1px }
+    .factor { margin-top: 12px }
+    .factor-title { display: flex; justify-content: space-between; gap: 6px; align-items: baseline; font-size: .83rem }
+    .factor-title b { color: var(--group-ink); white-space: nowrap }
+    .samples { display: flex; gap: 5px; flex-wrap: wrap; margin-block: 4px }
+    .dot { width: 27px; height: 27px; padding: 0; background: #fff; border: 1px dashed #91a298; color: #51655b; border-radius: 50%; font-size: .78rem; font-weight: 650 }
+    .group.delay .dot { border-radius: 6px }
+    .dot.match { background: var(--group-ink); color: white; border: 1px solid var(--group-ink) }
+    .dot.selected { outline: 2px solid var(--blue); outline-offset: 2px }
+    .factor.off .dot { background: #f1f3ed; color: #607366; border-color: #a7b6aa }
+    .factor.off .factor-title b { color: var(--muted); font-size: .75rem }
+    .score { margin-top: 12px; padding-top: 9px; border-top: 1px solid var(--line) }
+    .score small { display: block; color: var(--muted); font-weight: 600 }
+    .sequence { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 8px }
+    .stage { text-align: left; background: #f2f6ef; border: 1px solid #b5c9ba; padding: 7px; border-radius: 7px; color: var(--ink); min-width: 0 }
+    .stage[aria-pressed="true"] { background: #fffefa; border-color: var(--pine); box-shadow: inset 0 0 0 1px var(--pine) }
+    .stage span, .stage strong { display: block }
+    .stage span { font-size: .72rem; line-height: 1.25 }
+    .stage strong { font-size: .91rem; color: var(--pine); margin-top: 2px }
+    .stage-line { display: block; height: 4px; background: #d4e1d7; margin-block: 4px 2px; border-radius: 2px; overflow: hidden }
+    .stage-line i { height: 100%; display: block; background: var(--late) }
+    .strip { font-size: .87rem; background: #f1f4ee; border-radius: 7px; padding: 8px 11px; margin-top: 11px }
+    .strip b { color: var(--pine) }
+    details { margin-top: 13px }
+    summary { cursor: pointer; font-weight: 680; color: var(--green); width: fit-content; max-width: 100% }
+    details > p, details > .scrollbox { margin-top: 8px }
+    details.card { padding-block: 14px }
+    .callout { margin-top: 11px; padding: 8px 11px; border-left: 3px solid #7fa78c; background: #f0f5ed; font-size: .87rem; color: var(--ink) }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-top: 11px }
+    .check-p { margin-block: 7px 10px; font-size: .96rem }
+    .answers { gap: 7px }
+    .feedback { margin-top: 10px; padding: 9px 12px; background: var(--pale-blue); color: #163e59; border-left: 3px solid #5587a7; font-size: .9rem }
+    .feedback.correct { background: var(--mint); border-color: #45816a; color: var(--pine) }
+    .textbutton { border: 0; padding: 3px 0; background: transparent; color: var(--green); text-decoration: underline; text-underline-offset: .18em; font-size: .86rem; font-weight: 650 }
+    .data-matrix { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; font-size: .86rem }
+    .data-matrix th, .data-matrix td { padding: 7px 6px; border-bottom: 1px solid #dce4d9; text-align: left; vertical-align: middle }
+    .data-matrix thead th { color: var(--muted); font-size: .78rem }
+    .data-matrix .vote-row { background: #edf5ed }
+    .scrollbox { max-width: 100%; overflow-x: auto }
+    .plot { width: 100%; display: block; touch-action: none; cursor: crosshair; margin-top: 9px; border: 1px solid #d5dfd4; background: #f6f8f1; border-radius: 9px }
+    .plot text { font-family: Inter, "Segoe UI", system-ui, sans-serif; fill: var(--ink) }
+    .plot .axis-label { font-size: 13px; fill: #435a50 }
+    .plot .point-label { font-size: 13px; font-weight: 700; paint-order: stroke; stroke: #f6f8f1; stroke-width: 3px }
+    .legend { display: flex; flex-wrap: wrap; gap: 3px 17px; align-items: center; font-size: .79rem; color: var(--muted); margin-top: 7px }
+    .legend b { font-size: .97rem }
+    .selection { padding: 5px 7px; border: 1px solid #99afa2; background: var(--surface); border-radius: 6px; max-width: 100% }
+    .dist-select { display: inline-flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: .85rem; font-weight: 650 }
+    .tree-root { display: flex; justify-content: center; margin-top: 12px }
+    .tree-node { position: relative; background: #f6f8f2; border: 1px solid #b5c7b8; border-radius: 8px; padding: 8px; text-align: center; width: 100%; font-size: .84rem; line-height: 1.35 }
+    .tree-node strong, .tree-node small { display: block }
+    .tree-node small { margin-top: 2px; color: var(--muted); font-size: .73rem }
+    .tree-node.current { background: #e6f0f5; border: 2px solid var(--blue) }
+    .tree-node[aria-pressed="true"] { box-shadow: 0 0 0 2px #62876c }
+    .tree-root .tree-node { max-width: 215px }
+    .branches { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 0 2px; position: relative }
+    .branches::before { content: ""; position: absolute; height: 10px; top: 3px; left: 25%; right: 25%; border: 1px solid #92a797; border-bottom: none }
+    .tree-arm { position: relative; text-align: center; padding-top: 13px; min-width: 0 }
+    .tree-arm > .direction { display: block; font-size: .74rem; font-weight: 650; color: var(--muted); margin: 0 auto 3px }
+    .tree-arm .branches { gap: 4px; margin: 0 }
+    .tree-leaf { padding: 5px 2px; font-size: .74rem; cursor: default }
+    .tree-leaf.current { border-width: 2px }
+    .question-select { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-block: 6px 10px; font-size: .87rem; font-weight: 650 }
+    .split-side { min-width: 0; padding: 9px; border: 1px solid var(--line); border-radius: 7px }
+    .split-side p { font-size: .84rem }
+    .split-side .meter { margin-block: 6px }
+    .compare-line { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(65px, 1fr) minmax(43px,auto); gap: 10px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line) }
+    .compare-line:last-child { border-bottom: 0; padding-bottom: 0 }
+    .compare-line h4 { font-size: .91rem }
+    .compare-line small { display: block; font-size: .78rem; color: var(--muted) }
+    .compare-track { background: #dfebe0; height: 11px; border-radius: 5px; position: relative }
+    .compare-track span { height: 100%; display: block; background: #518979; border-radius: 5px }
+    .compare-track i { display: block; width: 2px; height: 19px; background: #183e39; position: absolute; top: -4px; transform: translateX(-1px) }
+    .compare-line .number { text-align: right; font-size: 1rem; font-weight: 750 }
+    .iframe-wrap { display: block; width: 100%; height: min(75vh, 680px); border: 1px solid var(--line); border-radius: 8px; margin-top: 10px; background: white }
+    .shared-data { margin-bottom: 20px }
+    footer { border-top: 1px solid var(--line); margin-top: 24px; padding-block: 16px 23px }
+    footer .wrap { display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between; gap: 10px; color: var(--muted); font-size: .86rem }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap }
+    @media (max-width: 800px) {
+      .wrap { padding-inline: clamp(14px, 3vw, 24px) }
+      .board { grid-template-columns: minmax(0, 1.65fr) minmax(200px, .9fr); gap: 10px }
+      .control { padding-inline: 12px }
+      .scenario-grid { grid-template-columns: 1fr 1.05fr .95fr .95fr }
+      .seg button { padding-inline: 8px }
+      .group { padding: 9px }
+      .samples { gap: 3px }
+      .dot { width: 25px; height: 25px }
+    }
+    @media (max-width: 670px) {
+      .board { display: flex; flex-direction: column }
+      .board > * { width: 100% }
+      .scenario-grid { grid-template-columns: 1fr 1fr; gap: 12px 17px }
+      .control, .control:first-child, .control:last-child { padding-inline: 0; border: 0 }
+      .control-title { margin-bottom: 3px }
+      .scenario { padding: 12px 15px }
+      .intro { padding-bottom: 16px }
+      .tabs { gap: 0; margin-block: 10px 15px }
+      .tabs button { font-size: .83rem; line-height: 1.25 }
+      .tab-long { display: none } .tab-short { display: inline }
+      .big-number { font-size: 2.95rem }
+      .result .rule { margin-top: 10px }
+      .dot { width: 27px; height: 27px }
+    }
+    @media (max-width: 410px) {
+      .mast-left { gap: 5px; font-size: .72rem } .mast a { font-size: .77rem }
+      .groups { gap: 6px } .group { padding: 8px }
+      .samples { gap: 3px } .dot { width: 24px; height: 24px }
+      .compare-line { gap: 6px }
+    }
+    @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important } }
+  </style>
+</head>
+<body>
+  <div class="mast"><div class="wrap"><div class="mast-left"><span class="course-code">CS203</span><span class="marker">/</span><span>Data Science Fundamentals</span><span class="marker">/</span><span>Week 11</span></div><a href="https://sabokrou.github.io/teaching/#data-science-week-11">Course page ↗</a></div></div>
+  <main class="wrap">
+    <header class="intro"><h1>Will this delivery be late?</h1><p>Eight completed orders, one new delivery. Change what you know at checkout and see how three classifiers decide whether to warn the customer.</p></header>
+    <noscript>
+      <section class="card"><h2>Predict with Naive Bayes</h2><p>Four of eight deliveries were late. Among the late orders, three were rainy and three were long. Among the on-time orders, one was rainy and one was long. A long trip is at least 4 km.</p>
+        <details><summary>Order P is long and rainy. How likely is a delay?</summary><p>The two scores are ½ × ¾ × ¾ = 9/32 and ½ × ¼ × ¼ = 1/32. Dividing the late score by their sum gives 9/10, or 90%.</p></details>
+        <details><summary>Order Q is short and dry. What changes?</summary><p>The scores reverse. Its chance of delay is 1/10, or 10%.</p></details>
+        <p>Enable JavaScript for the live controls. You can also open the <a href="../labs/data-science-week-11-knn.html">neighbor visualization</a> or <a href="../labs/data-science-week-11-decision-tree.html">decision-tree visualization</a>.</p>
+      </section><style>.interactive, .shared-data { display:none }</style>
+    </noscript>
+    <div class="interactive">
+      <section class="scenario" aria-label="Delivery and decision settings"><div class="scenario-grid">
+        <div class="control"><div class="control-title"><span>Test delivery</span><output id="order-label" aria-live="polite"></output></div><div class="seg" role="group" aria-label="Choose a lecture order"><button type="button" id="order-p">Order P</button><button type="button" id="order-q">Order Q</button></div></div>
+        <div class="control"><label class="control-title" for="distance">Trip distance <output id="distance-val" for="distance"></output></label><input type="range" id="distance" min="1" max="6" value="4.2" step=".1"></div>
+        <div class="control"><div class="control-title">Weather at checkout</div><div class="seg" role="group" aria-label="Weather at checkout"><button type="button" id="weather-dry">Dry</button><button type="button" id="weather-rain">Rain</button></div></div>
+        <div class="control"><label class="control-title" for="threshold">Warning cutoff <output id="threshold-val" for="threshold"></output></label><input type="range" id="threshold" min="0" max="100" value="50" step="1"></div>
+      </div></section>
+      <div class="tabs" role="tablist" aria-label="Classifier visualizations">
+        <button type="button" role="tab" id="tab-bayes" data-tab="bayes" aria-controls="work">Naive Bayes</button>
+        <button type="button" role="tab" id="tab-knn" data-tab="knn" aria-label="k-nearest neighbors" aria-controls="work"><span class="tab-long">k-Nearest Neighbors</span><span class="tab-short">k-NN</span></button>
+        <button type="button" role="tab" id="tab-tree" data-tab="tree" aria-controls="work">Decision Tree</button>
+        <button type="button" role="tab" id="tab-compare" data-tab="compare" aria-controls="work"><span class="tab-long">Compare predictions</span><span class="tab-short">Compare</span></button>
+      </div>
+      <section id="work" role="tabpanel" tabindex="0" aria-labelledby="tab-bayes"></section>
+      <div id="announcer" aria-live="polite" class="sr-only"></div>
+    </div>
+    <details class="card shared-data" id="training"><summary>See all eight training deliveries</summary><p class="fine">Distance and weather were known at checkout. Arrival time supplied the training label. An order was late if it took more than 30 minutes. P and Q are test orders and never enter these counts.</p><div class="scrollbox"><table class="data-matrix"><thead><tr><th scope="col">Order</th><th scope="col">Distance</th><th scope="col">Weather</th><th scope="col">Arrival time</th><th scope="col">Outcome</th></tr></thead><tbody id="training-rows"></tbody></table></div></details>
+  </main>
+  <footer><div class="wrap"><span>Mohammad Sabokrou · New Uzbekistan University</span><a href="https://sabokrou.github.io/teaching/slides/data-science-fundamentals-week-11-classification-and-decision-thresholds.pdf">Week 11 lecture slides (PDF) ↗</a></div></footer>
+  <script>
+(() => {
+
+"use strict";
+const orders = [
+  ["A", 2, false, 22], ["B", 2, true, 28], ["C", 3, false, 26], ["D", 3, true, 34],
+  ["E", 4, false, 35], ["F", 4, true, 37], ["G", 5, false, 29], ["H", 5, true, 42],
+].map(([id, km, rain, minutes]) => ({id, km, rain, minutes, late: minutes > 30}));
+const examples = {P: {km: 4.2, rain: true}, Q: {km: 3.2, rain: false}};
+const modes = ["bayes", "knn", "tree", "compare"];
+const hashes = {bayes: "naive-bayes", knn: "knn", tree: "decision-tree", compare: "compare"};
+const state = {
+  mode: "bayes", km: 4.2, rain: true, cutoff: 50,
+  useWeather: true, useLength: true, inspectBayes: "", k: 3, inspectKnn: "",
+  root: "d2.5", children: {yes: "", no: ""}, treeNode: "root", preview: "",
+  quiz: Object.fromEntries(modes.map(m => [m, {index: 0, choice: null}])),
+  reveal: false
+};
+const $ = id => document.getElementById(id);
+const percent = x => `${Number((x * 100).toFixed(1))}%`;
+const kmText = x => Number(x.toFixed(1)).toString();
+const countLate = rows => rows.filter(r => r.late).length;
+const ids = rows => rows.map(r => r.id).join(", ");
+const routeName = () => Object.keys(examples).find(key => examples[key].km === state.km && examples[key].rain === state.rain) || "";
+const weatherName = () => state.rain ? "Rain" : "Dry";
+const isLong = km => km >= 4;
+const lengthName = () => isLong(state.km) ? "Long" : "Short";
+const shouldWarn = p => p * 100 + 1e-10 >= state.cutoff;
+function fraction(n, d = 1) {
+  function gcd(a, b) { return b ? gcd(b, a % b) : a; }
+  const divisor = gcd(Math.abs(n), d);
+  return {n: n / divisor, d: d / divisor};
+}
+const fractionText = f => f.d === 1 ? String(f.n) : `${f.n}/${f.d}`;
+const multiply = (a,b) => fraction(a.n * b.n, a.d * b.d);
+const add = (a,b) => fraction(a.n * b.d + b.n * a.d, a.d * b.d);
+const divide = (a,b) => fraction(a.n * b.d, a.d * b.n);
+const value = f => f.n / f.d;
+function bayes() {
+  const evidence = [
+    {key: "weather", title: weatherName(), used: state.useWeather, matches: o => o.rain === state.rain},
+    {key: "length", title: lengthName(), used: state.useLength, matches: o => isLong(o.km) === isLong(state.km)}
+  ];
+  const groups = [true, false].map(late => {
+    const rows = orders.filter(r => r.late === late);
+    const prior = fraction(rows.length, orders.length);
+    const clues = evidence.map(c => {
+      const matches = rows.filter(c.matches);
+      return {...c, rows: matches, rate: fraction(matches.length, rows.length)};
+    });
+    const used = clues.filter(c => c.used);
+    const likelihood = used.reduce((acc,c) => multiply(acc,c.rate), fraction(1));
+    return {late, rows, prior, clues, used, likelihood, score: multiply(prior, likelihood),
+      joint: rows.filter(r => used.every(c => c.matches(r)))};
+  });
+  const total = add(groups[0].score, groups[1].score);
+  return {groups, total, posterior: divide(groups[0].score, total)};
+}
+function ranking() {
+  return orders.map(row => {
+    const dx = state.km - row.km, dy = Number(state.rain) - Number(row.rain);
+    const squared = Number((dx * dx + dy * dy).toFixed(8));
+    return {...row, squared, distance: Math.sqrt(squared)};
+  }).sort((a,b) => a.squared - b.squared || a.id.localeCompare(b.id));
+}
+function splitOptions(rows) {
+  const distances = [...new Set(rows.map(r => r.km))].sort((a,b) => a - b);
+  const options = distances.slice(1).map((km,i) => {
+    const cut = (km + distances[i]) / 2;
+    return {key: `d${cut}`, name: `Distance ≤ ${kmText(cut)} km?`, test: row => row.km <= cut};
+  });
+  options.push({key: "rain", name: "Rain at checkout?", test: row => row.rain});
+  return options.map(q => {
+    const yes = rows.filter(q.test), no = rows.filter(r => !q.test(r));
+    if (!yes.length || !no.length) return null;
+    const weighted = (yes.length * gini(yes) + no.length * gini(no)) / rows.length;
+    return {...q, yes, no, weighted, gain: gini(rows) - weighted};
+  }).filter(Boolean);
+}
+function gini(rows) {
+  const p = countLate(rows) / rows.length;
+  return 2 * p * (1 - p);
+}
+function treeInfo() {
+  const allSplits = splitOptions(orders);
+  const root = allSplits.find(q => q.key === state.root);
+  const branch = root.test(state) ? "yes" : "no";
+  const route = [{name: root.name, answer: branch}];
+  const sub = {};
+  for (const side of ["yes","no"]) sub[side] = splitOptions(root[side]).find(q => q.key === state.children[side]);
+  const next = sub[branch];
+  let leaf = root[branch];
+  if (next) {
+    const answer = next.test(state) ? "yes" : "no";
+    route.push({name: next.name, answer});
+    leaf = next[answer];
+  }
+  return {root, branch, sub, route, leaf, p: countLate(leaf) / leaf.length};
+}
+const wordAnswer = s => s === "yes" ? "Yes" : "No";
+const actionText = p => shouldWarn(p) ? "Warn the customer" : "No warning";
+const setting = b => b ? "true" : "false";
+function head(title, desc) {
+  return `<div class="panel-head"><h2>${title}</h2><p>${desc}</p></div>`;
+}
+function meter(p) {
+  return `<div class="meter" aria-hidden="true"><span class="late-bar" style="width:${100*p}%"></span><span class="on-bar" style="width:${100*(1-p)}%"></span></div>`;
+}
+function resultCard(label, p, explanation, extra="") {
+  const who = routeName() ? `Order ${routeName()}` : "Your delivery";
+  return `<aside class="result" aria-label="Prediction"><h3>${label}</h3><output class="big-number" id="model-score" aria-label="${label}">${percent(p)}</output>${meter(p)}
+    <div class="meter-key"><span class="late-text">▲ Late ${percent(p)}</span><span class="on-text">● On time ${percent(1-p)}</span></div>
+    <div class="rule"><strong id="model-decision">${actionText(p)}</strong><span class="fine">${who} is ${shouldWarn(p)?"at or above":"below"} the ${state.cutoff}% warning cutoff.</span></div>
+    <div class="rule">${explanation}</div>${extra}</aside>`;
+}
+
+function evidenceGroup(group) {
+  const factors = group.clues.map(c => {
+    const dots = group.rows.map(row => {
+      const match = c.matches(row);
+      const desc = `${row.id}, ${row.km} km, ${row.rain ? "rain" : "dry"}, ${row.late ? "late" : "on time"}`;
+      return `<button type="button" data-act="pick-order" data-id="${row.id}" data-clue="${c.key}" class="dot ${c.used&&match?"match":""} ${state.inspectBayes===row.id?"selected":""}" aria-label="${desc}. ${c.used?(match?"Matches":"Misses")+" the "+c.key+" clue.":"Clue off."}" aria-pressed="${setting(state.inspectBayes===row.id)}" title="${desc}">${row.id}</button>`;
+    }).join("");
+    return `<div class="factor ${c.used?"":"off"}"><div class="factor-title"><span>${c.title}</span><b>${c.used?`${c.rows.length}/${group.rows.length}`:"Clue off"}</b></div><div class="samples">${dots}</div></div>`;
+  }).join("");
+  const product = [group.prior, ...group.used.map(c => c.rate)].map(fractionText).join(" × ");
+  return `<div class="group ${group.late?"delay":"ontime"}"><h4>${group.late?"▲ Late":"● On time"}</h4>
+    <p class="prior">Prior ${group.rows.length}/${orders.length} = ${percent(value(group.prior))}</p>${factors}
+    <div class="score"><small>Class score</small><span class="math">${product}${group.used.length?" = "+fractionText(group.score):""}</span></div></div>`;
+}
+function evidenceSteps(groups) {
+  const weatherOnly = [true, false].map(late => {
+    const group = groups.find(g => g.late === late);
+    return multiply(group.prior, group.clues[0].rate);
+  });
+  const both = groups.map(g => g.clues.reduce((s, c) => multiply(s, c.rate), g.prior));
+  const posterior = scores => value(divide(scores[0],add(scores[0],scores[1])));
+  const steps = [
+    ["prior", "Prior", value(groups[0].prior), !state.useWeather && !state.useLength],
+    ["weather", weatherName(), posterior(weatherOnly), state.useWeather && !state.useLength],
+    ["both", "Both clues", posterior(both), state.useWeather && state.useLength]
+  ];
+  return '<div class="rule"><h3>Build the estimate</h3><p class="fine">Select a stage to add evidence.</p><div class="sequence">' + steps.map(([id, name, p, active]) =>
+    '<button type="button" class="stage" data-act="stage" data-stage="' + id + '" aria-pressed="' + setting(active) + '"><span>' + name + '</span><i class="stage-line" aria-hidden="true"><i style="width:' + p*100 + '%"></i></i><strong>' + percent(p) + '</strong></button>'
+  ).join("") + '</div></div>';
+}
+function evidenceRows() {
+  const info = bayes(), p = value(info.posterior), [late,on] = info.groups;
+  const lookup = orders.find(o => o.id === state.inspectBayes);
+  const clues = late.used.map(c => c.title.toLowerCase()).join(" and ");
+  const counted = lookup ? `<b>Order ${lookup.id}</b> travelled ${lookup.km} km in ${lookup.rain?"rain":"dry weather"} and arrived in ${lookup.minutes} minutes. It belongs to the ${lookup.late?"late":"on-time"} group.` : "Select an order letter to inspect the trip behind a count.";
+  const pairNote = late.used.length === 2 ?
+    `The model treats weather and trip length as independent within each outcome. Among the ${late.rows.length} late orders it estimates ${fractionText(late.clues[0].rate)} × ${fractionText(late.clues[1].rate)} = <b>${fractionText(late.likelihood)}</b> for both clues. In the training data, ${late.joint.length} of these ${late.rows.length} orders had both clues${late.joint.length?` (${ids(late.joint)})`:""}.` :
+    late.used.length === 1 ? `With one clue, take its matching fraction within each class. Turn on both clues to see the conditional-independence assumption in use.` :
+    `With both clues off, each score is its class prior. The two priors already add to one.`;
+  const explain = `<p class="fine">Divide the late score by the sum of both scores.</p><p class="math" id="normalization">(${fractionText(late.score)}) ÷ (${fractionText(late.score)} + ${fractionText(on.score)}) = <strong>${fractionText(info.posterior)}</strong></p>`;
+  return head("Count the evidence", "Start with the late and on-time groups. Toggle a clue to see which training orders match and how the estimated chance of delay changes.")+
+    `<div class="board"><section class="card"><div class="rowhead"><h3>Evidence at checkout</h3><div class="chips">
+      <button type="button" class="switch" data-act="clue-weather" aria-pressed="${setting(state.useWeather)}">Weather</button>
+      <button type="button" class="switch" data-act="clue-length" aria-pressed="${setting(state.useLength)}">Trip length</button></div></div>
+      <p class="hint">Filled letters match the clue. Naive Bayes calls a trip long at 4 km or more.</p>
+      <div class="groups">${info.groups.map(evidenceGroup).join("")}</div><p class="strip">${counted}</p>
+      <details id="bayes-assumption"><summary>Why multiply the two fractions?</summary><p class="fine">${pairNote}</p></details></section>
+      ${resultCard("Estimated chance of delay",p,explain,`<p class="fine" style="margin-top:9px">${clues?`The estimate uses ${clues} conditions.`:"Only the prior is in use."}</p>`+evidenceSteps(info.groups))}
+    </div>` + quizPanel("bayes");
+}
+function svgMap(sorted) {
+  const X = km => 62 + (km-1)*97;
+  const Y = rain => rain ? 52 : 145;
+  const qx = X(state.km), qy = Y(state.rain);
+  const voters = sorted.slice(0,state.k);
+  let parts = [`<title id="plot-title">Delivery distances and weather</title><desc id="plot-desc">The diamond is the test delivery at ${state.km} km in ${weatherName().toLowerCase()} weather. The nearest ${state.k} orders are ${ids(voters)}. Both coordinates also have controls above the plot.</desc>`];
+  for (let km=1;km<=6;km++) {
+    const x = X(km);
+    parts.push(`<line x1="${x}" y1="34" x2="${x}" y2="160" stroke="#d5dfd2"/><text x="${x}" y="182" text-anchor="middle" class="axis-label">${km}</text>`);
+  }
+  for (const r of [false,true]) {
+    const y = Y(r);
+    parts.push(`<line x1="59" y1="${y}" x2="548" y2="${y}" stroke="#becdbd"/><text x="46" y="${y+4}" text-anchor="end" class="axis-label">${r?"Rain":"Dry"}</text>`);
+  }
+  parts.push('<text x="304" y="206" text-anchor="middle" class="axis-label">Trip distance (km)</text>');
+  for (const row of voters) {
+    parts.push(`<line x1="${qx}" x2="${X(row.km)}" y1="${qy}" y2="${Y(row.rain)}" stroke="#5e8171" stroke-width="2" stroke-dasharray="5 4"/>`);
+  }
+  for (const row of orders) {
+    const x=X(row.km), y=Y(row.rain), color=row.late?"#a44024":"#126750";
+    if(voters.some(r=>r.id===row.id)) parts.push(`<circle cx="${x}" cy="${y}" r="12" fill="none" stroke="${color}" stroke-width="1.6"/>`);
+    if(state.inspectKnn===row.id) parts.push(`<circle cx="${x}" cy="${y}" r="16" fill="none" stroke="#205377" stroke-dasharray="3 2"/>`);
+    parts.push(row.late?`<path d="M ${x} ${y-6} l 7 12 h -14 z" fill="${color}"/>`:`<circle cx="${x}" cy="${y}" r="6" fill="${color}"/>`);
+    parts.push(`<text x="${x}" y="${y-17}" class="point-label" text-anchor="middle">${row.id}</text>`);
+  }
+  const nearRight=state.km>5.5;
+  parts.push(`<path d="M ${qx} ${qy-8} l 8 8 -8 8 -8 -8 z" stroke="white" stroke-width="2" fill="#205377"/><text x="${qx+(nearRight?-7:7)}" y="${qy+23}" text-anchor="${nearRight?"end":"start"}" class="point-label">${routeName()||"New"}</text>`);
+  return parts.join("");
+}
+function knnPanel() {
+  const sorted=ranking(), voters=sorted.slice(0,state.k), late=countLate(voters), p=late/state.k;
+  const inspect=sorted.find(o=>o.id===state.inspectKnn)||sorted[0];
+  const tied=sorted[state.k] && sorted[state.k-1].squared===sorted[state.k].squared;
+  const options=orders.map(o=>`<option value="${o.id}" ${o.id===inspect.id?"selected":""}>Order ${o.id}</option>`).join("");
+  const ranks=sorted.map((r,i)=>`<tr class="${i<state.k?"vote-row":""}"><td>${i+1}</td><th scope="row">${r.id}</th><td>${r.distance.toFixed(2)}</td><td class="${r.late?"late-text":"on-text"}">${r.late?"▲ Late":"● On time"}</td><td>${i<state.k?"Yes":"–"}</td></tr>`).join("");
+  const body=`<p class="fine">Nearest ${state.k} in order</p><strong>${ids(voters)}</strong><p class="math">${late}/${state.k} late = ${percent(p)}</p>`;
+  const counts=[1,3,5,7].map(n=>`<button type="button" class="chip small" data-act="set-k" data-k="${n}" aria-pressed="${setting(state.k===n)}">${n}</button>`).join("");
+  return head("Let the neighbors vote","Move the test delivery on the map or use the controls above. Only the nearest k training orders vote. Change k to see which orders gain a vote.")+
+    `<div class="board"><section class="card"><div class="rowhead"><h3>Nearest deliveries</h3><div class="chips" role="group" aria-label="Number of neighbors"><span class="fine">k</span>${counts}</div></div>
+    <svg id="map" class="plot" viewBox="0 0 570 216" role="img" aria-labelledby="plot-title plot-desc" data-plot="knn">${svgMap(sorted)}</svg>
+    <div class="legend"><span><b class="on-text">●</b> On time</span><span><b class="late-text">▲</b> Late</span><span><b style="color:var(--blue)">◆</b> Test delivery</span><span>Rings mark voters</span></div>
+    <p class="hint">Click or drag the diamond. Weather snaps to dry or rain. In this distance measure, a weather mismatch counts as much as a 1 km difference.</p>
+    <details id="knn-distances"><summary>Inspect a distance and the full ranking</summary><div class="actions"><label class="dist-select">Measure to <select id="inspect-knn" class="selection">${options}</select></label></div>
+    <p class="math">√[(${kmText(state.km)} − ${inspect.km})² + (${Number(state.rain)} − ${Number(inspect.rain)})²] = ${inspect.distance.toFixed(3)}</p>
+    <p class="fine">${tied?"There is a tie at the last voting position. ":""}Equal distances are ordered by delivery letter. Rain is 1 and dry is 0.</p><div class="scrollbox"><table class="data-matrix">
+    <thead><tr><th scope="col">Rank</th><th scope="col">Order</th><th scope="col">Distance</th><th scope="col">Outcome</th><th scope="col">Votes?</th></tr></thead><tbody>${ranks}</tbody></table></div></details></section>
+    ${resultCard("Late vote share",p,body)}</div>`+quizPanel("knn")+classic("knn");
+}
+function classic(mode) {
+  const tree=mode==="tree";
+  const name=tree?"Original tree walkthrough and Gini card game":"Original neighbor map with tiles and deliveries";
+  const path=tree?"../labs/data-science-week-11-decision-tree.html":"../labs/data-science-week-11-knn.html";
+  return `<details class="card" id="original-${mode}" data-original="${mode}"><summary>${name}</summary>
+    <p class="fine">${tree?"Draw two cards to see what Gini impurity counts, then build and trace a tree.":"Move a tile in two dimensions and compare its nearest neighbors."} This original visualization has its own controls. <a href="${path}" target="_blank" rel="noopener">Open full screen ↗</a></p>
+    <div data-frame data-path="${path}"></div></details>`;
+}
+
+function leafSummary(rows) {
+  const n=countLate(rows);
+  return `${n}/${rows.length} late`;
+}
+function treeBranch(info,side) {
+  const here=info.branch===side, child=info.sub[side], rows=info.root[side];
+  const label=child?child.name:leafSummary(rows);
+  const subTree=child?`<div class="branches">${["yes","no"].map(answer=>{
+    const active=here && (child.test(state)?"yes":"no")===answer;
+    return `<div class="tree-arm"><span class="direction">${wordAnswer(answer)}</span><div class="tree-node tree-leaf ${active?"current":""}"><strong>${leafSummary(child[answer])}</strong><small>${ids(child[answer])}</small></div></div>`;
+  }).join("")}</div>`:"";
+  return `<div class="tree-arm"><span class="direction">${wordAnswer(side)}</span>
+    <button type="button" class="tree-node ${here?"current":""}" data-act="edit-node" data-node="${side}" aria-label="Examine ${side} branch containing ${ids(rows)}" aria-pressed="${setting(state.treeNode===side)}"><strong>${label}</strong><small>${ids(rows)}</small></button>${subTree}</div>`;
+}
+function splitEditor(info) {
+  const node=state.treeNode, parent=node==="root"?orders:info.root[node];
+  const available=splitOptions(parent);
+  const selected=node==="root"?state.root:state.children[node];
+  const item=available.find(q=>q.key===(state.preview||selected))||available[0];
+  const where=node==="root"?"Root":`${wordAnswer(node)} branch`;
+  if(gini(parent)===0 || !available.length) {
+    const pureText = parent.length === 1 ? "This node holds a single order." : `All ${parent.length} orders have the same outcome.`;
+    return `<div class="score"><h3>${where} · ${ids(parent)}</h3><p class="hint">${gini(parent)===0?`${pureText} Gini is 0, so a split cannot improve this node.`:"There is no question here with a nonempty group on both sides."}</p></div>`;
+  }
+  const options=available.map(q=>`<option value="${q.key}" ${q.key===item.key?"selected":""}>${q.name}</option>`).join("");
+  const groupLine=side=>{
+    const rows=item[side], late=countLate(rows);
+    return `<div class="split-side"><h4>${wordAnswer(side)} · ${ids(rows)}</h4>${meter(late/rows.length)}<p>${late} late · ${rows.length-late} on time</p><p class="fine">Gini ${gini(rows).toFixed(3)}</p></div>`;
+  };
+  const compare=available.map(q=>`<tr><th scope="row">${q.name}</th><td>${q.weighted.toFixed(3)}</td><td>${q.gain.toFixed(3)}</td></tr>`).join("");
+  return `<div class="score"><h3>${where} · ${ids(parent)}</h3>
+    <label class="question-select">Test a question <select class="selection" id="candidate">${options}</select></label>
+    <div class="groups" style="margin-top:0">${groupLine("yes")}${groupLine("no")}</div>
+    <p class="strip">Weighted Gini = (${item.yes.length}/${parent.length}) × ${gini(item.yes).toFixed(3)} + (${item.no.length}/${parent.length}) × ${gini(item.no).toFixed(3)} ≈ <b>${item.weighted.toFixed(3)}</b>.<br>Gini drops from ${gini(parent).toFixed(3)} by <b>${item.gain.toFixed(3)}</b>.</p>
+    <div class="actions"><button class="button primary small" type="button" data-act="apply-split" data-key="${item.key}" ${item.key===selected?"disabled":""}>${item.key===selected?"Split in use":"Use this split"}</button>
+    ${node!=="root"&&selected?`<button type="button" class="button small" data-act="clear-child">Make this a leaf</button>`:""}</div>
+    <details id="tree-options"><summary>Compare all questions at this node</summary><p class="fine">Gini is 2 × (fraction late) × (fraction on time). Choose the split with the lowest weighted Gini for the biggest reduction in impurity.</p>
+    <div class="scrollbox"><table class="data-matrix"><thead><tr><th scope="col">Question</th><th scope="col">Weighted Gini</th><th scope="col">Reduction</th></tr></thead><tbody>${compare}</tbody></table></div></details></div>`;
+}
+function treePanel() {
+  const info=treeInfo(), path=info.route.map(r=>`${r.name} <b>${wordAnswer(r.answer)}</b>`).join(" → ");
+  return head("Choose a split and follow its path","Select the root or one of its branches. Try a question, compare the two groups, and apply the split to see where your delivery lands.")+
+    `<div class="board"><section class="card"><div class="rowhead"><h3>Your decision tree</h3><button class="textbutton" type="button" data-act="reset-tree">Reset to one split</button></div>
+    <div class="tree-root"><button class="tree-node current" type="button" data-act="edit-node" data-node="root" aria-pressed="${setting(state.treeNode==="root")}"><strong>${info.root.name}</strong><small>Root · all 8 orders</small></button></div>
+    <div class="branches">${treeBranch(info,"yes")}${treeBranch(info,"no")}</div>
+    <p class="hint">Blue outlines trace the test delivery. Select a branch to try adding a second question.</p>
+    ${splitEditor(info)}</section>
+    ${resultCard("Late share in the reached leaf",info.p,`<p class="fine">Path for this delivery</p><p style="font-size:.88rem">${path}</p><p class="math">${leafSummary(info.leaf)} = ${percent(info.p)}</p><p class="fine">The leaf contains ${ids(info.leaf)}.</p>`)}</div>`+
+    quizPanel("tree")+classic("tree");
+}
+function comparePanel() {
+  const b=bayes(), t=treeInfo(), neighbors=ranking().slice(0,state.k), yes=countLate(neighbors);
+  const all=[
+    ["Naive Bayes",value(b.posterior),b.groups[0].used.length?`Using ${b.groups[0].used.map(s=>s.title.toLowerCase()).join(" and ")}.`:"Using only the prior."],
+    [`${state.k}-nearest ${state.k===1?"neighbor":"neighbors"}`,yes/state.k,`${yes} of ${state.k} voters late · ${ids(neighbors)}.`],
+    ["Decision tree",t.p,`${leafSummary(t.leaf)} in the leaf · ${ids(t.leaf)}.`]
+  ];
+  const lines=all.map(([name,p,note])=>`<div class="compare-line" data-model="${name}"><div><h4>${name}</h4><small>${note}</small></div><div class="compare-track" aria-hidden="true"><span style="width:${p*100}%"></span><i style="left:${state.cutoff}%"></i></div><div class="number">${percent(p)}<small>${shouldWarn(p)?"Warn":"No warning"}</small></div></div>`).join("");
+  const order=routeName(), outcome=order==="P"?"P arrived in 38 minutes and was late.":"Q arrived in 27 minutes and was on time.";
+  const revealed=order&&state.reveal;
+  const counts=all.filter(([,p])=>shouldWarn(p)).length;
+  return head("Compare predictions","Each method sees the same test delivery. Change the cutoff and watch which methods warn, then check a lecture order against its recorded arrival time.")+
+    `<div class="board"><section class="card"><div class="rowhead"><h3>Three estimates of delay</h3><span class="fine">Marker = ${state.cutoff}% cutoff</span></div>${lines}
+    <p class="strip">Naive Bayes combines clue frequencies. k-NN counts neighbors. The tree counts the orders in the reached leaf. The bars use each method’s current settings.</p></section>
+    <aside class="result"><h3>Methods issuing a warning</h3><output id="compare-score" class="big-number">${counts} / 3</output><p class="fine">A method warns when its estimate is at least ${state.cutoff}%. The cutoff changes the action while the estimates stay fixed.</p>
+    <div class="rule"><strong>Actual outcome</strong>${order?`<button type="button" class="button small" data-act="reveal" aria-expanded="${setting(state.reveal)}">${state.reveal?"Hide":"Reveal"} order ${order}’s outcome</button>${revealed?`<p class="strip" id="actual">${outcome}</p>`:""}`:`<p class="fine">The lecture records outcomes for P and Q. Choose either preset to reveal its arrival time.</p>`}</div></aside></div>`+quizPanel("compare");
+}
+const challenges = {
+  bayes: [
+    {prompt:"P starts with a 50% prior. Use weather alone for this rainy trip. What is the updated chance of delay?", options:["25%","50%","75%"], answer:2, why:"Three of the four rainy training orders were late (D, F and H). Weather alone raises the estimate to 75%.", apply:"Try P with weather only", preset:"P", settings:{useWeather:true,useLength:false}},
+    {prompt:"Choose Q and use both clues. Q is short and dry. What chance of delay will Naive Bayes give?", options:["10%","25%","90%"], answer:0, why:"The late score is 1/32 and the on-time score is 9/32. One part out of ten is 10%.", apply:"Try Q with both clues",preset:"Q",settings:{useWeather:true,useLength:true}},
+    {prompt:"A long delivery on a dry day has one clue favoring each outcome. At a 50% cutoff, will Naive Bayes warn?",options:["Warn","No warning"],answer:0,why:"Both scores are ½ × ¾ × ¼ = 3/32. The posterior is exactly 50%, which meets this cutoff.",apply:"Try a long, dry trip",settings:{km:4.2,rain:false,useWeather:true,useLength:true,cutoff:50}}
+  ],
+  knn: [
+    {prompt:"For Q (3.2 km, dry), will changing k from 3 to 1 change the warning at a 50% cutoff?",options:["Yes","No"],answer:0,why:"At k = 3, C, E and D vote, and two were late. At k = 1, only C votes, and C was on time.",apply:"Try Q with one neighbor",preset:"Q",settings:{k:1,cutoff:50}},
+    {prompt:"For P (4.2 km, rain), how many of the three nearest deliveries were late?",options:["One","Two","All three"],answer:2,why:"F, H and E are the three closest. All three were late, so the late vote share is 100%.",apply:"Try P with three neighbors",preset:"P",settings:{k:3}}
+  ],
+  tree: [
+    {prompt:"Split first at 2.5 km. Which question best separates the six orders on the No branch?",options:["Distance ≤ 3.5 km?","Rain at checkout?","Distance ≤ 4.5 km?"],answer:1,why:"Rain gives a pure rainy group (D, F, H) and a dry group with one late delivery out of three (C, E, G). Its weighted Gini is 2/9, the lowest of the three questions.",apply:"Inspect the rain split",preset:"Q",action:"preview-rain"},
+    {prompt:"With a root split at 2.5 km, Q reaches a leaf with 4/6 late. Split that branch by rain. What share now applies to Q?",options:["0/3","1/3","3/3"],answer:1,why:"Q is dry. It goes to C, E and G, where only E was late. Its share falls to 1/3.",apply:"Trace Q through both splits",preset:"Q",action:"use-rain"}
+  ],
+  compare: [
+    {prompt:"Use P, both Bayes clues, k = 3 and the one-split tree at 2.5 km. At a 70% cutoff, which methods warn?",options:["Bayes and k-NN","Only k-NN","All three"],answer:0,why:"For P the estimates are 90%, 100% and 66.7%. Only the first two reach 70%.",apply:"Compare P at 70%",preset:"P",action:"lecture",settings:{cutoff:70}},
+    {prompt:"Use Q with both clues, k = 3 and a one-split tree at 2.5 km. At a 50% cutoff, which method stays silent?",options:["Naive Bayes","k-NN","Decision tree"],answer:0,why:"The Bayes estimate is 10%. The neighbor vote and the one-split leaf each give 66.7%.",apply:"Compare Q at 50%",preset:"Q",action:"lecture",settings:{cutoff:50}}
+  ]
+};
+function quizPanel(mode) {
+  const q=state.quiz[mode], item=challenges[mode][q.index], answered=q.choice!==null;
+  const buttons=item.options.map((label,i)=>`<button type="button" data-act="answer" data-index="${i}" class="answer" aria-pressed="${setting(q.choice===i)}">${label}</button>`).join("");
+  const correct=q.choice===item.answer;
+  return `<section class="card"><div class="rowhead"><h3>Make a prediction</h3><button type="button" class="textbutton" data-act="next-question">Next question →</button></div>
+    <p class="check-p">${item.prompt}</p><div class="answers" role="group" aria-label="Your prediction">${buttons}</div>
+    <div aria-live="polite">${answered?`<div class="feedback ${correct?"correct":""}"><strong>${correct?"Correct.":`The answer is ${item.options[item.answer]}.`}</strong> ${item.why}</div>
+    <button type="button" class="button small" data-act="try-question" style="margin-top:8px">${item.apply}</button>`:""}</div></section>`;
+}
+
+const tabs=[...document.querySelectorAll("[data-tab]")];
+const work=$("work"), announce=$("announcer");
+let dragging=null;
+function readMode() {
+  return Object.keys(hashes).find(key=>hashes[key]===location.hash.slice(1))||"bayes";
+}
+function syncControls() {
+  const name=routeName();
+  $("order-label").textContent=name?"":"Custom";
+  for (const key of ["P","Q"]) $("order-"+key.toLowerCase()).setAttribute("aria-pressed",setting(name===key));
+  $("distance").value=state.km;
+  $("distance-val").textContent=`${kmText(state.km)} km`;
+  $("distance").setAttribute("aria-valuetext",`${kmText(state.km)} kilometers`);
+  $("threshold").value=state.cutoff;
+  $("threshold-val").textContent=`${state.cutoff}%`;
+  $("threshold").setAttribute("aria-valuetext",`${state.cutoff} percent`);
+  $("weather-dry").setAttribute("aria-pressed",setting(!state.rain));
+  $("weather-rain").setAttribute("aria-pressed",setting(state.rain));
+}
+function originalFrame(details) {
+  if (!details || !details.open) return;
+  const mode=details.dataset.original, slot=details.querySelector("[data-frame]");
+  if (slot.querySelector("iframe")) return;
+  const iframe=document.createElement("iframe");
+  iframe.className="iframe-wrap";
+  iframe.title=mode==="tree"?"Original interactive decision-tree walkthrough":"Original interactive nearest-neighbor map";
+  iframe.src=slot.dataset.path;
+  slot.append(iframe);
+}
+function rememberFocus() {
+  const el=document.activeElement;
+  if (!work.contains(el) || el===work) return null;
+  if (el.id) return {id:el.id};
+  if (!el.dataset.act) return null;
+  return {attrs:Object.entries(el.dataset)};
+}
+function restoreFocus(last) {
+  if (!last) return;
+  const element=last.id?$(last.id):[...work.querySelectorAll("[data-act]")].find(el=>last.attrs.every(([key,val])=>el.dataset[key]===val) && !el.disabled);
+  if(element) element.focus({preventScroll:true});
+  else work.focus({preventScroll:true});
+}
+function render() {
+  const focus=rememberFocus(), opened=[...work.querySelectorAll("details[open]")].map(el=>el.id);
+  // Keep an expanded original attached while editing the surrounding model.
+  const oldOriginal=work.querySelector("[data-original]");
+  const keepOriginal=oldOriginal && oldOriginal.dataset.original===state.mode;
+  const holder=work.querySelector(".model-content");
+  syncControls();
+  tabs.forEach(tab=>{
+    const selected=tab.dataset.tab===state.mode;
+    tab.setAttribute("aria-selected",setting(selected));
+    tab.tabIndex=selected?0:-1;
+  });
+  work.setAttribute("aria-labelledby",`tab-${state.mode}`);
+  const panels={bayes:evidenceRows,knn:knnPanel,tree:treePanel,compare:comparePanel};
+  const html=panels[state.mode]();
+  const tpl=document.createElement("template");
+  tpl.innerHTML=html;
+  const nextOriginal=tpl.content.querySelector("[data-original]");
+  if(nextOriginal) nextOriginal.remove();
+  if(keepOriginal && holder) {
+    holder.replaceChildren(tpl.content);
+  } else {
+    const main=document.createElement("div");
+    main.className="model-content"; main.append(tpl.content);
+    work.replaceChildren(main);
+    if(nextOriginal) work.append(nextOriginal);
+  }
+  opened.forEach(id=>{const el=$(id);if(el)el.open=true;});
+  originalFrame(work.querySelector("[data-original]"));
+  restoreFocus(focus);
+}
+function setMode(mode, push=true) {
+  if(!modes.includes(mode)) mode="bayes";
+  if(push && location.hash!==`#${hashes[mode]}`) history.pushState(null,"",`#${hashes[mode]}`);
+  state.mode=mode;
+  render();
+}
+function pickPreset(name) {
+  Object.assign(state,examples[name]); state.reveal=false;
+}
+function resetTree() {
+  state.root="d2.5"; state.children={yes:"",no:""}; state.treeNode="root"; state.preview="";
+}
+function applyQuestion(item) {
+  if(item.preset) pickPreset(item.preset);
+  if(item.settings) Object.assign(state,item.settings);
+  if(item.action==="lecture") {
+    state.useLength=true; state.useWeather=true; state.k=3; resetTree();
+  } else if(item.action==="preview-rain" || item.action==="use-rain") {
+    resetTree(); state.treeNode="no"; state.preview="rain";
+    if(item.action==="use-rain") state.children.no="rain";
+  }
+  state.reveal=false;
+}
+function handleAction(button) {
+  const d=button.dataset, q=state.quiz[state.mode];
+  switch(d.act) {
+    case "clue-weather": state.useWeather=!state.useWeather; break;
+    case "clue-length": state.useLength=!state.useLength; break;
+    case "stage": state.useWeather=d.stage!=="prior"; state.useLength=d.stage==="both"; break;
+    case "pick-order": state.inspectBayes=d.id; break;
+    case "set-k": state.k=Number(d.k); break;
+    case "edit-node": state.treeNode=d.node; state.preview=""; break;
+    case "reset-tree": resetTree(); break;
+    case "clear-child": state.children[state.treeNode]=""; state.preview=""; break;
+    case "apply-split":
+      if(state.treeNode==="root") { state.root=d.key; state.children={yes:"",no:""}; }
+      else state.children[state.treeNode]=d.key;
+      state.preview=""; break;
+    case "answer": q.choice=Number(d.index); break;
+    case "next-question": q.index=(q.index+1)%challenges[state.mode].length; q.choice=null; break;
+    case "try-question": applyQuestion(challenges[state.mode][q.index]); break;
+    case "reveal": state.reveal=!state.reveal; break;
+    default: return;
+  }
+  render();
+  if(d.act==="answer") announce.textContent=work.querySelector(".feedback").textContent;
+  else if(d.act==="pick-order") announce.textContent=work.querySelector(".strip").textContent;
+  else if(d.act==="reveal" && state.reveal) announce.textContent=$("actual").textContent;
+  else if(d.act==="try-question") announce.textContent="Example applied. "+(work.querySelector("#model-score, #compare-score")?.textContent||"");
+  else if(["clue-weather","clue-length","stage","set-k","apply-split","clear-child","reset-tree"].includes(d.act))
+    announce.textContent=($("model-score")?.getAttribute("aria-label")||"Estimate")+" "+($("model-score")?.textContent||"")+". "+($("model-decision")?.textContent||"");
+}
+for (const key of ["P","Q"]) $("order-"+key.toLowerCase()).onclick=()=>{pickPreset(key);render();};
+for (const [id,rain] of [["weather-dry",false],["weather-rain",true]]) $(id).onclick=()=>{state.rain=rain;state.reveal=false;render();};
+$("distance").oninput=e=>{state.km=Number(e.target.value);state.reveal=false;render();};
+$("threshold").oninput=e=>{state.cutoff=Number(e.target.value);render();};
+tabs.forEach((tab,i)=>{
+  tab.addEventListener("click",()=>setMode(tab.dataset.tab));
+  tab.addEventListener("keydown",e=>{
+    const index={ArrowRight:(i+1)%tabs.length,ArrowLeft:(i+tabs.length-1)%tabs.length,Home:0,End:tabs.length-1}[e.key];
+    if(index===undefined)return;
+    e.preventDefault();setMode(tabs[index].dataset.tab);tabs[index].focus();
+  });
+});
+window.addEventListener("hashchange",()=>setMode(readMode(),false));
+window.addEventListener("popstate",()=>{if(state.mode!==readMode())setMode(readMode(),false);});
+work.addEventListener("toggle",e=>{if(e.target.matches("details[data-original]"))originalFrame(e.target);},true);
+work.addEventListener("click",e=>{const button=e.target.closest("[data-act]");if(button && !button.disabled)handleAction(button);});
+work.addEventListener("change",e=>{
+  if(e.target.id==="candidate") state.preview=e.target.value;
+  else if(e.target.id==="inspect-knn") state.inspectKnn=e.target.value;
+  else return;
+  render();
+});
+function placePoint(event) {
+  const svg=$("map");
+  if(!svg || !svg.getScreenCTM())return;
+  const point=svg.createSVGPoint();
+  point.x=event.clientX; point.y=event.clientY;
+  const p=point.matrixTransform(svg.getScreenCTM().inverse());
+  const km=Math.min(6,Math.max(1,Math.round(((p.x-62)/97+1)*10)/10));
+  const rain=p.y<(52+145)/2;
+  if(state.km===km && state.rain===rain)return;
+  state.km=km;state.rain=rain;state.reveal=false;render();
+}
+work.addEventListener("pointerdown",e=>{
+  if(!e.target.closest("[data-plot]") || !e.isPrimary || e.button!==0)return;
+  dragging=e.pointerId;work.setPointerCapture(e.pointerId);placePoint(e);
+});
+work.addEventListener("pointermove",e=>{if(e.pointerId===dragging)placePoint(e);});
+function stopDrag(e){if(e.pointerId===dragging)dragging=null;}
+for(const type of ["pointerup","pointercancel","lostpointercapture"])work.addEventListener(type,stopDrag);
+$("training-rows").innerHTML=orders.map(o=>`<tr><th scope="row">${o.id}</th><td>${o.km} km</td><td>${o.rain?"Rain":"Dry"}</td><td>${o.minutes} min</td><td class="${o.late?"late-text":"on-text"}">${o.late?"▲ Late":"● On time"}</td></tr>`).join("");
+setMode(readMode(),false);
+})();
+</script>
+</body>
+</html>
