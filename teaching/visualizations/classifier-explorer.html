@@ -209,6 +209,43 @@
       .compare-line { gap: 6px }
     }
     @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important } }
+
+    .trace-card { margin: 12px 0 20px; border-top: 4px solid var(--green) }
+    .trace-card:focus { outline: 3px solid var(--blue); outline-offset: 2px }
+    .trace-steps { display: flex; flex-wrap: wrap; gap: 5px; padding-bottom: 11px; border-bottom: 1px solid var(--line) }
+    .trace-steps button { display: inline-flex; align-items: center; gap: 6px; padding: 6px 9px; background: #fffefa; border: 1px solid var(--line); color: var(--muted); border-radius: 20px; font-size: .85rem; font-weight: 650 }
+    .trace-steps button span { display: inline-grid; place-items: center; height: 20px; min-width: 20px; border-radius: 50%; background: #edf1e9; color: var(--pine) }
+    .trace-steps button[aria-pressed=true] { color: white; background: var(--pine); border-color: var(--pine) }
+    .outcome { margin: 12px 0 }
+    .trace-question { display: flex; justify-content: space-between; align-items: center; gap: 13px; margin-block: 10px }
+    .trace-question h3, .trace-steps + h3 { font: 500 clamp(1.3rem,2.5vw,1.9rem)/1.15 Georgia, serif; color: var(--pine) }
+    .trace-steps + h3 { margin-top: 15px }
+    .trace-question p { font-size: .9rem; margin-top: 4px; color: var(--muted) }
+    .tally { flex: 0 0 auto; text-align: center; border-left: 2px solid #a2c4ad; padding-left: 16px }
+    .tally b { display: block; font: 500 clamp(1.8rem,4vw,3.3rem)/1 Georgia,serif; color: var(--pine) }
+    .tally span { font-size: .84rem; color: var(--muted) }
+    .count-legend { display: flex; flex-wrap: wrap; gap: 2px 16px; font-size: .82rem; margin: 14px 0 9px }
+    .count-legend i { display: inline-block; width: 12px; height: 12px; vertical-align: -.05em; margin-right: 3px; border: 2px solid var(--green); border-radius: 3px }
+    .hit-key { background: var(--green) }
+    .tickets { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 6px }
+    .ticket { display: grid; align-content: start; text-align: left; min-width: 0; border: 1px solid #66937b; background: #fffefa; padding: 6px 10px; border-radius: 8px; font: 500 .84rem/1.35 Inter,system-ui,sans-serif; font-variant-numeric: tabular-nums }
+    .ticket b { font: 700 1.12rem Georgia,serif } .ticket small { font-size: .76rem }
+    .ticket em { font-size: .66rem; font-weight: 700; margin-top: 3px; font-style: normal }
+    .ticket.counted { background: #d9efdf; border: 2px solid var(--green); padding: 5px 9px; color: #153f2c }
+    .ticket.outside { border: 1px dashed #a8b5ac; background: #f1f3ee; color: #56665d }
+    .ticket[aria-pressed]:hover { box-shadow: 0 0 0 2px #699181 }
+    .trace-nav { display: flex; justify-content: space-between; margin-top: 12px }
+    .experiment { border-top: 1px solid var(--line); padding-top: 11px; margin-top: 12px }
+    .experiment label { font-size: .86rem; font-weight: 650 }
+    .number-link { font: inherit; font-weight: 700; text-decoration: underline dotted; text-underline-offset: .2em; background: transparent; color: var(--green); border: 0; padding: 2px 3px }
+    .score-button { font: inherit; letter-spacing: inherit; color: inherit; background: transparent; border: 0; padding: 0; text-decoration: underline dotted #80a18d 1px; text-underline-offset: .09em }
+    .worked { border: 1px solid var(--line); background: #f6f8f1; padding: 12px; border-radius: 9px }
+    .multiplication { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; padding: 8px 0; font-size: 1.12rem }
+    .factor-tile { display: grid; text-align: center } .factor-tile small { color: var(--muted); font-size: .74rem }
+    .units { display: flex; flex-wrap: wrap; gap: 4px; margin: 16px 0 4px } .units i { width: 15px; height: 20px; border-radius: 3px }
+    .u-late { background: var(--late) } .u-on { background: var(--green) }
+    .final-math { margin-block: 8px; font: 500 clamp(1.4rem, 3vw, 2.2rem) Georgia,serif }
+    @media(max-width:550px) { .tickets { grid-template-columns:repeat(2,minmax(0,1fr)) } .trace-steps button { font-size:.77rem; padding:5px 8px } .trace-card .groups { grid-template-columns:1fr } .trace-question { align-items:start } .tally { padding-left:8px } }
   </style>
 </head>
 <body>
@@ -279,14 +316,14 @@ const multiply = (a,b) => fraction(a.n * b.n, a.d * b.d);
 const add = (a,b) => fraction(a.n * b.d + b.n * a.d, a.d * b.d);
 const divide = (a,b) => fraction(a.n * b.d, a.d * b.n);
 const value = f => f.n / f.d;
-function bayes() {
+function bayes(data = orders) {
   const evidence = [
     {key: "weather", title: weatherName(), used: state.useWeather, matches: o => o.rain === state.rain},
     {key: "length", title: lengthName(), used: state.useLength, matches: o => isLong(o.km) === isLong(state.km)}
   ];
   const groups = [true, false].map(late => {
-    const rows = orders.filter(r => r.late === late);
-    const prior = fraction(rows.length, orders.length);
+    const rows = data.filter(r => r.late === late);
+    const prior = fraction(rows.length, data.length);
     const clues = evidence.map(c => {
       const matches = rows.filter(c.matches);
       return {...c, rows: matches, rate: fraction(matches.length, rows.length)};
@@ -351,11 +388,129 @@ function meter(p) {
 }
 function resultCard(label, p, explanation, extra="") {
   const who = routeName() ? `Order ${routeName()}` : "Your delivery";
-  return `<aside class="result" aria-label="Prediction"><h3>${label}</h3><output class="big-number" id="model-score" aria-label="${label}">${percent(p)}</output>${meter(p)}
+  return `<aside class="result" aria-label="Prediction"><h3>${label}</h3><output class="big-number" id="model-score" aria-label="${label}"><button type="button" class="score-button" data-act="explain" data-step="posterior" aria-label="Trace ${label.toLowerCase()} ${percent(p)}">${percent(p)}</button></output>${meter(p)}
     <div class="meter-key"><span class="late-text">▲ Late ${percent(p)}</span><span class="on-text">● On time ${percent(1-p)}</span></div>
     <div class="rule"><strong id="model-decision">${actionText(p)}</strong><span class="fine">${who} is ${shouldWarn(p)?"at or above":"below"} the ${state.cutoff}% warning cutoff.</span></div>
-    <div class="rule">${explanation}</div>${extra}</aside>`;
+    <div class="rule">${explanation}<button type="button" class="textbutton" data-act="explain" data-step="posterior">Trace this number</button></div>${extra}</aside>`;
 }
+
+
+const traceSteps=["prior","weather","length","score","posterior"];
+const originalMinutes=orders.map(row=>row.minutes);
+const trace={step:"prior",late:true,sample:"D",exercise:null,selected:[],graded:false};
+const originalChanged=()=>orders.some((o,i)=>o.minutes!==originalMinutes[i]);
+function changeSample(id,minutes){
+  orders.forEach((o,i)=>{
+    o.minutes=o.id===id?minutes:originalMinutes[i];
+    o.late=o.minutes>30;
+  });
+  trace.exercise=null;
+  for(const q of Object.values(state.quiz))q.choice=null;
+}
+function fractionButton(step,late,label,description){
+  return `<button type="button" class="number-link" data-act="explain" data-step="${step}" data-class="${late?"late":"on"}" aria-label="Trace ${description}">${label}</button>`;
+}
+function sourceCount(){
+  if(state.mode==="knn"){
+    const ranked=ranking(), pool=ranked.slice(0,state.k);
+    return {title:"Which neighbors voted late?",pool,hit:pool.filter(o=>o.late),
+      denominator:`the ${state.k} nearest ${state.k===1?"delivery":"deliveries"}`,numerator:"voters that arrived after 30 minutes",
+      question:`Select the late deliveries among the ${state.k} nearest.`, extra:o=>{
+        const i=ranked.findIndex(r=>r.id===o.id);
+        return `Rank ${i+1} · distance ${ranked[i].distance.toFixed(2)}`;
+      }};
+  }
+  if(state.mode==="tree"){
+    const tree=treeInfo(), pool=tree.leaf;
+    return {title:"Which deliveries reached this leaf?",pool,hit:pool.filter(o=>o.late),
+      denominator:"training deliveries that followed the same path as the test order",numerator:"late deliveries in this leaf",
+      question:"Select the orders in this leaf that arrived after 30 minutes.",
+      detail:tree.route.map(r=>`${r.name} ${wordAnswer(r.answer)}`).join(" → ")};
+  }
+  const group=bayes().groups.find(g=>g.late===trace.late);
+  const label=trace.late?"late":"on-time";
+  if(trace.step==="prior")return {title:`How many of the eight deliveries were ${trace.late?"late":"on time"}?`,pool:orders,hit:group.rows,denominator:"all completed training deliveries",numerator:`orders that arrived ${trace.late?"after 30 minutes":"in 30 minutes or less"}`,question:`Select every ${label} delivery.`,detail:"Use the recorded arrival time to assign each label. A delivery taking exactly 30 minutes is on time."};
+  const clue=group.clues.find(c=>c.key===trace.step);
+  const term=trace.step==="weather"?(state.rain?"rainy":"dry"):(isLong(state.km)?"long":"short");
+  return {title:`Among the ${label} deliveries, how many were ${term}?`,pool:group.rows,hit:clue.rows,denominator:`all ${label} training deliveries`,numerator:`${label} deliveries that were ${term}`,question:`Select the ${label} deliveries that were ${term}.`,
+    detail:trace.step==="length"?`The test trip is ${kmText(state.km)} km. Distances of 4 km or more count as long. Short trips are under 4 km.`:`The test delivery has ${state.rain?"rainy":"dry"} weather. Count the same weather in this group.`,
+    off:!clue.used};
+}
+function countKey(s) {
+  return [state.mode,trace.step,trace.late,s.question,ids(s.pool),ids(s.hit)].join("|");
+}
+function countBoard(s){
+  const members=new Set(s.pool.map(o=>o.id)), hits=new Set(s.hit.map(o=>o.id));
+  const key=countKey(s);
+  const attempt=trace.exercise===key, selected=new Set(trace.selected);
+  const fractionLabel=`${s.hit.length}/${s.pool.length}`, outcome=percent(s.hit.length/s.pool.length);
+  const cards=orders.map(o=>{
+    const included=members.has(o.id), hit=hits.has(o.id), picked=selected.has(o.id);
+    const status=!included?"Outside group":attempt?(picked?"Selected":"Available"):hit?"✓ Counted":"In group";
+    const style=!included?"outside":(attempt?picked:hit)?"counted":"in-pool";
+    const fields=`<small>${o.km} km · ${o.rain?"Rain":"Dry"}</small><span>${o.minutes} min · ${o.late?"Late":"On time"}</span>${s.extra?`<small>${s.extra(o)}</small>`:""}<em>${status}</em>`;
+    return attempt&&included?`<button type="button" class="ticket ${style}" data-act="mark-row" data-id="${o.id}" aria-pressed="${picked}"><b>${o.id}</b>${fields}</button>`:`<div class="ticket ${style}"><b>${o.id}</b>${fields}</div>`;
+  }).join("");
+  let check="";
+  if(attempt && trace.graded){
+    const missing=s.hit.filter(o=>!selected.has(o.id)), wrong=s.pool.filter(o=>selected.has(o.id)&&!hits.has(o.id));
+    check=missing.length||wrong.length?`${wrong.length?`Recheck ${ids(wrong)}. ${wrong.length===1?"It belongs":"They belong"} to the group but ${wrong.length===1?"does":"do"} not meet the counting condition. `:""}${missing.length?`${missing.length} matching ${missing.length===1?"order is":"orders are"} still unselected. Check the times and clues on the cards.`:""}`:`Correct. ${ids(s.hit)||"No orders"} ${s.hit.length===1?"matches":"match"}. You counted ${fractionLabel}, or ${outcome}.`;
+  }
+  const result=attempt?`<div class="tally"><b>${selected.size}</b><span>selected out of ${s.pool.length}</span></div>`:`<div class="tally"><b>${fractionLabel}</b><span>= ${outcome}</span></div>`;
+  return `<div class="trace-question"><div><h3>${s.title}</h3><p>${s.detail||""}</p></div>${result}</div>
+    <div class="count-legend"><span><i class="pool-key"></i><b>Denominator</b> · ${s.denominator}</span><span><i class="hit-key"></i><b>Numerator</b> · ${s.numerator}</span></div>
+    <div class="tickets">${cards}</div>${s.off?'<p class="callout">This clue is off. You can inspect its count here, but it contributes no factor to the current score.</p>':""}
+    ${attempt?`<p class="strip"><b>Your turn.</b> ${s.question}</p><div class="actions"><button type="button" class="button primary small" data-act="check-count">Check my count</button><button type="button" class="textbutton" data-act="see-count">Show the worked count</button></div>${check?`<p class="feedback" role="status">${check}</p>`:""}`:`<div class="actions"><p class="fine"><b>${s.hit.length}</b> counted (${ids(s.hit)||"none"}) out of <b>${s.pool.length}</b> in the group (${ids(s.pool)}).</p><button type="button" class="button small" data-act="do-count">Count it myself</button></div>`}`;
+}
+function scoreWorked(g){
+  const name=g.late?"Late":"On time";
+  const terms=[{key:"prior",f:g.prior,label:"Prior"},...g.used.map(c=>({key:c.key,f:c.rate,label:c.title}))];
+  const n=terms.reduce((a,t)=>a*t.f.n,1), d=terms.reduce((a,t)=>a*t.f.d,1);
+  const factors=terms.map(t=>`<span class="factor-tile"><small>${t.label}</small>${fractionButton(t.key,g.late,fractionText(t.f),`${name} ${t.label} ${fractionText(t.f)}`)}</span>`).join('<b aria-hidden="true">×</b>');
+  return `<div class="worked"><h4>${name} score</h4><div class="multiplication">${factors}<b>=</b><strong>${fractionText(g.score)}</strong></div><p class="fine">Multiply the top numbers (${terms.map(t=>t.f.n).join(" × ")}) to get ${n}, and the bottom numbers (${terms.map(t=>t.f.d).join(" × ")}) to get ${d}.${fractionText(g.score)!==`${n}/${d}`?` Simplify ${n}/${d} to ${fractionText(g.score)}.`:""}</p></div>`;
+}
+function scoreView(info){
+  const [late,on]=info.groups;
+  if(trace.step==="score")return `<h3>Multiply the evidence for each outcome</h3><p class="hint">The prior gives the starting share. Each active clue contributes its fraction within that outcome. Click a factor to see its source orders.</p><div class="groups">${scoreWorked(late)}${scoreWorked(on)}</div><p class="strip">Multiplying the clue fractions assumes that weather and trip length are independent within each outcome. The products are model scores.</p>`;
+  const a=late.score,b=on.score;
+  const unit=a.d*fraction(b.d,a.d).n;
+  const lateUnits=a.n*(unit/a.d),onUnits=b.n*(unit/b.d),total=lateUnits+onUnits;
+  const bars=total<=40?`<div class="units">${Array.from({length:total},(_,i)=>`<i class="${i<lateUnits?"u-late":"u-on"}" aria-hidden="true"></i>`).join("")}</div>`:meter(value(info.posterior));
+  return `<h3>What share of both scores belongs to “late”?</h3><p class="hint">Write both scores in units of 1/${unit}. Click a score to see its multiplication.</p>
+    <div class="groups"><div class="worked"><h4>Late</h4>${fractionButton("score",true,fractionText(a),"late class score")} = ${lateUnits}/${unit} · ${lateUnits} ${lateUnits===1?"part":"parts"}</div><div class="worked"><h4>On time</h4>${fractionButton("score",false,fractionText(b),"on-time class score")} = ${onUnits}/${unit} · ${onUnits} ${onUnits===1?"part":"parts"}</div></div>
+    ${bars}<p class="fine"><b class="late-text">▲ ${lateUnits} late</b> + <b class="on-text">● ${onUnits} on time</b> = ${total} equal parts of model score.</p>
+    <p class="final-math">${lateUnits} ÷ (${lateUnits} + ${onUnits}) = <b>${percent(value(info.posterior))}</b></p>
+    <p class="fine">These parts come from the fitted model. The training set still contains eight actual deliveries.</p>`;
+}
+function whatIf(){
+  const row=orders.find(o=>o.id===trace.sample), idx=orders.indexOf(row);
+  const original=originalMinutes[idx];
+  const current=originalChanged();
+  const baseline=orders.map((o,i)=>({...o,minutes:originalMinutes[i],late:originalMinutes[i]>30}));
+  let before,after;
+  if(state.mode==="bayes"){
+    before=value(bayes(baseline).posterior);after=value(bayes().posterior);
+  }else{
+    const rows=state.mode==="knn"?ranking().slice(0,state.k):treeInfo().leaf;
+    before=rows.filter(o=>baseline.find(r=>r.id===o.id).late).length/rows.length;after=countLate(rows)/rows.length;
+  }
+  return `<details class="experiment" id="edit-example"${current?" open":""}><summary>What if one training delivery arrived earlier or later?</summary>
+    <p class="fine">Change one recorded arrival while keeping its distance and weather. Pick another order to start a fresh experiment.</p>
+    <div class="actions"><button type="button" class="chip small" data-act="try-arrival" data-id="D" data-time="28">Try D arriving in 28 min</button><button type="button" class="chip small" data-act="try-arrival" data-id="B" data-time="34">Try B arriving in 34 min</button></div><div class="actions"><label>Delivery <select class="selection" id="change-delivery">${orders.map(o=>`<option value="${o.id}" ${o.id===row.id?"selected":""}>${o.id}</option>`).join("")}</select></label>
+    <label>Arrival <select class="selection" id="change-time">${[...new Set([original,28,30,34,40])].sort((a,b)=>a-b).map(t=>`<option value="${t}" ${row.minutes===t?"selected":""}>${t} min${t===original?" (lecture)":""}</option>`).join("")}</select></label>
+    <button class="button small" type="button" data-act="restore-data"${current?"":" disabled"}>Restore lecture data</button></div>
+    <p class="strip">Order ${row.id} · ${original} min (${original>30?"late":"on time"}) → <b>${row.minutes} min (${row.late?"late":"on time"})</b>. The delay estimate goes from <b>${percent(before)} to ${percent(after)}</b>.</p></details>`;
+}
+function guidedTrace(){
+  const isBayes=state.mode==="bayes";
+  const names=["Prior","Weather","Trip length","Class scores","Prediction"];
+  const index=traceSteps.indexOf(trace.step), numeric=isBayes&&index>=3;
+  const nav=isBayes?`<nav aria-label="Calculation steps" class="trace-steps">${traceSteps.map((s,i)=>`<button type="button" data-act="trace-step" data-step="${s}" aria-pressed="${s===trace.step}"><span>${i+1}</span>${names[i]}</button>`).join("")}</nav>`:"";
+  const groups=isBayes&&!numeric?`<div class="chips outcome" role="group" aria-label="Which outcome to count"><small>Count for</small>${[true,false].map(l=>`<button type="button" class="chip small" data-act="trace-class" data-class="${l?"late":"on"}" aria-pressed="${trace.late===l}">${l?"▲ Late":"● On time"}</button>`).join("")}</div>`:"";
+  return `<section class="card trace-card" id="calculation" tabindex="-1" aria-label="Trace the calculation">${nav}${groups}${numeric?scoreView(bayes()):countBoard(sourceCount())}
+    ${isBayes?`<div class="trace-nav"><button type="button" class="textbutton" data-act="trace-step" data-step="${traceSteps[index-1]||"prior"}" ${index===0?"disabled":""}>← Back</button><button type="button" class="button primary small" data-act="trace-step" data-step="${traceSteps[index+1]||"prior"}">${index===4?"Count again":`Next · ${names[index+1]}`} →</button></div>`:""}${whatIf()}</section>`;
+}
+
 
 function evidenceGroup(group) {
   const factors = group.clues.map(c => {
@@ -364,12 +519,12 @@ function evidenceGroup(group) {
       const desc = `${row.id}, ${row.km} km, ${row.rain ? "rain" : "dry"}, ${row.late ? "late" : "on time"}`;
       return `<button type="button" data-act="pick-order" data-id="${row.id}" data-clue="${c.key}" class="dot ${c.used&&match?"match":""} ${state.inspectBayes===row.id?"selected":""}" aria-label="${desc}. ${c.used?(match?"Matches":"Misses")+" the "+c.key+" clue.":"Clue off."}" aria-pressed="${setting(state.inspectBayes===row.id)}" title="${desc}">${row.id}</button>`;
     }).join("");
-    return `<div class="factor ${c.used?"":"off"}"><div class="factor-title"><span>${c.title}</span><b>${c.used?`${c.rows.length}/${group.rows.length}`:"Clue off"}</b></div><div class="samples">${dots}</div></div>`;
+    return `<div class="factor ${c.used?"":"off"}"><div class="factor-title"><span>${c.title}</span><b>${c.used?fractionButton(c.key,group.late,`${c.rows.length}/${group.rows.length}`,c.title+" fraction"):"Clue off"}</b></div><div class="samples">${dots}</div></div>`;
   }).join("");
-  const product = [group.prior, ...group.used.map(c => c.rate)].map(fractionText).join(" × ");
+  const product = [{key:"prior",rate:group.prior}, ...group.used].map(c=>fractionButton(c.key,group.late,fractionText(c.rate),c.key+" factor")).join(" × ");
   return `<div class="group ${group.late?"delay":"ontime"}"><h4>${group.late?"▲ Late":"● On time"}</h4>
-    <p class="prior">Prior ${group.rows.length}/${orders.length} = ${percent(value(group.prior))}</p>${factors}
-    <div class="score"><small>Class score</small><span class="math">${product}${group.used.length?" = "+fractionText(group.score):""}</span></div></div>`;
+    <p class="prior">Prior ${fractionButton("prior",group.late,`${group.rows.length}/${orders.length}`,"prior count")} = ${percent(value(group.prior))}</p>${factors}
+    <div class="score"><small>Class score</small><span class="math">${product}${group.used.length?" = "+fractionButton("score",group.late,fractionText(group.score),"class score"):""}</span></div></div>`;
 }
 function evidenceSteps(groups) {
   const weatherOnly = [true, false].map(late => {
@@ -397,7 +552,7 @@ function evidenceRows() {
     late.used.length === 1 ? `With one clue, take its matching fraction within each class. Turn on both clues to see the conditional-independence assumption in use.` :
     `With both clues off, each score is its class prior. The two priors already add to one.`;
   const explain = `<p class="fine">Divide the late score by the sum of both scores.</p><p class="math" id="normalization">(${fractionText(late.score)}) ÷ (${fractionText(late.score)} + ${fractionText(on.score)}) = <strong>${fractionText(info.posterior)}</strong></p>`;
-  return head("Count the evidence", "Start with the late and on-time groups. Toggle a clue to see which training orders match and how the estimated chance of delay changes.")+
+  return head("Where does the probability come from?", "Work through one count at a time. Read the delivery cards, try counting them yourself, then follow those fractions into the final prediction.") + guidedTrace() +
     `<div class="board"><section class="card"><div class="rowhead"><h3>Evidence at checkout</h3><div class="chips">
       <button type="button" class="switch" data-act="clue-weather" aria-pressed="${setting(state.useWeather)}">Weather</button>
       <button type="button" class="switch" data-act="clue-length" aria-pressed="${setting(state.useLength)}">Trip length</button></div></div>
@@ -441,7 +596,7 @@ function knnPanel() {
   const inspect=sorted.find(o=>o.id===state.inspectKnn)||sorted[0];
   const tied=sorted[state.k] && sorted[state.k-1].squared===sorted[state.k].squared;
   const options=orders.map(o=>`<option value="${o.id}" ${o.id===inspect.id?"selected":""}>Order ${o.id}</option>`).join("");
-  const ranks=sorted.map((r,i)=>`<tr class="${i<state.k?"vote-row":""}"><td>${i+1}</td><th scope="row">${r.id}</th><td>${r.distance.toFixed(2)}</td><td class="${r.late?"late-text":"on-text"}">${r.late?"▲ Late":"● On time"}</td><td>${i<state.k?"Yes":"–"}</td></tr>`).join("");
+  const ranks=sorted.map((r,i)=>`<tr class="${i<state.k?"vote-row":""}"><td>${i+1}</td><th scope="row">${r.id}</th><td><button type="button" class="number-link" data-act="measure" data-id="${r.id}" aria-label="Measure distance to order ${r.id}">${r.distance.toFixed(2)}</button></td><td class="${r.late?"late-text":"on-text"}">${r.late?"▲ Late":"● On time"}</td><td>${i<state.k?"Yes":"–"}</td></tr>`).join("");
   const body=`<p class="fine">Nearest ${state.k} in order</p><strong>${ids(voters)}</strong><p class="math">${late}/${state.k} late = ${percent(p)}</p>`;
   const counts=[1,3,5,7].map(n=>`<button type="button" class="chip small" data-act="set-k" data-k="${n}" aria-pressed="${setting(state.k===n)}">${n}</button>`).join("");
   return head("Let the neighbors vote","Move the test delivery on the map or use the controls above. Only the nearest k training orders vote. Change k to see which orders gain a vote.")+
@@ -450,17 +605,17 @@ function knnPanel() {
     <div class="legend"><span><b class="on-text">●</b> On time</span><span><b class="late-text">▲</b> Late</span><span><b style="color:var(--blue)">◆</b> Test delivery</span><span>Rings mark voters</span></div>
     <p class="hint">Click or drag the diamond. Weather snaps to dry or rain. In this distance measure, a weather mismatch counts as much as a 1 km difference.</p>
     <details id="knn-distances"><summary>Inspect a distance and the full ranking</summary><div class="actions"><label class="dist-select">Measure to <select id="inspect-knn" class="selection">${options}</select></label></div>
-    <p class="math">√[(${kmText(state.km)} − ${inspect.km})² + (${Number(state.rain)} − ${Number(inspect.rain)})²] = ${inspect.distance.toFixed(3)}</p>
+    <p class="hint">Compare the test trip (${kmText(state.km)} km, ${weatherName().toLowerCase()}) with order ${inspect.id} (${inspect.km} km, ${inspect.rain?"rain":"dry"}). Use 1 for rain and 0 for dry. Square the two gaps, add, then take the square root.</p><p class="math">√[(${kmText(state.km)} − ${inspect.km})² + (${Number(state.rain)} − ${Number(inspect.rain)})²] = ${inspect.distance.toFixed(3)}</p>
     <p class="fine">${tied?"There is a tie at the last voting position. ":""}Equal distances are ordered by delivery letter. Rain is 1 and dry is 0.</p><div class="scrollbox"><table class="data-matrix">
     <thead><tr><th scope="col">Rank</th><th scope="col">Order</th><th scope="col">Distance</th><th scope="col">Outcome</th><th scope="col">Votes?</th></tr></thead><tbody>${ranks}</tbody></table></div></details></section>
-    ${resultCard("Late vote share",p,body)}</div>`+quizPanel("knn")+classic("knn");
+    ${resultCard("Late vote share",p,body)}</div>`+guidedTrace()+quizPanel("knn")+classic("knn");
 }
 function classic(mode) {
   const tree=mode==="tree";
   const name=tree?"Original tree walkthrough and Gini card game":"Original neighbor map with tiles and deliveries";
   const path=tree?"../labs/data-science-week-11-decision-tree.html":"../labs/data-science-week-11-knn.html";
   return `<details class="card" id="original-${mode}" data-original="${mode}"><summary>${name}</summary>
-    <p class="fine">${tree?"Draw two cards to see what Gini impurity counts, then build and trace a tree.":"Move a tile in two dimensions and compare its nearest neighbors."} This original visualization has its own controls. <a href="${path}" target="_blank" rel="noopener">Open full screen ↗</a></p>
+    <p class="fine">${tree?"Draw two cards to see what Gini impurity counts, then build and trace a tree.":"Move a tile in two dimensions and compare its nearest neighbors."} This original visualization uses the lecture data and its own controls. <a href="${path}" target="_blank" rel="noopener">Open full screen ↗</a></p>
     <div data-frame data-path="${path}"></div></details>`;
 }
 
@@ -489,15 +644,19 @@ function splitEditor(info) {
     return `<div class="score"><h3>${where} · ${ids(parent)}</h3><p class="hint">${gini(parent)===0?`${pureText} Gini is 0, so a split cannot improve this node.`:"There is no question here with a nonempty group on both sides."}</p></div>`;
   }
   const options=available.map(q=>`<option value="${q.key}" ${q.key===item.key?"selected":""}>${q.name}</option>`).join("");
+  const distances=[...new Set(parent.map(o=>o.km))].sort((a,b)=>a-b);
+  const lower=distances.filter(n=>n<Number(item.key.slice(1))).at(-1);
+  const upper=distances.find(n=>n>Number(item.key.slice(1)));
+  const origin=item.key==="rain"?"Weather has two recorded values. Rain goes to Yes and dry goes to No.":`The cutoff is halfway between two observed distances at this node: (${lower} + ${upper}) ÷ 2 = ${kmText((lower+upper)/2)} km. A delivery at the cutoff goes to Yes.`;
   const groupLine=side=>{
     const rows=item[side], late=countLate(rows);
-    return `<div class="split-side"><h4>${wordAnswer(side)} · ${ids(rows)}</h4>${meter(late/rows.length)}<p>${late} late · ${rows.length-late} on time</p><p class="fine">Gini ${gini(rows).toFixed(3)}</p></div>`;
+    return `<div class="split-side"><h4>${wordAnswer(side)} · ${ids(rows)}</h4>${meter(late/rows.length)}<p>${late} late · ${rows.length-late} on time</p><p class="fine">Gini = 2 × (${late}/${rows.length}) × (${rows.length-late}/${rows.length}) ≈ ${gini(rows).toFixed(3)}</p></div>`;
   };
   const compare=available.map(q=>`<tr><th scope="row">${q.name}</th><td>${q.weighted.toFixed(3)}</td><td>${q.gain.toFixed(3)}</td></tr>`).join("");
   return `<div class="score"><h3>${where} · ${ids(parent)}</h3>
     <label class="question-select">Test a question <select class="selection" id="candidate">${options}</select></label>
-    <div class="groups" style="margin-top:0">${groupLine("yes")}${groupLine("no")}</div>
-    <p class="strip">Weighted Gini = (${item.yes.length}/${parent.length}) × ${gini(item.yes).toFixed(3)} + (${item.no.length}/${parent.length}) × ${gini(item.no).toFixed(3)} ≈ <b>${item.weighted.toFixed(3)}</b>.<br>Gini drops from ${gini(parent).toFixed(3)} by <b>${item.gain.toFixed(3)}</b>.</p>
+    <p class="hint">${origin}</p><div class="groups">${groupLine("yes")}${groupLine("no")}</div>
+    <p class="strip">Each branch is weighted by its share of the ${parent.length} orders at this node.<br>Weighted Gini = (${item.yes.length}/${parent.length}) × ${gini(item.yes).toFixed(3)} + (${item.no.length}/${parent.length}) × ${gini(item.no).toFixed(3)} ≈ <b>${item.weighted.toFixed(3)}</b>.<br>Gini drops from ${gini(parent).toFixed(3)} by <b>${item.gain.toFixed(3)}</b>.</p>
     <div class="actions"><button class="button primary small" type="button" data-act="apply-split" data-key="${item.key}" ${item.key===selected?"disabled":""}>${item.key===selected?"Split in use":"Use this split"}</button>
     ${node!=="root"&&selected?`<button type="button" class="button small" data-act="clear-child">Make this a leaf</button>`:""}</div>
     <details id="tree-options"><summary>Compare all questions at this node</summary><p class="fine">Gini is 2 × (fraction late) × (fraction on time). Choose the split with the lowest weighted Gini for the biggest reduction in impurity.</p>
@@ -512,7 +671,7 @@ function treePanel() {
     <p class="hint">Blue outlines trace the test delivery. Select a branch to try adding a second question.</p>
     ${splitEditor(info)}</section>
     ${resultCard("Late share in the reached leaf",info.p,`<p class="fine">Path for this delivery</p><p style="font-size:.88rem">${path}</p><p class="math">${leafSummary(info.leaf)} = ${percent(info.p)}</p><p class="fine">The leaf contains ${ids(info.leaf)}.</p>`)}</div>`+
-    quizPanel("tree")+classic("tree");
+    guidedTrace()+quizPanel("tree")+classic("tree");
 }
 function comparePanel() {
   const b=bayes(), t=treeInfo(), neighbors=ranking().slice(0,state.k), yes=countLate(neighbors);
@@ -521,7 +680,7 @@ function comparePanel() {
     [`${state.k}-nearest ${state.k===1?"neighbor":"neighbors"}`,yes/state.k,`${yes} of ${state.k} voters late · ${ids(neighbors)}.`],
     ["Decision tree",t.p,`${leafSummary(t.leaf)} in the leaf · ${ids(t.leaf)}.`]
   ];
-  const lines=all.map(([name,p,note])=>`<div class="compare-line" data-model="${name}"><div><h4>${name}</h4><small>${note}</small></div><div class="compare-track" aria-hidden="true"><span style="width:${p*100}%"></span><i style="left:${state.cutoff}%"></i></div><div class="number">${percent(p)}<small>${shouldWarn(p)?"Warn":"No warning"}</small></div></div>`).join("");
+  const lines=all.map(([name,p,note],idx)=>`<div class="compare-line" data-model="${name}"><div><h4>${name}</h4><small>${note}</small></div><div class="compare-track" aria-hidden="true"><span style="width:${p*100}%"></span><i style="left:${state.cutoff}%"></i></div><div class="number"><button type="button" class="number-link" data-act="model-trace" data-mode="${["bayes","knn","tree"][idx]}" aria-label="Trace ${name} estimate ${percent(p)}">${percent(p)}</button><small>${shouldWarn(p)?"Warn":"No warning"}</small></div></div>`).join("");
   const order=routeName(), outcome=order==="P"?"P arrived in 38 minutes and was late.":"Q arrived in 27 minutes and was on time.";
   const revealed=order&&state.reveal;
   const counts=all.filter(([,p])=>shouldWarn(p)).length;
@@ -551,6 +710,7 @@ const challenges = {
   ]
 };
 function quizPanel(mode) {
+  if(originalChanged())return '<section class="card"><h3>Using an edited training example</h3><p class="hint">All three estimates use your edited arrival. Restore the eight lecture records to try the lecture prediction questions.</p><button type="button" class="button small" data-act="restore-data">Restore lecture data</button></section>';
   const q=state.quiz[mode], item=challenges[mode][q.index], answered=q.choice!==null;
   const buttons=item.options.map((label,i)=>`<button type="button" data-act="answer" data-index="${i}" class="answer" aria-pressed="${setting(q.choice===i)}">${label}</button>`).join("");
   const correct=q.choice===item.answer;
@@ -616,6 +776,7 @@ function render() {
   });
   work.setAttribute("aria-labelledby",`tab-${state.mode}`);
   const panels={bayes:evidenceRows,knn:knnPanel,tree:treePanel,compare:comparePanel};
+  updateTrainingTable();
   const html=panels[state.mode]();
   const tpl=document.createElement("template");
   tpl.innerHTML=html;
@@ -659,6 +820,22 @@ function applyQuestion(item) {
 function handleAction(button) {
   const d=button.dataset, q=state.quiz[state.mode];
   switch(d.act) {
+    case "trace-step": trace.step=d.step;trace.exercise=null;break;
+    case "trace-class": trace.late=d.class==="late";trace.exercise=null;break;
+    case "explain":
+      trace.step=d.step;if(d.class)trace.late=d.class==="late";trace.exercise=null;break;
+    case "model-trace":
+      trace.step="posterior";trace.exercise=null;setMode(d.mode);
+      $("calculation").focus();return;
+    case "do-count":
+      trace.exercise=countKey(sourceCount());trace.selected=[];trace.graded=false;break;
+    case "mark-row":
+      trace.selected=trace.selected.includes(d.id)?trace.selected.filter(id=>id!==d.id):[...trace.selected,d.id];trace.graded=false;break;
+    case "check-count": trace.graded=true;break;
+    case "see-count": trace.exercise=null;break;
+    case "measure": state.inspectKnn=d.id; break;
+    case "try-arrival": trace.sample=d.id;changeSample(d.id,Number(d.time));break;
+    case "restore-data": changeSample("",0);break;
     case "clue-weather": state.useWeather=!state.useWeather; break;
     case "clue-length": state.useLength=!state.useLength; break;
     case "stage": state.useWeather=d.stage!=="prior"; state.useLength=d.stage==="both"; break;
@@ -678,6 +855,7 @@ function handleAction(button) {
     default: return;
   }
   render();
+  if(d.act==="explain")$("calculation").focus();
   if(d.act==="answer") announce.textContent=work.querySelector(".feedback").textContent;
   else if(d.act==="pick-order") announce.textContent=work.querySelector(".strip").textContent;
   else if(d.act==="reveal" && state.reveal) announce.textContent=$("actual").textContent;
@@ -702,7 +880,9 @@ window.addEventListener("popstate",()=>{if(state.mode!==readMode())setMode(readM
 work.addEventListener("toggle",e=>{if(e.target.matches("details[data-original]"))originalFrame(e.target);},true);
 work.addEventListener("click",e=>{const button=e.target.closest("[data-act]");if(button && !button.disabled)handleAction(button);});
 work.addEventListener("change",e=>{
-  if(e.target.id==="candidate") state.preview=e.target.value;
+  if(e.target.id==="change-delivery"){trace.sample=e.target.value;changeSample("",0);}
+  else if(e.target.id==="change-time")changeSample(trace.sample,Number(e.target.value));
+  else if(e.target.id==="candidate") state.preview=e.target.value;
   else if(e.target.id==="inspect-knn") state.inspectKnn=e.target.value;
   else return;
   render();
@@ -725,7 +905,9 @@ work.addEventListener("pointerdown",e=>{
 work.addEventListener("pointermove",e=>{if(e.pointerId===dragging)placePoint(e);});
 function stopDrag(e){if(e.pointerId===dragging)dragging=null;}
 for(const type of ["pointerup","pointercancel","lostpointercapture"])work.addEventListener(type,stopDrag);
+function updateTrainingTable(){
 $("training-rows").innerHTML=orders.map(o=>`<tr><th scope="row">${o.id}</th><td>${o.km} km</td><td>${o.rain?"Rain":"Dry"}</td><td>${o.minutes} min</td><td class="${o.late?"late-text":"on-text"}">${o.late?"▲ Late":"● On time"}</td></tr>`).join("");
+}
 setMode(readMode(),false);
 })();
 </script>
