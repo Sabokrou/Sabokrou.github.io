@@ -1,33 +1,58 @@
 <!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Delivery map · K-means and PCA | CS203</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#f2f6f8;color:#142e42;font:16px/1.5 system-ui,sans-serif}main{max-width:1030px;margin:auto;padding:24px}a{color:#135878}h1{font-size:clamp(30px,5vw,50px);line-height:1.08;margin:22px 0 8px;letter-spacing:-.045em}h2{margin:0 0 6px;font-size:24px}p{margin:8px 0 16px}nav,.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}nav{margin:23px 0 16px}nav a,button,select{font:inherit;border:1px solid #a9bdc8;border-radius:8px;background:white;color:#163b50;padding:8px 12px;cursor:pointer}nav a{text-decoration:none}nav a[aria-current],button.primary{background:#164c5c;color:white}button:disabled{opacity:.45;cursor:default}.grid{display:grid;grid-template-columns:1.2fr 1fr;gap:16px}article,aside{background:white;padding:20px;border:1px solid #cedbe1;border-radius:14px}svg{display:block;width:100%;height:auto}svg text{font-family:system-ui;fill:#263f51}label{display:inline-block;margin:8px 6px 8px 0}input[type=range]{width:100%;accent-color:#16746b}small{color:#436171}.calc{background:#eff7f6;border-left:3px solid #318077;padding:10px 14px;margin:14px 0;overflow-wrap:anywhere}.metric{font-size:24px;font-weight:700}.sub{border-top:1px solid #dde7eb;padding-top:12px;margin-top:16px}button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #c87918} @media(max-width:710px){main{padding:16px}.grid{grid-template-columns:1fr}article,aside{padding:15px}}
-</style><main><a href="/teaching/#data-science-week-11">‹ Data Science Fundamentals</a><h1>Explore the delivery map</h1><p>Twelve delivery stops, each measured in kilometers east and north of the depot. How can we group the stops or describe their positions with a single number?</p>
+#transport{background:#edf5f5;padding:12px;border-radius:10px;margin:12px 0}#caption{font-weight:650;margin:0 0 8px}#legend{display:block;margin-top:12px}#plot{background:#fcfdfd;border-radius:8px}article{align-self:start}</style><main><a href="/teaching/#data-science-week-11">‹ Data Science Fundamentals</a><h1>Where should the parcel lockers go?</h1><p>Twelve households need a parcel locker. On this simplified city map, each household uses its closest locker. Move the lockers to minimize the sum of squared straight-line distances.</p>
 <nav aria-label="Choose a method"><a href="#kmeans" id="kmLink">K-means clustering</a><a href="#pca" id="pcLink">Principal component analysis</a></nav>
-<div class="grid"><article><h2>Delivery stops</h2><small id="legend"></small><svg id="plot" viewBox="0 0 460 447" role="img" aria-label="Delivery stops on an equal-scale east and north coordinate map"></svg>
-<label for="stop">Inspect a stop</label><select id="stop"></select></article>
-<aside><section id="km"><h2>K-means</h2><p>Group deliveries by their nearest center. Before advancing, predict which center will move farthest.</p><label>Centers <select id="count"><option>2</option><option selected>3</option><option>4</option></select></label><button id="seed">Change starting centers</button><div class="sub" aria-live="polite"><strong id="stage"></strong><p id="desc"></p></div><div class="row"><button id="back">Back</button><button class="primary" id="next">Next step</button><button id="reset">Restart</button></div><div id="centers" class="calc"></div><div id="dist"></div></section>
-<section id="pc" hidden><h2>Principal component analysis</h2><p>Rotate the line through the mean. Find the direction that preserves the most variation when you replace each stop with its position along the line.</p><label for="angle">Projection angle <strong id="degrees"></strong></label><input id="angle" type="range" min="0" max="180" step="any" value="0"><div class="row"><button class="primary" id="best">Align with PC1</button><button id="horizontal">Horizontal line</button></div><div class="calc"><span class="metric" id="variance"></span><br>of total variance retained</div><strong>Stops on the projected axis</strong><svg id="strip" viewBox="0 0 360 65" role="img" aria-label="Projected scores along one dimension"></svg><div id="formula"></div></section></aside></div></main>
+<div class="grid"><article><h2>Neighborhood map</h2><div id="transport"><p id="caption"></p><div class="row"><button class="primary" id="play">Pause</button><button id="back">Back</button><button id="next">Next step</button><button id="reset">Replay</button></div></div><small id="legend"></small><svg id="plot" viewBox="0 0 460 447" role="img" aria-label="Households and proposed lockers on an equal-scale east and north coordinate map"></svg>
+<label for="stop">Inspect a household</label><select id="stop"></select></article>
+<aside><section id="km"><h2>K-means</h2><p>Each numbered square is a proposed locker. Watch homes choose their closest locker, then watch each locker travel to the mean location of its assigned homes.</p><label>Centers <select id="count"><option>2</option><option selected>3</option><option>4</option></select></label><button id="seed">Change starting centers</button><div class="sub" aria-live="polite"><strong id="stage"></strong><p id="desc"></p></div><div id="centers" class="calc"></div><div id="dist"></div></section>
+<section id="pc" hidden><h2>Principal component analysis</h2><p>Rotate the line through the mean. Find the direction that preserves the most variation when you replace each household with its position along the line.</p><label for="angle">Projection angle <strong id="degrees"></strong></label><input id="angle" type="range" min="0" max="180" step="any" value="0"><div class="row"><button class="primary" id="best">Align with PC1</button><button id="horizontal">Horizontal line</button></div><div class="calc"><span class="metric" id="variance"></span><br>of total variance retained</div><strong>Households on the projected axis</strong><svg id="strip" viewBox="0 0 360 65" role="img" aria-label="Projected scores along one dimension"></svg><div id="formula"></div></section></aside></div></main>
 <script>
 const $=id=>document.getElementById(id);
-const points=[[1,2],[2,1],[2,3],[3,2],[4,5],[5,4],[5,6],[6,5],[7,8],[8,7],[8,9],[9,8]];
+const points=[[1,2],[2,1],[2,3],[3,2],[2,7],[3,8],[3,6],[4,7],[7,7],[8,6],[8,8],[9,7]];
 const color=['#00766a','#ad4914','#6656a2','#176aa2'],names='ABCDEFGHIJKL';
 const mean=ps=>[0,1].map(j=>ps.reduce((s,p)=>s+p[j],0)/ps.length);
 const fmt=n=>(Math.abs(n)<.005?0:n).toFixed(2),pair=p=>'('+p.map(fmt).join(', ')+')';
 const distance=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1]);
-const seeds=[[0,2,4,7],[1,5,10,6],[3,7,11,1]];
+const seeds=[[0,1,3,7],[1,5,10,6],[3,7,11,1]];
 let seed=0,history=[],step=0;
+let playing=false,progress=1,timer=0,frame=0;
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function cancelTimers(){clearTimeout(timer);cancelAnimationFrame(frame)}
+function stopPlayback(){cancelTimers();playing=false}
+function schedule(){
+ if(!playing)return;
+ if(step===history.length-1){stopPlayback();render();return}
+ timer=setTimeout(()=>showStep(step+1),step===0?900:1500);
+}
+function animateMove(){
+ let last=performance.now();
+ function tick(now){
+  progress=Math.min(1,progress+(now-last)/1250);last=now;render();
+  if(progress<1)frame=requestAnimationFrame(tick);else schedule();
+ }
+ frame=requestAnimationFrame(tick);
+}
+function showStep(index,animate=true){
+ cancelTimers();step=index;
+ progress=animate&&!reduced&&history[step].phase==='Move centers'?0:1;
+ render();if(progress<1)animateMove();else schedule();
+}
+function replay(){
+ stopPlayback();playing=!reduced&&location.hash!=='#pca';showStep(0);
+}
 function initialize(){
  let c=seeds[seed].slice(0,+$('count').value).map(i=>points[i]);
  history=[{c,phase:'Initialize',round:0}];
  for(let round=1;round<=100;round++){
   const groups=points.map(p=>{const ds=c.map(q=>distance(p,q));return ds.indexOf(Math.min(...ds))});
-  history.push({c,groups,phase:'Assign stops',round});
+  history.push({c,groups,phase:'Assign households',round});
   const updated=c.map((q,j)=>{const members=points.filter((_,i)=>groups[i]===j);return members.length?mean(members):q});
   const done=updated.every((q,j)=>distance(q,c[j])<1e-10);
   history.push({c:updated,old:c,groups,phase:done?'Converged':'Move centers',round});
   c=updated;if(done)break;
  }
- step=0;render();
+ step=0;progress=1;render();
 }
 const avg=mean(points),centered=points.map(p=>p.map((v,j)=>v-avg[j]));
 const moment=(i,j)=>centered.reduce((s,p)=>s+p[i]*p[j],0)/(points.length-1);
@@ -39,7 +64,7 @@ function dot(p,r,fill,extra=''){return '<circle cx="'+X(p[0])+'" cy="'+Y(p[1])+'
 function label(x,y,t,size=13){return '<text x="'+x+'" y="'+y+'" font-size="'+size+'">'+t+'</text>'}
 function render(){
  const pca=location.hash==='#pca',i=+$('stop').value,p=points[i],state=history[step];
- $('km').hidden=pca;$('pc').hidden=!pca;
+ $('transport').hidden=pca; $('km').hidden=pca;$('pc').hidden=!pca;
  for(const [id,on] of [['kmLink',!pca],['pcLink',pca]]){if(on)$(id).setAttribute('aria-current','page');else $(id).removeAttribute('aria-current')}
  let grid='',marks='',overlay='';
  for(let t=0;t<=10;t+=2){grid+=line([0,t],[10,t],'#d7e3e7')+line([t,0],[t,10],'#d7e3e7')+label(X(t)-5,418,t)+label(27,Y(t)+4,t)}
@@ -52,29 +77,51 @@ function render(){
  overlay+=dot(avg,5,'white','stroke="#122f45" stroke-width="2"')+label(X(avg[0])+8,Y(avg[1])+20,'mean');
  const v=scores.reduce((s,z)=>s+z*z,0)/(scores.length-1);
  $('degrees').textContent=degrees.toFixed(1)+'°';$('variance').textContent=(100*v/(xx+yy)).toFixed(1)+'%';
- $('legend').textContent='Blue dots are stops. Dashed segments meet the projection line at right angles.';
+ $('legend').textContent='Blue dots are homes. Dashed segments meet the projection line at right angles.';
  $('strip').innerHTML='<path d="M15 32H345" stroke="#9bafb8"/>'+[-5,0,5].map(z=>label(178+z*27,58,z)).join('')+scores.map((z,j)=>'<circle cx="'+(180+z*27)+'" cy="32" r="'+(i===j?7:4)+'" fill="'+(i===j?'#c0571d':'#21678b')+'"/>').join('');
- $('formula').innerHTML='<b>Stop '+names[i]+' · signed score</b><br>Subtract the mean '+pair(avg)+' from '+pair(p)+'. Multiply each centered coordinate by the corresponding direction component, then add.<div class="calc">z = '+fmt(centered[i][0])+' × '+fmt(u[0])+' + '+fmt(centered[i][1])+' × '+fmt(u[1])+' = <b>'+fmt(scores[i])+' km</b></div>Projected sample variance = Σz² / 11 = '+fmt(v)+' km². Divide by total variance '+fmt(xx+yy)+' km² to get the percentage above.';
+ $('formula').innerHTML='<b>Household '+names[i]+' · signed score</b><br>Subtract the mean '+pair(avg)+' from '+pair(p)+'. Multiply each centered coordinate by the corresponding direction component, then add.<div class="calc">z = '+fmt(centered[i][0])+' × '+fmt(u[0])+' + '+fmt(centered[i][1])+' × '+fmt(u[1])+' = <b>'+fmt(scores[i])+' km</b></div>Projected sample variance = Σz² / 11 = '+fmt(v)+' km². Divide by total variance '+fmt(xx+yy)+' km² to get the percentage above.';
  }else{
  const {c,old,groups,phase,round}=state;
  $('stage').textContent=(round?'Round '+round+' · ':'')+phase;
- $('desc').textContent=phase==='Initialize'?'Start with the marked stops as centers. Which center is closest to your selected stop?':phase==='Assign stops'?'Each stop joins its nearest center. Ties go to the lowest center number.':phase==='Move centers'?'Keep the assignments fixed. Move each center to the average east and north coordinates of its members.':'Every center is already at its group mean. Another assignment and update would give the same result.';
+ $('desc').textContent=phase==='Initialize'?'Start with the numbered squares as proposed lockers. Which center is closest to your selected household?':phase==='Assign households'?'Each household joins its nearest center. Ties go to the lowest center number.':phase==='Move centers'?'Keep the assignments fixed. Move each locker to the average east and north coordinates of its members.':'Every center is already at its group mean. Another assignment and update would give the same result.';
+ $('caption').textContent=$('stage').textContent+' · '+(phase==='Initialize'?'Starting locker locations':phase==='Assign households'?'Homes choose their closest locker':phase==='Move centers'?'Lockers travel to their group means':'All lockers have reached their group means');
+ $('play').textContent=playing?'Pause':step===history.length-1?'Play again':'Play';
  $('back').disabled=!step;$('next').disabled=step===history.length-1;
- $('legend').textContent='Dots are stops. Numbered squares are centers. Hollow squares show previous center positions.';
- if(groups)points.forEach((q,j)=>marks+=line(q,c[groups[j]],color[groups[j]],'opacity=".32"'));
- c.forEach((q,j)=>{if(old&&distance(q,old[j])>0){marks+=line(old[j],q,color[j],'stroke-width="3" stroke-dasharray="5 3"')+'<rect x="'+(X(old[j][0])-7)+'" y="'+(Y(old[j][1])-7)+'" width="14" height="14" fill="none" stroke="'+color[j]+'"/>'}
- overlay+='<rect x="'+(X(q[0])-9)+'" y="'+(Y(q[1])-9)+'" width="18" height="18" rx="3" fill="'+color[j]+'"/><text text-anchor="middle" x="'+X(q[0])+'" y="'+(Y(q[1])+5)+'" style="fill:white;font-size:13px">'+(j+1)+'</text>'});
+ $('legend').textContent='Dots = households · numbered squares = lockers · colored paths = center trajectories · hollow circles = earlier positions';
+ const visible=c.map((q,j)=>old?q.map((v,k)=>old[j][k]+(v-old[j][k])*progress):q);
+ if(groups)points.forEach((q,j)=>marks+=line(q,visible[groups[j]],color[groups[j]],'opacity=".28" stroke-dasharray="3 3"'));
+ c.forEach((_,j)=>{
+  const trail=[history[0].c[j]];
+  for(let t=1;t<=step;t++){
+   const h=history[t];if(!h.old)continue;
+   const position=t===step?visible[j]:h.c[j];
+   if(distance(position,trail[trail.length-1])>.00001)trail.push(position);
+  }
+  for(let t=1;t<trail.length;t++){
+   overlay+=line(trail[t-1],trail[t],'white','stroke-width="6"')+line(trail[t-1],trail[t],color[j],'stroke-width="3.5"')+dot(trail[t-1],4,'white','stroke="'+color[j]+'" stroke-width="2"');
+  }
+ });
+ visible.forEach((q,j)=>{
+  overlay+='<rect x="'+(X(q[0])-10)+'" y="'+(Y(q[1])-10)+'" width="20" height="20" rx="4" fill="'+color[j]+'" stroke="white" stroke-width="2"/><text text-anchor="middle" x="'+X(q[0])+'" y="'+(Y(q[1])+5)+'" style="fill:white;font-size:13px;font-weight:700">'+(j+1)+'</text>';
+ });
  $('centers').innerHTML=c.map((q,j)=>{const members=points.map((_,k)=>k).filter(k=>groups&&groups[k]===j);return '<b>C'+(j+1)+'</b> '+(old?pair(old[j])+' → ':'')+pair(q)+(groups?' · '+members.map(k=>names[k]).join(', '):'')}).join('<br>');
- const d=c.map(q=>distance(p,q)),nearest=d.indexOf(Math.min(...d));
+ const d=visible.map(q=>distance(p,q)),nearest=d.indexOf(Math.min(...d));
  const j=groups?groups[i]:nearest,members=points.filter((_,k)=>groups&&groups[k]===j);
- $('dist').innerHTML='<b>Stop '+names[i]+' '+pair(p)+'</b><br>Distance to each current center, in km<br>'+d.map((v,k)=>'C'+(k+1)+' = '+fmt(v)).join(' · ')+'<br>d = √[(x − cₓ)² + (y − cᵧ)²]'+(old&&members.length?'<div class="sub"><b>Mean for C'+(j+1)+'</b><br>East = ('+members.map(q=>q[0]).join(' + ')+') / '+members.length+' = '+fmt(c[j][0])+'<br>North = ('+members.map(q=>q[1]).join(' + ')+') / '+members.length+' = '+fmt(c[j][1])+'</div>':'');
+ $('dist').innerHTML='<b>Household '+names[i]+' '+pair(p)+'</b><br>Distance to each current center, in km<br>'+d.map((v,k)=>'C'+(k+1)+' = '+fmt(v)).join(' · ')+'<br>d = √[(x − cₓ)² + (y − cᵧ)²]'+(old&&members.length?'<div class="sub"><b>Mean for C'+(j+1)+'</b><br>East = ('+members.map(q=>q[0]).join(' + ')+') / '+members.length+' = '+fmt(c[j][0])+'<br>North = ('+members.map(q=>q[1]).join(' + ')+') / '+members.length+' = '+fmt(c[j][1])+'</div>':'');
  }
  points.forEach((q,j)=>{const fill=pca?'#21678b':state.groups?color[state.groups[j]]:'#637f92';marks+=dot(q,5,fill)+label(X(q[0])+10,Y(q[1])-7,names[j]);if(i===j)overlay+=dot(q,13,'none','stroke="#293943" stroke-width="2"')});
  $('plot').innerHTML='<defs><clipPath id="frame"><rect x="54" y="29" width="370" height="370"/></clipPath></defs>'+grid+'<g clip-path="url(#frame)">'+marks+'</g>'+overlay;
 }
 $('stop').innerHTML=points.map((p,i)=>'<option value="'+i+'">'+names[i]+' '+pair(p)+'</option>').join('');
-$('stop').onchange=render;$('angle').oninput=render;onhashchange=render;
-$('count').onchange=initialize;$('seed').onclick=()=>{seed=(seed+1)%seeds.length;initialize()};$('reset').onclick=()=>{step=0;render()};
-$('next').onclick=()=>{step++;render()};$('back').onclick=()=>{step--;render()};
-$('best').onclick=()=>{$('angle').value=bestAngle;render()};$('horizontal').onclick=()=>{$('angle').value=0;render()};initialize();
+$('stop').onchange=render;$('angle').oninput=render;onhashchange=()=>{stopPlayback();if(location.hash==='#pca')render();else replay()};
+$('count').onchange=()=>{initialize();replay()};$('seed').onclick=()=>{seed=(seed+1)%seeds.length;initialize();replay()};$('reset').onclick=replay;
+$('play').onclick=()=>{
+ if(playing){stopPlayback();render();return}
+ playing=true;
+ if(step===history.length-1)showStep(0);
+ else if(progress<1){cancelTimers();animateMove();render()}
+ else showStep(step+1);
+};
+$('next').onclick=()=>{stopPlayback();showStep(step+1)};$('back').onclick=()=>{stopPlayback();showStep(step-1,false)};
+$('best').onclick=()=>{$('angle').value=bestAngle;render()};$('horizontal').onclick=()=>{$('angle').value=0;render()};initialize();replay();
 </script></html>
