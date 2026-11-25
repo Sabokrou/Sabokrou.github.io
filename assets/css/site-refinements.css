@@ -34,3 +34,9 @@ body>.site-header,#academic-publications-preview>.site-header{position:sticky;to
 @media(max-width:820px){.page-talks .talk-side{grid-column:2;text-align:left;padding-left:0;white-space:normal;margin:0}}
 @media(max-width:700px){.site-header>.container,.site-footer>.container{width:calc(100% - 1.5rem)}.site-header .nav{flex-direction:column;align-items:flex-start;gap:.45rem;padding:.75rem 0;min-height:0}.site-header .nav__links{gap:.45rem .8rem;font-size:.84rem}.site-header .nav__links>a,.more-menu>summary{padding:.2rem 0}.site-header .nav__links{position:relative}.more-menu{position:static}.more-menu__panel{left:0;right:auto;top:calc(100% + .5rem);width:min(230px,calc(100vw - 24px))}.site-footer .footer-row{flex-direction:column;gap:.75rem}[id]{scroll-margin-top:155px}.page-home .credential{padding:.8rem 0}.page-home .project-card--visual p{min-height:0}.update{grid-template-columns:1fr;gap:.2rem}.pub-entry{grid-template-columns:minmax(0,1fr);gap:0}.pub-visual-box{display:none}.page-people .section,.page-talks .section,.page-writing .section{padding:2rem 0}.page-consulting .section{padding:1.75rem 0}.page-consulting .hero-grid{gap:1.5rem}.page-consulting .hero-profile{grid-template-columns:100px minmax(0,1fr);gap:.3rem 1rem}.page-consulting .hero-profile img{width:100px;height:100px}.page-consulting .trust-item{border:0;padding:.5rem 0}.page-consulting .hero-profile p{margin:.2rem 0}.page-consulting .cta{padding:1.5rem}.pub-resource.btn{min-height:42px}.page-people .grid{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* On narrow phones the linked name above the menu already leads home. */
+@media (max-width: 420px) {
+  .site-header .nav__links > a[href="/"] { display: none; }
+  .site-header .nav__links { column-gap: .65rem; }
+}
